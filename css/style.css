@@ -1,0 +1,106 @@
+/* MAXIMO DE 575.98 PARA PEGAR ====== */
+@media (max-width: 575.98px) {
+
+    #logoNavBar{
+        max-width: 100px;
+    }
+    
+}
+/* MINIMO DE 576 PARA PEGAR ====== */
+@media (min-width: 576px) {
+    #logoNavBar{
+        max-width: 100px;
+    }
+
+}
+
+/* MINIMO DE 768 PARA PEGAR ====== */
+@media (min-width: 768px) {
+    #logoNavBar{
+        max-width: 100px;
+    }
+    #contatoNavBar{
+        margin-left: 200px;
+    }
+}
+
+/* MINIMO DE 992 PARA PEGAR ====== */
+@media (min-width: 992px) {
+    #logoNavBar{
+        max-width: 100px;
+    }
+    #contatoNavBar{
+        margin-left: 500px;
+    
+}
+
+/* MINIMO DE 1200 PARA PEGAR ====== */
+@media (min-width: 1200px) {
+    
+    #logoNavBar{
+        max-width: 100px;
+    }
+    #contatoNavBar{
+        margin-left: 650px;
+    }
+    
+
+}
+
+/* MINIMO DE 1900 PARA PEGAR ====== */
+@media (min-width: 1900px) {
+    
+    #logoNavBar{
+        max-width: 100px;
+    }
+    #contatoNavBar{
+        margin-left: 650px;
+        font-family:roboto;
+    }
+    #teste{
+        background-color:black;
+    }
+    #guitarraOptionDiv{
+        border: 1.3px solid rgb(43,76,104);
+        width: 50%;
+        height: 160px;
+        border-radius: 10px;
+        margin-left:auto;
+        margin-right: auto;
+        cursor: pointer;
+    }
+    #violaoOptionDiv{
+        border: 1.3px solid rgb(43,76,104);
+        width: 50%;
+        height: 160px;
+        border-radius: 10px;
+        margin-left:auto;
+        margin-right: auto;
+        cursor: pointer;
+    }
+    #baixoOptionDiv{
+        border: 1.3px solid rgb(43,76,104);
+        width: 50%;
+        height: 160px;
+        border-radius: 10px;
+        margin-left:auto;
+        margin-right: auto;
+        cursor: pointer;
+    }
+    
+
+}
+
+/* GLOBALS ==============================*/
+
+    #entrarNavBar{
+        font-family:roboto;
+    }
+    #cadastrarNavBar{
+        
+    }
+    #cadastrarNavBarButton{
+        background-color: #f78726;
+        color:white;
+        font-family:roboto;
+    }
