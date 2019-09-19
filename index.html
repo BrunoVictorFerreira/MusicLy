@@ -1,7 +1,8 @@
+
 <html lang="pt_br">
     <head>
         <!-- STYLES =========================================-->
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <!--METAS   =========================================-->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta charset="utf-8">
@@ -13,15 +14,19 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <!--FONTES ================================================-->
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
         <!--SCRIPTS JS-->
         <script>
+           function msg(){
+                location.href = '#';
+           }
            
         </script>
     </head>
-    <body>
-        <div class="container-fluid" style="">
+    <body style="background-image: url('www/galeria/background.png');background-repeat:no-repeat;background-attachment: fixed;background-size: 100%;">
+        <div class="container-fluid">
             <!--CLASSE CONTAINER =======================-->    
-            <div class="container" style="">
+            <div class="container">
         <!--NAV BAR ======================-->       
         <nav class="navbar navbar-expand-lg navbar-light">
                 <a class="navbar-brand" href="#"><img src="www/galeria/logo.png"class="img-fluid" id="logoNavBar"></a>
@@ -31,8 +36,8 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                   <div class="navbar-nav">
                     
-                    <a class="nav-item nav-link" href="#" id="contatoNavBar"><button type="button" class="btn">Contato</button></a>
-                    <a class="nav-item nav-link" href="#" id="entrarNavBar"><button type="button" class="btn">Entrar</button></a>
+                    <a class="nav-item nav-link" href="#" id="contatoNavBar"><button type="button" class="btn" style="color:#1778aa">Contato</button></a>
+                    <a class="nav-item nav-link" href="#" id="entrarNavBar"><button type="button" class="btn" style="color:#f27d16">Entrar</button></a>
                     <a class="nav-item nav-link" href="#" id="cadastrarNavBar"><button type="button" class="btn btn-warning" id="cadastrarNavBarButton">Cadastrar</button></a>
                     
                   </div>
@@ -41,37 +46,40 @@
         <!-- FECHAMENTO NAVBAR ===============-->
         </div> <!--FECHAMENTO DA DIV CONTAINER PARA MENU -->
 
-        <div class="row">
-            <div class="col-12" style="background-color:rgba(0,0,0,.2)">
-                <div class="row justify-content-md-center">
+
+
+                <div class="row justify-content-md-center" style="padding:30px">
                     
                     <div class="col-3">
-                        <div id="guitarraOptionDiv"><p style="font-family:roboto">Curso de <h3>Guitarra</h3></p></div>
+                        <div id="guitarraOptionDiv"><img src="www/galeria/guitar.png" style="margin-top: 7px;max-width: 80px;margin-left: auto;margin-right:auto;display:block"><p style="display:block;font-family: 'Montserrat', sans-serif;text-align:center;margin-top: 7px;letter-spacing: 1px;color:#1778aa">Curso de </p><p style="margin-top: -20px;display:block;font-size: 25px;font-family: 'Montserrat', sans-serif;font-weight:bold;text-align:center;letter-spacing: 4px;color:
+                            #f27d16">Guitarra</p></div>
                     </div>
                    
                     <div class="col-3">
-                        <div id="violaoOptionDiv"></div>
+                        <div id="violaoOptionDiv"><img src="www/galeria/violao.png" style="margin-top: 7px;max-width: 80px;margin-left: auto;margin-right:auto;display:block"><p style="display:block;font-family: 'Montserrat', sans-serif;text-align:center;margin-top: 7px;letter-spacing: 1px;color:#1778aa">Curso de </p><p style="margin-top: -20px;display:block;font-size: 25px;font-family: 'Montserrat', sans-serif;font-weight:bold;text-align:center;letter-spacing: 4px;color:
+                            #f27d16">Violão</p></div>
                     </div>
                     <div class="col-3">
-                        <div id="baixoOptionDiv"></div>
+                        <div id="baixoOptionDiv"><img src="www/galeria/baixo.png" style="margin-top: 7px;max-width: 80px;margin-left: auto;margin-right:auto;display:block"><p style="display:block;font-family: 'Montserrat', sans-serif;text-align:center;margin-top: 7px;letter-spacing: 1px;color:#1778aa">Curso de </p><p style="margin-top: -20px;display:block;font-size: 25px;font-family: 'Montserrat', sans-serif;font-weight:bold;text-align:center;letter-spacing: 4px;color:
+                            #f27d16">Baixo</p></div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <img src="www/galeria/separador.png" class="img-fluid">
-
-
-        <div class="container" style=""><!--ABERTURA DA DIV CONTAINER -->
-            
-                
-            asd
-            
-                
-                    
             </div>
 
+        
+        
+
+         
+        <div class="container" style="height: 1000px"><!--ABERTURA DA DIV CONTAINER -->
+            
+                
+            <img src="www/galeria/separador.png" class="img-fluid">
+            
+                
+              
+            </div>
+            <img src="www/galeria/msg.png" id="msg" onClick="msg()">
+            <div class="row"><div class="col-12" id="footer"><footer></footer></div></div> 
         </div><!--FECHAMENTO DIV CONTAINER FLUID-->
-
+        
     </body>
 </html>
