@@ -1,4 +1,7 @@
+<?php
+  session_start();
 
+?>
 <html lang="pt_br">
     <head>
         <!-- STYLES =========================================-->
@@ -52,41 +55,30 @@
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-5">
-              <fieldset style="border: 1px solid rgba(13,82,189,.2);padding: 10px;border-radius: 10px;border-top: 0px"><legend><fieldset style="border: 1px;background-color: #1778aa;width: 30%;border-radius: 5px;margin-bottom: 8%;margin-left:auto;margin-right:auto"><p class="h5 text-center" style="color: white;font-family: roboto;">Cadastro</p></fieldset></legend>
-              <form action="php/cadastro.php" method="POST">
-                <div class="input-group input-group-sm mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="inputGroup-sizing-sm" style="width:90px;background-color: #1778aa;color:white;border: 0;font-family: roboto;font-weight: bold">Nome</span>
+              <fieldset style="border: 1px solid rgba(13,82,189,.2);padding: 10px;border-radius: 10px;border-top: 0px"><legend><fieldset style="border: 1px;background-color: #1778aa;width: 30%;border-radius: 5px;margin-bottom: 8%;margin-left:auto;margin-right:auto"><p class="h5 text-center" style="color: white;font-family: roboto;">Entrar</p></fieldset></legend>
+              <?php
+                if(!isset($_SESSION['usuario'])){
+                  echo "<form action='php/logar_code.php' method='POST'>
+                
+                  <div class='input-group input-group-sm mb-3'>
+                    <div class='input-group-prepend'>
+                      <span class='input-group-text' id='inputGroup-sizing-sm' style='width:90px;background-color: #1778aa;color:white;border: 0;font-family: roboto;font-weight: bold'>Usuário</span>
                     </div>
-                    <input type="text" class="form-control" name="nome" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    <input type='text' class='form-control' name='usuario' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm'>
                   </div>
-                  <div class="input-group input-group-sm mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="inputGroup-sizing-sm" style="width:90px;background-color: #1778aa;color:white;border: 0;font-family: roboto;font-weight: bold">Sobrenome</span>
+                  <div class='input-group input-group-sm mb-3'>
+                    <div class='input-group-prepend'>
+                      <span class='input-group-text' id='inputGroup-sizing-sm' style='width:90px;background-color: #1778aa;color:white;border: 0;font-family: roboto;font-weight: bold'>Senha</span>
                     </div>
-                    <input type="text" class="form-control" name="sobrenome" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    <input type='text' class='form-control' name='senha' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm'>
                   </div>
-                  <div class="input-group input-group-sm mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="inputGroup-sizing-sm" style="width:90px;background-color: #1778aa;color:white;border: 0;font-family: roboto;font-weight: bold">Email</span>
-                    </div>
-                    <input type="text" class="form-control" name="email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                  </div>
-                  <div class="input-group input-group-sm mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="inputGroup-sizing-sm" style="width:90px;background-color: #1778aa;color:white;border: 0;font-family: roboto;font-weight: bold">Usuário</span>
-                    </div>
-                    <input type="text" class="form-control" name="usuario" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                  </div>
-                  <div class="input-group input-group-sm mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="inputGroup-sizing-sm" style="width:90px;background-color: #1778aa;color:white;border: 0;font-family: roboto;font-weight: bold">Senha</span>
-                    </div>
-                    <input type="text" class="form-control" name="senha" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                  </div>
-                  <input class="btn btn-primary" type="submit" value="Cadastrar" style="background-color:#f27d16;border: 0px;margin-left:auto;margin-right:auto;display:block;font-family: roboto;">
+                  <input class='btn btn-primary' type='submit' value='Entrar' style='background-color:#f27d16;border: 0px;margin-left:auto;margin-right:auto;display:block;font-family: roboto;'>
             </div>
-          </form>
+          </form>";
+                }else{
+                  echo "<h1 style='text-align: center;font-family: roboto'>Você já está Logado</h1>";
+                }
+              ?>
           </fieldset>
           </div>    
 

@@ -1,4 +1,26 @@
+<?php
+    include_once("php/conexao.php");
+    session_start();
+    if(isset($_SESSION['usuario'])){
+    $usuario = $_SESSION['usuario'];
+    $id = $_SESSION['id'];
+}
 
+    $sql = "SELECT * FROM cadastro where usuario = '{$usuario}' and id = '{$id}'";
+    $result = mysqli_query($conn, $sql);
+
+    if(mysqli_num_rows($result) > 0){
+
+        while($row = mysqli_fetch_assoc($result)){
+            $nome = $row['nome'];
+            $sobrenome = $row['sobrenome'];
+            $email = $row['email'];
+            $usuario = $row['usuario'];
+        }
+
+    }
+
+?>
 <html lang="pt_br">
     <head>
         <!-- STYLES =========================================-->
@@ -34,42 +56,42 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                  <div class="navbar-nav">
-                    
-                    <a class="nav-item nav-link" href="#" id="contatoNavBar"><button type="button" class="btn" style="color:#1778aa">Contato</button></a>
-                    <a class="nav-item nav-link" href="#" id="entrarNavBar"><button type="button" class="btn" style="color:#f27d16">Entrar</button></a>
-                    <a class="nav-item nav-link" href="#" id="cadastrarNavBar"><button type="button" class="btn btn-warning" id="cadastrarNavBarButton">Cadastrar</button></a>
+                <?php
+                        
+                    echo "<div class='collapse navbar-collapse' id='navbarNavAltMarkup'><div class='navbar-nav'>  
+                    <a class='nav-item nav-link' href='#' id='contatoNavBar' style='color:#1778aa;margin-left: 320px'>Contato</a>
+                    <a class='nav-item nav-link' href='index.php' id='entrarNavBar' style='color:#1778aa;'>Home</a>
+                    <a class='nav-item nav-link' href='cadastro.php' id='cadastrarNavBar' style='color:#1778aa;'>Cursos</a>
+                    <a class='nav-item nav-link' href='painel.php' style='background-color:#f27d16;color:white;border: 1px solid #f27d16; border-radius: 10px;margin-left: 300px;'>$usuario</a>
+                    <a class='nav-item nav-link' href='logout.php' style='color:#1778aa'>Logout</a>";   
+                    ?>
                     
                   </div>
                 </div>
         </nav>
         <!-- FECHAMENTO NAVBAR ===============-->
         </div> <!--FECHAMENTO DA DIV CONTAINER PARA MENU -->
+       
+
+
         <div class="container">
-            <p id="logoTexto">Music<b id="logoTexto1">lly</b></p>
-            <p id="descSite">Curso de <b id="descSite2">Música</b></p>
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <fieldset style="border: 1px solid rgba(13,82,189,.2);padding: 10px;border-radius: 10px;border-top: 0px"><legend><fieldset style="border: 1px;background-color: #1778aa;width: 30%;border-radius: 5px;margin-bottom: 8%;margin-left:auto;margin-right:auto"><p class="h5 text-center" style="color: white;font-family: roboto;">PAINEL</p></fieldset></legend>
+              <h3>Nome: <?php echo $nome; ?></h3>
+              <h3>Sobrenome: <?php echo $sobrenome; ?></h3>
+              <h3>Email: <?php echo $email; ?></h3>
+              <h3>Usuario: <?php echo $usuario; ?></h3>
+              <div class="row">
+              <div class="col-4"><a href="#">Alterar Senha</a></div>
+              <div class="col-4"><a href="#">Alterar Usuário</a></div>
+              <div class="col-4"><a href="#">Alterar Email</a></div>
+              </div>
+          </fieldset>
+          </div>    
+
 
         </div>
-
-
-
-                <div class="row justify-content-md-center" style="padding:30px;background-color: rgba(23,120,170,.1)">
-                    
-                    <div class="col-3">
-                        <div id="guitarraOptionDiv"><img src="www/galeria/guitar.png" style="margin-top: 7px;max-width: 80px;margin-left: auto;margin-right:auto;display:block"><p style="display:block;font-family: 'Montserrat', sans-serif;text-align:center;margin-top: 7px;letter-spacing: 1px;color:#1778aa">Curso de </p><p style="margin-top: -20px;display:block;font-size: 25px;font-family: 'Montserrat', sans-serif;font-weight:bold;text-align:center;letter-spacing: 4px;color:
-                            #f27d16">Guitarra</p></div>
-                    </div>
-                   
-                    <div class="col-3">
-                        <div id="violaoOptionDiv"><img src="www/galeria/violao.png" style="margin-top: 7px;max-width: 80px;margin-left: auto;margin-right:auto;display:block"><p style="display:block;font-family: 'Montserrat', sans-serif;text-align:center;margin-top: 7px;letter-spacing: 1px;color:#1778aa">Curso de </p><p style="margin-top: -20px;display:block;font-size: 25px;font-family: 'Montserrat', sans-serif;font-weight:bold;text-align:center;letter-spacing: 4px;color:
-                            #f27d16">Violão</p></div>
-                    </div>
-                    <div class="col-3">
-                        <div id="baixoOptionDiv"><img src="www/galeria/baixo.png" style="margin-top: 7px;max-width: 80px;margin-left: auto;margin-right:auto;display:block"><p style="display:block;font-family: 'Montserrat', sans-serif;text-align:center;margin-top: 7px;letter-spacing: 1px;color:#1778aa">Curso de </p><p style="margin-top: -20px;display:block;font-size: 25px;font-family: 'Montserrat', sans-serif;font-weight:bold;text-align:center;letter-spacing: 4px;color:
-                            #f27d16">Baixo</p></div>
-                    </div>
-            </div>
 
         
         
@@ -81,7 +103,7 @@
             <img src="www/galeria/separador.png" class="img-fluid">
             
                 
-              
+              </div>
             </div>
             <img src="www/galeria/msg.png" id="msg" onClick="msg()">
             <div class="row"><div class="col-12" id="footer"><footer></footer></div></div> 
