@@ -99,7 +99,13 @@
               
             </div>
             <img src="www/galeria/msg.png" id="msg" onClick="msg()">
-            <div class="row"><div class="col-12" id="footer"><footer></footer></div></div> 
+            <div class="row"><div class="col-12" id="footer"><footer>
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4" style="text-align:center"><a href="metronomo/metronomo.php" style="color:white;text-decoration:none">Metronomo</a></div>
+                    <div class="col-4"></div>
+                </div>
+            </footer></div></div> 
         </div><!--FECHAMENTO DIV CONTAINER FLUID-->
         
     </body>
