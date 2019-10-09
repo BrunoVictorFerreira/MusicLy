@@ -42,8 +42,12 @@
         <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+        
+
         <!--SCRIPTS JS-->
         <script>
+           
+
            
            function msg(){
                 location.href = '#';
@@ -124,14 +128,16 @@
               $('#verMais5').hide();
             });
 
+           
             
-
             
             
             
            });
           
         </script>
+        
+        
         <style>
         .tracking-in-expand{-webkit-animation:tracking-in-expand .7s cubic-bezier(.215,.61,.355,1.000) both;animation:tracking-in-expand .7s cubic-bezier(.215,.61,.355,1.000) both}
         @-webkit-keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}100%{opacity:1}}@keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}100%{opacity:1}}
@@ -143,6 +149,10 @@
           background-color: rgba(23,120,170,.2);
           
         }
+        .circle{
+          border-radius: 50%;
+        }
+        
         </style>
         
     </head>
@@ -157,13 +167,19 @@
                   <span class="navbar-toggler-icon"></span>
                 </button>
                 <?php
-                        
+                    $sqlImg = "SELECT * from cadastro where id=$id";
+                    $resultImg = mysqli_query($conn, $sqlImg);
+                    $row = mysqli_fetch_assoc($resultImg);
+                    $img = $row['imagem'];        
+                    
                     echo "<div class='collapse navbar-collapse' id='navbarNavAltMarkup'><div class='navbar-nav'>  
                     <a class='nav-item nav-link' href='#' id='contatoNavBar' style='color:#1778aa;margin-left: 320px'>Contato</a>
                     <a class='nav-item nav-link' href='index.php' id='entrarNavBar' style='color:#1778aa;'>Home</a>
                     <a class='nav-item nav-link' href='cadastro.php' id='cadastrarNavBar' style='color:#1778aa;'>Cursos</a>
 
-                    <div style='background-color:#fafdff;z-index:2'><a class='nav-item nav-link' id='menuUsuario' href='#' style='margin-left: 300px;display:inline-block'>$usuario<img src='/musiclly/www/galeria/user.png' style='margin-left: 3%;max-width: 25%'></a></div>";
+                    
+
+                    <div style='background-color:#fafdff;z-index:2'><a class='nav-item nav-link' id='menuUsuario' href='#' style='margin-left: 300px;display:inline-block'>$usuario<div class='circle'><img src='".$img."' style='margin-left: 3%;max-width: 30%'></a></div></div>";
                     
                     
                     ?>
@@ -204,7 +220,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Comprar</button>
+                <a href="cadastroModulo1.php"><button type="button" class="btn btn-primary">Cadastrar</button></a>
               </div>
             </div>
           </div>
@@ -224,7 +240,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Comprar</button>
+                <a href="cadastroModulo2.php"><button type="button" class="btn btn-primary">Cadastrar</button></a>
               </div>
             </div>
           </div>
@@ -244,7 +260,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Comprar</button>
+                <a href="cadastroModulo3.php"><button type="button" class="btn btn-primary">Cadastrar</button></a>
               </div>
             </div>
           </div>
@@ -264,7 +280,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Comprar</button>
+                <a href="cadastroModulo4.php"><button type="button" class="btn btn-primary">Cadastrar</button></a>
               </div>
             </div>
           </div>
@@ -284,7 +300,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Comprar</button>
+                <a href="cadastroModulo5.php"><button type="button" class="btn btn-primary">Cadastrar</button></a>
               </div>
             </div>
           </div>
@@ -320,18 +336,14 @@
               <div class="col-6" style="text-align:center">
               
               <!--ABERTURA  DA PRIMEIRA ROW -->
-                <div class="row" style="height: 36%"><div class="col-12">
-                <div class="row">
-                      <div class="col-12">
-                        <h5 style="font-family: Staatliches;">Dados</h5>
-                      </div>
-                    </div>
+                <div class="row" style="height: 36%"><div class="col-12" style="margin-top: 5%">
+                
                   <div id="dadosExpandidos" style="width: 60%;margin-left:auto;margin-right:auto">
                     <fieldset style="background-color:#fafdff;border: 1px solid rgba(13,82,189,.2);padding: 10px;border-radius: 10px;border-top: 0px;font-family: roboto">
                     
                     <div class="row">
                       <div class="col-6">
-                        <h5 style="font-family: Staatliches;">Nome</h5>
+                        <h5 style="font-family: Staatliches;">Nome:</h5>
                       </div>
                      
                       <div class="col-6">
@@ -341,7 +353,7 @@
 
                     <div class="row">
                       <div class="col-6">
-                        <h5 style="font-family: Staatliches;">Sobrenome</h5>
+                        <h5 style="font-family: Staatliches;">Sobrenome:</h5>
                       </div>
                      
                      <div class="col-6">
@@ -351,7 +363,7 @@
 
                     <div class="row">
                       <div class="col-6">
-                        <h5 style="font-family: Staatliches;">Email</h5>
+                        <h5 style="font-family: Staatliches;">Email:</h5>
                       </div>
                       
                      <div class="col-6">
@@ -361,7 +373,7 @@
 
                     <div class="row">
                       <div class="col-6">
-                        <h5 style="font-family: Staatliches;">Usuário</h5>
+                        <h5 style="font-family: Staatliches;">Usuário:</h5>
                       </div>
                       
                      <div class="col-6">
@@ -384,7 +396,16 @@
                     <h3 style="font-family: Staatliches;">Meus Cursos</h3>
                     <div class="row" style="background-color:pink">
                       <div class="col-12">
-                        
+                        <?php
+                          
+                          
+                            $sql2 = "SELECT a.nome from tbl_curso as a join tbl_cad_curso as b on a.id_Curso=b.id_Curso where id_Cad=$id order by a.nome asc";
+                            $result2 = mysqli_query($conn, $sql2);
+                            while($row2 = mysqli_fetch_assoc($result2)){
+                              echo "<span style='display:block'>".$row2['nome']."</span>";
+                            }
+                           
+                        ?>
                       </div>
                     </div>
                 </div>
@@ -394,10 +415,21 @@
               <div class="row" style="height: 32%;border-top: 1px solid black"><!--ABERTURA DA TERCEIRA ROW-->
                 <div class="col-12">
                   <h3 style="font-family: Staatliches;">Curiosidades</h3>
-                  <div class="row" style="background-color:pink">
+                  <div class="row" style="">
+                  <fieldset style="width: 100%;border-radius:10px;padding:10px;border: 1px solid #f78726 ">
                     <div class="col-12">
+                      <?php
+                        $random  = mt_rand(1,8);
+                        $sqlCur = "SELECT * from curiosidades where id_Curiosidades=$random";
+                        $resultCur = mysqli_query($conn, $sqlCur);
+                        $row= mysqli_fetch_assoc($resultCur);
+                        echo "<p style='font-family:Roboto;color:rgb(23,120,170);font-size: 17px'>".$row['descricao']."</p>";
+
+
+                      ?>
                       
                     </div>
+                    </fieldset>
                   </div>
                 </div>
               </div><!--FECHAMENTO DA TERCEIRA ROW -->
@@ -408,6 +440,12 @@
           
 
         </div>
+        <form method="POST" enctype="multipart/form-data" action="recebeUpload.php"> 
+   <label for="conteudo">Enviar imagem:</label>
+   <input type="file" name="arquivo">    
+     <button type="submit">Enviar imagem</button>
+</form>
+        
         
         
 
