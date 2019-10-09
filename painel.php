@@ -35,9 +35,12 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="path/to/jquery.sliphover.min.js"></script>
         <!--FONTES ================================================-->
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"/>
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
         <!--SCRIPTS JS-->
         <script>
@@ -56,22 +59,85 @@
               $( "#menuUsuarioExpandido" ).slideToggle( "slow" );
             });
 
+            $('#verMais1').hide();
+            $('#verMais2').hide();
+            $('#verMais3').hide();
+            $('#verMais4').hide();
+            $('#verMais5').hide();
+            
+            // -----------------------------
+            $('#cursoCard1, #vermais1').mouseenter(function(){  
+              $('#cursoCard1').attr({src : "/musiclly/www/galeria/modulo_1_blur.jpg"});
+              
+              $('#verMais1').show();
+              
+              $('#verMais1').css({'z-index': '0'})
+              
 
-            $('#dadosExpandidos').hide();
-            $('#expandirDados').click(function(){
-
-              $('#dadosExpandidos').slideToggle("slow");
-
+            }).mouseout(function () { 
+              $(this).attr({src : "/musiclly/www/galeria/modulo_1.jpg"});
+              $('#verMais1').hide();
             });
+
+            // -----------------------------
+            $('#cursoCard2, #vermais2').mouseenter(function(){  
+              $('#cursoCard2').attr({src : "/musiclly/www/galeria/modulo_2_blur.jpg"});
+              
+              $('#verMais2').show();
+              
+
+            }).mouseout(function () { 
+              $(this).attr({src : "/musiclly/www/galeria/modulo_2.jpg"});
+              $('#verMais2').hide();
+            });
+            // -----------------------------
+            $('#cursoCard3, #vermais3').mouseenter(function(){  
+              $('#cursoCard3').attr({src : "/musiclly/www/galeria/modulo_3_blur.jpg"});
+              
+              $('#verMais3').show();
+              
+
+            }).mouseout(function () { 
+              $(this).attr({src : "/musiclly/www/galeria/modulo_3.jpg"});
+              $('#verMais3').hide();
+            });
+            // -----------------------------
+            $('#cursoCard4, #vermais4').mouseenter(function(){  
+              $('#cursoCard4').attr({src : "/musiclly/www/galeria/modulo_4_blur.jpg"});
+              
+              $('#verMais4').show();
+              
+
+            }).mouseout(function () { 
+              $(this).attr({src : "/musiclly/www/galeria/modulo_4.jpg"});
+              $('#verMais4').hide();
+            });
+            // -----------------------------
+            $('#cursoCard5, #vermais5').mouseenter(function(){  
+              $('#cursoCard5').attr({src : "/musiclly/www/galeria/modulo_5_blur.jpg"});
+              
+              $('#verMais5').show();
+              
+
+            }).mouseout(function () { 
+              $(this).attr({src : "/musiclly/www/galeria/modulo_5.jpg"});
+              $('#verMais5').hide();
+            });
+
+            
+
+            
             
             
            });
           
         </script>
         <style>
+        .tracking-in-expand{-webkit-animation:tracking-in-expand .7s cubic-bezier(.215,.61,.355,1.000) both;animation:tracking-in-expand .7s cubic-bezier(.215,.61,.355,1.000) both}
+        @-webkit-keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}100%{opacity:1}}@keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}100%{opacity:1}}
           .imgModulos{
-            max-width: 200px;
-            max-height: 100px;
+            max-width: 300px;
+            max-height: 150px;
           }
           .backMenuExpandido:hover{
           background-color: rgba(23,120,170,.2);
@@ -120,45 +186,222 @@
         </div>
 
         <div class="container">
+        <!-- Button trigger modal -->
+      
+        
+        <!-- Modais -->
+        <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                1
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Comprar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="exampleModalScrollable2" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                2
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Comprar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="exampleModalScrollable3" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                3
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Comprar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="exampleModalScrollable4" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                4
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Comprar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="exampleModalScrollable5" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                5
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Comprar</button>
+              </div>
+            </div>
+          </div>
+        </div>
         
 
 
-          <div class="row">
-            <div class="col-6">
+          <div class="row" style="">
+            <div class="col-6" style="padding-bottom:30px">
             <?php
               $sqlCurso = "SELECT * from tbl_curso";
               $resultCurso = mysqli_query($conn, $sqlCurso);
-              echo "<table>";
-              echo "<tr>";
-              echo "<th style='padding:20px;text-align:center'>NOME</th>";
-              echo "<th style='padding:20px;text-align:center'>VALOR</th>";
-              echo "</tr>";
+              ?>
+              <table>
+                <tr>
+                  <th colspan="2" style='padding:20px;font-size: 30px;text-align:center;font-family: Staatliches;color: #1778aa;letter-spacing: 2px'>Cursos</th>
+                </tr>
+                <tr>
+                  <td align='center' style=''><fieldset style='padding: 15px;margin-top: 5px;border-radius: 10px'><button type="button" id="button1" data-toggle="modal" style="background-color:rgba(0,0,0,.0);border:0;outline:0" data-target="#exampleModalScrollable"><p class="tracking-in-expand" id="verMais1" style="position:absolute;color:white;margin-left: 3%;margin-top: 6%;font-size: 20px;font-family:roboto">Mais informações</p><img id="cursoCard1" src='/musiclly/www/galeria/modulo_1.jpg'></button></fieldset></td>
+                  <td align='center' style=''><fieldset style='padding: 15px;margin-top: 5px;border-radius: 10px'><button type="button" id="button1" data-toggle="modal" style="background-color:rgba(0,0,0,.0);border:0;outline:0" data-target="#exampleModalScrollable2"><p class="tracking-in-expand" id="verMais2" style="position:absolute;color:white;margin-left: 3%;margin-top: 6%;font-size: 20px;font-family:roboto">Mais informações</p><img id="cursoCard2" src='/musiclly/www/galeria/modulo_2.jpg'></fieldset></td>
+                </tr>
+                <tr>
+                  <td align='center' style=''><fieldset style='padding: 15px;margin-top: 5px;border-radius: 10px'><button type="button" id="button1" data-toggle="modal" style="background-color:rgba(0,0,0,.0);border:0;outline:0" data-target="#exampleModalScrollable3"><p class="tracking-in-expand" id="verMais3" style="position:absolute;color:white;margin-left: 3%;margin-top: 6%;font-size: 20px;font-family:roboto">Mais informações</p><img id="cursoCard3" src='/musiclly/www/galeria/modulo_3.jpg'></fieldset></td>
+                  <td align='center' style=''><fieldset style='padding: 15px;margin-top: 5px;border-radius: 10px'><button type="button" id="button1" data-toggle="modal" style="background-color:rgba(0,0,0,.0);border:0;outline:0" data-target="#exampleModalScrollable4"><p class="tracking-in-expand" id="verMais4" style="position:absolute;color:white;margin-left: 3%;margin-top: 6%;font-size: 20px;font-family:roboto">Mais informações</p><img id="cursoCard4" src='/musiclly/www/galeria/modulo_4.jpg'></fieldset></td>
+                </tr>
+                <tr>
+                  <td align='center' colspan="2" style=''><fieldset style='padding: 15px;margin-top: 5px;width:50%;border-radius: 10px'><button type="button" id="button1" data-toggle="modal" style="background-color:rgba(0,0,0,.0);border:0;outline:0" data-target="#exampleModalScrollable5"><p class="tracking-in-expand" id="verMais5" style="position:absolute;color:white;margin-left: 3%;margin-top: 6%;font-size: 20px;font-family:roboto">Mais informações</p><img id="cursoCard5" src='/musiclly/www/galeria/modulo_5.jpg'></fieldset></td>
+                </tr>
               
-
-              $cont = 0;
-              while($row = mysqli_fetch_assoc($resultCurso)){
-                $cont++;
-                echo "<tr>";
-                echo "<td align='center' style=''><img src='/musiclly/www/galeria/modulo_".$cont.".jpg' class='imgModulos'></td>";
-                echo "<td align='center' style=''>".$row['valor']."R$"."</td>";
-                echo "</tr>";
-              }
-              echo "</table>";
-            ?>
+              </table>
 
             </div>
-              <div class="col-6" style="text-align:center"><a href="#" id="expandirDados">Ver Mais Informações</a>
-
-                  <div id="dadosExpandidos" style="position:absolute;margin-left: 17%">
+              <div class="col-6" style="text-align:center">
+              
+              <!--ABERTURA  DA PRIMEIRA ROW -->
+                <div class="row" style="height: 36%"><div class="col-12">
+                <div class="row">
+                      <div class="col-12">
+                        <h5 style="font-family: Staatliches;">Dados</h5>
+                      </div>
+                    </div>
+                  <div id="dadosExpandidos" style="width: 60%;margin-left:auto;margin-right:auto">
                     <fieldset style="background-color:#fafdff;border: 1px solid rgba(13,82,189,.2);padding: 10px;border-radius: 10px;border-top: 0px;font-family: roboto">
+                    
+                    <div class="row">
+                      <div class="col-6">
+                        <h5 style="font-family: Staatliches;">Nome</h5>
+                      </div>
+                     
+                      <div class="col-6">
+                        <h5 style="font-family: Staatliches;"><?php echo $nome; ?></h5>
+                      </div>
+                    </div>
 
-                    <h5>Nome: <?php echo $nome; ?></h5>
-                    <h5>Sobrenome: <?php echo $sobrenome; ?></h5>
-                    <h5>Email: <?php echo $email; ?></h5>
-                    <h5>Usuario: <?php echo $usuario; ?></h5>
+                    <div class="row">
+                      <div class="col-6">
+                        <h5 style="font-family: Staatliches;">Sobrenome</h5>
+                      </div>
+                     
+                     <div class="col-6">
+                        <h5 style="font-family: Staatliches;"><?php echo $sobrenome; ?></h5>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-6">
+                        <h5 style="font-family: Staatliches;">Email</h5>
+                      </div>
+                      
+                     <div class="col-6">
+                        <h5 style="font-family: Staatliches;"><?php echo $email; ?></h5>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-6">
+                        <h5 style="font-family: Staatliches;">Usuário</h5>
+                      </div>
+                      
+                     <div class="col-6">
+                        <h5 style="font-family: Staatliches;"><?php echo $usuario; ?></h5>
+                      </div>
+                    </div>
+
+       
+
+
                     
                     </fieldset>
                   </div>
+                </div>
+              </div><!--FECHAMENTO DA PRIMEIRA ROW -->
+
+              <div class="row" style="height: 32%;border-top: 1px solid black"><!--ABERTURA DA SEGUNDA ROW-->
+              
+                <div class="col-12">
+                    <h3 style="font-family: Staatliches;">Meus Cursos</h3>
+                    <div class="row" style="background-color:pink">
+                      <div class="col-12">
+                        
+                      </div>
+                    </div>
+                </div>
+              </div><!--FECHAMENTO DA SEGUNDA ROW -->
+
+
+              <div class="row" style="height: 32%;border-top: 1px solid black"><!--ABERTURA DA TERCEIRA ROW-->
+                <div class="col-12">
+                  <h3 style="font-family: Staatliches;">Curiosidades</h3>
+                  <div class="row" style="background-color:pink">
+                    <div class="col-12">
+                      
+                    </div>
+                  </div>
+                </div>
+              </div><!--FECHAMENTO DA TERCEIRA ROW -->
+                  
 
               </div>
               
