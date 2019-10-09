@@ -6,7 +6,7 @@
     $id = $_SESSION['id'];
 }
 
-    $sql = "SELECT * FROM cadastro where usuario = '{$usuario}' and id = '{$id}'";
+    $sql = "SELECT * FROM cadastro where usuario = '{$usuario}'";
     $result = mysqli_query($conn, $sql);
 
     if(mysqli_num_rows($result) > 0){
@@ -56,14 +56,23 @@
               $( "#menuUsuarioExpandido" ).slideToggle( "slow" );
             });
 
-            
+
+            $('#dadosExpandidos').hide();
+            $('#expandirDados').click(function(){
+
+              $('#dadosExpandidos').slideToggle("slow");
+
+            });
             
             
            });
           
         </script>
         <style>
-
+          .imgModulos{
+            max-width: 200px;
+            max-height: 100px;
+          }
           .backMenuExpandido:hover{
           background-color: rgba(23,120,170,.2);
           
@@ -92,13 +101,13 @@
                     
                     
                     ?>
-                    <div id="menuUsuarioExpandido" style="background-color:#fafdff;border:1px solid #1778aa;height: 200px;width: 15%;position:absolute;z-index:1;margin-left: 70%;margin-top: 4%;border-radius: 5px">
-                    <a href="/musiclly/logout.php" style='width: 100%;display:block;font-weight: bold;margin-top: 95%;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Logout</a>
-                    
-                    
+                    <div id="menuUsuarioExpandido" style="background-color:#fafdff;border:1px solid #1778aa;height: 170px;width: 15%;position:absolute;z-index:1;margin-left: 70%;margin-top: 4%;border-radius: 5px">
+                    <a href="/musiclly/alterar_senha.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Senha</a>
+                    <a href="/musiclly/alterar_usuario" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Usuário</a>
+                    <a href="/musiclly/alterar_email" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Email</a>
+                    <a href="/musiclly/logout.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Logout</a>
                     </div>
-                  </div>
-                </div>
+                  
         </nav>
         <!-- FECHAMENTO NAVBAR ===============-->
         </div> <!--FECHAMENTO DA DIV CONTAINER PARA MENU -->
@@ -111,25 +120,48 @@
         </div>
 
         <div class="container">
+        
 
 
-
-          <div class="row justify-content-center">
+          <div class="row">
             <div class="col-6">
+            <?php
+              $sqlCurso = "SELECT * from tbl_curso";
+              $resultCurso = mysqli_query($conn, $sqlCurso);
+              echo "<table>";
+              echo "<tr>";
+              echo "<th style='padding:20px;text-align:center'>NOME</th>";
+              echo "<th style='padding:20px;text-align:center'>VALOR</th>";
+              echo "</tr>";
+              
 
-              <fieldset style="border: 1px solid rgba(13,82,189,.2);padding: 10px;border-radius: 10px;border-top: 0px">
+              $cont = 0;
+              while($row = mysqli_fetch_assoc($resultCurso)){
+                $cont++;
+                echo "<tr>";
+                echo "<td align='center' style=''><img src='/musiclly/www/galeria/modulo_".$cont.".jpg' class='imgModulos'></td>";
+                echo "<td align='center' style=''>".$row['valor']."R$"."</td>";
+                echo "</tr>";
+              }
+              echo "</table>";
+            ?>
 
-              <h3>Nome: <?php echo $nome; ?></h3>
-              <h3>Sobrenome: <?php echo $sobrenome; ?></h3>
-              <h3>Email: <?php echo $email; ?></h3>
-              <h3>Usuario: <?php echo $usuario; ?></h3>
-              <div class="row">
-              <div class="col-4"><a href="#">Alterar Senha</a></div>
-              <div class="col-4"><a href="#">Alterar Usuário</a></div>
-              <div class="col-4"><a href="#">Alterar Email</a></div>
+            </div>
+              <div class="col-6" style="text-align:center"><a href="#" id="expandirDados">Ver Mais Informações</a>
+
+                  <div id="dadosExpandidos" style="position:absolute;margin-left: 17%">
+                    <fieldset style="background-color:#fafdff;border: 1px solid rgba(13,82,189,.2);padding: 10px;border-radius: 10px;border-top: 0px;font-family: roboto">
+
+                    <h5>Nome: <?php echo $nome; ?></h5>
+                    <h5>Sobrenome: <?php echo $sobrenome; ?></h5>
+                    <h5>Email: <?php echo $email; ?></h5>
+                    <h5>Usuario: <?php echo $usuario; ?></h5>
+                    
+                    </fieldset>
+                  </div>
+
               </div>
-          </fieldset>
-          </div>    
+              
           
 
         </div>
