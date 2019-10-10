@@ -131,7 +131,8 @@
     #footer{
         background-color:#1778aa;
         bottom:0;
-        height: 70px;
+        position: fixed;
+        height: 10px;
         width:100%;
     }
     #entrarNavBar{

@@ -11,10 +11,7 @@
  
 // verifica se foi enviado um arquivo
 if ( isset( $_FILES[ 'arquivo' ][ 'name' ] ) && $_FILES[ 'arquivo' ][ 'error' ] == 0 ) {
-    echo 'Você enviou o arquivo: <strong>' . $_FILES[ 'arquivo' ][ 'name' ] . '</strong><br />';
-    echo 'Este arquivo é do tipo: <strong > ' . $_FILES[ 'arquivo' ][ 'type' ] . ' </strong ><br />';
-    echo 'Temporáriamente foi salvo em: <strong>' . $_FILES[ 'arquivo' ][ 'tmp_name' ] . '</strong><br />';
-    echo 'Seu tamanho é: <strong>' . $_FILES[ 'arquivo' ][ 'size' ] . '</strong> Bytes<br /><br />';
+    
  
     $arquivo_tmp = $_FILES[ 'arquivo' ][ 'tmp_name' ];
     $nome = $_FILES[ 'arquivo' ][ 'name' ];
@@ -28,7 +25,7 @@ if ( isset( $_FILES[ 'arquivo' ][ 'name' ] ) && $_FILES[ 'arquivo' ][ 'error' ] 
     // Somente imagens, .jpg;.jpeg;.gif;.png
     // Aqui eu enfileiro as extensões permitidas e separo por ';'
     // Isso serve apenas para eu poder pesquisar dentro desta String
-    if ( strstr ( '.jpg;.jpeg;.gif;.png', $extensao ) ) {
+    if ( strstr ( '.jpg;.jpeg;.gif;.png;.jfif', $extensao ) ) {
         // Cria um nome único para esta imagem
         // Evita que duplique as imagens no servidor.
         // Evita nomes com acentos, espaços e caracteres não alfanuméricos
@@ -42,7 +39,7 @@ if ( isset( $_FILES[ 'arquivo' ][ 'name' ] ) && $_FILES[ 'arquivo' ][ 'error' ] 
             $sql = "UPDATE cadastro set imagem='$destino' where id = $id";
             $result = mysqli_query($conn, $sql);
             if($result){
-                echo "<script>window.location.href='/musiclly/painel.php';</script>";
+                echo "<script>alert('Foto Alterada Com Sucesso!');window.location.href='/musiclly/painel.php';</script>";
             }
             
         }

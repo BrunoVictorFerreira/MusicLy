@@ -1,5 +1,5 @@
 <?php
-    include_once("php/conexao.php");
+    include_once("../../php/conexao.php");
     session_start();
     if(isset($_SESSION['usuario'])){
     $usuario = $_SESSION['usuario'];
@@ -24,7 +24,7 @@
 <html lang="pt_br">
     <head>
         <!-- STYLES =========================================-->
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="/musiclly/css/style.css">
         <!--METAS   =========================================-->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta charset="utf-8">
@@ -201,13 +201,13 @@
         </style>
         
     </head>
-    <body style="background-image: url('www/galeria/background.png');background-repeat:no-repeat;background-attachment: fixed;background-size: 100%;">
+    <body style="background-image: url('/musiclly/www/galeria/background.png');background-repeat:no-repeat;background-attachment: fixed;background-size: 100%;">
         <div class="container-fluid">
             <!--CLASSE CONTAINER =======================-->    
             <div class="container">
         <!--NAV BAR ======================-->       
         <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="#"><img src="www/galeria/logo.png"class="img-fluid" id="logoNavBar"></a>
+                <a class="navbar-brand" href="#"><img src="/musiclly/www/galeria/logo.png"class="img-fluid" id="logoNavBar"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -224,7 +224,7 @@
 
                     
 
-                    <div style='background-color:#fafdff;z-index:2'><a class='nav-item nav-link' id='menuUsuario' href='#' style='margin-left: 300px;display:inline-block'>$usuario<img src='".$img."' style='margin-left: 3%;max-width: 35%;border-radius: 10%;max-height: 35%'></a></div>";
+                    <div style='background-color:#fafdff;z-index:2'><a class='nav-item nav-link' id='menuUsuario' href='#' style='margin-left: 300px;display:inline-block'>$usuario<img src='/musiclly/".$img."' style='margin-left: 3%;max-width: 35%;border-radius: 10%;max-height: 35%'></a></div>";
                     
                     
                     ?>
@@ -242,7 +242,7 @@
        
         <div class="row">
            <div class="col-12" style="">
-            <div style="border-bottom: 1px solid #f27d16"><div style="padding: 6px;width: 7%;font-family: roboto;border-radius: 5px;font-size: 18px;color:#1778aa;font-weight: bold">Painel</div></div>
+            <div style="border-bottom: 1px solid #f27d16"><div style="padding: 6px;width: 7%;font-family: roboto;border-radius: 5px;font-size: 18px;color:#1778aa;font-weight: bold">Questionário 1</div></div>
            </div>
         
         </div>
@@ -263,13 +263,13 @@
               </div>
               <div class="modal-body">
               <p><b>O que Contém no Módulo 1?</b></p>
-                <a href=""><p>O que é Musica?</p></a>
-                <a href=""><p>Notas Musicais</p></a>
-                <a href=""><p>Timbre</p></a>
-                <a href=""><p>Sustenido e Bemol</p></a>
-                <a href=""><p>Tom e Semitom</p></a>
-                <a href=""><p>Notas no instrumento</p></a>
-                <a href="/musiclly/modulos/questionarios/modulo_1_Quest.php"><p>Questionário - <b>Módulo 1</b></p></a>
+                <p>O que é Musica?</p>
+                <p>Notas Musicais</p>
+                <p>Timbre</p>
+                <p>Sustenido e Bemol</p>
+                <p>Tom e Semitom</p>
+                <p>Notas no instrumento</p>
+                <p>Questionário - <b>Módulo 1</b></p>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -367,7 +367,7 @@
           <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalScrollableTitle">Modulo 5 - Cadastrar</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -380,8 +380,8 @@
                 <p>O que é blues</p>
                 <p>Escala Blues</p>
                 <p>Harmonia Funcional</p>
-                <p>Trítono</p>
-                <p>Questionário - <b>Módulo 4</b></p>
+                <p>Trítono - o som do diabo</p>
+                <p>Questionário - <b>Módulo 5</b></p>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -393,171 +393,111 @@
         <!-- Modais -->
 
 
-          <div class="row" style="">
-            <div class="col-6" style="padding-bottom:30px">
-            <?php
-              $sqlCurso = "SELECT * from tbl_curso";
-              $resultCurso = mysqli_query($conn, $sqlCurso);
-              ?>
-              <table>
-                <tr>
-                  <th colspan="2" style='padding:20px;font-size: 30px;text-align:center;font-family: Staatliches;color: #1778aa;letter-spacing: 2px'>Cursos</th>
-                </tr>
-                <tr>
-                  <td align='center' style=''><fieldset style='padding: 15px;margin-top: 5px;border-radius: 10px'><button type="button" id="button1" data-toggle="modal" style="background-color:rgba(0,0,0,.0);border:0;outline:0" data-target="#exampleModalScrollable"><p class="tracking-in-expand" id="verMais1" style="position:absolute;color:white;margin-left: 3%;margin-top: 6%;font-size: 20px;font-family:roboto">Mais informações</p><img id="cursoCard1" src='/musiclly/www/galeria/modulo_1.jpg'></button></fieldset></td>
-                  <td align='center' style=''><fieldset style='padding: 15px;margin-top: 5px;border-radius: 10px'><button type="button" id="button1" data-toggle="modal" style="background-color:rgba(0,0,0,.0);border:0;outline:0" data-target="#exampleModalScrollable2"><p class="tracking-in-expand" id="verMais2" style="position:absolute;color:white;margin-left: 3%;margin-top: 6%;font-size: 20px;font-family:roboto">Mais informações</p><img id="cursoCard2" src='/musiclly/www/galeria/modulo_2.jpg'></fieldset></td>
-                </tr>
-                <tr>
-                  <td align='center' style=''><fieldset style='padding: 15px;margin-top: 5px;border-radius: 10px'><button type="button" id="button1" data-toggle="modal" style="background-color:rgba(0,0,0,.0);border:0;outline:0" data-target="#exampleModalScrollable3"><p class="tracking-in-expand" id="verMais3" style="position:absolute;color:white;margin-left: 3%;margin-top: 6%;font-size: 20px;font-family:roboto">Mais informações</p><img id="cursoCard3" src='/musiclly/www/galeria/modulo_3.jpg'></fieldset></td>
-                  <td align='center' style=''><fieldset style='padding: 15px;margin-top: 5px;border-radius: 10px'><button type="button" id="button1" data-toggle="modal" style="background-color:rgba(0,0,0,.0);border:0;outline:0" data-target="#exampleModalScrollable4"><p class="tracking-in-expand" id="verMais4" style="position:absolute;color:white;margin-left: 3%;margin-top: 6%;font-size: 20px;font-family:roboto">Mais informações</p><img id="cursoCard4" src='/musiclly/www/galeria/modulo_4.jpg'></fieldset></td>
-                </tr>
-                <tr>
-                  <td align='center' colspan="2" style=''><fieldset style='padding: 15px;margin-top: 5px;width:50%;border-radius: 10px'><button type="button" id="button1" data-toggle="modal" style="background-color:rgba(0,0,0,.0);border:0;outline:0" data-target="#exampleModalScrollable5"><p class="tracking-in-expand" id="verMais5" style="position:absolute;color:white;margin-left: 3%;margin-top: 6%;font-size: 20px;font-family:roboto">Mais informações</p><img id="cursoCard5" src='/musiclly/www/galeria/modulo_5.jpg'></fieldset></td>
-                </tr>
-              
-              </table>
-
-            </div>
-              <div class="col-6" style="text-align:center">
-              
-              <!--ABERTURA  DA PRIMEIRA ROW -->
-                <div class="row" style="height: 36%"><div class="col-12" style="margin-top: 5%">
-                
-                  <div id="dadosExpandidos" style="width: 60%;margin-left:auto;margin-right:auto">
-                    <fieldset style="background-color:#fafdff;border: 1px solid rgba(13,82,189,.2);padding: 10px;border-radius: 10px;border-top: 0px;font-family: roboto">
-                    
-                    <div class="row">
-                      <div class="col-6">
-                        <h5 style="font-family: Staatliches;">Nome:</h5>
-                      </div>
-                     
-                      <div class="col-6">
-                        <h5 style="font-family: Staatliches;"><?php echo $nome; ?></h5>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-6">
-                        <h5 style="font-family: Staatliches;">Sobrenome:</h5>
-                      </div>
-                     
-                     <div class="col-6">
-                        <h5 style="font-family: Staatliches;"><?php echo $sobrenome; ?></h5>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-6">
-                        <h5 style="font-family: Staatliches;">Email:</h5>
-                      </div>
-                      
-                     <div class="col-6">
-                        <h5 style="font-family: Staatliches;"><?php echo $email; ?></h5>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-6">
-                        <h5 style="font-family: Staatliches;">Usuário:</h5>
-                      </div>
-                      
-                     <div class="col-6">
-                        <h5 style="font-family: Staatliches;"><?php echo $usuario; ?></h5>
-                      </div>
-                    </div>
-
-       
-
-
-                    
-                    </fieldset>
-                  </div>
-                </div>
-              </div><!--FECHAMENTO DA PRIMEIRA ROW -->
-
-              <div class="row" style="height: 32%;border-top: 1px solid black"><!--ABERTURA DA SEGUNDA ROW-->
-              
-                <div class="col-12">
-                    <h3 style="font-family: Staatliches;">Meus Cursos</h3>
-                    <div class="row" style="">
-                      <div class="col-12">
-                        <?php
-                          $c = 0;
-                          $c++;
-                          
-                            $sql2 = "SELECT a.nome from tbl_curso as a join tbl_cad_curso as b on a.id_Curso=b.id_Curso where id_Cad=$id order by a.nome asc";
-                            $result2 = mysqli_query($conn, $sql2);
-                            while($row2 = mysqli_fetch_assoc($result2)){
-                              echo "<a href='modulos/modulo".$c.".php'><span style='display:block;color:#1778aa;font-weight: bold'>".$row2['nome']."</span></a>";
-                            }
-                           
-                        ?>
-                      </div>
-                    </div>
-                </div>
-              </div><!--FECHAMENTO DA SEGUNDA ROW -->
-
-
-              <div class="row" style="height: 32%;border-top: 1px solid black"><!--ABERTURA DA TERCEIRA ROW-->
-                <div class="col-12">
-                  <h3 style="font-family: Staatliches;">Curiosidades</h3>
-                  <div class="row" style="">
-                  <fieldset style="width: 100%;border-radius:10px;padding:10px;border: 1px solid #f78726 ">
-                    <div class="col-12">
-                      <?php
-                        $random  = mt_rand(1,8);
-                        $sqlCur = "SELECT * from curiosidades where id_Curiosidades=$random";
-                        $resultCur = mysqli_query($conn, $sqlCur);
-                        $row= mysqli_fetch_assoc($resultCur);
-                        echo "<p style='font-family:Roboto;color:rgb(23,120,170);font-size: 17px'>".$row['descricao']."</p>";
-
-
-                      ?>
-                      
-                    </div>
-                    </fieldset>
-                  </div>
-                </div>
-              </div><!--FECHAMENTO DA TERCEIRA ROW -->
-                  
-
-              </div>
-            </div>
-
-        <div class="row" style="margin-bottom: 10px;">
-           <div class="col-12" style="">
-            <div style="border-bottom: 1px solid #f27d16"><div style="padding: 6px;width: 100%;font-family: roboto;border-radius: 5px;font-size: 18px;color:#1778aa;font-weight: bold">Configurações</div></div>
-           </div>
-        
-        </div>
-        <div class="row" style="border: 1px solid black;padding:10px;width: 60%;margin-left:auto;margin-right:auto;border-radius:10px;box-shadow:3px 3px rgba(0,0,0,.2)">
-          <div class="col-5">
-            <h4 style="font-family:Staatliches;float:right">Trocar Foto de Perfil</h4>
-          </div>
-          <div class="col-7" style="">
-            <form method="POST" enctype="multipart/form-data" action="recebeUpload.php"> 
-              
-                <input type="file" name="arquivo" id="BtnEscolher">    
-                  <br><button type="submit" id="botaoEnviarImg">Enviar imagem</button>
-            </form>
-          </div>
-        </div>
-        
+          
         
 
          
-        <div class="container" style=""><!--ABERTURA DA DIV CONTAINER -->
+        <div class="container" style="height: 1000px"><!--ABERTURA DA DIV CONTAINER -->
             
-                
+                <form action="\Musiclly\modulos\questionarios\results\ver_result_1.php" method="POST">
+                    <article>
+                        <p>
+                            <label>1 -A nota Sol bemol é representada pela sigla:</label><br />
+                            <input type="radio" name="perg1" value="opt1" />Bc<br />
+                            <input type="radio" name="perg1" value="opt2" />Cb<br />
+                            <input type="radio" name="perg1" value="opt3" />Bg<br />
+                            <input type="radio" name="perg1" value="opt4" />Gb<br />
+                            <input type="radio" name="perg1" value="opt5" />GG<br />
+                        </p>
+                        <p>
+                            <label>2 -A distância de 2 tons pode ser encontrada entre as notas:</label><br />
+                            <input type="radio" name="perg2" value="opt1" />F,B<br />
+                            <input type="radio" name="perg2" value="opt2" />A,E<br />
+                            <input type="radio" name="perg2" value="opt3" />F,G<br />
+                            <input type="radio" name="perg2" value="opt4" />C,F<br />
+                            <input type="radio" name="perg2" value="opt5" />D,F#<br />
+                        </p>
+                        <p>
+                            <label>3 -Imagine que duas pessoas estão cantando a mesma nota. Você poderia afirmar que esses dois sons são diferentes por que:</label><br />
+                            <input type="radio" name="perg3" value="opt1" />pessoas diferentes possuem timbres diferentes de voz<br />
+                            <input type="radio" name="perg3" value="opt2" />cada pessoa aprende uma técnica vocal diferente<br />
+                            <input type="radio" name="perg3" value="opt3" />vozes diferentes são cantadas em tons diferentes<br />
+                            <input type="radio" name="perg3" value="opt4" />quando duas pessoas cantam ao mesmo tempo, as notas se distanciam por um semitom<br />
+                            <input type="radio" name="perg3" value="opt5" />você não pode afirmar que os sons são diferentes, pois não conhece as pessoas<br />
+                        </p>
+                        <p>
+                            <label>4 -Conhecendo as definições de melodia e harmonia, podemos concluir que alguns instrumentos são classificados como harmônicos, enquanto outros são apenas melódicos. Um exemplo de instrumento harmônico é o(a):</label><br />
+                            <input type="radio" name="perg4" value="opt1" />saxofone<br />
+                            <input type="radio" name="perg4" value="opt2" />cavaquinho<br />
+                            <input type="radio" name="perg4" value="opt3" />pandeiro<br />
+                            <input type="radio" name="perg4" value="opt4" />bateria<br />
+                            <input type="radio" name="perg4" value="opt5" />flauta<br />
+                        </p>
+                        <p>
+                            <label>5 -Marque a alternativa verdadeira:</label><br />
+                            <input type="radio" name="perg5" value="opt1" />Música é a combinação de sons e silêncios de maneira desorganizada<br />
+                            <input type="radio" name="perg5" value="opt2" />Tons e semitons são a mesma coisa<br />
+                            <input type="radio" name="perg5" value="opt3" />Timbre é o que diferencia duas notas diferentes tocadas no mesmo instrumento<br />
+                            <input type="radio" name="perg5" value="opt4" />Instrumentos diferentes possuem notas necessariamente diferentes<br />
+                            <input type="radio" name="perg5" value="opt5" />Uma mesma música pode ser reproduzida com diferentes timbres<br />
+                        </p>
+                        <p>
+                            <label>6 -A nota D# é idêntica à nota:</label><br />
+                            <input type="radio" name="perg6" value="opt1" />F<br />
+                            <input type="radio" name="perg6" value="opt2" />C#<br />
+                            <input type="radio" name="perg6" value="opt3" />Eb<br />
+                            <input type="radio" name="perg6" value="opt4" />Gb<br />
+                            <input type="radio" name="perg6" value="opt5" />Ab<br />
+                        </p>
+                        <p>
+                            <label>7 -Um tom e meio acima de Lá corresponde à nota:</label><br />
+                            <input type="radio" name="perg7" value="opt1" />F<br />
+                            <input type="radio" name="perg7" value="opt2" />G<br />
+                            <input type="radio" name="perg7" value="opt3" />C<br />
+                            <input type="radio" name="perg7" value="opt4" />Bb<br />
+                            <input type="radio" name="perg7" value="opt5" />Db<br />
+                        </p>
+                        <p>
+                            <label>8 -O símbolo “#” representa a distância de:</label><br />
+                            <input type="radio" name="perg8" value="opt1" />um tom acima<br />
+                            <input type="radio" name="perg8" value="opt2" />um tom abaixo<br />
+                            <input type="radio" name="perg8" value="opt3" />meio tom acima<br />
+                            <input type="radio" name="perg8" value="opt4" />meio tom abaixo<br />
+                            <input type="radio" name="perg8" value="opt5" />a distância vai depender da nota<br />
+                        </p>
+                        <p>
+                            <label>9 -A música ocidental foi dividida em:</label><br />
+                            <input type="radio" name="perg9" value="opt1" />12 notas<br />
+                            <input type="radio" name="perg9" value="opt2" />10 notas<br />
+                            <input type="radio" name="perg9" value="opt3" />8 notas<br />
+                            <input type="radio" name="perg9" value="opt4" />3 notas<br />
+                            <input type="radio" name="perg9" value="opt5" />infinitas notas<br />
+                        </p>
+                        <p>
+                            <label>10 -Podemos afirmar que:</label><br />
+                            <input type="radio" name="perg10" value="opt1" />Ao mudar um ritmo, estamos mudando também a harmonia<br />
+                            <input type="radio" name="perg10" value="opt2" />Uma mesma melodia pode ser tocada em diferentes ritmos<br />
+                            <input type="radio" name="perg10" value="opt3" />O ritmo de uma música depende do timbre dos cantores<br />
+                            <input type="radio" name="perg10" value="opt4" />Timbres diferentes resultam em melodias diferentes<br />
+                            <input type="radio" name="perg10" value="opt5" />Uma pessoa que não entende nada de harmonia nunca vai conseguir aprender<br />
+                        </p>
+                        <input type="submit" value="Ver Resultado"/>
+                    </article>
+                    
+                </form>
+                <?php
+                    $sqlQuest = "SELECT * from cadastro where id=$id";
+                    $resultQuest = mysqli_query($conn, $sqlQuest);
+                    
+                ?>
             
             
                 
               </div>
             </div>
-            <img src="www/galeria/msg.png" id="msg" onClick="msg()">
+            <img src="/musiclly/www/galeria/msg.png" id="msg" onClick="msg()">
             <div class="row"><div class="col-12" id="footer"><footer></footer></div></div> 
         </div><!--FECHAMENTO DIV CONTAINER FLUID-->
         
     </body>
 </html>
-
