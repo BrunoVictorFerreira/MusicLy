@@ -135,6 +135,9 @@
         height: 10px;
         width:100%;
     }
+    #linkCadeado:hover{
+        color: #1778aa;
+    }
     #entrarNavBar{
         font-family:roboto;
     }

@@ -403,87 +403,87 @@
          
         <div class="container" style="height: 1000px"><!--ABERTURA DA DIV CONTAINER -->
             
-                <form action="\Musiclly\modulos\questionarios\results\ver_result_1.php" method="POST">
+                <form action="\Musiclly\modulos\questionarios\results\ver_result_2.php" method="POST">
                     <article>
                         <p>
-                            <label>1 -A nota Sol bemol é representada pela sigla:</label><br />
-                            <input type="radio" name="perg1" value="opt1" />Bc<br />
-                            <input type="radio" name="perg1" value="opt2" />Cb<br />
-                            <input type="radio" name="perg1" value="opt3" />Bg<br />
-                            <input type="radio" name="perg1" value="opt4" />Gb<br />
-                            <input type="radio" name="perg1" value="opt5" />GG<br />
+                            <label>1 -O segundo grau menor de Fá é a nota:</label><br />
+                            <input type="radio" name="perg1" value="opt1" />G<br />
+                            <input type="radio" name="perg1" value="opt2" />Gb<br />
+                            <input type="radio" name="perg1" value="opt3" />A<br />
+                            <input type="radio" name="perg1" value="opt4" />Ab<br />
+                            <input type="radio" name="perg1" value="opt5" />Bb<br />
                         </p>
                         <p>
-                            <label>2 -A distância de 2 tons pode ser encontrada entre as notas:</label><br />
-                            <input type="radio" name="perg2" value="opt1" />F,B<br />
-                            <input type="radio" name="perg2" value="opt2" />A,E<br />
-                            <input type="radio" name="perg2" value="opt3" />F,G<br />
-                            <input type="radio" name="perg2" value="opt4" />C,F<br />
-                            <input type="radio" name="perg2" value="opt5" />D,F#<br />
+                            <label>2 -Duas oitavas abaixo da nota Lá resulta na nota:</label><br />
+                            <input type="radio" name="perg2" value="opt1" />D<br />
+                            <input type="radio" name="perg2" value="opt2" />E<br />
+                            <input type="radio" name="perg2" value="opt3" />A<br />
+                            <input type="radio" name="perg2" value="opt4" />G<br />
+                            <input type="radio" name="perg2" value="opt5" />F<br />
                         </p>
                         <p>
-                            <label>3 -Imagine que duas pessoas estão cantando a mesma nota. Você poderia afirmar que esses dois sons são diferentes por que:</label><br />
-                            <input type="radio" name="perg3" value="opt1" />pessoas diferentes possuem timbres diferentes de voz<br />
-                            <input type="radio" name="perg3" value="opt2" />cada pessoa aprende uma técnica vocal diferente<br />
-                            <input type="radio" name="perg3" value="opt3" />vozes diferentes são cantadas em tons diferentes<br />
-                            <input type="radio" name="perg3" value="opt4" />quando duas pessoas cantam ao mesmo tempo, as notas se distanciam por um semitom<br />
-                            <input type="radio" name="perg3" value="opt5" />você não pode afirmar que os sons são diferentes, pois não conhece as pessoas<br />
+                            <label>3 -O 9º grau maior de Sol é a nota:</label><br />
+                            <input type="radio" name="perg3" value="opt1" />B<br />
+                            <input type="radio" name="perg3" value="opt2" />C<br />
+                            <input type="radio" name="perg3" value="opt3" />D<br />
+                            <input type="radio" name="perg3" value="opt4" />A<br />
+                            <input type="radio" name="perg3" value="opt5" />E<br />
                         </p>
                         <p>
-                            <label>4 -Conhecendo as definições de melodia e harmonia, podemos concluir que alguns instrumentos são classificados como harmônicos, enquanto outros são apenas melódicos. Um exemplo de instrumento harmônico é o(a):</label><br />
-                            <input type="radio" name="perg4" value="opt1" />saxofone<br />
-                            <input type="radio" name="perg4" value="opt2" />cavaquinho<br />
-                            <input type="radio" name="perg4" value="opt3" />pandeiro<br />
-                            <input type="radio" name="perg4" value="opt4" />bateria<br />
-                            <input type="radio" name="perg4" value="opt5" />flauta<br />
+                            <label>4 -A quinta aumentada de Dó é a nota:</label><br />
+                            <input type="radio" name="perg4" value="opt1" />G#<br />
+                            <input type="radio" name="perg4" value="opt2" />A<br />
+                            <input type="radio" name="perg4" value="opt3" />Db<br />
+                            <input type="radio" name="perg4" value="opt4" />A#<br />
+                            <input type="radio" name="perg4" value="opt5" />F<br />
                         </p>
                         <p>
-                            <label>5 -Marque a alternativa verdadeira:</label><br />
-                            <input type="radio" name="perg5" value="opt1" />Música é a combinação de sons e silêncios de maneira desorganizada<br />
-                            <input type="radio" name="perg5" value="opt2" />Tons e semitons são a mesma coisa<br />
-                            <input type="radio" name="perg5" value="opt3" />Timbre é o que diferencia duas notas diferentes tocadas no mesmo instrumento<br />
-                            <input type="radio" name="perg5" value="opt4" />Instrumentos diferentes possuem notas necessariamente diferentes<br />
-                            <input type="radio" name="perg5" value="opt5" />Uma mesma música pode ser reproduzida com diferentes timbres<br />
+                            <label>5 -Sobre a nota Dó e o acorde de Dó, marque a alternativa verdadeira:</label><br />
+                            <input type="radio" name="perg5" value="opt1" />Dizer "nota Dó" ou "acorde de Dó" significa a mesma coisa.<br />
+                            <input type="radio" name="perg5" value="opt2" />O acorde de Dó é aquele que possui 2 ou mais notas Dó.<br />
+                            <input type="radio" name="perg5" value="opt3" />A nota Dó é formada por dois ou mais acordes de Dó.<br />
+                            <input type="radio" name="perg5" value="opt4" />O acorde de Dó é formado por 3 notas, sendo uma delas a nota Dó.<br />
+                            <input type="radio" name="perg5" value="opt5" />A nota Dó não possui nenhuma relação com o acorde de Dó.<br />
                         </p>
                         <p>
-                            <label>6 -A nota D# é idêntica à nota:</label><br />
-                            <input type="radio" name="perg6" value="opt1" />F<br />
-                            <input type="radio" name="perg6" value="opt2" />C#<br />
-                            <input type="radio" name="perg6" value="opt3" />Eb<br />
-                            <input type="radio" name="perg6" value="opt4" />Gb<br />
-                            <input type="radio" name="perg6" value="opt5" />Ab<br />
+                            <label>6 -Um acorde menor é aquele que:</label><br />
+                            <input type="radio" name="perg6" value="opt1" />possui todos os graus menores<br />
+                            <input type="radio" name="perg6" value="opt2" />possui a terça menor<br />
+                            <input type="radio" name="perg6" value="opt3" />possui o sétimo grau menor<br />
+                            <input type="radio" name="perg6" value="opt4" />possui somente 2 notas<br />
+                            <input type="radio" name="perg6" value="opt5" />ainda não completou 18 anos<br />
                         </p>
                         <p>
-                            <label>7 -Um tom e meio acima de Lá corresponde à nota:</label><br />
-                            <input type="radio" name="perg7" value="opt1" />F<br />
-                            <input type="radio" name="perg7" value="opt2" />G<br />
-                            <input type="radio" name="perg7" value="opt3" />C<br />
-                            <input type="radio" name="perg7" value="opt4" />Bb<br />
-                            <input type="radio" name="perg7" value="opt5" />Db<br />
+                            <label>7 -Um acorde suspenso é aquele que:</label><br />
+                            <input type="radio" name="perg7" value="opt1" />possui a terça menor<br />
+                            <input type="radio" name="perg7" value="opt2" />possui a terça maior<br />
+                            <input type="radio" name="perg7" value="opt3" />não possui a terça<br />
+                            <input type="radio" name="perg7" value="opt4" />possui a quinta justa<br />
+                            <input type="radio" name="perg7" value="opt5" />recebeu uma advertência e não pode mais frequentar a escola de música<br />
                         </p>
                         <p>
-                            <label>8 -O símbolo “#” representa a distância de:</label><br />
-                            <input type="radio" name="perg8" value="opt1" />um tom acima<br />
-                            <input type="radio" name="perg8" value="opt2" />um tom abaixo<br />
-                            <input type="radio" name="perg8" value="opt3" />meio tom acima<br />
-                            <input type="radio" name="perg8" value="opt4" />meio tom abaixo<br />
-                            <input type="radio" name="perg8" value="opt5" />a distância vai depender da nota<br />
+                            <label>8 -A diferença da escala maior para a escala menor está nos graus:</label><br />
+                            <input type="radio" name="perg8" value="opt1" />terceiro, quinto e sétimo<br />
+                            <input type="radio" name="perg8" value="opt2" />terceiro e sexto<br />
+                            <input type="radio" name="perg8" value="opt3" />segundo, terceiro e quarto<br />
+                            <input type="radio" name="perg8" value="opt4" />terceiro, sexto e sétimo<br />
+                            <input type="radio" name="perg8" value="opt5" />primeiro, quarto e sexto<br />
                         </p>
                         <p>
-                            <label>9 -A música ocidental foi dividida em:</label><br />
-                            <input type="radio" name="perg9" value="opt1" />12 notas<br />
-                            <input type="radio" name="perg9" value="opt2" />10 notas<br />
-                            <input type="radio" name="perg9" value="opt3" />8 notas<br />
-                            <input type="radio" name="perg9" value="opt4" />3 notas<br />
-                            <input type="radio" name="perg9" value="opt5" />infinitas notas<br />
+                            <label>9 -Marque a alternativa correta:</label><br />
+                            <input type="radio" name="perg9" value="opt1" />O intervalo de quarta justa corresponde a uma distância de 3 tons<br />
+                            <input type="radio" name="perg9" value="opt2" />A escala menor possui o terceiro grau menor<br />
+                            <input type="radio" name="perg9" value="opt3" />O nome "diatônica" equivale a "escala maior"<br />
+                            <input type="radio" name="perg9" value="opt4" />No violão, só existe um shape (formato) para cada escala<br />
+                            <input type="radio" name="perg9" value="opt5" />As escalas não são importantes para o estudo de música<br />
                         </p>
                         <p>
-                            <label>10 -Podemos afirmar que:</label><br />
-                            <input type="radio" name="perg10" value="opt1" />Ao mudar um ritmo, estamos mudando também a harmonia<br />
-                            <input type="radio" name="perg10" value="opt2" />Uma mesma melodia pode ser tocada em diferentes ritmos<br />
-                            <input type="radio" name="perg10" value="opt3" />O ritmo de uma música depende do timbre dos cantores<br />
-                            <input type="radio" name="perg10" value="opt4" />Timbres diferentes resultam em melodias diferentes<br />
-                            <input type="radio" name="perg10" value="opt5" />Uma pessoa que não entende nada de harmonia nunca vai conseguir aprender<br />
+                            <label>10 -O terceiro grau da escala de Mi maior corresponde à nota:</label><br />
+                            <input type="radio" name="perg10" value="opt1" />F#<br />
+                            <input type="radio" name="perg10" value="opt2" />G<br />
+                            <input type="radio" name="perg10" value="opt3" />A<br />
+                            <input type="radio" name="perg10" value="opt4" />G#<br />
+                            <input type="radio" name="perg10" value="opt5" />D#<br />
                         </p>
                         <input type="submit" value="Ver Resultado"/>
                     </article>

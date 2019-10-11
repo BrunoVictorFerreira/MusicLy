@@ -1,6 +1,9 @@
 <?php
   error_reporting(0);
-  include_once('php/conexao.php');
+  $serve_file = $_SERVER['DOCUMENT_ROOT']."/Musiclly/";
+  session_save_path($serve_file.'cache/temp');
+  session_start();
+  include_once($serve_file.'php/banco.php');
 
 ?>
 <html lang="pt_br">
