@@ -1,9 +1,13 @@
 <?php
-    include_once("../../php/conexao.php");
-    session_start();
-    if(isset($_SESSION['usuario'])){
-    $usuario = $_SESSION['usuario'];
-    $id = $_SESSION['id'];
+     error_reporting(0);
+     $serve_file = $_SERVER['DOCUMENT_ROOT']."/Musiclly/";
+     session_save_path($serve_file.'cache/temp');
+     session_start();
+     include_once($serve_file.'php/banco.php');
+   session_start();
+   if(isset($_SESSION['usuario'])){
+   $usuario = $_SESSION['usuario'];
+   $id = $_SESSION['id'];
 }
 
     $sql = "SELECT * FROM cadastro where usuario = '{$usuario}'";
@@ -228,13 +232,14 @@
                     
                     
                     ?>
-                    <div id="menuUsuarioExpandido" style="background-color:#fafdff;border:1px solid #1778aa;height: 200px;width: 15%;position:absolute;z-index:1;margin-left: 70%;margin-top: 4%;border-radius: 5px">
-                    <a href="/musiclly/painel.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Meu Perfil</a>
-                    <a href="/musiclly/alterar_senha.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Senha</a>
-                    <a href="/musiclly/alterar_usuario" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Usuário</a>
-                    <a href="/musiclly/alterar_email" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Email</a>
-                    <a href="/musiclly/logout.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Logout</a>
-                    </div>
+                    <div id="menuUsuarioExpandido" style="background-color:#fafdff;border:1px solid #1778aa;height: 250px;width: 15%;position:absolute;z-index:1;margin-left: 70%;margin-top: 5%;border-radius: 5px">
+          <a href="/musiclly/painel.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Meu Perfil</a>
+          <a href="/musiclly/alterar_senha.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Senha</a>
+          <a href="/musiclly/alterar_usuario" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Usuário</a>
+          <a href="/musiclly/alterar_email" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Email</a>
+          <a href="/musiclly/notas.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Notas</a>
+          <a href="/musiclly/logout.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Logout</a>
+        </div>
                   
         </nav>
         <!-- FECHAMENTO NAVBAR ===============-->
@@ -242,7 +247,7 @@
        
         <div class="row">
            <div class="col-12" style="">
-            <div style="border-bottom: 1px solid #f27d16"><div style="padding: 6px;width: 7%;font-family: roboto;border-radius: 5px;font-size: 18px;color:#1778aa;font-weight: bold">Questionário 1</div></div>
+            <div style="border-bottom: 1px solid #f27d16"><div style="padding: 6px;width: 7%;font-family: roboto;border-radius: 5px;font-size: 18px;color:#1778aa;font-weight: bold">Questionário 3</div></div>
            </div>
         
         </div>
@@ -398,96 +403,119 @@
 
          
         <div class="container" style="height: 1000px"><!--ABERTURA DA DIV CONTAINER -->
-            
-                <form action="\Musiclly\modulos\questionarios\results\ver_result_3.php" method="POST">
+        <?php
+          $verificadorProg = "SELECT * from tbl_cad_curso where id_cad = $id and id_Curso = 3";
+          $resultProg = mysqli_query($conn, $verificadorProg);
+          $row = mysqli_fetch_assoc($resultProg);
+          if($row['progresso'] == 100){
+                echo "<form action='/Musiclly/modulos/questionarios/results/ver_result_3.php' method='POST'>
                     <article>
                         <p>
-                            <label>1 -A nota Sol bemol é representada pela sigla:</label><br />
-                            <input type="radio" name="perg1" value="opt1" />Bc<br />
-                            <input type="radio" name="perg1" value="opt2" />Cb<br />
-                            <input type="radio" name="perg1" value="opt3" />Bg<br />
-                            <input type="radio" name="perg1" value="opt4" />Gb<br />
-                            <input type="radio" name="perg1" value="opt5" />GG<br />
+                            <label>1 -Um compasso musical pode ser definido como:</label><br />
+                            <input type='radio' name='perg1' value='opt1' />Uma marca para repetir a música.<br />
+                            <input type='radio' name='perg1' value='opt2' />Uma nota que define o nome de um acorde.<br />
+                            <input type='radio' name='perg1' value='opt3' />Um grupo de acordes tocados ao mesmo tempo.<br />
+                            <input type='radio' name='perg1' value='opt4' />Uma divisão da música em partes menores igualmente espaçadas.<br />
+                            <input type='radio' name='perg1' value='opt5' />Um agrupamento de músicas.<br />
                         </p>
                         <p>
-                            <label>2 -A distância de 2 tons pode ser encontrada entre as notas:</label><br />
-                            <input type="radio" name="perg2" value="opt1" />F,B<br />
-                            <input type="radio" name="perg2" value="opt2" />A,E<br />
-                            <input type="radio" name="perg2" value="opt3" />F,G<br />
-                            <input type="radio" name="perg2" value="opt4" />C,F<br />
-                            <input type="radio" name="perg2" value="opt5" />D,F#<br />
+                            <label>2 -O acorde Dm7(9) possui ao todo:</label><br />
+                            <input type='radio' name='perg2' value='opt1' />uma tríade.<br />
+                            <input type='radio' name='perg2' value='opt2' />uma tétrade.<br />
+                            <input type='radio' name='perg2' value='opt3' />uma tríade e o nono grau.<br />
+                            <input type='radio' name='perg2' value='opt4' />uma tétrade e o nono grau.<br />
+                            <input type='radio' name='perg2' value='opt5' />uma tríade, o quarto e o nono graus.<br />
                         </p>
                         <p>
-                            <label>3 -Imagine que duas pessoas estão cantando a mesma nota. Você poderia afirmar que esses dois sons são diferentes por que:</label><br />
-                            <input type="radio" name="perg3" value="opt1" />pessoas diferentes possuem timbres diferentes de voz<br />
-                            <input type="radio" name="perg3" value="opt2" />cada pessoa aprende uma técnica vocal diferente<br />
-                            <input type="radio" name="perg3" value="opt3" />vozes diferentes são cantadas em tons diferentes<br />
-                            <input type="radio" name="perg3" value="opt4" />quando duas pessoas cantam ao mesmo tempo, as notas se distanciam por um semitom<br />
-                            <input type="radio" name="perg3" value="opt5" />você não pode afirmar que os sons são diferentes, pois não conhece as pessoas<br />
+                            <label>3 -A tétrade de um acorde é formada pelos graus:</label><br />
+                            <input type='radio' name='perg3' value='opt1' />1º, 3º, 5º e 6º<br />
+                            <input type='radio' name='perg3' value='opt2' />1º, 2º, 5º, 7º<br />
+                            <input type='radio' name='perg3' value='opt3' />1º, 3º, 6º, 7º<br />
+                            <input type='radio' name='perg3' value='opt4' />1º, 3º, 4º, 5º<br />
+                            <input type='radio' name='perg3' value='opt5' />1º, 3º, 5º, 7º<br />
                         </p>
                         <p>
-                            <label>4 -Conhecendo as definições de melodia e harmonia, podemos concluir que alguns instrumentos são classificados como harmônicos, enquanto outros são apenas melódicos. Um exemplo de instrumento harmônico é o(a):</label><br />
-                            <input type="radio" name="perg4" value="opt1" />saxofone<br />
-                            <input type="radio" name="perg4" value="opt2" />cavaquinho<br />
-                            <input type="radio" name="perg4" value="opt3" />pandeiro<br />
-                            <input type="radio" name="perg4" value="opt4" />bateria<br />
-                            <input type="radio" name="perg4" value="opt5" />flauta<br />
+                            <label>4 -Sobre a notação dos dedos para o violão, podemos afirmar que:</label><br />
+                            <input type='radio' name='perg4' value='opt1' />cada dedo possui um número aleatório.<br />
+                            <input type='radio' name='perg4' value='opt2' />os dedos da mão esquerda são numerados do número 5 ao 9.<br />
+                            <input type='radio' name='perg4' value='opt3' />os dedos da mão esquerda são numerados do número 1 ao 4, onde o dedo mínimo é o 1 e o indicador é o dedo 4.<br />
+                            <input type='radio' name='perg4' value='opt4' />os dedos da mão esquerda são numerados do número 1 ao 4, onde o dedo mínimo é o 4 e o indicador é o dedo 1.<br />
+                            <input type='radio' name='perg4' value='opt5' />ninguém utiliza numeração para os dedos na prática pois não é útil.<br />
                         </p>
                         <p>
-                            <label>5 -Marque a alternativa verdadeira:</label><br />
-                            <input type="radio" name="perg5" value="opt1" />Música é a combinação de sons e silêncios de maneira desorganizada<br />
-                            <input type="radio" name="perg5" value="opt2" />Tons e semitons são a mesma coisa<br />
-                            <input type="radio" name="perg5" value="opt3" />Timbre é o que diferencia duas notas diferentes tocadas no mesmo instrumento<br />
-                            <input type="radio" name="perg5" value="opt4" />Instrumentos diferentes possuem notas necessariamente diferentes<br />
-                            <input type="radio" name="perg5" value="opt5" />Uma mesma música pode ser reproduzida com diferentes timbres<br />
+                            <label>5 -Cifra é:</label><br />
+                            <input type='radio' name='perg5' value='opt1' />uma notação para representar os nomes e símbolos dos acordes<br />
+                            <input type='radio' name='perg5' value='opt2' />um símbolo que informa quantos compassos uma música possui<br />
+                            <input type='radio' name='perg5' value='opt3' />somente o desenho de um acorde montado em um instrumento<br />
+                            <input type='radio' name='perg5' value='opt4' />uma representação para acordes com mais de 3 notas<br />
+                            <input type='radio' name='perg5' value='opt5' />uma letra que informa qual a oitava que uma nota deve ser tocada<br />
                         </p>
                         <p>
-                            <label>6 -A nota D# é idêntica à nota:</label><br />
-                            <input type="radio" name="perg6" value="opt1" />F<br />
-                            <input type="radio" name="perg6" value="opt2" />C#<br />
-                            <input type="radio" name="perg6" value="opt3" />Eb<br />
-                            <input type="radio" name="perg6" value="opt4" />Gb<br />
-                            <input type="radio" name="perg6" value="opt5" />Ab<br />
+                            <label>6 -Tocar um arpejo significa tocar:</label><br />
+                            <input type='radio' name='perg6' value='opt1' />duas ou mais notas sucessivamente<br />
+                            <input type='radio' name='perg6' value='opt2' />duas ou mais notas simultaneamente<br />
+                            <input type='radio' name='perg6' value='opt3' />notas de acorde simultaneamente<br />
+                            <input type='radio' name='perg6' value='opt4' />notas de acorde sucessivamente<br />
+                            <input type='radio' name='perg6' value='opt5' />acordes sucessivos<br />
                         </p>
                         <p>
-                            <label>7 -Um tom e meio acima de Lá corresponde à nota:</label><br />
-                            <input type="radio" name="perg7" value="opt1" />F<br />
-                            <input type="radio" name="perg7" value="opt2" />G<br />
-                            <input type="radio" name="perg7" value="opt3" />C<br />
-                            <input type="radio" name="perg7" value="opt4" />Bb<br />
-                            <input type="radio" name="perg7" value="opt5" />Db<br />
+                            <label>7 -Para que uma tríade vire uma tétrade, precisamos acrescentar:</label><br />
+                            <input type='radio' name='perg7' value='opt1' />o sétimo grau<br />
+                            <input type='radio' name='perg7' value='opt2' />o terceiro grau<br />
+                            <input type='radio' name='perg7' value='opt3' />o quinto grau<br />
+                            <input type='radio' name='perg7' value='opt4' />o segundo grau<br />
+                            <input type='radio' name='perg7' value='opt5' />o sexto grau<br />
                         </p>
                         <p>
-                            <label>8 -O símbolo “#” representa a distância de:</label><br />
-                            <input type="radio" name="perg8" value="opt1" />um tom acima<br />
-                            <input type="radio" name="perg8" value="opt2" />um tom abaixo<br />
-                            <input type="radio" name="perg8" value="opt3" />meio tom acima<br />
-                            <input type="radio" name="perg8" value="opt4" />meio tom abaixo<br />
-                            <input type="radio" name="perg8" value="opt5" />a distância vai depender da nota<br />
+                            <label>8 -Marque a alternativa INCORRETA:</label><br />
+                            <input type='radio' name='perg8' value='opt1' />o acorde de Ré maior é formado pelas notas D, F#, A<br />
+                            <input type='radio' name='perg8' value='opt2' />um acorde menor natural possui a quinta justa<br />
+                            <input type='radio' name='perg8' value='opt3' />um acorde suspenso pode ter a terça maior ou a terça menor<br />
+                            <input type='radio' name='perg8' value='opt4' />tríades e tétrades são notas de formação de acordes<br />
+                            <input type='radio' name='perg8' value='opt5' />o site Descomplicando a Música tem como objetivo facilitar o seu aprendizado<br />
                         </p>
                         <p>
-                            <label>9 -A música ocidental foi dividida em:</label><br />
-                            <input type="radio" name="perg9" value="opt1" />12 notas<br />
-                            <input type="radio" name="perg9" value="opt2" />10 notas<br />
-                            <input type="radio" name="perg9" value="opt3" />8 notas<br />
-                            <input type="radio" name="perg9" value="opt4" />3 notas<br />
-                            <input type="radio" name="perg9" value="opt5" />infinitas notas<br />
+                            <label>9 -O segundo grau aumentado está a que distância da tônica:</label><br />
+                            <input type='radio' name='perg9' value='opt1' />um tom<br />
+                            <input type='radio' name='perg9' value='opt2' />um tom e meio<br />
+                            <input type='radio' name='perg9' value='opt3' />meio tom<br />
+                            <input type='radio' name='perg9' value='opt4' />dois tons<br />
+                            <input type='radio' name='perg9' value='opt5' />dois tons e meio<br />
                         </p>
                         <p>
-                            <label>10 -Podemos afirmar que:</label><br />
-                            <input type="radio" name="perg10" value="opt1" />Ao mudar um ritmo, estamos mudando também a harmonia<br />
-                            <input type="radio" name="perg10" value="opt2" />Uma mesma melodia pode ser tocada em diferentes ritmos<br />
-                            <input type="radio" name="perg10" value="opt3" />O ritmo de uma música depende do timbre dos cantores<br />
-                            <input type="radio" name="perg10" value="opt4" />Timbres diferentes resultam em melodias diferentes<br />
-                            <input type="radio" name="perg10" value="opt5" />Uma pessoa que não entende nada de harmonia nunca vai conseguir aprender<br />
+                            <label>10 -É importante conhecer os graus que formam uma tríade, pois:</label><br />
+                            <input type='radio' name='perg10' value='opt1' />a tríade informa em qual oitava o acorde está localizado<br />
+                            <input type='radio' name='perg10' value='opt2' />a tríade não informa se um acorde é maior ou menor, mas informa se o acorde é suspenso<br />
+                            <input type='radio' name='perg10' value='opt3' />o quinto grau da tríade define se o acorde é maior ou menor<br />
+                            <input type='radio' name='perg10' value='opt4' />sabendo os graus que formam uma tríade, podemos montar qualquer acorde natural<br />
+                            <input type='radio' name='perg10' value='opt5' />não é importante saber o que é tríade, pois isso não serve pra nada<br />
                         </p>
-                        <input type="submit" value="Ver Resultado"/>
+                        <input type='submit' value='Ver Resultado'/>
                     </article>
                     
-                </form>
-                <?php
-                    $sqlQuest = "SELECT * from cadastro where id=$id";
-                    $resultQuest = mysqli_query($conn, $sqlQuest);
+                </form>";
+          }else{
+            echo 
+                "<nav class='navbar navbar-expand-lg navbar-light'>
+                <a class='navbar-brand' href='#'><img src='/musiclly/www/galeria/logo.png' class='img-fluid' id='logoNavBar'></a>
+                <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation'>
+                    <span class='navbar-toggler-icon'></span>
+                </button>
+    <div class='collapse navbar-collapse' id='navbarNavAltMarkup'>
+      <div class='navbar-nav'>
+        
+        <a class='nav-item nav-link' href='#' id='contatoNavBar'><button type='button' class='btn' style='color:#1778aa'>Contato</button></a>
+        <a class='nav-item nav-link' href='#' id='entrarNavBar'><button type='button' class='btn' style='color:#f27d16'>Entrar</button></a>
+        <a class='nav-item nav-link' href='#' id='cadastrarNavBar'><button type='button' class='btn btn-warning' id='cadastrarNavBarButton'>Cadastrar</button></a>
+        
+      </div>
+      
+    </div>
+    </nav>
+
+
+    <fieldset style='width: 60% ;margin-top: 20%;margin-left:15%;background-color:white;border: 2px solid red;border-radius:15px;padding:15px'><img src='/musiclly/www/galeria/cadeado.png' style='margin-left:35%'><p style='text-align:center;font-size:50px;font-family: roboto;color:red;font-weight: bold'>Conteúdo BLOQUEADO!</p><a href='/musiclly/painel.php' style='text-decoration:none' id='linkCadeado'><p style='text-align:center;font-size:20px;font-family: roboto;color:darkorange;font-weight: bold'>Seu Progresso está em <span style='color:#1778aa;'>".$row['progresso']."%</span> conclua todos os Tópicos!</p></a></fieldset>";
+          }
                     
                 ?>
             

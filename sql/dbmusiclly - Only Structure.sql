@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11-Out-2019 às 20:40
+-- Tempo de geração: 14-Out-2019 às 23:42
 -- Versão do servidor: 10.4.6-MariaDB
 -- versão do PHP: 7.3.8
 
@@ -42,6 +42,23 @@ CREATE TABLE `cadastro` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `comentarios`
+--
+
+CREATE TABLE `comentarios` (
+  `id` int(11) NOT NULL,
+  `titulo` varchar(255) DEFAULT NULL,
+  `descricao` text DEFAULT NULL,
+  `dataEnviada` varchar(255) DEFAULT NULL,
+  `hora` varchar(255) DEFAULT NULL,
+  `avaliacao` int(11) DEFAULT NULL,
+  `sessao` int(11) DEFAULT NULL,
+  `id_cad` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `curiosidades`
 --
 
@@ -59,7 +76,8 @@ CREATE TABLE `curiosidades` (
 CREATE TABLE `tbl_cad_curso` (
   `id_Cad` int(11) DEFAULT NULL,
   `id_Curso` int(11) DEFAULT NULL,
-  `nota` int(11) DEFAULT 0
+  `nota` int(11) DEFAULT 0,
+  `progresso` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -84,6 +102,13 @@ CREATE TABLE `tbl_curso` (
 ALTER TABLE `cadastro`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_Curiosidades` (`fk_Curiosidades`);
+
+--
+-- Índices para tabela `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_cad` (`id_cad`);
 
 --
 -- Índices para tabela `curiosidades`
@@ -115,6 +140,12 @@ ALTER TABLE `cadastro`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de tabela `comentarios`
+--
+ALTER TABLE `comentarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `curiosidades`
 --
 ALTER TABLE `curiosidades`
@@ -135,6 +166,12 @@ ALTER TABLE `tbl_curso`
 --
 ALTER TABLE `cadastro`
   ADD CONSTRAINT `cadastro_ibfk_1` FOREIGN KEY (`fk_Curiosidades`) REFERENCES `curiosidades` (`id_Curiosidades`);
+
+--
+-- Limitadores para a tabela `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD CONSTRAINT `comentarios_ibfk_1` FOREIGN KEY (`id_cad`) REFERENCES `cadastro` (`id`);
 
 --
 -- Limitadores para a tabela `tbl_cad_curso`

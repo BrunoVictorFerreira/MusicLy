@@ -232,13 +232,14 @@
                     
                     
                     ?>
-                    <div id="menuUsuarioExpandido" style="background-color:#fafdff;border:1px solid #1778aa;height: 200px;width: 15%;position:absolute;z-index:1;margin-left: 70%;margin-top: 4%;border-radius: 5px">
-                    <a href="/musiclly/painel.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Meu Perfil</a>
-                    <a href="/musiclly/alterar_senha.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Senha</a>
-                    <a href="/musiclly/alterar_usuario" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Usuário</a>
-                    <a href="/musiclly/alterar_email" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Email</a>
-                    <a href="/musiclly/logout.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Logout</a>
-                    </div>
+                    <div id="menuUsuarioExpandido" style="background-color:#fafdff;border:1px solid #1778aa;height: 250px;width: 15%;position:absolute;z-index:1;margin-left: 70%;margin-top: 5%;border-radius: 5px">
+          <a href="/musiclly/painel.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Meu Perfil</a>
+          <a href="/musiclly/alterar_senha.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Senha</a>
+          <a href="/musiclly/alterar_usuario" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Usuário</a>
+          <a href="/musiclly/alterar_email" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Email</a>
+          <a href="/musiclly/notas.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Notas</a>
+          <a href="/musiclly/logout.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Logout</a>
+        </div>
                   
         </nav>
         <!-- FECHAMENTO NAVBAR ===============-->
@@ -399,99 +400,125 @@
 
           
         
-
+        
          
         <div class="container" style="height: 1000px"><!--ABERTURA DA DIV CONTAINER -->
-            
-                <form action="\Musiclly\modulos\questionarios\results\ver_result_1.php" method="POST">
+        <?php
+          $verificadorProg = "SELECT * from tbl_cad_curso where id_cad = $id and id_Curso = 1";
+          $resultProg = mysqli_query($conn, $verificadorProg);
+          $row = mysqli_fetch_assoc($resultProg);
+          if($row['progresso'] == 100){
+                echo "<form action='\Musiclly\modulos\questionarios\results\ver_result_1.php' method='POST'>
                     <article>
                         <p>
                             <label>1 -A nota Sol bemol é representada pela sigla:</label><br />
-                            <input type="radio" name="perg1" value="opt1" />Bc<br />
-                            <input type="radio" name="perg1" value="opt2" />Cb<br />
-                            <input type="radio" name="perg1" value="opt3" />Bg<br />
-                            <input type="radio" name="perg1" value="opt4" />Gb<br />
-                            <input type="radio" name="perg1" value="opt5" />GG<br />
+                            <input type='radio' name='perg1' value='opt1' />Bc<br />
+                            <input type='radio' name='perg1' value='opt2' />Cb<br />
+                            <input type='radio' name='perg1' value='opt3' />Bg<br />
+                            <input type='radio' name='perg1' value='opt4' />Gb<br />
+                            <input type='radio' name='perg1' value='opt5' />GG<br />
                         </p>
                         <p>
                             <label>2 -A distância de 2 tons pode ser encontrada entre as notas:</label><br />
-                            <input type="radio" name="perg2" value="opt1" />F,B<br />
-                            <input type="radio" name="perg2" value="opt2" />A,E<br />
-                            <input type="radio" name="perg2" value="opt3" />F,G<br />
-                            <input type="radio" name="perg2" value="opt4" />C,F<br />
-                            <input type="radio" name="perg2" value="opt5" />D,F#<br />
+                            <input type='radio' name='perg2' value='opt1' />F,B<br />
+                            <input type='radio' name='perg2' value='opt2' />A,E<br />
+                            <input type='radio' name='perg2' value='opt3' />F,G<br />
+                            <input type='radio' name='perg2' value='opt4' />C,F<br />
+                            <input type='radio' name='perg2' value='opt5' />D,F#<br />
                         </p>
                         <p>
                             <label>3 -Imagine que duas pessoas estão cantando a mesma nota. Você poderia afirmar que esses dois sons são diferentes por que:</label><br />
-                            <input type="radio" name="perg3" value="opt1" />pessoas diferentes possuem timbres diferentes de voz<br />
-                            <input type="radio" name="perg3" value="opt2" />cada pessoa aprende uma técnica vocal diferente<br />
-                            <input type="radio" name="perg3" value="opt3" />vozes diferentes são cantadas em tons diferentes<br />
-                            <input type="radio" name="perg3" value="opt4" />quando duas pessoas cantam ao mesmo tempo, as notas se distanciam por um semitom<br />
-                            <input type="radio" name="perg3" value="opt5" />você não pode afirmar que os sons são diferentes, pois não conhece as pessoas<br />
+                            <input type='radio' name='perg3' value='opt1' />pessoas diferentes possuem timbres diferentes de voz<br />
+                            <input type='radio' name='perg3' value='opt2' />cada pessoa aprende uma técnica vocal diferente<br />
+                            <input type='radio' name='perg3' value='opt3' />vozes diferentes são cantadas em tons diferentes<br />
+                            <input type='radio' name='perg3' value='opt4' />quando duas pessoas cantam ao mesmo tempo, as notas se distanciam por um semitom<br />
+                            <input type='radio' name='perg3' value='opt5' />você não pode afirmar que os sons são diferentes, pois não conhece as pessoas<br />
                         </p>
                         <p>
                             <label>4 -Conhecendo as definições de melodia e harmonia, podemos concluir que alguns instrumentos são classificados como harmônicos, enquanto outros são apenas melódicos. Um exemplo de instrumento harmônico é o(a):</label><br />
-                            <input type="radio" name="perg4" value="opt1" />saxofone<br />
-                            <input type="radio" name="perg4" value="opt2" />cavaquinho<br />
-                            <input type="radio" name="perg4" value="opt3" />pandeiro<br />
-                            <input type="radio" name="perg4" value="opt4" />bateria<br />
-                            <input type="radio" name="perg4" value="opt5" />flauta<br />
+                            <input type='radio' name='perg4' value='opt1' />saxofone<br />
+                            <input type='radio' name='perg4' value='opt2' />cavaquinho<br />
+                            <input type='radio' name='perg4' value='opt3' />pandeiro<br />
+                            <input type='radio' name='perg4' value='opt4' />bateria<br />
+                            <input type='radio' name='perg4' value='opt5' />flauta<br />
                         </p>
                         <p>
                             <label>5 -Marque a alternativa verdadeira:</label><br />
-                            <input type="radio" name="perg5" value="opt1" />Música é a combinação de sons e silêncios de maneira desorganizada<br />
-                            <input type="radio" name="perg5" value="opt2" />Tons e semitons são a mesma coisa<br />
-                            <input type="radio" name="perg5" value="opt3" />Timbre é o que diferencia duas notas diferentes tocadas no mesmo instrumento<br />
-                            <input type="radio" name="perg5" value="opt4" />Instrumentos diferentes possuem notas necessariamente diferentes<br />
-                            <input type="radio" name="perg5" value="opt5" />Uma mesma música pode ser reproduzida com diferentes timbres<br />
+                            <input type='radio' name='perg5' value='opt1' />Música é a combinação de sons e silêncios de maneira desorganizada<br />
+                            <input type='radio' name='perg5' value='opt2' />Tons e semitons são a mesma coisa<br />
+                            <input type='radio' name='perg5' value='opt3' />Timbre é o que diferencia duas notas diferentes tocadas no mesmo instrumento<br />
+                            <input type='radio' name='perg5' value='opt4' />Instrumentos diferentes possuem notas necessariamente diferentes<br />
+                            <input type='radio' name='perg5' value='opt5' />Uma mesma música pode ser reproduzida com diferentes timbres<br />
                         </p>
                         <p>
                             <label>6 -A nota D# é idêntica à nota:</label><br />
-                            <input type="radio" name="perg6" value="opt1" />F<br />
-                            <input type="radio" name="perg6" value="opt2" />C#<br />
-                            <input type="radio" name="perg6" value="opt3" />Eb<br />
-                            <input type="radio" name="perg6" value="opt4" />Gb<br />
-                            <input type="radio" name="perg6" value="opt5" />Ab<br />
+                            <input type='radio' name='perg6' value='opt1' />F<br />
+                            <input type='radio' name='perg6' value='opt2' />C#<br />
+                            <input type='radio' name='perg6' value='opt3' />Eb<br />
+                            <input type='radio' name='perg6' value='opt4' />Gb<br />
+                            <input type='radio' name='perg6' value='opt5' />Ab<br />
                         </p>
                         <p>
                             <label>7 -Um tom e meio acima de Lá corresponde à nota:</label><br />
-                            <input type="radio" name="perg7" value="opt1" />F<br />
-                            <input type="radio" name="perg7" value="opt2" />G<br />
-                            <input type="radio" name="perg7" value="opt3" />C<br />
-                            <input type="radio" name="perg7" value="opt4" />Bb<br />
-                            <input type="radio" name="perg7" value="opt5" />Db<br />
+                            <input type='radio' name='perg7' value='opt1' />F<br />
+                            <input type='radio' name='perg7' value='opt2' />G<br />
+                            <input type='radio' name='perg7' value='opt3' />C<br />
+                            <input type='radio' name='perg7' value='opt4' />Bb<br />
+                            <input type='radio' name='perg7' value='opt5' />Db<br />
                         </p>
                         <p>
                             <label>8 -O símbolo “#” representa a distância de:</label><br />
-                            <input type="radio" name="perg8" value="opt1" />um tom acima<br />
-                            <input type="radio" name="perg8" value="opt2" />um tom abaixo<br />
-                            <input type="radio" name="perg8" value="opt3" />meio tom acima<br />
-                            <input type="radio" name="perg8" value="opt4" />meio tom abaixo<br />
-                            <input type="radio" name="perg8" value="opt5" />a distância vai depender da nota<br />
+                            <input type='radio' name='perg8' value='opt1' />um tom acima<br />
+                            <input type='radio' name='perg8' value='opt2' />um tom abaixo<br />
+                            <input type='radio' name='perg8' value='opt3' />meio tom acima<br />
+                            <input type='radio' name='perg8' value='opt4' />meio tom abaixo<br />
+                            <input type='radio' name='perg8' value='opt5' />a distância vai depender da nota<br />
                         </p>
                         <p>
                             <label>9 -A música ocidental foi dividida em:</label><br />
-                            <input type="radio" name="perg9" value="opt1" />12 notas<br />
-                            <input type="radio" name="perg9" value="opt2" />10 notas<br />
-                            <input type="radio" name="perg9" value="opt3" />8 notas<br />
-                            <input type="radio" name="perg9" value="opt4" />3 notas<br />
-                            <input type="radio" name="perg9" value="opt5" />infinitas notas<br />
+                            <input type='radio' name='perg9' value='opt1' />12 notas<br />
+                            <input type='radio' name='perg9' value='opt2' />10 notas<br />
+                            <input type='radio' name='perg9' value='opt3' />8 notas<br />
+                            <input type='radio' name='perg9' value='opt4' />3 notas<br />
+                            <input type='radio' name='perg9' value='opt5' />infinitas notas<br />
                         </p>
                         <p>
                             <label>10 -Podemos afirmar que:</label><br />
-                            <input type="radio" name="perg10" value="opt1" />Ao mudar um ritmo, estamos mudando também a harmonia<br />
-                            <input type="radio" name="perg10" value="opt2" />Uma mesma melodia pode ser tocada em diferentes ritmos<br />
-                            <input type="radio" name="perg10" value="opt3" />O ritmo de uma música depende do timbre dos cantores<br />
-                            <input type="radio" name="perg10" value="opt4" />Timbres diferentes resultam em melodias diferentes<br />
-                            <input type="radio" name="perg10" value="opt5" />Uma pessoa que não entende nada de harmonia nunca vai conseguir aprender<br />
+                            <input type='radio' name='perg10' value='opt1' />Ao mudar um ritmo, estamos mudando também a harmonia<br />
+                            <input type='radio' name='perg10' value='opt2' />Uma mesma melodia pode ser tocada em diferentes ritmos<br />
+                            <input type='radio' name='perg10' value='opt3' />O ritmo de uma música depende do timbre dos cantores<br />
+                            <input type='radio' name='perg10' value='opt4' />Timbres diferentes resultam em melodias diferentes<br />
+                            <input type='radio' name='perg10' value='opt5' />Uma pessoa que não entende nada de harmonia nunca vai conseguir aprender<br />
                         </p>
-                        <input type="submit" value="Ver Resultado"/>
+                        <input type='submit' value='Ver Resultado'/>
                     </article>
                     
-                </form>
+                </form>";
                 
             
-            
+              }else{
+                echo 
+                "<nav class='navbar navbar-expand-lg navbar-light'>
+                <a class='navbar-brand' href='#'><img src='/musiclly/www/galeria/logo.png' class='img-fluid' id='logoNavBar'></a>
+                <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation'>
+                    <span class='navbar-toggler-icon'></span>
+                </button>
+    <div class='collapse navbar-collapse' id='navbarNavAltMarkup'>
+      <div class='navbar-nav'>
+        
+        <a class='nav-item nav-link' href='#' id='contatoNavBar'><button type='button' class='btn' style='color:#1778aa'>Contato</button></a>
+        <a class='nav-item nav-link' href='#' id='entrarNavBar'><button type='button' class='btn' style='color:#f27d16'>Entrar</button></a>
+        <a class='nav-item nav-link' href='#' id='cadastrarNavBar'><button type='button' class='btn btn-warning' id='cadastrarNavBarButton'>Cadastrar</button></a>
+        
+      </div>
+      
+    </div>
+    </nav>
+
+
+    <fieldset style='width: 60% ;margin-top: 20%;margin-left:15%;background-color:white;border: 2px solid red;border-radius:15px;padding:15px'><img src='/musiclly/www/galeria/cadeado.png' style='margin-left:35%'><p style='text-align:center;font-size:50px;font-family: roboto;color:red;font-weight: bold'>Conteúdo BLOQUEADO!</p><a href='/musiclly/painel.php' style='text-decoration:none' id='linkCadeado'><p style='text-align:center;font-size:20px;font-family: roboto;color:darkorange;font-weight: bold'>Seu Progresso está em <span style='color:#1778aa;'>".$row['progresso']."%</span> conclua todos os Tópicos!</p></a></fieldset>";
+              }
+              ?>
                 
               </div>
             </div>

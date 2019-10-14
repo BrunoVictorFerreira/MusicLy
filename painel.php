@@ -289,11 +289,12 @@ if (mysqli_num_rows($result) > 0) {
 
 
         ?>
-        <div id="menuUsuarioExpandido" style="background-color:#fafdff;border:1px solid #1778aa;height: 200px;width: 15%;position:absolute;z-index:1;margin-left: 70%;margin-top: 4%;border-radius: 5px">
+        <div id="menuUsuarioExpandido" style="background-color:#fafdff;border:1px solid #1778aa;height: 250px;width: 15%;position:absolute;z-index:1;margin-left: 70%;margin-top: 5%;border-radius: 5px">
           <a href="/musiclly/painel.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Meu Perfil</a>
           <a href="/musiclly/alterar_senha.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Senha</a>
           <a href="/musiclly/alterar_usuario" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Usuário</a>
           <a href="/musiclly/alterar_email" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Email</a>
+          <a href="/musiclly/notas.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Notas</a>
           <a href="/musiclly/logout.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Logout</a>
         </div>
 
@@ -327,22 +328,22 @@ if (mysqli_num_rows($result) > 0) {
             </div>
             <div class="modal-body">
               <p><b>O que Contém no Módulo 1?</b></p>
-              <a href="">
+              <a href="/musiclly/modulos/OQueEMusica.php">
                 <p>O que é Musica?</p>
               </a>
-              <a href="">
+              <a href="/musiclly/modulos/NotasMusicais.php">
                 <p>Notas Musicais</p>
               </a>
-              <a href="">
+              <a href="/musiclly/modulos/timbre.php">
                 <p>Timbre</p>
               </a>
-              <a href="">
+              <a href="/musiclly/modulos/SustenidoEBemol.php">
                 <p>Sustenido e Bemol</p>
               </a>
-              <a href="">
+              <a href="/musiclly/modulos/TomESemitom.php">
                 <p>Tom e Semitom</p>
               </a>
-              <a href="">
+              <a href="/musiclly/modulos/NotasNoInstrumento.php">
                 <p>Notas no instrumento</p>
               </a>
               <a href="/musiclly/modulos/questionarios/modulo_1_Quest.php">
@@ -368,13 +369,13 @@ if (mysqli_num_rows($result) > 0) {
             </div>
             <div class="modal-body">
               <p><b>O que Contém no Módulo 2?</b></p>
-              <a href=""><p>Escalas Musicais</p></a>
-              <a href=""><p>Desenho de escala alternativo</p></a>
-              <a href=""><p>Graus Musicais</p></a>
-              <a href=""><p>Diminuta aumentada e justa</p></a>
-              <a href=""><p>Oitavas</p></a>
-              <a href=""><p>Definição de Acorde</p></a>
-              <a href=""><p>Tríade</p></a>
+              <a href="/musiclly/modulos/EscalasMusicais.php"><p>Escalas Musicais</p></a>
+              <a href="/musiclly/modulos/DesenhoDeEscalaAlternativo.php"><p>Desenho de escala alternativo</p></a>
+              <a href="/musiclly/modulos/GrausMusicais.php"><p>Graus Musicais</p></a>
+              <a href="/musiclly/modulos/DiminutaAumentadaEJusta.php"><p>Diminuta aumentada e justa</p></a>
+              <a href="/musiclly/modulos/Oitavas.php"><p>Oitavas</p></a>
+              <a href="/musiclly/modulos/DefinicaoDeAcorde.php"><p>Definição de Acorde</p></a>
+              <a href="/musiclly/modulos/Triade.php"><p>Tríade</p></a>
               <a href="/musiclly/modulos/questionarios/modulo_2_Quest.php"><p>Questionário - <b>Módulo 2</b></p></a>
             </div>
             <div class="modal-footer">
@@ -396,14 +397,14 @@ if (mysqli_num_rows($result) > 0) {
             </div>
             <div class="modal-body">
               <p><b>O que Contém no Módulo 3?</b></p>
-              <p>Tétrade</p>
-              <p>Graus Musicais - complementar</p>
-              <p>O que são cifras</p>
-              <p>O que é um compasso</p>
-              <p>Notação dos dedos para violão</p>
-              <p>O que é arpejo</p>
-              <p>Formação de Acordes</p>
-              <p>Questionário - <b>Módulo 3</b></p>
+              <a href=""><p>Tétrade</p></a>
+              <a href=""><p>Graus Musicais - complementar</p></a>
+              <a href=""><p>O que são cifras</p></a>
+              <a href=""><p>O que é um compasso</p></a>
+              <a href=""><p>Notação dos dedos para violão</p></a>
+              <a href=""><p>O que é arpejo</p></a>
+              <a href=""><p>Formação de Acordes</p></a>
+              <a href="/musiclly/modulos/questionarios/modulo_3_Quest.php"><p>Questionário - <b>Módulo 3</b></p></a>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -423,15 +424,15 @@ if (mysqli_num_rows($result) > 0) {
               </button>
             </div>
             <div class="modal-body">
-              <p><b>O que Contém no Módulo 4?</b></p>
-              <p>Nome dos Acordes</p>
-              <p>Como escrever Cifras</p>
-              <p>Campo Harmonico</p>
-              <p>Termos Musicais</p>
-              <p>Escala Cromática</p>
-              <p>Improvisação Musical</p>
-              <p>Como fazer Segunda Voz</p>
-              <p>Questionário - <b>Módulo 4</b></p>
+              <p><b>O que Contém no Módulo 4?</b></p></a>
+              <a href=""><p>Nome dos Acordes</p></a>
+              <a href=""><p>Como escrever Cifras</p></a>
+              <a href=""><p>Campo Harmonico</p></a>
+              <a href=""><p>Termos Musicais</p></a>
+              <a href=""><p>Escala Cromática</p></a>
+              <a href=""><p>Improvisação Musical</p></a>
+              <a href=""><p>Como fazer Segunda Voz</p></a>
+              <a href=""><p>Questionário - <b>Módulo 4</b></p></a>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -452,14 +453,14 @@ if (mysqli_num_rows($result) > 0) {
             </div>
             <div class="modal-body">
               <p><b>O que Contém no Módulo 5?</b></p>
-              <p>Escalas Relativas</p>
-              <p>Modos Gregos</p>
-              <p>Escala Pentatônica</p>
-              <p>O que é blues</p>
-              <p>Escala Blues</p>
-              <p>Harmonia Funcional</p>
-              <p>Trítono</p>
-              <p>Questionário - <b>Módulo 4</b></p>
+              <a href=""><p>Escalas Relativas</p></a>
+              <a href=""><p>Modos Gregos</p></a>
+              <a href=""><p>Escala Pentatônica</p></a>
+              <a href=""><p>O que é blues</p></a>
+              <a href=""><p>Escala Blues</p></a>
+              <a href=""><p>Harmonia Funcional</p></a>
+              <a href=""><p>Trítono</p></a>
+              <a href=""><p>Questionário - <b>Módulo 4</b></p></a>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -518,7 +519,7 @@ if (mysqli_num_rows($result) > 0) {
           <div class="row" style="height: 36%">
             <div class="col-12" style="margin-top: 5%">
 
-              <div id="dadosExpandidos" style="width: 60%;margin-left:auto;margin-right:auto">
+              <div id="dadosExpandidos" style="width: 100%;margin-left:auto;margin-right:auto">
                 <fieldset style="background-color:#fafdff;border: 1px solid rgba(13,82,189,.2);padding: 10px;border-radius: 10px;border-top: 0px;font-family: roboto">
 
                   <div class="row">
@@ -588,7 +589,7 @@ if (mysqli_num_rows($result) > 0) {
                       $result2 = mysqli_query($conn, $sql2);
                       while ($row2 = mysqli_fetch_assoc($result2)) {
                         
-                        echo "<a href='modulos/modulo" . $c . ".php'><span style='display:block;color:#1778aa;font-weight: bold'>" . $row2['nome'] . "</span></a>";
+                        echo "<a href='modulos/modulo" . $c . ".php'><span style='display:block;color:#1778aa;font-weight: bold;text-align:center'>" . $row2['nome'] . "</span></a>";
                       }
                       ?>
                     </div>
@@ -600,13 +601,9 @@ if (mysqli_num_rows($result) > 0) {
                       $resultSqlnota = mysqli_query($conn, $sqlnota);
                       while($row= mysqli_fetch_assoc($resultSqlnota)){
                         
-                        if($row['nota'] < 40){
-                          echo "<div class='row justify-content-md-center'><div class='col-6' style='background:darkred;border-bottom:1px solid white;width: 100%;color:white;border-radius:10px;font-family:roboto'>".$row['nota']."%"."</div></div>";
-                        }else if($row['nota'] < 60){
-                          echo "<div class='row justify-content-md-center'><div class='col-6' style='background:darkorange;border-bottom:1px solid white;width: 100%;color:white;color:white;border-radius:10px;font-family:roboto'>".$row['nota']."%"."</div></div>";
-                        }else{
-                          echo "<div class='row justify-content-md-center'><div class='col-6' style='background:darkgreen;border-bottom:1px solid white;width: 100%;color:white;color:white;border-radius:10px;font-family:roboto'>".$row['nota']."%"."</div></div>";
-                        }
+                        
+                          echo "<div class='row justify-content-md-center' style='margin-top: 2.5%'><div class='col-12'><div class='progress' style='background-color: white;align:center'><div class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100' style='width: ".$row['progresso']."%;color:#FFA140;font-weight: bold;font-family: roboto'>".$row['progresso']."%</div></div></div></div>";
+                        
                         
                       }
                       

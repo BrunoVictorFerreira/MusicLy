@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
 $serve_file = $_SERVER['DOCUMENT_ROOT'] . "/Musiclly/";
 session_save_path($serve_file . 'cache/temp');
 session_start();
@@ -9,11 +9,11 @@ if (isset($_SESSION['usuario'])) {
     $usuario = $_SESSION['usuario'];
     $id = $_SESSION['id'];
   }
-$verificador = "SELECT * from tbl_cad_curso where id_cad = $id and id_Curso = 1";
+$verificador = "SELECT * from tbl_cad_curso where id_cad = $id and id_Curso = 2";
 $result = mysqli_query($conn, $verificador);
 $row = mysqli_fetch_array($result);
-if($row['progresso'] <= 17){
-  $progresso = "UPDATE tbl_cad_curso SET progresso = 17 where id_cad = $id and id_Curso = 1";
+if($row['progresso'] <= 60){
+  $progresso = "UPDATE tbl_cad_curso SET progresso = 60 where id_cad = $id and id_Curso = 2";
   $resultProg = mysqli_query($conn, $progresso);
 }
 
@@ -138,7 +138,7 @@ if($row['progresso'] <= 17){
                             <a class='nav-item nav-link' href='index.php' id='entrarNavBar' style='color:#1778aa;'>Home</a>
                             <a class='nav-item nav-link' href='cadastro.php' id='cadastrarNavBar' style='color:#1778aa;'>Cursos</a>
                             
-                            <div style='background-color:#fafdff;z-index:2'><a class='nav-item nav-link' id='menuUsuario' href='#' style='margin-left: 300px;display:inline-block'>$usuario<img src='/musiclly/".$img."' style='margin-left: 3%;max-width: 35%;border-radius: 10%;max-height: 35%'></a></div>
+                            <div style='background-color:#fafdff;z-index:2'><a class='nav-item nav-link' id='menuUsuario' href='#' style='margin-left: 300px;display:inline-block'>$usuario<img src='$img' style='margin-left: 3%;max-width: 35%;border-radius: 10%;max-height: 35%'></a></div>
                             
                             <div id='menuUsuarioExpandido' style='background-color:#fafdff;border:1px solid #1778aa;height: 250px;width: 15%;position:absolute;z-index:1;margin-left: 70%;margin-top: 5%;border-radius: 5px'>
           <a href='/musiclly/painel.php' style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Meu Perfil</a>
@@ -159,39 +159,44 @@ if($row['progresso'] <= 17){
             <div class='row'>
                 <div class='col-1'>
                     <div style='height:60%;margin-top: 180%'>
-                        <a href='/musiclly/modulos/OQueEMusica.php'>
+                    <a href='/musiclly/modulos/EscalasMusicais.php'>
                             <div class='circulosModulos'>
-                                <p class='TitleCirculos'>1.1</p>
+                                <p class='TitleCirculos'>2.1</p>
                             </div>
                         </a>
-                        <a href='/musiclly/modulos/NotasMusicais.php'>
+                        <a href='/musiclly/modulos/DesenhoDeEscalaAlternativo.php'>
                             <div class='circulosModulos'>
-                                <p class='TitleCirculos'>1.2</p>
+                                <p class='TitleCirculos'>2.2</p>
                             </div>
                         </a>
-                        <a href='/musiclly/modulos/Timbre.php'>
+                        <a href='/musiclly/modulos/GrausMusicais.php'>
                             <div class='circulosModulos'>
-                                <p class='TitleCirculos'>1.3</p>
+                                <p class='TitleCirculos'>2.3</p>
                             </div>
                         </a>
-                        <a href='/musiclly/modulos/SustenidoEBemol.php'>
+                        <a href='/musiclly/modulos/DiminutaAumentadaEJusta.php'>
                             <div class='circulosModulos'>
-                                <p class='TitleCirculos'>1.4</p>
+                                <p class='TitleCirculos'>2.4</p>
                             </div>
                         </a>
-                        <a href='/musiclly/modulos/TomESemitom.php'>
+                        <a href='/musiclly/modulos/Oitavas.php'>
                             <div class='circulosModulos'>
-                                <p class='TitleCirculos'>1.5</p>
+                                <p class='TitleCirculos'>2.5</p>
                             </div>
                         </a>
-                        <a href='/musiclly/modulos/NotasNoInstrumento.php'>
+                        <a href='/musiclly/modulos/DefinicaoDeAcorde.php'>
                             <div class='circulosModulos'>
-                                <p class='TitleCirculos'>1.6</p>
+                                <p class='TitleCirculos'>2.6</p>
                             </div>
                         </a>
-                        <a href='/musiclly/modulos/questionarios/modulo_1_Quest.php'>
+                        <a href='/musiclly/modulos/Triade.php'>
                             <div class='circulosModulos'>
-                                <p class='TitleCirculos'>1.7</p>
+                                <p class='TitleCirculos'>2.7</p>
+                            </div>
+                        </a>
+                        <a href='/musiclly/modulos/questionarios/modulo_2_Quest.php'>
+                            <div class='circulosModulos'>
+                                <p class='TitleCirculos'>2.8</p>
                             </div>
                         </a>
                     </div>
@@ -199,102 +204,99 @@ if($row['progresso'] <= 17){
                 <div class='col-11'>
                     <p class='text-break'>
 
-                        <h1 class='titulosh1'>1.1 O que é música?</h1>
+                        <h1 class='titulosh1'>2.4 Diminuta Aumentada e Justa</h1>
                         <fieldset style='background-color:white;padding:15px;border: 1px solid #1778aa;border-radius:10px'>
-                            A pergunta “<b class='boldAzul'>o que é música</b>” tem sido alvo de discussão há décadas.Alguns autores defendem que <b class='boldAzul'>música</b> é a combinação de sons e silêncios de uma maneira organizada.
-                            Vamos explicar com um exemplo: Um ruído de rádio emite sons, mas não de uma forma organizada, por isso não é classificado como música. Essa definição parece simples e completa, mas <b class='boldAzul'>definir música</b> não é algo tão óbvio assim. Podemos classificar um alarme de carro como música? Ele emite sons e silêncios de uma maneira organizada, mas garanto que a maioria das pessoas não chamaria esse som de música.
-                            <br /><b style='color:#f27d16'>Então, o que é música afinal?</b><br />
-                            De uma maneira mais didática e abrangente, a música é composta por <b class='boldAzul'>melodia, harmonia e ritmo</b>.
-                            <br /><b style='color:#f27d16'>Melodia</b><br />
-                            Melodia é a voz principal do som, é aquilo que pode ser cantado.
+                            <b style='color:darkorange'>O que significa diminuta, aumentada e justa?</b>
+                            <br />Se você leu o artigo sobre graus, reparou que mencionamos apenas 7 notas da música ocidental (C, D, E, F, G, A, B). Mas e se quiséssemos utilizar uma referência de graus para as demais notas também (C#, D#, F#, G#, A#)? Para isso existe uma definição mais abrangente, como veremos agora:
 
-                            <br /><b style='color:#f27d16'>Harmonia</b><br />
-                            Harmonia é uma sobreposição de notas que servem de base para a melodia. Por exemplo, uma pessoa tocando violão e cantando está fazendo harmonia com os acordes no violão e melodia com a voz. Cada acorde é uma sobreposição de várias notas, como veremos adiante em outros tópicos. Por isso que os acordes fazem parte da harmonia.
-                            Obs: Vale a pena destacar que a melodia não necessariamente é composta por uma única voz; é possível também que ela tenha duas ou mais vozes, apesar de ser menos frequente essa situação. Para diferenciar melodia de harmonia nesse caso, podemos fazer uma comparação com um navio no oceano. O navio representa a harmonia e as pessoas dentro do navio representam a melodia. Tanto o navio quanto as pessoas estão se mexendo, e as pessoas se mexem dentro do navio enquanto ele trafega pelo oceano. Repare que o navio serve de base, suporte, para as pessoas. Elas têm liberdade para se movimentar apenas dentro do navio. Se uma pessoa pular para fora do navio, será desastroso. Com melodia e harmonia, é a mesma coisa.
+                            <br /><br />A primeira nota é representada pelo primeiro grau, como já vimos. Esse grau pode ser chamado também de primeiro grau maior. Vamos utilizar como exemplo de primeiro grau a nota Dó.
 
-                            <br /><b style='color:#f27d16'>Ritmo</b><br />
-                            Ritmo é a marcação do tempo de uma música. Assim como o relógio marca as horas, o ritmo nos diz como acompanhar a música.
-                            Cada um desses três assuntos precisa ser tratado à parte. Um conhecimento aprofundado permite uma manipulação ilimitada de todos os recursos que a música fornece, e é isso o que faz os “sons e silêncios” ficarem tão interessantes para nosso ouvido. Aqui no Descomplicando a Música você vai aprender como trabalhar tudo isso. Afinal, mais importante do que saber o que é música, é saber como trabalhar em cima dela.
+                            <br /><br />Nesse caso, a nota Ré é o segundo grau, também chamado de segundo grau maior. A nota Dó# (ou Ré b), nesse caso, é o segundo grau MENOR.
 
-                            <br /><b style='color:#f27d16'>Prepare-se!</b><br />
+                            <br /><br />Os nomes “segundo grau menor” e “segundo grau maior” geralmente são abreviados para “segundo maior” e “segundo menor”, e o mesmo se aplica aos demais graus maiores e menores.
+
+                            <br /><br />Essa nomenclatura (“maior” e “menor”) existe para indicar se o intervalo (distância entre as notas) é curto ou longo. Intervalos maiores são longos e menores são curtos.
+
+                            <br /><br />Repare que, no exemplo anterior, o “segundo grau maior” representou o intervalo de um tom (pois Ré está um tom acima de Dó), e o “segundo grau menor” representou o intervalo de meio tom (Ré bemol está meio tom acima de Dó).
+
+                            <br /><br />Portanto, esses nomes foram dados apenas para termos uma indicação da distância entre as notas. Expandindo o conceito para todas as notas, partindo de Dó, teremos o seguinte:
+
+                            <br /><br />C    —> Primeiro grau maior
+
+                            <br />Db —> Segundo grau menor
+
+                            <br />D   —> Segundo grau maior
+
+                            <br />Eb—> Terceiro grau menor
+
+                            <br />E   —> Terceiro grau maior
+
+                            <br />F   —> Quarta justa
+
+                            <br />F#—> Quarta aumentada (ou Quinta diminuta: Gb)
+
+                            <br />G  —> Quinta justa
+
+                            <br />G#—> Quinta aumentada (ou sexta menor: Ab)
+
+                            <br />A   —> Sexta maior
+
+                            <br />Bb —> Sétima menor
+
+                            <br />B  —> Sétima maior
+
+                            <br /><br />Provavelmente você está se perguntando por que raios existem os nomes “aumentada”, “justa” e “diminuta”. Bom, saiba que é apenas uma definição, e é esse linguajar que você vai encontrar em qualquer livro de música ou song book.
+
+                            <br /><br />A lógica é a mesma que vimos para os nomes “maior” e “menor”. O nome “aumentada” indica um intervalo mais longo e “diminuta” indica um intervalo mais curto. “Justa” fica no meio entre essas duas.
+
+                            <br /><br />Mas não poderíamos simplesmente utilizar os nomes “maior” e “menor” para todas as notas em vez de utilizar esses “diminuta”, “aumentada” e “justa”? Sim, poderíamos. Então por que existem esses outros nomes?
+
+                            <br /><br />Por enquanto, apenas memorize essas nomenclaturas e o que elas representam. Como você viu, não há nenhum mistério, são apenas nomes dados para graus específicos.
+
+                            <br /><br />Vamos agora exercitar essa nomenclatura partindo de outras notas além de Dó:
+
+                            <br /><br /><img src='/musiclly/www/galeria/diminutaAumentadaEJusta.png' style='max-width: 400px'>
+
+                            <br /><br />Obs: utilizamos nessa tabela apenas sustenidos para ficar mais fácil de enxergar e comparar tudo, mas poderíamos ter mesclado essa tabela com bemóis sem problemas.
+
+                            <br /><br />A partir do sétimo grau, as notas começam a se repetir, pois o 8º grau já é igual ao 1º grau. Seguindo essa lógica:
+
+                            <br /><br />– O 9º grau é igual ao 2º grau.
+                            <br />– O 11º grau é igual ao 4º grau.
+                            <br />– O 13º grau é igual ao 6º grau.
+
+                            <br /><br />Você deve estar se perguntando: se não há necessidade de se falar em graus após o sétimo, pelo fato de se repetir, por que então se usam as notações 9º, 11º e 13º?? Bom, alguns músicos preferem utilizar esses graus para deixar claro qual oitava deve ser utilizada.
+
+                            <br /><br />Por exemplo: se estiver escrito em uma cifra apenas Cm6, provavelmente você irá montar o acorde de dó menor e pegar o sexto grau mais próximo para formar o Cm6. Agora, escrevendo Cm13, você saberia que deve utilizar o sexto grau uma oitava acima, e não o sexto grau mais próximo.
+
+                            <br /><br />A única diferença entre esses dois acordes é uma sonoridade levemente distinta devido à oitava utilizada para o 6º grau (nos próximos tópicos, falaremos tudo o que você precisa saber sobre acordes e cifras, não se preocupe caso não tenha entendido esse exemplo).
+
+                            <br /><br />Quanto à extensão 9ª, ela quase sempre aparece uma oitava acima, por isso é utilizada em vez de 2ª. Mas não se surpreenda ao ver o número 2 em cifras por aí, pois a notação americana gosta de colocar o número 2 ao invés do número 9.
+
+                            <br /><br />É importante você saber detalhes como esse para não ficar com dúvidas sobre essas nomenclaturas.
+
+                            <br /><br />Muito bem, vamos falar agora da utilidade prática dessa notação toda que vimos!
+
+                            <br /><br />Podemos nos referir a qualquer nota que quisermos tomando como base alguma nota de referência, da mesma maneira que fizemos no artigo graus musicais. Tomaremos aqui o mesmo princípio do artigo anterior, pois estamos apenas complementando o assunto.
+
+                            <br /><br />Porém, antes a gente trabalhou em cima da escala de dó maior, pois ao dizer apenas “3º grau”, “6º grau”, etc. não estávamos especificando se o grau era maior, menor, justo, diminuto ou aumentado. Por isso, foi necessário dizer que os graus seriam conforme o formato da escala maior. Agora não será mais necessário se vincular a uma escala, pois vamos especificar cada grau separadamente. Seguem abaixo alguns exemplos (exercícios):
+                            <br /><br />Obs: Por enquanto, estamos falando apenas de notas, não de acordes! Os nomes “<b>aumentada</b>” e “<b>diminuta</b>”, bem como os nomes “maior” e “menor” também aparecem no ramo dos acordes, mas isso é outra abordagem!
+
+                            <br /><br />Cuide para não confundir as coisas, aqui estamos falando apenas de notas e de sua nomenclatura isolada. Quando o assunto é acordes, a nomenclatura tem outro objetivo. Por isso é importante essa distinção. Mantenha isso em mente.
+
                         </fieldset>
                     </p>
-                    <div class='row'>
+                    <div class='row' style='margin-bottom: 50px;'>
                         <div class='col-6'></div>
-                        <div class='col-6'><a href='/musiclly/modulos/NotasMusicais.php' class='proximo'>Ir para 1.2(Notas Musicais) >></a></div>
+                        <div class='col-6'><a href='/musiclly/modulos/Oitavas.php' class='proximo'>Ir para 2.5(Oitavas) >></a></div>
                     </div>
                 </div>
             </div>
-        
-        
-        
-           
-            
-            
-            
-            
+            </div>
             ";
         }
         ?>
- 
-        <div class="row justify-content-center">
-            <div class='col-6' style=''>
-            <fieldset style="background-color:rgba(23,120,170,.1);padding: 0px 10px;border-radius: 5px;margin-top: 10px;margin-bottom: 50px">
-            <legend><h4 style="font-family: roboto;font-size: 20px;color:darkorange;text-shadow: 1px 1px rgba(0,0,0,.2)">Comentários</h4></legend>    
-            
-                
-                <?php
-                    $sqlComent = "SELECT * FROM comentarios where sessao = 1"; 
-                    $resultComent = mysqli_query($conn, $sqlComent);
-                    while($row = mysqli_fetch_assoc($resultComent)){
-                        $id2 = $row['id'];
-                        $sql = "SELECT a.usuario from cadastro as a join comentarios as b on a.id = b.id_cad where b.id = '$id2'";
-                        $result2 = mysqli_query($conn, $sql);
-                        $row23 = mysqli_fetch_assoc($result2);
-                        echo "<div style='padding:2px;border-bottom: 1px solid black'>
-                                <span style='color:#1778aa;font-size: 15px;font-weight: bold;float:left'>".$row['titulo']."</span><br>
-                                <span class='text-break' style='font-size: 12px'>".$row['descricao']."</span><br>
-                                <span style='float:left;font-size: 10px;margin-top: 5px'><b>Feito em:</b> ".$row['dataEnviada']."</span>
-                                <span style='float:right'>".$row23['usuario']."</span><br>
-                                </div>";
-                    }
-                ?>
 
-                <?php
-
-                ?>
-                <fieldset style="width: 100%;padding: 5px;border:1px solid #1778aa;border-radius: 15px;margin-top: 10px;margin-bottom: 15px">
-                <p style="font-size: 12px;color:darkorange;font-weight: bold">Nova Mensagem</p>
-                <form action='' method='POST'>
-                    <label for="titulo" style="width: 100%">Titulo
-                    <input type='text' name="titulo" id="titulo" maxlength="50" style="width: 100%;outline:0;border: 1px solid #1778aa;border-radius:5px">
-                    </label>
-                    <label for="descricao" style="width: 100%">Descrição
-                    <textarea id="descricao" name="descricao" rows='5' maxlength="512" style='width: 100%;border: 1px solid #1778aa;border-radius: 5px;outline:0'></textarea>
-                    </label>
-                    <input type='submit' value='Enviar' style='float:right;margin-top: 5px;border-radius: 10px;background-color:rgba(0,0,0,.0);color:#1778aa;border: 1px solid #1778aa;outline:0'>
-                </form>
-                <?php
-                    if(isset($_POST['titulo'])){
-                    
-                    date_default_timezone_set('America/Sao_Paulo');
-                    $now = new DateTime();
-                    $dateTime = $now->format('d-m-Y H:i:s');
-                    $titulo = $_POST['titulo'];
-                    $descricao = $_POST['descricao'];
-                    $sqlComentInsert = "INSERT into comentarios values(null,'$titulo','$descricao','$dateTime','0',3,1,$id)";
-                    $resultSqlComent = mysqli_query($conn, $sqlComentInsert);
-                    if($resultSqlComent){
-                        echo "<script>alert('Comentário Adicionado!');window.location.href='/musiclly/modulos/OQueEMusica.php';</script>";
-
-                    }
-                }
-                ?>
-                </fieldset>
-                </fieldset>
-            </div>
-        </div>
-</div>
 
 
 

@@ -1,9 +1,13 @@
 <?php
-    include_once("../../php/conexao.php");
-    session_start();
-    if(isset($_SESSION['usuario'])){
-    $usuario = $_SESSION['usuario'];
-    $id = $_SESSION['id'];
+     error_reporting(0);
+     $serve_file = $_SERVER['DOCUMENT_ROOT']."/Musiclly/";
+     session_save_path($serve_file.'cache/temp');
+     session_start();
+     include_once($serve_file.'php/banco.php');
+   session_start();
+   if(isset($_SESSION['usuario'])){
+   $usuario = $_SESSION['usuario'];
+   $id = $_SESSION['id'];
 }
 
     $sql = "SELECT * FROM cadastro where usuario = '{$usuario}'";
@@ -228,13 +232,14 @@
                     
                     
                     ?>
-                    <div id="menuUsuarioExpandido" style="background-color:#fafdff;border:1px solid #1778aa;height: 200px;width: 15%;position:absolute;z-index:1;margin-left: 70%;margin-top: 4%;border-radius: 5px">
-                    <a href="/musiclly/painel.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Meu Perfil</a>
-                    <a href="/musiclly/alterar_senha.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Senha</a>
-                    <a href="/musiclly/alterar_usuario" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Usuário</a>
-                    <a href="/musiclly/alterar_email" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Email</a>
-                    <a href="/musiclly/logout.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Logout</a>
-                    </div>
+                    <div id="menuUsuarioExpandido" style="background-color:#fafdff;border:1px solid #1778aa;height: 250px;width: 15%;position:absolute;z-index:1;margin-left: 70%;margin-top: 5%;border-radius: 5px">
+          <a href="/musiclly/painel.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Meu Perfil</a>
+          <a href="/musiclly/alterar_senha.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Senha</a>
+          <a href="/musiclly/alterar_usuario" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Usuário</a>
+          <a href="/musiclly/alterar_email" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Email</a>
+          <a href="/musiclly/notas.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Notas</a>
+          <a href="/musiclly/logout.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Logout</a>
+        </div>
                   
         </nav>
         <!-- FECHAMENTO NAVBAR ===============-->
@@ -242,7 +247,7 @@
        
         <div class="row">
            <div class="col-12" style="">
-            <div style="border-bottom: 1px solid #f27d16"><div style="padding: 6px;width: 7%;font-family: roboto;border-radius: 5px;font-size: 18px;color:#1778aa;font-weight: bold">Questionário 1</div></div>
+            <div style="border-bottom: 1px solid #f27d16"><div style="padding: 6px;width: 7%;font-family: roboto;border-radius: 5px;font-size: 18px;color:#1778aa;font-weight: bold">Questionário 4</div></div>
            </div>
         
         </div>
@@ -398,100 +403,121 @@
 
          
         <div class="container" style="height: 1000px"><!--ABERTURA DA DIV CONTAINER -->
-            
-                <form action="\Musiclly\modulos\questionarios\results\ver_result_4.php" method="POST">
+        <?php
+          $verificadorProg = "SELECT * from tbl_cad_curso where id_cad = $id and id_Curso = 1";
+          $resultProg = mysqli_query($conn, $verificadorProg);
+          $row = mysqli_fetch_assoc($resultProg);
+          if($row['progresso'] == 100){
+                echo '<form action="\Musiclly\modulos\questionarios\results\ver_result_4.php" method="POST">
                     <article>
                         <p>
-                            <label>1 -A nota Sol bemol é representada pela sigla:</label><br />
-                            <input type="radio" name="perg1" value="opt1" />Bc<br />
-                            <input type="radio" name="perg1" value="opt2" />Cb<br />
-                            <input type="radio" name="perg1" value="opt3" />Bg<br />
-                            <input type="radio" name="perg1" value="opt4" />Gb<br />
-                            <input type="radio" name="perg1" value="opt5" />GG<br />
+                            <label>1 -O acorde Cm7(9) é formado pelas notas:</label><br />
+                            <input type="radio" name="perg1" value="opt1" />C, E, G, B, D<br />
+                            <input type="radio" name="perg1" value="opt2" />C, Eb, G, B, D<br />
+                            <input type="radio" name="perg1" value="opt3" />C, E, Gb, B, D<br />
+                            <input type="radio" name="perg1" value="opt4" />C, Eb, G, Bb, D<br />
+                            <input type="radio" name="perg1" value="opt5" />C, E, G, Bb, Db<br />
                         </p>
                         <p>
-                            <label>2 -A distância de 2 tons pode ser encontrada entre as notas:</label><br />
-                            <input type="radio" name="perg2" value="opt1" />F,B<br />
-                            <input type="radio" name="perg2" value="opt2" />A,E<br />
-                            <input type="radio" name="perg2" value="opt3" />F,G<br />
-                            <input type="radio" name="perg2" value="opt4" />C,F<br />
-                            <input type="radio" name="perg2" value="opt5" />D,F#<br />
+                            <label>2 -Marque abaixo aquilo que a cifra não informa:</label><br />
+                            <input type="radio" name="perg2" value="opt1" />se o acorde é maior, menor ou suspenso<br />
+                            <input type="radio" name="perg2" value="opt2" />se o acorde possui determinados graus adicionados<br />
+                            <input type="radio" name="perg2" value="opt3" />se a quinta de um acorde é justa, aumentada ou diminuta<br />
+                            <input type="radio" name="perg2" value="opt4" />se o acorde possui duas ou mais notas repetidas<br />
+                            <input type="radio" name="perg2" value="opt5" />se o baixo de um acorde está na tônica ou não<br />
                         </p>
                         <p>
-                            <label>3 -Imagine que duas pessoas estão cantando a mesma nota. Você poderia afirmar que esses dois sons são diferentes por que:</label><br />
-                            <input type="radio" name="perg3" value="opt1" />pessoas diferentes possuem timbres diferentes de voz<br />
-                            <input type="radio" name="perg3" value="opt2" />cada pessoa aprende uma técnica vocal diferente<br />
-                            <input type="radio" name="perg3" value="opt3" />vozes diferentes são cantadas em tons diferentes<br />
-                            <input type="radio" name="perg3" value="opt4" />quando duas pessoas cantam ao mesmo tempo, as notas se distanciam por um semitom<br />
-                            <input type="radio" name="perg3" value="opt5" />você não pode afirmar que os sons são diferentes, pois não conhece as pessoas<br />
+                            <label>3 -O símbolo add9 em uma cifra significa:</label><br />
+                            <input type="radio" name="perg3" value="opt1" />que a nona está sendo colocada junto com a sétima<br />
+                            <input type="radio" name="perg3" value="opt2" />que a nona é opcional<br />
+                            <input type="radio" name="perg3" value="opt3" />que a nona está sendo adicionada a uma tríade (não há sétima)<br />
+                            <input type="radio" name="perg3" value="opt4" />que o acorde possui 9 notas<br />
+                            <input type="radio" name="perg3" value="opt5" />que o acorde precisa ser repetido 9 vezes<br />
                         </p>
                         <p>
-                            <label>4 -Conhecendo as definições de melodia e harmonia, podemos concluir que alguns instrumentos são classificados como harmônicos, enquanto outros são apenas melódicos. Um exemplo de instrumento harmônico é o(a):</label><br />
-                            <input type="radio" name="perg4" value="opt1" />saxofone<br />
-                            <input type="radio" name="perg4" value="opt2" />cavaquinho<br />
-                            <input type="radio" name="perg4" value="opt3" />pandeiro<br />
-                            <input type="radio" name="perg4" value="opt4" />bateria<br />
-                            <input type="radio" name="perg4" value="opt5" />flauta<br />
+                            <label>4 -O acorde “Dó com sétima maior” pode ser escrito como:</label><br />
+                            <input type="radio" name="perg4" value="opt1" />Cmaj7<br />
+                            <input type="radio" name="perg4" value="opt2" />C7<br />
+                            <input type="radio" name="perg4" value="opt3" />Cm7<br />
+                            <input type="radio" name="perg4" value="opt4" />C7+<br />
+                            <input type="radio" name="perg4" value="opt5" />Csus7<br />
                         </p>
                         <p>
-                            <label>5 -Marque a alternativa verdadeira:</label><br />
-                            <input type="radio" name="perg5" value="opt1" />Música é a combinação de sons e silêncios de maneira desorganizada<br />
-                            <input type="radio" name="perg5" value="opt2" />Tons e semitons são a mesma coisa<br />
-                            <input type="radio" name="perg5" value="opt3" />Timbre é o que diferencia duas notas diferentes tocadas no mesmo instrumento<br />
-                            <input type="radio" name="perg5" value="opt4" />Instrumentos diferentes possuem notas necessariamente diferentes<br />
-                            <input type="radio" name="perg5" value="opt5" />Uma mesma música pode ser reproduzida com diferentes timbres<br />
+                            <label>5 -O V7 grau do campo harmônico de Mi maior é o acorde:</label><br />
+                            <input type="radio" name="perg5" value="opt1" /> C#7<br />
+                            <input type="radio" name="perg5" value="opt2" /> D7<br />
+                            <input type="radio" name="perg5" value="opt3" />A7<br />
+                            <input type="radio" name="perg5" value="opt4" />F#7<br />
+                            <input type="radio" name="perg5" value="opt5" />B7<br />
                         </p>
                         <p>
-                            <label>6 -A nota D# é idêntica à nota:</label><br />
-                            <input type="radio" name="perg6" value="opt1" />F<br />
-                            <input type="radio" name="perg6" value="opt2" />C#<br />
-                            <input type="radio" name="perg6" value="opt3" />Eb<br />
-                            <input type="radio" name="perg6" value="opt4" />Gb<br />
-                            <input type="radio" name="perg6" value="opt5" />Ab<br />
+                            <label>6 -Uma música que contém os acordes Am, F, Em está na tonalidade de:</label><br />
+                            <input type="radio" name="perg6" value="opt1" />Ré maior<br />
+                            <input type="radio" name="perg6" value="opt2" />Fá maior<br />
+                            <input type="radio" name="perg6" value="opt3" />Dó maior<br />
+                            <input type="radio" name="perg6" value="opt4" />Sol maior<br />
+                            <input type="radio" name="perg6" value="opt5" />Si maior<br />
                         </p>
                         <p>
-                            <label>7 -Um tom e meio acima de Lá corresponde à nota:</label><br />
-                            <input type="radio" name="perg7" value="opt1" />F<br />
-                            <input type="radio" name="perg7" value="opt2" />G<br />
-                            <input type="radio" name="perg7" value="opt3" />C<br />
-                            <input type="radio" name="perg7" value="opt4" />Bb<br />
-                            <input type="radio" name="perg7" value="opt5" />Db<br />
+                            <label>7 -Marque a alternativa correta:</label><br />
+                            <input type="radio" name="perg7" value="opt1" />outside note é uma nota que enriquece o solo mesmo não pertencendo à tonalidade da música<br />
+                            <input type="radio" name="perg7" value="opt2" />outside note é uma nota tonal utilizada para temperar o solo<br />
+                            <input type="radio" name="perg7" value="opt3" />as notas de passagem podem ser utilizadas como notas de repouso na finalização de um solo<br />
+                            <input type="radio" name="perg7" value="opt4" />notas atonais são aquelas notas que pertencem à tonalidade da música<br />
+                            <input type="radio" name="perg7" value="opt5" />outside note é uma nota que não deve ser tocada em hipótese alguma<br />
                         </p>
                         <p>
-                            <label>8 -O símbolo “#” representa a distância de:</label><br />
-                            <input type="radio" name="perg8" value="opt1" />um tom acima<br />
-                            <input type="radio" name="perg8" value="opt2" />um tom abaixo<br />
-                            <input type="radio" name="perg8" value="opt3" />meio tom acima<br />
-                            <input type="radio" name="perg8" value="opt4" />meio tom abaixo<br />
-                            <input type="radio" name="perg8" value="opt5" />a distância vai depender da nota<br />
+                            <label>8 -Sobre a escala cromática, marque a alternativa verdadeira:</label><br />
+                            <input type="radio" name="perg8" value="opt1" />ela é formada pela sequência: tom-tom-tom-tom<br />
+                            <input type="radio" name="perg8" value="opt2" />todas as notas dessa escala podem ser utilizadas como notas de repouso<br />
+                            <input type="radio" name="perg8" value="opt3" />o termo cromatismo se refere a intervalos de um tom e meio<br />
+                            <input type="radio" name="perg8" value="opt4" />a escala cromática de Dó é diferente da escala cromática de Ré, pois possui outras notas<br />
+                            <input type="radio" name="perg8" value="opt5" />geralmente a escala cromática é utilizada para se produzir o efeito de notas de passagem<br />
                         </p>
                         <p>
-                            <label>9 -A música ocidental foi dividida em:</label><br />
-                            <input type="radio" name="perg9" value="opt1" />12 notas<br />
-                            <input type="radio" name="perg9" value="opt2" />10 notas<br />
-                            <input type="radio" name="perg9" value="opt3" />8 notas<br />
-                            <input type="radio" name="perg9" value="opt4" />3 notas<br />
-                            <input type="radio" name="perg9" value="opt5" />infinitas notas<br />
+                            <label>9 -Dos acordes abaixo, aquele que não faz parte da tonalidade de Fá maior é o acorde:</label><br />
+                            <input type="radio" name="perg9" value="opt1" />C<br />
+                            <input type="radio" name="perg9" value="opt2" />D<br />
+                            <input type="radio" name="perg9" value="opt3" />Gm<br />
+                            <input type="radio" name="perg9" value="opt4" />Am<br />
+                            <input type="radio" name="perg9" value="opt5" />Bb<br />
                         </p>
                         <p>
-                            <label>10 -Podemos afirmar que:</label><br />
-                            <input type="radio" name="perg10" value="opt1" />Ao mudar um ritmo, estamos mudando também a harmonia<br />
-                            <input type="radio" name="perg10" value="opt2" />Uma mesma melodia pode ser tocada em diferentes ritmos<br />
-                            <input type="radio" name="perg10" value="opt3" />O ritmo de uma música depende do timbre dos cantores<br />
-                            <input type="radio" name="perg10" value="opt4" />Timbres diferentes resultam em melodias diferentes<br />
-                            <input type="radio" name="perg10" value="opt5" />Uma pessoa que não entende nada de harmonia nunca vai conseguir aprender<br />
+                            <label>10 -Podemos utilizar a escala de Dó maior para fazer um solo em cima do campo harmônico de:</label><br />
+                            <input type="radio" name="perg10" value="opt1" />Dó maior<br />
+                            <input type="radio" name="perg10" value="opt2" />Ré maior<br />
+                            <input type="radio" name="perg10" value="opt3" />Mi maior<br />
+                            <input type="radio" name="perg10" value="opt4" />Sol maior<br />
+                            <input type="radio" name="perg10" value="opt5" />Escalas não servem para nada, só servem para treino de técnica<br />
                         </p>
                         <input type="submit" value="Ver Resultado"/>
                     </article>
                     
-                </form>
-                <?php
-                    $sqlQuest = "SELECT * from cadastro where id=$id";
-                    $resultQuest = mysqli_query($conn, $sqlQuest);
-                    
-                ?>
+                </form>';
+          }else{
+            echo 
+            "<nav class='navbar navbar-expand-lg navbar-light'>
+            <a class='navbar-brand' href='#'><img src='/musiclly/www/galeria/logo.png' class='img-fluid' id='logoNavBar'></a>
+            <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation'>
+                <span class='navbar-toggler-icon'></span>
+            </button>
+<div class='collapse navbar-collapse' id='navbarNavAltMarkup'>
+  <div class='navbar-nav'>
+    
+    <a class='nav-item nav-link' href='#' id='contatoNavBar'><button type='button' class='btn' style='color:#1778aa'>Contato</button></a>
+    <a class='nav-item nav-link' href='#' id='entrarNavBar'><button type='button' class='btn' style='color:#f27d16'>Entrar</button></a>
+    <a class='nav-item nav-link' href='#' id='cadastrarNavBar'><button type='button' class='btn btn-warning' id='cadastrarNavBarButton'>Cadastrar</button></a>
+    
+  </div>
+  
+</div>
+</nav>
+
+
+<fieldset style='width: 60% ;margin-top: 20%;margin-left:15%;background-color:white;border: 2px solid red;border-radius:15px;padding:15px'><img src='/musiclly/www/galeria/cadeado.png' style='margin-left:35%'><p style='text-align:center;font-size:50px;font-family: roboto;color:red;font-weight: bold'>Conteúdo BLOQUEADO!</p><a href='/musiclly/painel.php' style='text-decoration:none' id='linkCadeado'><p style='text-align:center;font-size:20px;font-family: roboto;color:darkorange;font-weight: bold'>Seu Progresso está em <span style='color:#1778aa;'>".$row['progresso']."%</span> conclua todos os Tópicos!</p></a></fieldset>";
+          }
             
-            
+            ?>
                 
               </div>
             </div>

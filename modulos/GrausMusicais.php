@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
 $serve_file = $_SERVER['DOCUMENT_ROOT'] . "/Musiclly/";
 session_save_path($serve_file . 'cache/temp');
 session_start();
@@ -9,11 +9,11 @@ if (isset($_SESSION['usuario'])) {
     $usuario = $_SESSION['usuario'];
     $id = $_SESSION['id'];
   }
-$verificador = "SELECT * from tbl_cad_curso where id_cad = $id and id_Curso = 1";
+$verificador = "SELECT * from tbl_cad_curso where id_cad = $id and id_Curso = 2";
 $result = mysqli_query($conn, $verificador);
 $row = mysqli_fetch_array($result);
-if($row['progresso'] <= 17){
-  $progresso = "UPDATE tbl_cad_curso SET progresso = 17 where id_cad = $id and id_Curso = 1";
+if($row['progresso'] <= 45){
+  $progresso = "UPDATE tbl_cad_curso SET progresso = 45 where id_cad = $id and id_Curso = 2";
   $resultProg = mysqli_query($conn, $progresso);
 }
 
@@ -138,7 +138,7 @@ if($row['progresso'] <= 17){
                             <a class='nav-item nav-link' href='index.php' id='entrarNavBar' style='color:#1778aa;'>Home</a>
                             <a class='nav-item nav-link' href='cadastro.php' id='cadastrarNavBar' style='color:#1778aa;'>Cursos</a>
                             
-                            <div style='background-color:#fafdff;z-index:2'><a class='nav-item nav-link' id='menuUsuario' href='#' style='margin-left: 300px;display:inline-block'>$usuario<img src='/musiclly/".$img."' style='margin-left: 3%;max-width: 35%;border-radius: 10%;max-height: 35%'></a></div>
+                            <div style='background-color:#fafdff;z-index:2'><a class='nav-item nav-link' id='menuUsuario' href='#' style='margin-left: 300px;display:inline-block'>$usuario<img src='$img' style='margin-left: 3%;max-width: 35%;border-radius: 10%;max-height: 35%'></a></div>
                             
                             <div id='menuUsuarioExpandido' style='background-color:#fafdff;border:1px solid #1778aa;height: 250px;width: 15%;position:absolute;z-index:1;margin-left: 70%;margin-top: 5%;border-radius: 5px'>
           <a href='/musiclly/painel.php' style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Meu Perfil</a>
@@ -159,39 +159,44 @@ if($row['progresso'] <= 17){
             <div class='row'>
                 <div class='col-1'>
                     <div style='height:60%;margin-top: 180%'>
-                        <a href='/musiclly/modulos/OQueEMusica.php'>
+                    <a href='/musiclly/modulos/EscalasMusicais.php'>
                             <div class='circulosModulos'>
-                                <p class='TitleCirculos'>1.1</p>
+                                <p class='TitleCirculos'>2.1</p>
                             </div>
                         </a>
-                        <a href='/musiclly/modulos/NotasMusicais.php'>
+                        <a href='/musiclly/modulos/DesenhoDeEscalaAlternativo.php'>
                             <div class='circulosModulos'>
-                                <p class='TitleCirculos'>1.2</p>
+                                <p class='TitleCirculos'>2.2</p>
                             </div>
                         </a>
-                        <a href='/musiclly/modulos/Timbre.php'>
+                        <a href='/musiclly/modulos/GrausMusicais.php'>
                             <div class='circulosModulos'>
-                                <p class='TitleCirculos'>1.3</p>
+                                <p class='TitleCirculos'>2.3</p>
                             </div>
                         </a>
-                        <a href='/musiclly/modulos/SustenidoEBemol.php'>
+                        <a href='/musiclly/modulos/DiminutaAumentadaEJusta.php'>
                             <div class='circulosModulos'>
-                                <p class='TitleCirculos'>1.4</p>
+                                <p class='TitleCirculos'>2.4</p>
                             </div>
                         </a>
-                        <a href='/musiclly/modulos/TomESemitom.php'>
+                        <a href='/musiclly/modulos/Oitavas.php'>
                             <div class='circulosModulos'>
-                                <p class='TitleCirculos'>1.5</p>
+                                <p class='TitleCirculos'>2.5</p>
                             </div>
                         </a>
-                        <a href='/musiclly/modulos/NotasNoInstrumento.php'>
+                        <a href='/musiclly/modulos/DefinicaoDeAcorde.php'>
                             <div class='circulosModulos'>
-                                <p class='TitleCirculos'>1.6</p>
+                                <p class='TitleCirculos'>2.6</p>
                             </div>
                         </a>
-                        <a href='/musiclly/modulos/questionarios/modulo_1_Quest.php'>
+                        <a href='/musiclly/modulos/Triade.php'>
                             <div class='circulosModulos'>
-                                <p class='TitleCirculos'>1.7</p>
+                                <p class='TitleCirculos'>2.7</p>
+                            </div>
+                        </a>
+                        <a href='/musiclly/modulos/questionarios/modulo_2_Quest.php'>
+                            <div class='circulosModulos'>
+                                <p class='TitleCirculos'>2.8</p>
                             </div>
                         </a>
                     </div>
@@ -199,102 +204,44 @@ if($row['progresso'] <= 17){
                 <div class='col-11'>
                     <p class='text-break'>
 
-                        <h1 class='titulosh1'>1.1 O que é música?</h1>
+                        <h1 class='titulosh1'>2.3 Graus Musicais</h1>
                         <fieldset style='background-color:white;padding:15px;border: 1px solid #1778aa;border-radius:10px'>
-                            A pergunta “<b class='boldAzul'>o que é música</b>” tem sido alvo de discussão há décadas.Alguns autores defendem que <b class='boldAzul'>música</b> é a combinação de sons e silêncios de uma maneira organizada.
-                            Vamos explicar com um exemplo: Um ruído de rádio emite sons, mas não de uma forma organizada, por isso não é classificado como música. Essa definição parece simples e completa, mas <b class='boldAzul'>definir música</b> não é algo tão óbvio assim. Podemos classificar um alarme de carro como música? Ele emite sons e silêncios de uma maneira organizada, mas garanto que a maioria das pessoas não chamaria esse som de música.
-                            <br /><b style='color:#f27d16'>Então, o que é música afinal?</b><br />
-                            De uma maneira mais didática e abrangente, a música é composta por <b class='boldAzul'>melodia, harmonia e ritmo</b>.
-                            <br /><b style='color:#f27d16'>Melodia</b><br />
-                            Melodia é a voz principal do som, é aquilo que pode ser cantado.
+                        <b style='color: darkorange'>O que são graus musicais?</b>
+                        <br /><b>Grau musical</b> é uma nomenclatura criada para ajudar o músico na localização dos intervalos. Provavelmente você já tenha ouvido falar em “primeiro grau”, “segundo grau”, etc. E talvez isso tenha soado estranho num primeiro momento. Porém, como vamos ver, essa terminologia é simples e pode ser muito útil.
 
-                            <br /><b style='color:#f27d16'>Harmonia</b><br />
-                            Harmonia é uma sobreposição de notas que servem de base para a melodia. Por exemplo, uma pessoa tocando violão e cantando está fazendo harmonia com os acordes no violão e melodia com a voz. Cada acorde é uma sobreposição de várias notas, como veremos adiante em outros tópicos. Por isso que os acordes fazem parte da harmonia.
-                            Obs: Vale a pena destacar que a melodia não necessariamente é composta por uma única voz; é possível também que ela tenha duas ou mais vozes, apesar de ser menos frequente essa situação. Para diferenciar melodia de harmonia nesse caso, podemos fazer uma comparação com um navio no oceano. O navio representa a harmonia e as pessoas dentro do navio representam a melodia. Tanto o navio quanto as pessoas estão se mexendo, e as pessoas se mexem dentro do navio enquanto ele trafega pelo oceano. Repare que o navio serve de base, suporte, para as pessoas. Elas têm liberdade para se movimentar apenas dentro do navio. Se uma pessoa pular para fora do navio, será desastroso. Com melodia e harmonia, é a mesma coisa.
+                        <br /><br />Se numerássemos a escala de Dó maior da seguinte forma: Dó (1º grau), Ré (2º grau), Mi (3º grau), Fá (4º grau), Sol (5º grau), Lá (6º grau), Si (7º grau), poderíamos dizer para um amigo, por exemplo: “toque o 5º grau da escala de Dó maior”, e ele saberia que você está se referindo à nota Sol.
 
-                            <br /><b style='color:#f27d16'>Ritmo</b><br />
-                            Ritmo é a marcação do tempo de uma música. Assim como o relógio marca as horas, o ritmo nos diz como acompanhar a música.
-                            Cada um desses três assuntos precisa ser tratado à parte. Um conhecimento aprofundado permite uma manipulação ilimitada de todos os recursos que a música fornece, e é isso o que faz os “sons e silêncios” ficarem tão interessantes para nosso ouvido. Aqui no Descomplicando a Música você vai aprender como trabalhar tudo isso. Afinal, mais importante do que saber o que é música, é saber como trabalhar em cima dela.
+                        <br /><br />Por isso, acaba sendo muito útil falar das notas de uma música em termos de <b>graus musicais</b>. A lógica é a mesma que foi apresentada acima, aplicada a cada nota de interesse. Por exemplo, podemos construir os graus partindo da nota Ré:
+                        <br />Ré (1º grau), Mi (2º grau), Fá (3º grau), Sol (4º grau), Lá (5º grau), Si (6º grau), Dó (7º grau).
 
-                            <br /><b style='color:#f27d16'>Prepare-se!</b><br />
+                        <br /><br />Então, se alguém pedisse, digamos, o 3º grau de Ré, você saberia que se trata da nota Fá. Observe que estamos trabalhando dentro da escala de dó maior nesses exemplos todos. Isso precisa ser especificado (em qual escala estamos trabalhando).
+
+                        <br /><br />De uma maneira prática, para saber a nota que se refere a algum grau basta contar nos dedos as notas partindo da nota que foi definida como 1º grau. Abaixo seguem alguns exemplos, ainda dentro da escala de dó maior (tome como exercício):
+
+                        <br /><br />– Segundo grau de Mi: Fá
+                        <br />– Quarto grau de Sol: Dó
+                        <br />– Sétimo grau de Si: Lá
+
+                        <br /><br />Obs: O primeiro grau é também chamado de “<b>tônica</b>”.
+
+                        <br /><br /><b style='color: darkorange'>Mais detalhes sobre graus musicais</b>
+                        <br />Esses exemplos foram utilizados apenas para fins didáticos. Na prática, você verá que os graus são muito utilizados dentro do contexto de campos harmônicos. Você aprenderá como se situar numa música utilizando graus no artigo “campo harmônico”.
+
+                        <br /><br />Antes disso, aprenderemos (nos tópicos “diminuta, aumentada e justa” e “graus musicais – conceito complementar”) outros detalhes importantes sobre graus.
+
                         </fieldset>
                     </p>
-                    <div class='row'>
+                    <div class='row' style='margin-bottom: 50px;'>
                         <div class='col-6'></div>
-                        <div class='col-6'><a href='/musiclly/modulos/NotasMusicais.php' class='proximo'>Ir para 1.2(Notas Musicais) >></a></div>
+                        <div class='col-6'><a href='/musiclly/modulos/DiminutaAumentadaEJusta.php' class='proximo'>Ir para 2.4(Diminuta Aumentada e Justa) >></a></div>
                     </div>
                 </div>
             </div>
-        
-        
-        
-           
-            
-            
-            
-            
+            </div>
             ";
         }
         ?>
- 
-        <div class="row justify-content-center">
-            <div class='col-6' style=''>
-            <fieldset style="background-color:rgba(23,120,170,.1);padding: 0px 10px;border-radius: 5px;margin-top: 10px;margin-bottom: 50px">
-            <legend><h4 style="font-family: roboto;font-size: 20px;color:darkorange;text-shadow: 1px 1px rgba(0,0,0,.2)">Comentários</h4></legend>    
-            
-                
-                <?php
-                    $sqlComent = "SELECT * FROM comentarios where sessao = 1"; 
-                    $resultComent = mysqli_query($conn, $sqlComent);
-                    while($row = mysqli_fetch_assoc($resultComent)){
-                        $id2 = $row['id'];
-                        $sql = "SELECT a.usuario from cadastro as a join comentarios as b on a.id = b.id_cad where b.id = '$id2'";
-                        $result2 = mysqli_query($conn, $sql);
-                        $row23 = mysqli_fetch_assoc($result2);
-                        echo "<div style='padding:2px;border-bottom: 1px solid black'>
-                                <span style='color:#1778aa;font-size: 15px;font-weight: bold;float:left'>".$row['titulo']."</span><br>
-                                <span class='text-break' style='font-size: 12px'>".$row['descricao']."</span><br>
-                                <span style='float:left;font-size: 10px;margin-top: 5px'><b>Feito em:</b> ".$row['dataEnviada']."</span>
-                                <span style='float:right'>".$row23['usuario']."</span><br>
-                                </div>";
-                    }
-                ?>
 
-                <?php
-
-                ?>
-                <fieldset style="width: 100%;padding: 5px;border:1px solid #1778aa;border-radius: 15px;margin-top: 10px;margin-bottom: 15px">
-                <p style="font-size: 12px;color:darkorange;font-weight: bold">Nova Mensagem</p>
-                <form action='' method='POST'>
-                    <label for="titulo" style="width: 100%">Titulo
-                    <input type='text' name="titulo" id="titulo" maxlength="50" style="width: 100%;outline:0;border: 1px solid #1778aa;border-radius:5px">
-                    </label>
-                    <label for="descricao" style="width: 100%">Descrição
-                    <textarea id="descricao" name="descricao" rows='5' maxlength="512" style='width: 100%;border: 1px solid #1778aa;border-radius: 5px;outline:0'></textarea>
-                    </label>
-                    <input type='submit' value='Enviar' style='float:right;margin-top: 5px;border-radius: 10px;background-color:rgba(0,0,0,.0);color:#1778aa;border: 1px solid #1778aa;outline:0'>
-                </form>
-                <?php
-                    if(isset($_POST['titulo'])){
-                    
-                    date_default_timezone_set('America/Sao_Paulo');
-                    $now = new DateTime();
-                    $dateTime = $now->format('d-m-Y H:i:s');
-                    $titulo = $_POST['titulo'];
-                    $descricao = $_POST['descricao'];
-                    $sqlComentInsert = "INSERT into comentarios values(null,'$titulo','$descricao','$dateTime','0',3,1,$id)";
-                    $resultSqlComent = mysqli_query($conn, $sqlComentInsert);
-                    if($resultSqlComent){
-                        echo "<script>alert('Comentário Adicionado!');window.location.href='/musiclly/modulos/OQueEMusica.php';</script>";
-
-                    }
-                }
-                ?>
-                </fieldset>
-                </fieldset>
-            </div>
-        </div>
-</div>
 
 
 

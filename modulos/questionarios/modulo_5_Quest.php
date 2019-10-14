@@ -1,9 +1,13 @@
 <?php
-    include_once("../../php/conexao.php");
-    session_start();
-    if(isset($_SESSION['usuario'])){
-    $usuario = $_SESSION['usuario'];
-    $id = $_SESSION['id'];
+     error_reporting(0);
+     $serve_file = $_SERVER['DOCUMENT_ROOT']."/Musiclly/";
+     session_save_path($serve_file.'cache/temp');
+     session_start();
+     include_once($serve_file.'php/banco.php');
+   session_start();
+   if(isset($_SESSION['usuario'])){
+   $usuario = $_SESSION['usuario'];
+   $id = $_SESSION['id'];
 }
 
     $sql = "SELECT * FROM cadastro where usuario = '{$usuario}'";
@@ -228,13 +232,14 @@
                     
                     
                     ?>
-                    <div id="menuUsuarioExpandido" style="background-color:#fafdff;border:1px solid #1778aa;height: 200px;width: 15%;position:absolute;z-index:1;margin-left: 70%;margin-top: 4%;border-radius: 5px">
-                    <a href="/musiclly/painel.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Meu Perfil</a>
-                    <a href="/musiclly/alterar_senha.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Senha</a>
-                    <a href="/musiclly/alterar_usuario" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Usuário</a>
-                    <a href="/musiclly/alterar_email" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Email</a>
-                    <a href="/musiclly/logout.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Logout</a>
-                    </div>
+                    <div id="menuUsuarioExpandido" style="background-color:#fafdff;border:1px solid #1778aa;height: 250px;width: 15%;position:absolute;z-index:1;margin-left: 70%;margin-top: 5%;border-radius: 5px">
+          <a href="/musiclly/painel.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Meu Perfil</a>
+          <a href="/musiclly/alterar_senha.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Senha</a>
+          <a href="/musiclly/alterar_usuario" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Usuário</a>
+          <a href="/musiclly/alterar_email" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Email</a>
+          <a href="/musiclly/notas.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Notas</a>
+          <a href="/musiclly/logout.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Logout</a>
+        </div>
                   
         </nav>
         <!-- FECHAMENTO NAVBAR ===============-->
@@ -242,7 +247,7 @@
        
         <div class="row">
            <div class="col-12" style="">
-            <div style="border-bottom: 1px solid #f27d16"><div style="padding: 6px;width: 7%;font-family: roboto;border-radius: 5px;font-size: 18px;color:#1778aa;font-weight: bold">Questionário 1</div></div>
+            <div style="border-bottom: 1px solid #f27d16"><div style="padding: 6px;width: 7%;font-family: roboto;border-radius: 5px;font-size: 18px;color:#1778aa;font-weight: bold">Questionário 5</div></div>
            </div>
         
         </div>
@@ -398,99 +403,122 @@
 
          
         <div class="container" style="height: 1000px"><!--ABERTURA DA DIV CONTAINER -->
-            
+        <?php
+          $verificadorProg = "SELECT * from tbl_cad_curso where id_cad = $id and id_Curso = 1";
+          $resultProg = mysqli_query($conn, $verificadorProg);
+          $row = mysqli_fetch_assoc($resultProg);
+          if($row['progresso'] == 100){
+            echo '
                 <form action="\Musiclly\modulos\questionarios\results\ver_result_5.php" method="POST">
                     <article>
                         <p>
-                            <label>1 -A nota Sol bemol é representada pela sigla:</label><br />
-                            <input type="radio" name="perg1" value="opt1" />Bc<br />
-                            <input type="radio" name="perg1" value="opt2" />Cb<br />
-                            <input type="radio" name="perg1" value="opt3" />Bg<br />
-                            <input type="radio" name="perg1" value="opt4" />Gb<br />
-                            <input type="radio" name="perg1" value="opt5" />GG<br />
+                            <label>1 -A relativa menor da escala Sol maior é a escala de:</label><br />
+                            <input type="radio" name="perg1" value="opt1" />Dó menor<br />
+                            <input type="radio" name="perg1" value="opt2" />Ré menor<br />
+                            <input type="radio" name="perg1" value="opt3" /> Mi menor<br />
+                            <input type="radio" name="perg1" value="opt4" />Fá menor<br />
+                            <input type="radio" name="perg1" value="opt5" />Lá menor<br />
                         </p>
                         <p>
-                            <label>2 -A distância de 2 tons pode ser encontrada entre as notas:</label><br />
-                            <input type="radio" name="perg2" value="opt1" />F,B<br />
-                            <input type="radio" name="perg2" value="opt2" />A,E<br />
-                            <input type="radio" name="perg2" value="opt3" />F,G<br />
-                            <input type="radio" name="perg2" value="opt4" />C,F<br />
-                            <input type="radio" name="perg2" value="opt5" />D,F#<br />
+                            <label>2 -Para improvisar em uma música que está na tonalidade de G#m, podemos utilizar a escala:</label><br />
+                            <input type="radio" name="perg2" value="opt1" />Dó maior<br />
+                            <input type="radio" name="perg2" value="opt2" />Si maior<br />
+                            <input type="radio" name="perg2" value="opt3" />Mi maior<br />
+                            <input type="radio" name="perg2" value="opt4" />Fá maior<br />
+                            <input type="radio" name="perg2" value="opt5" />Sol sustenido maior<br />
                         </p>
                         <p>
-                            <label>3 -Imagine que duas pessoas estão cantando a mesma nota. Você poderia afirmar que esses dois sons são diferentes por que:</label><br />
-                            <input type="radio" name="perg3" value="opt1" />pessoas diferentes possuem timbres diferentes de voz<br />
-                            <input type="radio" name="perg3" value="opt2" />cada pessoa aprende uma técnica vocal diferente<br />
-                            <input type="radio" name="perg3" value="opt3" />vozes diferentes são cantadas em tons diferentes<br />
-                            <input type="radio" name="perg3" value="opt4" />quando duas pessoas cantam ao mesmo tempo, as notas se distanciam por um semitom<br />
-                            <input type="radio" name="perg3" value="opt5" />você não pode afirmar que os sons são diferentes, pois não conhece as pessoas<br />
+                            <label>3 -Sol mixolídio é equivalente à tonalidade de:</label><br />
+                            <input type="radio" name="perg3" value="opt1" /> Dó maior<br />
+                            <input type="radio" name="perg3" value="opt2" />Ré menor<br />
+                            <input type="radio" name="perg3" value="opt3" />Mi maior<br />
+                            <input type="radio" name="perg3" value="opt4" />Fá menor<br />
+                            <input type="radio" name="perg3" value="opt5" />Lá maior<br />
                         </p>
                         <p>
-                            <label>4 -Conhecendo as definições de melodia e harmonia, podemos concluir que alguns instrumentos são classificados como harmônicos, enquanto outros são apenas melódicos. Um exemplo de instrumento harmônico é o(a):</label><br />
-                            <input type="radio" name="perg4" value="opt1" />saxofone<br />
-                            <input type="radio" name="perg4" value="opt2" />cavaquinho<br />
-                            <input type="radio" name="perg4" value="opt3" />pandeiro<br />
-                            <input type="radio" name="perg4" value="opt4" />bateria<br />
-                            <input type="radio" name="perg4" value="opt5" />flauta<br />
+                            <label>4 -Poderíamos utilizar a escala de Dó sustenido Frígio em uma música formada pelos acordes:</label><br />
+                            <input type="radio" name="perg4" value="opt1" />C#m, E, B<br />
+                            <input type="radio" name="perg4" value="opt2" />C#m, A, G#m<br />
+                            <input type="radio" name="perg4" value="opt3" />C#m, D#m, E<br />
+                            <input type="radio" name="perg4" value="opt4" />C#m, D, A<br />
+                            <input type="radio" name="perg4" value="opt5" />C#m, F#, B<br />
                         </p>
                         <p>
-                            <label>5 -Marque a alternativa verdadeira:</label><br />
-                            <input type="radio" name="perg5" value="opt1" />Música é a combinação de sons e silêncios de maneira desorganizada<br />
-                            <input type="radio" name="perg5" value="opt2" />Tons e semitons são a mesma coisa<br />
-                            <input type="radio" name="perg5" value="opt3" />Timbre é o que diferencia duas notas diferentes tocadas no mesmo instrumento<br />
-                            <input type="radio" name="perg5" value="opt4" />Instrumentos diferentes possuem notas necessariamente diferentes<br />
-                            <input type="radio" name="perg5" value="opt5" />Uma mesma música pode ser reproduzida com diferentes timbres<br />
+                            <label>5 -Marque a alternativa correta:</label><br />
+                            <input type="radio" name="perg5" value="opt1" />A pentatônica de Lá maior pode ser tocada sobre a tonalidade de Dó maior.<br />
+                            <input type="radio" name="perg5" value="opt2" />A escala pentatônica menor é uma escala inútil do ponto de vista de improvisação<br />
+                            <input type="radio" name="perg5" value="opt3" />Podemos utilizar a pentatônica de Mi menor para improvisar na tonalidade de Fá maior.<br />
+                            <input type="radio" name="perg5" value="opt4" />A escala pentatônica nada mais é do que um apanhado específico de notas da escala natural.<br />
+                            <input type="radio" name="perg5" value="opt5" />O conceito de relativa menor não se aplica à escala pentatônica.<br />
                         </p>
                         <p>
-                            <label>6 -A nota D# é idêntica à nota:</label><br />
-                            <input type="radio" name="perg6" value="opt1" />F<br />
-                            <input type="radio" name="perg6" value="opt2" />C#<br />
-                            <input type="radio" name="perg6" value="opt3" />Eb<br />
-                            <input type="radio" name="perg6" value="opt4" />Gb<br />
-                            <input type="radio" name="perg6" value="opt5" />Ab<br />
+                            <label>6 -A estrutura básica de um blues é:</label><br />
+                            <input type="radio" name="perg6" value="opt1" />Parecida com um campo harmônico maior.<br />
+                            <input type="radio" name="perg6" value="opt2" />Idêntica ao modo dórico.<br />
+                            <input type="radio" name="perg6" value="opt3" />Bem diferente dos campos harmônicos naturais, sendo fundamentada em acordes com sétima menor.<br />
+                            <input type="radio" name="perg6" value="opt4" />Uma mistura de acordes maiores com seus relativos menores.<br />
+                            <input type="radio" name="perg6" value="opt5" />Igual a qualquer outra estrutura, portanto não precisa ser analisada.<br />
                         </p>
                         <p>
-                            <label>7 -Um tom e meio acima de Lá corresponde à nota:</label><br />
-                            <input type="radio" name="perg7" value="opt1" />F<br />
-                            <input type="radio" name="perg7" value="opt2" />G<br />
-                            <input type="radio" name="perg7" value="opt3" />C<br />
-                            <input type="radio" name="perg7" value="opt4" />Bb<br />
-                            <input type="radio" name="perg7" value="opt5" />Db<br />
+                            <label>7 -Para improvisar em um blues formado pelos acordes G7, C7, D7 podemos utilizar a escala:</label><br />
+                            <input type="radio" name="perg7" value="opt1" />Pentatônica de Sol menor<br />
+                            <input type="radio" name="perg7" value="opt2" /> Pentatônica de Lá menor<br />
+                            <input type="radio" name="perg7" value="opt3" />Pentatônica de Si menor<br />
+                            <input type="radio" name="perg7" value="opt4" />Pentatônica de Dó menor<br />
+                            <input type="radio" name="perg7" value="opt5" />Pentatônica de Ré menor<br />
                         </p>
                         <p>
-                            <label>8 -O símbolo “#” representa a distância de:</label><br />
-                            <input type="radio" name="perg8" value="opt1" />um tom acima<br />
-                            <input type="radio" name="perg8" value="opt2" />um tom abaixo<br />
-                            <input type="radio" name="perg8" value="opt3" />meio tom acima<br />
-                            <input type="radio" name="perg8" value="opt4" />meio tom abaixo<br />
-                            <input type="radio" name="perg8" value="opt5" />a distância vai depender da nota<br />
+                            <label>8 -A escala blues é uma pentatônica acrescida da blue note. Sobre esta nota adicional, podemos afirmar que:</label><br />
+                            <input type="radio" name="perg8" value="opt1" />É uma nota de repouso, podendo ser utilizada também como nota de passagem.<br />
+                            <input type="radio" name="perg8" value="opt2" />É uma nota tonal que enriquece o solo.<br />
+                            <input type="radio" name="perg8" value="opt3" />Essa nota pode ser utilizada na pentatônica menor somente.<br />
+                            <input type="radio" name="perg8" value="opt4" />Não se pode dizer que a blue note possui um efeito cromático.<br />
+                            <input type="radio" name="perg8" value="opt5" />A blue note é uma nota atonal utilizada para temperar um solo (outside note).<br />
                         </p>
                         <p>
-                            <label>9 -A música ocidental foi dividida em:</label><br />
-                            <input type="radio" name="perg9" value="opt1" />12 notas<br />
-                            <input type="radio" name="perg9" value="opt2" />10 notas<br />
-                            <input type="radio" name="perg9" value="opt3" />8 notas<br />
-                            <input type="radio" name="perg9" value="opt4" />3 notas<br />
-                            <input type="radio" name="perg9" value="opt5" />infinitas notas<br />
+                            <label>9 -Um blues tradicional é formado por quantos compassos?</label><br />
+                            <input type="radio" name="perg9" value="opt1" />6<br />
+                            <input type="radio" name="perg9" value="opt2" />8<br />
+                            <input type="radio" name="perg9" value="opt3" />10<br />
+                            <input type="radio" name="perg9" value="opt4" />12<br />
+                            <input type="radio" name="perg9" value="opt5" />15<br />
                         </p>
                         <p>
-                            <label>10 -Podemos afirmar que:</label><br />
-                            <input type="radio" name="perg10" value="opt1" />Ao mudar um ritmo, estamos mudando também a harmonia<br />
-                            <input type="radio" name="perg10" value="opt2" />Uma mesma melodia pode ser tocada em diferentes ritmos<br />
-                            <input type="radio" name="perg10" value="opt3" />O ritmo de uma música depende do timbre dos cantores<br />
-                            <input type="radio" name="perg10" value="opt4" />Timbres diferentes resultam em melodias diferentes<br />
-                            <input type="radio" name="perg10" value="opt5" />Uma pessoa que não entende nada de harmonia nunca vai conseguir aprender<br />
+                            <label>10 -Marque a alternativa correta:</label><br />
+                            <input type="radio" name="perg10" value="opt1" />As escalas dórica, frígia e lídia de uma mesma tonalidade não possuem as mesmas notas.<br />
+                            <input type="radio" name="perg10" value="opt2" />Uma das notas da escala blues deve ser tocada somente como nota de passagem.<br />
+                            <input type="radio" name="perg10" value="opt3" />A escala pentatônica é idêntica à escala relativa menor.<br />
+                            <input type="radio" name="perg10" value="opt4" />O modo eólio é diferente da escala menor natural.<br />
+                            <input type="radio" name="perg10" value="opt5" />Uma improvisação não precisa levar em conta as escalas nem as tonalidades.<br />
                         </p>
                         <input type="submit" value="Ver Resultado"/>
                     </article>
                     
                 </form>
-                <?php
-                    $sqlQuest = "SELECT * from cadastro where id=$id";
-                    $resultQuest = mysqli_query($conn, $sqlQuest);
-                    
-                ?>
-            
+                ';
+          }else{
+            echo 
+            "<nav class='navbar navbar-expand-lg navbar-light'>
+            <a class='navbar-brand' href='#'><img src='/musiclly/www/galeria/logo.png' class='img-fluid' id='logoNavBar'></a>
+            <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation'>
+                <span class='navbar-toggler-icon'></span>
+            </button>
+<div class='collapse navbar-collapse' id='navbarNavAltMarkup'>
+  <div class='navbar-nav'>
+    
+    <a class='nav-item nav-link' href='#' id='contatoNavBar'><button type='button' class='btn' style='color:#1778aa'>Contato</button></a>
+    <a class='nav-item nav-link' href='#' id='entrarNavBar'><button type='button' class='btn' style='color:#f27d16'>Entrar</button></a>
+    <a class='nav-item nav-link' href='#' id='cadastrarNavBar'><button type='button' class='btn btn-warning' id='cadastrarNavBarButton'>Cadastrar</button></a>
+    
+  </div>
+  
+</div>
+</nav>
+
+
+<fieldset style='width: 60% ;margin-top: 20%;margin-left:15%;background-color:white;border: 2px solid red;border-radius:15px;padding:15px'><img src='/musiclly/www/galeria/cadeado.png' style='margin-left:35%'><p style='text-align:center;font-size:50px;font-family: roboto;color:red;font-weight: bold'>Conteúdo BLOQUEADO!</p><a href='/musiclly/painel.php' style='text-decoration:none' id='linkCadeado'><p style='text-align:center;font-size:20px;font-family: roboto;color:darkorange;font-weight: bold'>Seu Progresso está em <span style='color:#1778aa;'>".$row['progresso']."%</span> conclua todos os Tópicos!</p></a></fieldset>";
+          }
+          ?>
             
                 
               </div>

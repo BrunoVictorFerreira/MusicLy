@@ -29,14 +29,14 @@ if ( isset( $_FILES[ 'arquivo' ][ 'name' ] ) && $_FILES[ 'arquivo' ][ 'error' ] 
     // Somente imagens, .jpg;.jpeg;.gif;.png
     // Aqui eu enfileiro as extensões permitidas e separo por ';'
     // Isso serve apenas para eu poder pesquisar dentro desta String
-    if ( strstr ( '.jpg;.jpeg;.gif;.png;.jfif', $extensao ) ) {
+    if ( strstr ( '.jpg;.jpeg;.gif;.png', $extensao ) ) {
         // Cria um nome único para esta imagem
         // Evita que duplique as imagens no servidor.
         // Evita nomes com acentos, espaços e caracteres não alfanuméricos
         $novoNome = uniqid ( time () ) . '.' . $extensao;
  
         // Concatena a pasta com o nome
-        $destino = 'uploads / ' . $novoNome;
+        $destino = 'uploads/'.$novoNome;
  
         // tenta mover o arquivo para o destino
         if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {

@@ -1,9 +1,13 @@
 <?php
-    include_once("../../../php/conexao.php");
+    error_reporting(0);
+    $serve_file = $_SERVER['DOCUMENT_ROOT']."/Musiclly/";
+    session_save_path($serve_file.'cache/temp');
     session_start();
-    if(isset($_SESSION['usuario'])){
-    $usuario = $_SESSION['usuario'];
-    $id = $_SESSION['id'];
+    include_once($serve_file.'php/banco.php');
+  session_start();
+  if(isset($_SESSION['usuario'])){
+  $usuario = $_SESSION['usuario'];
+  $id = $_SESSION['id'];
 }
 
     $sql = "SELECT * FROM cadastro where usuario = '{$usuario}'";
@@ -228,13 +232,14 @@
                     
                     
                     ?>
-                    <div id="menuUsuarioExpandido" style="background-color:#fafdff;border:1px solid #1778aa;height: 200px;width: 15%;position:absolute;z-index:1;margin-left: 70%;margin-top: 4%;border-radius: 5px">
-                    <a href="/musiclly/painel.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Meu Perfil</a>
-                    <a href="/musiclly/alterar_senha.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Senha</a>
-                    <a href="/musiclly/alterar_usuario" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Usuário</a>
-                    <a href="/musiclly/alterar_email" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Email</a>
-                    <a href="/musiclly/logout.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Logout</a>
-                    </div>
+                    <div id="menuUsuarioExpandido" style="background-color:#fafdff;border:1px solid #1778aa;height: 250px;width: 15%;position:absolute;z-index:1;margin-left: 70%;margin-top: 5%;border-radius: 5px">
+          <a href="/musiclly/painel.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Meu Perfil</a>
+          <a href="/musiclly/alterar_senha.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Senha</a>
+          <a href="/musiclly/alterar_usuario" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Usuário</a>
+          <a href="/musiclly/alterar_email" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Email</a>
+          <a href="/musiclly/notas.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Notas</a>
+          <a href="/musiclly/logout.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Logout</a>
+        </div>
                   
         </nav>
         <!-- FECHAMENTO NAVBAR ===============-->
@@ -413,278 +418,278 @@
         $perg10 = $_POST['perg10'];
         $certa = 0;
         echo "<div class='container' style='height: 1000px'>
-                <form action='\Musiclly\modulos\questionarios\results\ver_result_1.php' method='POST'>
+                <form action='\Musiclly\modulos\questionarios\results\ver_result_3.php' method='POST'>
                     <article>";
         if($perg1 == "opt4"){
             echo "<p>
-                    <label>1 -A nota Sol bemol é representada pela sigla:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
-                        <input type='radio' name='perg1' value='opt1' >Bc<br/>
-                        <input type='radio' name='perg1' value='opt2' >Cb<br/>
-                        <input type='radio' name='perg1' value='opt3' >Bg<br />
-                        <input type='radio' name='perg1' value='opt4' ><span style='color:green'>Gb</span><br />
-                        <input type='radio' name='perg1' value='opt5' >GG<br />
-                </p>";
+            <label>1 -Um compasso musical pode ser definido como:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
+            <input type='radio' name='perg1' value='opt1' />Uma marca para repetir a música.<br />
+            <input type='radio' name='perg1' value='opt2' />Uma nota que define o nome de um acorde.<br />
+            <input type='radio' name='perg1' value='opt3' />Um grupo de acordes tocados ao mesmo tempo.<br />
+            <input type='radio' name='perg1' value='opt4' /><span style='color:green'>Uma divisão da música em partes menores igualmente espaçadas.</span><br />
+            <input type='radio' name='perg1' value='opt5' />Um agrupamento de músicas.<br />
+        </p>";
             
             $certa++;
         }else{
            switch($perg1){
                case 'opt1':
                echo "<p>
-               <label>1 -A nota Sol bemol é representada pela sigla:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                   <input type='radio' name='perg1' value='opt1' ><span style='color:red'>Bc<span><br/>
-                   <input type='radio' name='perg1' value='opt2' >Cb<br/>
-                   <input type='radio' name='perg1' value='opt3' >Bg<br />
-                   <input type='radio' name='perg1' value='opt4' ><span style='color:green'>Gb</span><br />
-                   <input type='radio' name='perg1' value='opt5' >GG<br />
+               <label>1 -Um compasso musical pode ser definido como:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+               <input type='radio' name='perg1' value='opt1' /><span style='color:red'>Uma marca para repetir a música.</span><br />
+               <input type='radio' name='perg1' value='opt2' />Uma nota que define o nome de um acorde.<br />
+               <input type='radio' name='perg1' value='opt3' />Um grupo de acordes tocados ao mesmo tempo.<br />
+               <input type='radio' name='perg1' value='opt4' /><span style='color:green'>Uma divisão da música em partes menores igualmente espaçadas.</span><br />
+               <input type='radio' name='perg1' value='opt5' />Um agrupamento de músicas.<br />
            </p>";
                break;
                case 'opt2':
                echo "<p>
-               <label>1 -A nota Sol bemol é representada pela sigla:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                   <input type='radio' name='perg1' value='opt1' >Bc<br/>
-                   <input type='radio' name='perg1' value='opt2' ><span style='color:red'>Cb</span><br/>
-                   <input type='radio' name='perg1' value='opt3' >Bg<br />
-                   <input type='radio' name='perg1' value='opt4' ><span style='color:green'>Gb</span><br />
-                   <input type='radio' name='perg1' value='opt5' >GG<br />
+               <label>1 -Um compasso musical pode ser definido como:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+               <input type='radio' name='perg1' value='opt1' />Uma marca para repetir a música.<br />
+               <input type='radio' name='perg1' value='opt2' /><span style='color:red'>Uma nota que define o nome de um acorde.</span><br />
+               <input type='radio' name='perg1' value='opt3' />Um grupo de acordes tocados ao mesmo tempo.<br />
+               <input type='radio' name='perg1' value='opt4' /><span style='color:green'>Uma divisão da música em partes menores igualmente espaçadas.</span><br />
+               <input type='radio' name='perg1' value='opt5' />Um agrupamento de músicas.<br />
            </p>";
                break;
                case 'opt3':
                echo "<p>
-               <label>1 -A nota Sol bemol é representada pela sigla:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                   <input type='radio' name='perg1' value='opt1' >Bc<br/>
-                   <input type='radio' name='perg1' value='opt2' >Cb<br/>
-                   <input type='radio' name='perg1' value='opt3' ><span style='color:red'>Bg</span><br />
-                   <input type='radio' name='perg1' value='opt4' ><span style='color:green'>Gb</span><br />
-                   <input type='radio' name='perg1' value='opt5' >GG<br />
+               <label>1 -Um compasso musical pode ser definido como:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+               <input type='radio' name='perg1' value='opt1' />Uma marca para repetir a música.<br />
+               <input type='radio' name='perg1' value='opt2' />Uma nota que define o nome de um acorde.<br />
+               <input type='radio' name='perg1' value='opt3' /><span style='color:red'>Um grupo de acordes tocados ao mesmo tempo.</span><br />
+               <input type='radio' name='perg1' value='opt4' /><span style='color:green'>Uma divisão da música em partes menores igualmente espaçadas.</span><br />
+               <input type='radio' name='perg1' value='opt5' />Um agrupamento de músicas.<br />
            </p>";
                break;
                case 'opt5':
                echo "<p>
-               <label>1 -A nota Sol bemol é representada pela sigla:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                   <input type='radio' name='perg1' value='opt1' >Bc<br/>
-                   <input type='radio' name='perg1' value='opt2' >Cb<br/>
-                   <input type='radio' name='perg1' value='opt3' >Bg<br />
-                   <input type='radio' name='perg1' value='opt4' ><span style='color:green'>Gb</span><br />
-                   <input type='radio' name='perg1' value='opt5' ><span style='color:red'>GG</span><br />
+               <label>1 -Um compasso musical pode ser definido como:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+               <input type='radio' name='perg1' value='opt1' />Uma marca para repetir a música.<br />
+               <input type='radio' name='perg1' value='opt2' />Uma nota que define o nome de um acorde.<br />
+               <input type='radio' name='perg1' value='opt3' />Um grupo de acordes tocados ao mesmo tempo.<br />
+               <input type='radio' name='perg1' value='opt4' /><span style='color:green'>Uma divisão da música em partes menores igualmente espaçadas.</span><br />
+               <input type='radio' name='perg1' value='opt5' /><span style='color:red'>Um agrupamento de músicas.</span><br />
            </p>";
            break;
            } 
             
            
         }
-        if($perg2 == "opt5"){
+        if($perg2 == "opt4"){
             echo "<p>
-            <label>2 -A distância de 2 tons pode ser encontrada entre as notas:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
-            <input type='radio'/>F,B<br />
-            <input type='radio'/>A,E<br />
-            <input type='radio'/>F,G<br />
-            <input type='radio'/>C,F<br />
-            <input type='radio'/><span style='color:green'>D,F#</span><br />
+            <label>2 -O acorde Dm7(9) possui ao todo:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
+            <input type='radio' name='perg2' value='opt1' />uma tríade.<br />
+            <input type='radio' name='perg2' value='opt2' />uma tétrade.<br />
+            <input type='radio' name='perg2' value='opt3' />uma tríade e o nono grau.<br />
+            <input type='radio' name='perg2' value='opt4' /><span style='color:green'>uma tétrade e o nono grau.</span><br />
+            <input type='radio' name='perg2' value='opt5' />uma tríade, o quarto e o nono graus.<br />
         </p>";
             $certa++;
         }else{
             switch($perg2){
                 case 'opt1':
                 echo "<p>
-                    <label>2 -A distância de 2 tons pode ser encontrada entre as notas:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:red'>F,B</span><br />
-                    <input type='radio'/>A,E<br />
-                    <input type='radio'/>F,G<br />
-                    <input type='radio'/>C,F<br />
-                    <input type='radio'/><span style='color:green'>D,F#</span><br />
-                </p>";
+                <label>2 -O acorde Dm7(9) possui ao todo:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg2' value='opt1' /><span style='color:red'>uma tríade.</span><br />
+                <input type='radio' name='perg2' value='opt2' />uma tétrade.<br />
+                <input type='radio' name='perg2' value='opt3' />uma tríade e o nono grau.<br />
+                <input type='radio' name='perg2' value='opt4' /><span style='color:green'>uma tétrade e o nono grau.</span><br />
+                <input type='radio' name='perg2' value='opt5' />uma tríade, o quarto e o nono graus.<br />
+            </p>";
                 break;
                 case 'opt2':
                 echo "<p>
-                    <label>2 -A distância de 2 tons pode ser encontrada entre as notas:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>F,B<br />
-                    <input type='radio'/><span style='color:red'>A,E</span><br />
-                    <input type='radio'/>F,G<br />
-                    <input type='radio'/>C,F<br />
-                    <input type='radio'/><span style='color:green'>D,F#</span><br />
-                </p>";
+                <label>2 -O acorde Dm7(9) possui ao todo:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg2' value='opt1' />uma tríade.<br />
+                <input type='radio' name='perg2' value='opt2' /><span style='color:red'>uma tétrade.</span><br />
+                <input type='radio' name='perg2' value='opt3' />uma tríade e o nono grau.<br />
+                <input type='radio' name='perg2' value='opt4' /><span style='color:green'>uma tétrade e o nono grau.</span><br />
+                <input type='radio' name='perg2' value='opt5' />uma tríade, o quarto e o nono graus.<br />
+            </p>";
                 break;
                 case 'opt3':
                 echo "<p>
-                    <label>2 -A distância de 2 tons pode ser encontrada entre as notas:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>F,B<br />
-                    <input type='radio'/>A,E<br />
-                    <input type='radio'/><span style='color:red'>F,G</span><br />
-                    <input type='radio'/>C,F<br />
-                    <input type='radio'/><span style='color:green'>D,F#</span><br />
-                </p>";
+                <label>2 -O acorde Dm7(9) possui ao todo:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg2' value='opt1' />uma tríade.<br />
+                <input type='radio' name='perg2' value='opt2' />uma tétrade.<br />
+                <input type='radio' name='perg2' value='opt3' /><span style='color:red'>uma tríade e o nono grau.</span><br />
+                <input type='radio' name='perg2' value='opt4' /><span style='color:green'>uma tétrade e o nono grau.</span><br />
+                <input type='radio' name='perg2' value='opt5' />uma tríade, o quarto e o nono graus.<br />
+            </p>";
                 break;
-                case 'opt4':
+                case 'opt5':
                 echo "<p>
-                    <label>2 -A distância de 2 tons pode ser encontrada entre as notas:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>F,B<br />
-                    <input type='radio'/>A,E<br />
-                    <input type='radio'/>F,G<br />
-                    <input type='radio'/><span style='color:red'>C,F</span><br />
-                    <input type='radio'/><span style='color:green'>D,F#</span><br />
-                </p>";
+                <label>2 -O acorde Dm7(9) possui ao todo:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg2' value='opt1' />uma tríade.<br />
+                <input type='radio' name='perg2' value='opt2' />uma tétrade.<br />
+                <input type='radio' name='perg2' value='opt3' />uma tríade e o nono grau.<br />
+                <input type='radio' name='perg2' value='opt4' /><span style='color:green'>uma tétrade e o nono grau.</span><br />
+                <input type='radio' name='perg2' value='opt5' /><span style='color:red'>uma tríade, o quarto e o nono graus.</span><br />
+            </p>";
                 break;
             }
         }
-        if($perg3 == "opt1"){
+        if($perg3 == "opt3"){
             echo "<p>
-                    <label>3 -Imagine que duas pessoas estão cantando a mesma nota. Você poderia afirmar que esses dois sons são diferentes por que:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:green'>pessoas diferentes possuem timbres diferentes de voz</span><br />
-                    <input type='radio'/>cada pessoa aprende uma técnica vocal diferente<br />
-                    <input type='radio'/>vozes diferentes são cantadas em tons diferentes<br />
-                    <input type='radio'/>quando duas pessoas cantam ao mesmo tempo, as notas se distanciam por um semitom<br />
-                    <input type='radio'/>você não pode afirmar que os sons são diferentes, pois não conhece as pessoas<br />
-                </p>";
+            <label>3 -A tétrade de um acorde é formada pelos graus:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
+            <input type='radio' name='perg3' value='opt1' />1º, 3º, 5º e 6º<br />
+            <input type='radio' name='perg3' value='opt2' />1º, 2º, 5º, 7º<br />
+            <input type='radio' name='perg3' value='opt3' /><span style='color:green'>1º, 3º, 6º, 7º</span><br />
+            <input type='radio' name='perg3' value='opt4' />1º, 3º, 4º, 5º<br />
+            <input type='radio' name='perg3' value='opt5' />1º, 3º, 5º, 7º<br />
+        </p>";
             $certa++;
         }else{
             switch($perg3){
+                case 'opt1':
+                echo "<p>
+                <label>3 -A tétrade de um acorde é formada pelos graus:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg3' value='opt1' /><span style='color:red'>1º, 3º, 5º e 6º</span><br />
+                <input type='radio' name='perg3' value='opt2' />1º, 2º, 5º, 7º<br />
+                <input type='radio' name='perg3' value='opt3' /><span style='color:green'>1º, 3º, 6º, 7º</span><br />
+                <input type='radio' name='perg3' value='opt4' />1º, 3º, 4º, 5º<br />
+                <input type='radio' name='perg3' value='opt5' />1º, 3º, 5º, 7º<br />
+            </p>";
+                break;
                 case 'opt2':
                 echo "<p>
-                    <label>3 -Imagine que duas pessoas estão cantando a mesma nota. Você poderia afirmar que esses dois sons são diferentes por que:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:green'>pessoas diferentes possuem timbres diferentes de voz</span><br />
-                    <input type='radio'/><span style='color:red'>cada pessoa aprende uma técnica vocal diferente</span><br />
-                    <input type='radio'/>vozes diferentes são cantadas em tons diferentes<br />
-                    <input type='radio'/>quando duas pessoas cantam ao mesmo tempo, as notas se distanciam por um semitom<br />
-                    <input type='radio'/>você não pode afirmar que os sons são diferentes, pois não conhece as pessoas<br />
-                </p>";
-                break;
-                case 'opt3':
-                echo "<p>
-                    <label>3 -Imagine que duas pessoas estão cantando a mesma nota. Você poderia afirmar que esses dois sons são diferentes por que:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:green'>pessoas diferentes possuem timbres diferentes de voz</span><br />
-                    <input type='radio'/>cada pessoa aprende uma técnica vocal diferente<br />
-                    <input type='radio'/><span style='color:red'>vozes diferentes são cantadas em tons diferentes</span><br />
-                    <input type='radio'/>quando duas pessoas cantam ao mesmo tempo, as notas se distanciam por um semitom<br />
-                    <input type='radio'/>você não pode afirmar que os sons são diferentes, pois não conhece as pessoas<br />
-                </p>";
+                <label>3 -A tétrade de um acorde é formada pelos graus:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg3' value='opt1' />1º, 3º, 5º e 6º<br />
+                <input type='radio' name='perg3' value='opt2' /><span style='color:red'>1º, 2º, 5º, 7º</span><br />
+                <input type='radio' name='perg3' value='opt3' /><span style='color:green'>1º, 3º, 6º, 7º</span><br />
+                <input type='radio' name='perg3' value='opt4' />1º, 3º, 4º, 5º<br />
+                <input type='radio' name='perg3' value='opt5' />1º, 3º, 5º, 7º<br />
+            </p>";
                 break;
                 case 'opt4':
                 echo "<p>
-                    <label>3 -Imagine que duas pessoas estão cantando a mesma nota. Você poderia afirmar que esses dois sons são diferentes por que:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:green'>pessoas diferentes possuem timbres diferentes de voz</span><br />
-                    <input type='radio'/>cada pessoa aprende uma técnica vocal diferente<br />
-                    <input type='radio'/>vozes diferentes são cantadas em tons diferentes<br />
-                    <input type='radio'/><span style='color:red'>quando duas pessoas cantam ao mesmo tempo, as notas se distanciam por um semitom</span><br />
-                    <input type='radio'/>você não pode afirmar que os sons são diferentes, pois não conhece as pessoas<br />
-                </p>";
+                <label>3 -A tétrade de um acorde é formada pelos graus:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg3' value='opt1' />1º, 3º, 5º e 6º<br />
+                <input type='radio' name='perg3' value='opt2' />1º, 2º, 5º, 7º<br />
+                <input type='radio' name='perg3' value='opt3' /><span style='color:green'>1º, 3º, 6º, 7º</span><br />
+                <input type='radio' name='perg3' value='opt4' /><span style='color:red'>1º, 3º, 4º, 5º</span><br />
+                <input type='radio' name='perg3' value='opt5' />1º, 3º, 5º, 7º<br />
+            </p>";
                 break;
                 case 'opt5':
                 echo "<p>
-                    <label>3 -Imagine que duas pessoas estão cantando a mesma nota. Você poderia afirmar que esses dois sons são diferentes por que:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:green'>pessoas diferentes possuem timbres diferentes de voz</span><br />
-                    <input type='radio'/>cada pessoa aprende uma técnica vocal diferente<br />
-                    <input type='radio'/>vozes diferentes são cantadas em tons diferentes<br />
-                    <input type='radio'/>quando duas pessoas cantam ao mesmo tempo, as notas se distanciam por um semitom<br />
-                    <input type='radio'/><span style='color:red'>você não pode afirmar que os sons são diferentes, pois não conhece as pessoas</span><br />
-                </p>";
+                <label>3 -A tétrade de um acorde é formada pelos graus:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg3' value='opt1' />1º, 3º, 5º e 6º<br />
+                <input type='radio' name='perg3' value='opt2' />1º, 2º, 5º, 7º<br />
+                <input type='radio' name='perg3' value='opt3' /><span style='color:green'>1º, 3º, 6º, 7º</span><br />
+                <input type='radio' name='perg3' value='opt4' />1º, 3º, 4º, 5º<br />
+                <input type='radio' name='perg3' value='opt5' /><span style='color:red'>1º, 3º, 5º, 7º</span><br />
+            </p>";
                 break;
             }
         }
-        if($perg4 == "opt2"){
+        if($perg4 == "opt1"){
             echo "<p>
-                    <label>4 -Conhecendo as definições de melodia e harmonia, podemos concluir que alguns instrumentos são classificados como harmônicos, enquanto outros são apenas melódicos. Um exemplo de instrumento harmônico é o(a):<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>saxofone<br />
-                    <input type='radio'/><span style='color:green'>cavaquinho</span><br />
-                    <input type='radio'/>pandeiro<br />
-                    <input type='radio'/>bateria<br />
-                    <input type='radio'/>flauta<br />
-                </p>";
+            <label>4 -Sobre a notação dos dedos para o violão, podemos afirmar que:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
+            <input type='radio' name='perg4' value='opt1' /><span style='color:green'>cada dedo possui um número aleatório.</span><br />
+            <input type='radio' name='perg4' value='opt2' />os dedos da mão esquerda são numerados do número 5 ao 9.<br />
+            <input type='radio' name='perg4' value='opt3' />os dedos da mão esquerda são numerados do número 1 ao 4, onde o dedo mínimo é o 1 e o indicador é o dedo 4.<br />
+            <input type='radio' name='perg4' value='opt4' />os dedos da mão esquerda são numerados do número 1 ao 4, onde o dedo mínimo é o 4 e o indicador é o dedo 1.<br />
+            <input type='radio' name='perg4' value='opt5' />ninguém utiliza numeração para os dedos na prática pois não é útil.<br />
+        </p>";
             $certa++;
         }else{
             switch($perg4){
-                case 'opt1':
+                case 'opt2':
                 echo "<p>
-                    <label>4 -Conhecendo as definições de melodia e harmonia, podemos concluir que alguns instrumentos são classificados como harmônicos, enquanto outros são apenas melódicos. Um exemplo de instrumento harmônico é o(a):<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:red'>saxofone</span><br />
-                    <input type='radio'/><span style='color:green'>cavaquinho</span><br />
-                    <input type='radio'/>pandeiro<br />
-                    <input type='radio'/>bateria<br />
-                    <input type='radio'/>flauta<br />
-                </p>";
+                <label>4 -Sobre a notação dos dedos para o violão, podemos afirmar que:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg4' value='opt1' /><span style='color:green'>cada dedo possui um número aleatório.</span><br />
+                <input type='radio' name='perg4' value='opt2' /><span style='color:red'>os dedos da mão esquerda são numerados do número 5 ao 9.</span><br />
+                <input type='radio' name='perg4' value='opt3' />os dedos da mão esquerda são numerados do número 1 ao 4, onde o dedo mínimo é o 1 e o indicador é o dedo 4.<br />
+                <input type='radio' name='perg4' value='opt4' />os dedos da mão esquerda são numerados do número 1 ao 4, onde o dedo mínimo é o 4 e o indicador é o dedo 1.<br />
+                <input type='radio' name='perg4' value='opt5' />ninguém utiliza numeração para os dedos na prática pois não é útil.<br />
+            </p>";
                 break;
                 case 'opt3':
-                echo "<p>
-                    <label>4 -Conhecendo as definições de melodia e harmonia, podemos concluir que alguns instrumentos são classificados como harmônicos, enquanto outros são apenas melódicos. Um exemplo de instrumento harmônico é o(a):<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>saxofone<br />
-                    <input type='radio'/><span style='color:green'>cavaquinho</span><br />
-                    <input type='radio'/><span style='color:red'>pandeiro</span><br />
-                    <input type='radio'/>bateria<br />
-                    <input type='radio'/>flauta<br />
-                </p>";
+                echo "p>
+                <label>4 -Sobre a notação dos dedos para o violão, podemos afirmar que:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg4' value='opt1' /><span style='color:green'>cada dedo possui um número aleatório.</span><br />
+                <input type='radio' name='perg4' value='opt2' />os dedos da mão esquerda são numerados do número 5 ao 9.<br />
+                <input type='radio' name='perg4' value='opt3' /><span style='color:red'>os dedos da mão esquerda são numerados do número 1 ao 4, onde o dedo mínimo é o 1 e o indicador é o dedo 4.</span><br />
+                <input type='radio' name='perg4' value='opt4' />os dedos da mão esquerda são numerados do número 1 ao 4, onde o dedo mínimo é o 4 e o indicador é o dedo 1.<br />
+                <input type='radio' name='perg4' value='opt5' />ninguém utiliza numeração para os dedos na prática pois não é útil.<br />
+            </p>";
                 break;
                 case 'opt4':
-                echo "<p>
-                    <label>4 -Conhecendo as definições de melodia e harmonia, podemos concluir que alguns instrumentos são classificados como harmônicos, enquanto outros são apenas melódicos. Um exemplo de instrumento harmônico é o(a):<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>saxofone<br />
-                    <input type='radio'/><span style='color:green'>cavaquinho</span><br />
-                    <input type='radio'/>pandeiro<br />
-                    <input type='radio'/><span style='color:red'>bateria</span><br />
-                    <input type='radio'/>flauta<br />
-                </p>";
+                echo "p>
+                <label>4 -Sobre a notação dos dedos para o violão, podemos afirmar que:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg4' value='opt1' /><span style='color:green'>cada dedo possui um número aleatório.</span><br />
+                <input type='radio' name='perg4' value='opt2' />os dedos da mão esquerda são numerados do número 5 ao 9.<br />
+                <input type='radio' name='perg4' value='opt3' />os dedos da mão esquerda são numerados do número 1 ao 4, onde o dedo mínimo é o 1 e o indicador é o dedo 4.<br />
+                <input type='radio' name='perg4' value='opt4' /><span style='color:red'>os dedos da mão esquerda são numerados do número 1 ao 4, onde o dedo mínimo é o 4 e o indicador é o dedo 1.</span><br />
+                <input type='radio' name='perg4' value='opt5' />ninguém utiliza numeração para os dedos na prática pois não é útil.<br />
+            </p>";
                 break;
                 case 'opt5':
-                echo "<p>
-                    <label>4 -Conhecendo as definições de melodia e harmonia, podemos concluir que alguns instrumentos são classificados como harmônicos, enquanto outros são apenas melódicos. Um exemplo de instrumento harmônico é o(a):<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>saxofone<br />
-                    <input type='radio'/><span style='color:green'>cavaquinho</span><br />
-                    <input type='radio'/>pandeiro<br />
-                    <input type='radio'/>bateria<br />
-                    <input type='radio'/><span style='color:red'>flauta</span><br />
-                </p>";
+                echo "p>
+                <label>4 -Sobre a notação dos dedos para o violão, podemos afirmar que:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg4' value='opt1' /><span style='color:green'>cada dedo possui um número aleatório.</span><br />
+                <input type='radio' name='perg4' value='opt2' />os dedos da mão esquerda são numerados do número 5 ao 9.<br />
+                <input type='radio' name='perg4' value='opt3' />os dedos da mão esquerda são numerados do número 1 ao 4, onde o dedo mínimo é o 1 e o indicador é o dedo 4.<br />
+                <input type='radio' name='perg4' value='opt4' />os dedos da mão esquerda são numerados do número 1 ao 4, onde o dedo mínimo é o 4 e o indicador é o dedo 1.<br />
+                <input type='radio' name='perg4' value='opt5' /><span style='color:red'>ninguém utiliza numeração para os dedos na prática pois não é útil.</span><br />
+            </p>";
                 break;
             }
         }
         if($perg5 == "opt5"){
             echo "<p>
-                    <label>5 -Marque a alternativa verdadeira:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>Música é a combinação de sons e silêncios de maneira desorganizada<br />
-                    <input type='radio'/>Tons e semitons são a mesma coisa<br />
-                    <input type='radio'/>Timbre é o que diferencia duas notas diferentes tocadas no mesmo instrumento<br />
-                    <input type='radio'/>Instrumentos diferentes possuem notas necessariamente diferentes<br />
-                    <input type='radio'/><span style='color:green'>Uma mesma música pode ser reproduzida com diferentes timbres</span><br />
-                </p>";
+            <label>5 -Cifra é:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
+            <input type='radio' name='perg5' value='opt1' />uma notação para representar os nomes e símbolos dos acordes<br />
+            <input type='radio' name='perg5' value='opt2' />um símbolo que informa quantos compassos uma música possui<br />
+            <input type='radio' name='perg5' value='opt3' />somente o desenho de um acorde montado em um instrumento<br />
+            <input type='radio' name='perg5' value='opt4' />uma representação para acordes com mais de 3 notas<br />
+            <input type='radio' name='perg5' value='opt5' /><span style='color:green'>uma letra que informa qual a oitava que uma nota deve ser tocada</span><br />
+        </p>";
             $certa++;
         }else{
             switch($perg5){
                 case 'opt1':
                 echo "<p>
-                    <label>5 -Marque a alternativa verdadeira:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:red'>Música é a combinação de sons e silêncios de maneira desorganizada</span><br />
-                    <input type='radio'/>Tons e semitons são a mesma coisa<br />
-                    <input type='radio'/>Timbre é o que diferencia duas notas diferentes tocadas no mesmo instrumento<br />
-                    <input type='radio'/>Instrumentos diferentes possuem notas necessariamente diferentes<br />
-                    <input type='radio'/><span style='color:green'>Uma mesma música pode ser reproduzida com diferentes timbres</span><br />
-                </p>";
+                <label>5 -Cifra é:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg5' value='opt1' /><span style='color:red'>uma notação para representar os nomes e símbolos dos acordes</span><br />
+                <input type='radio' name='perg5' value='opt2' />um símbolo que informa quantos compassos uma música possui<br />
+                <input type='radio' name='perg5' value='opt3' />somente o desenho de um acorde montado em um instrumento<br />
+                <input type='radio' name='perg5' value='opt4' />uma representação para acordes com mais de 3 notas<br />
+                <input type='radio' name='perg5' value='opt5' /><span style='color:green'>uma letra que informa qual a oitava que uma nota deve ser tocada</span><br />
+            </p>";
                 break;
                 case 'opt2':
                 echo "<p>
-                    <label>5 -Marque a alternativa verdadeira:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>Música é a combinação de sons e silêncios de maneira desorganizada<br />
-                    <input type='radio'/><span style='color:red'>Tons e semitons são a mesma coisa</span><br />
-                    <input type='radio'/>Timbre é o que diferencia duas notas diferentes tocadas no mesmo instrumento<br />
-                    <input type='radio'/>Instrumentos diferentes possuem notas necessariamente diferentes<br />
-                    <input type='radio'/><span style='color:green'>Uma mesma música pode ser reproduzida com diferentes timbres</span><br />
-                </p>";
+                <label>5 -Cifra é:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg5' value='opt1' />uma notação para representar os nomes e símbolos dos acordes<br />
+                <input type='radio' name='perg5' value='opt2' /><span style='color:red'>um símbolo que informa quantos compassos uma música possui</span><br />
+                <input type='radio' name='perg5' value='opt3' />somente o desenho de um acorde montado em um instrumento<br />
+                <input type='radio' name='perg5' value='opt4' />uma representação para acordes com mais de 3 notas<br />
+                <input type='radio' name='perg5' value='opt5' /><span style='color:green'>uma letra que informa qual a oitava que uma nota deve ser tocada</span><br />
+            </p>";
                 break;
                 case 'opt3':
                 echo "<p>
-                    <label>5 -Marque a alternativa verdadeira:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>Música é a combinação de sons e silêncios de maneira desorganizada<br />
-                    <input type='radio'/>Tons e semitons são a mesma coisa<br />
-                    <input type='radio'/><span style='color:red'>Timbre é o que diferencia duas notas diferentes tocadas no mesmo instrumento</span><br />
-                    <input type='radio'/>Instrumentos diferentes possuem notas necessariamente diferentes<br />
-                    <input type='radio'/><span style='color:green'>Uma mesma música pode ser reproduzida com diferentes timbres</span><br />
-                </p>";
+                <label>5 -Cifra é:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg5' value='opt1' />uma notação para representar os nomes e símbolos dos acordes<br />
+                <input type='radio' name='perg5' value='opt2' />um símbolo que informa quantos compassos uma música possui<br />
+                <input type='radio' name='perg5' value='opt3' /><span style='color:red'>somente o desenho de um acorde montado em um instrumento</span><br />
+                <input type='radio' name='perg5' value='opt4' />uma representação para acordes com mais de 3 notas<br />
+                <input type='radio' name='perg5' value='opt5' /><span style='color:green'>uma letra que informa qual a oitava que uma nota deve ser tocada</span><br />
+            </p>";
                 break;
                 case 'opt4':
                 echo "<p>
-                    <label>5 -Marque a alternativa verdadeira:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>Música é a combinação de sons e silêncios de maneira desorganizada<br />
-                    <input type='radio'/>Tons e semitons são a mesma coisa<br />
-                    <input type='radio'/>Timbre é o que diferencia duas notas diferentes tocadas no mesmo instrumento<br />
-                    <input type='radio'/><span style='color:red'>Instrumentos diferentes possuem notas necessariamente diferentes</span><br />
-                    <input type='radio'/><span style='color:green'>Uma mesma música pode ser reproduzida com diferentes timbres</span><br />
-                </p>";
+                <label>5 -Cifra é:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg5' value='opt1' />uma notação para representar os nomes e símbolos dos acordes<br />
+                <input type='radio' name='perg5' value='opt2' />um símbolo que informa quantos compassos uma música possui<br />
+                <input type='radio' name='perg5' value='opt3' />somente o desenho de um acorde montado em um instrumento<br />
+                <input type='radio' name='perg5' value='opt4' /><span style='color:red'>uma representação para acordes com mais de 3 notas</span><br />
+                <input type='radio' name='perg5' value='opt5' /><span style='color:green'>uma letra que informa qual a oitava que uma nota deve ser tocada</span><br />
+            </p>";
                 break;
                 
             }
@@ -692,271 +697,271 @@
         }
         if($perg6 == "opt3"){
             echo "<p>
-                    <label>6 -A nota D# é idêntica à nota:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>F<br />
-                    <input type='radio'/>C#<br />
-                    <input type='radio'/><span style='color:green'>Eb</span><br />
-                    <input type='radio'/>Gb<br />
-                    <input type='radio'/>Ab<br />
-                </p>";
+            <label>6 -Tocar um arpejo significa tocar:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
+            <input type='radio' name='perg6' value='opt1' />duas ou mais notas sucessivamente<br />
+            <input type='radio' name='perg6' value='opt2' />duas ou mais notas simultaneamente<br />
+            <input type='radio' name='perg6' value='opt3' /><span style='color:green'>notas de acorde simultaneamente</span><br />
+            <input type='radio' name='perg6' value='opt4' />notas de acorde sucessivamente<br />
+            <input type='radio' name='perg6' value='opt5' />acordes sucessivos<br />
+        </p>";
             $certa++;
         }else{
             switch($perg6){
                 case 'opt1':
                 echo "<p>
-                    <label>6 -A nota D# é idêntica à nota:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:red'>F</span><br />
-                    <input type='radio'/>C#<br />
-                    <input type='radio'/><span style='color:green'>Eb</span><br />
-                    <input type='radio'/>Gb<br />
-                    <input type='radio'/>Ab<br />
-                </p>";
+                <label>6 -Tocar um arpejo significa tocar:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg6' value='opt1' /><span style='color:red'>duas ou mais notas sucessivamente</span><br />
+                <input type='radio' name='perg6' value='opt2' />duas ou mais notas simultaneamente<br />
+                <input type='radio' name='perg6' value='opt3' /><span style='color:green'>notas de acorde simultaneamente</span><br />
+                <input type='radio' name='perg6' value='opt4' />notas de acorde sucessivamente<br />
+                <input type='radio' name='perg6' value='opt5' />acordes sucessivos<br />
+            </p>";
                 break;
                 case 'opt2':
                 echo "<p>
-                    <label>6 -A nota D# é idêntica à nota:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>F<br />
-                    <input type='radio'/><span style='color:red'>C#</span><br />
-                    <input type='radio'/><span style='color:green'>Eb</span><br />
-                    <input type='radio'/>Gb<br />
-                    <input type='radio'/>Ab<br />
-                </p>";
+                <label>6 -Tocar um arpejo significa tocar:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg6' value='opt1' />duas ou mais notas sucessivamente<br />
+                <input type='radio' name='perg6' value='opt2' /><span style='color:red'>duas ou mais notas simultaneamente</span><br />
+                <input type='radio' name='perg6' value='opt3' /><span style='color:green'>notas de acorde simultaneamente</span><br />
+                <input type='radio' name='perg6' value='opt4' />notas de acorde sucessivamente<br />
+                <input type='radio' name='perg6' value='opt5' />acordes sucessivos<br />
+            </p>";
                 break;
                 case 'opt4':
                 echo "<p>
-                    <label>6 -A nota D# é idêntica à nota:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>F<br />
-                    <input type='radio'/>C#<br />
-                    <input type='radio'/><span style='color:green'>Eb</span><br />
-                    <input type='radio'/><span style='color:red'>Gb</span><br />
-                    <input type='radio'/>Ab<br />
-                </p>";
+                <label>6 -Tocar um arpejo significa tocar:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg6' value='opt1' />duas ou mais notas sucessivamente<br />
+                <input type='radio' name='perg6' value='opt2' />duas ou mais notas simultaneamente<br />
+                <input type='radio' name='perg6' value='opt3' /><span style='color:green'>notas de acorde simultaneamente</span><br />
+                <input type='radio' name='perg6' value='opt4' /><span style='color:red'>notas de acorde sucessivamente</span><br />
+                <input type='radio' name='perg6' value='opt5' />acordes sucessivos<br />
+            </p>";
                 break;
                 case 'opt5':
                 echo "<p>
-                    <label>6 -A nota D# é idêntica à nota:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>F<br />
-                    <input type='radio'/>C#<br />
-                    <input type='radio'/><span style='color:green'>Eb</span><br />
-                    <input type='radio'/>Gb<br />
-                    <input type='radio'/><span style='color:red'>Ab</span><br />
-                </p>";
+                <label>6 -Tocar um arpejo significa tocar:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg6' value='opt1' />duas ou mais notas sucessivamente<br />
+                <input type='radio' name='perg6' value='opt2' />duas ou mais notas simultaneamente<br />
+                <input type='radio' name='perg6' value='opt3' /><span style='color:green'>notas de acorde simultaneamente</span><br />
+                <input type='radio' name='perg6' value='opt4' />notas de acorde sucessivamente<br />
+                <input type='radio' name='perg6' value='opt5' /><span style='color:red'>acordes sucessivos</span><br />
+            </p>";
                 break;
             }
         }
-        if($perg7 == "opt3"){
+        if($perg7 == "opt1"){
             echo "<p>
-                    <label>7 -Um tom e meio acima de Lá corresponde à nota:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>F<br />
-                    <input type='radio'/>G<br />
-                    <input type='radio'/><span style='color:green'>C</span><br />
-                    <input type='radio'/>Bb<br />
-                    <input type='radio'/>Db<br />
-                </p>";
+            <label>7 -Para que uma tríade vire uma tétrade, precisamos acrescentar:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
+            <input type='radio' name='perg7' value='opt1' /><span style='color:green'>o sétimo grau</span><br />
+            <input type='radio' name='perg7' value='opt2' />o terceiro grau<br />
+            <input type='radio' name='perg7' value='opt3' />o quinto grau<br />
+            <input type='radio' name='perg7' value='opt4' />o segundo grau<br />
+            <input type='radio' name='perg7' value='opt5' />o sexto grau<br />
+        </p>";
             $certa++;
         }else{
             switch($perg7){
-                case 'opt1':
-                echo "<p>
-                    <label>7 -Um tom e meio acima de Lá corresponde à nota:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:red'>F</span><br />
-                    <input type='radio'/>G<br />
-                    <input type='radio'/><span style='color:green'>C</span><br />
-                    <input type='radio'/>Bb<br />
-                    <input type='radio'/>Db<br />
-                </p>";
-                break;
                 case 'opt2':
                 echo "<p>
-                    <label>7 -Um tom e meio acima de Lá corresponde à nota:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>F<br />
-                    <input type='radio'/><span style='color:red'>G</span><br />
-                    <input type='radio'/><span style='color:green'>C</span><br />
-                    <input type='radio'/>Bb<br />
-                    <input type='radio'/>Db<br />
-                </p>";
+                <label>7 -Para que uma tríade vire uma tétrade, precisamos acrescentar:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg7' value='opt1' /><span style='color:green'>o sétimo grau</span><br />
+                <input type='radio' name='perg7' value='opt2' /><span style='color:red'>o terceiro grau</span><br />
+                <input type='radio' name='perg7' value='opt3' />o quinto grau<br />
+                <input type='radio' name='perg7' value='opt4' />o segundo grau<br />
+                <input type='radio' name='perg7' value='opt5' />o sexto grau<br />
+            </p>";
+                break;
+                case 'opt3':
+                echo "<p>
+                <label>7 -Para que uma tríade vire uma tétrade, precisamos acrescentar:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg7' value='opt1' /><span style='color:green'>o sétimo grau<br />
+                <input type='radio' name='perg7' value='opt2' />o terceiro grau</span><br />
+                <input type='radio' name='perg7' value='opt3' /><span style='color:red'>o quinto grau</span><br />
+                <input type='radio' name='perg7' value='opt4' />o segundo grau<br />
+                <input type='radio' name='perg7' value='opt5' />o sexto grau<br />
+            </p>";
                 break;
                 case 'opt4':
                 echo "<p>
-                    <label>7 -Um tom e meio acima de Lá corresponde à nota:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>F<br />
-                    <input type='radio'/>G<br />
-                    <input type='radio'/><span style='color:green'>C</span><br />
-                    <input type='radio'/><span style='color:red'>Bb</span><br />
-                    <input type='radio'/>Db<br />
-                </p>";
+                <label>7 -Para que uma tríade vire uma tétrade, precisamos acrescentar:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg7' value='opt1' /><span style='color:green'>o sétimo grau</span><br />
+                <input type='radio' name='perg7' value='opt2' />o terceiro grau<br />
+                <input type='radio' name='perg7' value='opt3' />o quinto grau<br />
+                <input type='radio' name='perg7' value='opt4' /><span style='color:red'>o segundo grau</span><br />
+                <input type='radio' name='perg7' value='opt5' />o sexto grau<br />
+            </p>";
                 break;
                 case 'opt5':
                 echo "<p>
-                    <label>7 -Um tom e meio acima de Lá corresponde à nota:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>F<br />
-                    <input type='radio'/>G<br />
-                    <input type='radio'/><span style='color:green'>C</span><br />
-                    <input type='radio'/>Bb<br />
-                    <input type='radio'/><span style='color:red'>Db</span><br />
-                </p>";
+                <label>7 -Para que uma tríade vire uma tétrade, precisamos acrescentar:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg7' value='opt1' /><span style='color:green'>o sétimo grau</span><br />
+                <input type='radio' name='perg7' value='opt2' />o terceiro grau<br />
+                <input type='radio' name='perg7' value='opt3' />o quinto grau<br />
+                <input type='radio' name='perg7' value='opt4' />o segundo grau<br />
+                <input type='radio' name='perg7' value='opt5' /><span style='color:red'>o sexto grau</span><br />
+            </p>";
                 break;
             }
         }
-        if($perg8 == "opt3"){
+        if($perg8 == "opt5"){
             echo "<p>
-                    <label>8 -O símbolo “#” representa a distância de:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>um tom acima<br />
-                    <input type='radio'/>um tom abaixo<br />
-                    <input type='radio'/><span style='color:green'>meio tom acima</span><br />
-                    <input type='radio'/>meio tom abaixo<br />
-                    <input type='radio'/>a distância vai depender da nota<br />
-                </p>";
+            <label>8 -Marque a alternativa INCORRETA:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
+            <input type='radio' name='perg8' value='opt1' />o acorde de Ré maior é formado pelas notas D, F#, A<br />
+            <input type='radio' name='perg8' value='opt2' />um acorde menor natural possui a quinta justa<br />
+            <input type='radio' name='perg8' value='opt3' />um acorde suspenso pode ter a terça maior ou a terça menor<br />
+            <input type='radio' name='perg8' value='opt4' />tríades e tétrades são notas de formação de acordes<br />
+            <input type='radio' name='perg8' value='opt5' /><span style='color:green'>o site Musiclly tem como objetivo facilitar o seu aprendizado</span><br />
+        </p>";
             $certa++;
         }else{
             switch($perg8){
                 case 'opt1':
                 echo "<p>
-                    <label>8 -O símbolo “#” representa a distância de:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:red'>um tom acima</span><br />
-                    <input type='radio'/>um tom abaixo<br />
-                    <input type='radio'/><span style='color:green'>meio tom acima</span><br />
-                    <input type='radio'/>meio tom abaixo<br />
-                    <input type='radio'/>a distância vai depender da nota<br />
-                </p>";
+                <label>8 -Marque a alternativa INCORRETA:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg8' value='opt1' /><span style='color:red'>o acorde de Ré maior é formado pelas notas D, F#, A</span><br />
+                <input type='radio' name='perg8' value='opt2' />um acorde menor natural possui a quinta justa<br />
+                <input type='radio' name='perg8' value='opt3' />um acorde suspenso pode ter a terça maior ou a terça menor<br />
+                <input type='radio' name='perg8' value='opt4' />tríades e tétrades são notas de formação de acordes<br />
+                <input type='radio' name='perg8' value='opt5' /><span style='color:green'>o site Musiclly tem como objetivo facilitar o seu aprendizado</span><br />
+            </p>";
                 break;
                 case 'opt2':
                 echo "<p>
-                    <label>8 -O símbolo “#” representa a distância de:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>um tom acima<br />
-                    <input type='radio'/><span style='color:red'>um tom abaixo</span><br />
-                    <input type='radio'/><span style='color:green'>meio tom acima</span><br />
-                    <input type='radio'/>meio tom abaixo<br />
-                    <input type='radio'/>a distância vai depender da nota<br />
-                </p>";
+                <label>8 -Marque a alternativa INCORRETA:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg8' value='opt1' />o acorde de Ré maior é formado pelas notas D, F#, A<br />
+                <input type='radio' name='perg8' value='opt2' /><span style='color:red'>um acorde menor natural possui a quinta justa</span><br />
+                <input type='radio' name='perg8' value='opt3' />um acorde suspenso pode ter a terça maior ou a terça menor<br />
+                <input type='radio' name='perg8' value='opt4' />tríades e tétrades são notas de formação de acordes<br />
+                <input type='radio' name='perg8' value='opt5' /><span style='color:green'>o site Musiclly tem como objetivo facilitar o seu aprendizado</span><br />
+            </p>";
+                break;
+                case 'opt3':
+                echo "<p>
+                <label>8 -Marque a alternativa INCORRETA:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg8' value='opt1' />o acorde de Ré maior é formado pelas notas D, F#, A<br />
+                <input type='radio' name='perg8' value='opt2' />um acorde menor natural possui a quinta justa<br />
+                <input type='radio' name='perg8' value='opt3' /><span style='color:red'>um acorde suspenso pode ter a terça maior ou a terça menor</span><br />
+                <input type='radio' name='perg8' value='opt4' />tríades e tétrades são notas de formação de acordes<br />
+                <input type='radio' name='perg8' value='opt5' /><span style='color:green'>o site Musiclly tem como objetivo facilitar o seu aprendizado</span><br />
+            </p>";
                 break;
                 case 'opt4':
                 echo "<p>
-                    <label>8 -O símbolo “#” representa a distância de:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>um tom acima<br />
-                    <input type='radio'/>um tom abaixo<br />
-                    <input type='radio'/><span style='color:green'>meio tom acima</span><br />
-                    <input type='radio'/><span style='color:red'>meio tom abaixo</span><br />
-                    <input type='radio'/>a distância vai depender da nota<br />
-                </p>";
-                break;
-                case 'opt5':
-                echo "<p>
-                    <label>8 -O símbolo “#” representa a distância de:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>um tom acima<br />
-                    <input type='radio'/>um tom abaixo<br />
-                    <input type='radio'/><span style='color:green'>meio tom acima</span><br />
-                    <input type='radio'/>meio tom abaixo<br />
-                    <input type='radio'/><span style='color:red'>a distância vai depender da nota</span><br />
-                </p>";
+                <label>8 -Marque a alternativa INCORRETA:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg8' value='opt1' />o acorde de Ré maior é formado pelas notas D, F#, A<br />
+                <input type='radio' name='perg8' value='opt2' />um acorde menor natural possui a quinta justa<br />
+                <input type='radio' name='perg8' value='opt3' />um acorde suspenso pode ter a terça maior ou a terça menor<br />
+                <input type='radio' name='perg8' value='opt4' /><span style='color:red'>tríades e tétrades são notas de formação de acordes</span><br />
+                <input type='radio' name='perg8' value='opt5' /><span style='color:green'>o site Musiclly tem como objetivo facilitar o seu aprendizado</span><br />
+            </p>";
                 break;
             }
         }
-        if($perg9 == "opt1"){
+        if($perg9 == "opt2"){
             echo "<p>
-                    <label>9 -A música ocidental foi dividida em:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:green'>12 notas</span><br />
-                    <input type='radio'/>10 notas<br />
-                    <input type='radio'/>8 notas<br />
-                    <input type='radio'/>3 notas<br />
-                    <input type='radio'/>infinitas notas<br />
-                </p>";
+            <label>9 -O segundo grau aumentado está a que distância da tônica:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
+            <input type='radio' name='perg9' value='opt1' />um tom<br />
+            <input type='radio' name='perg9' value='opt2' /><span style='color:green'>um tom e meio</span><br />
+            <input type='radio' name='perg9' value='opt3' />meio tom<br />
+            <input type='radio' name='perg9' value='opt4' />dois tons<br />
+            <input type='radio' name='perg9' value='opt5' />dois tons e meio<br />
+        </p>";
             $certa++;
         }else{
             switch($perg9){
-                case 'opt2':
+                case 'opt1':
                 echo "<p>
-                    <label>9 -A música ocidental foi dividida em:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:green'>12 notas</span><br />
-                    <input type='radio'/><span style='color:red'>10 notas</span><br />
-                    <input type='radio'/>8 notas<br />
-                    <input type='radio'/>3 notas<br />
-                    <input type='radio'/>infinitas notas<br />
-                </p>";
+                <label>9 -O segundo grau aumentado está a que distância da tônica:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg9' value='opt1' /><span style='color:red'>um tom</span><br />
+                <input type='radio' name='perg9' value='opt2' /><span style='color:green'>um tom e meio</span><br />
+                <input type='radio' name='perg9' value='opt3' />meio tom<br />
+                <input type='radio' name='perg9' value='opt4' />dois tons<br />
+                <input type='radio' name='perg9' value='opt5' />dois tons e meio<br />
+            </p>";
                 break;
                 case 'opt3':
                 echo "<p>
-                    <label>9 -A música ocidental foi dividida em:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:green'>12 notas<br />
-                    <input type='radio'/>10 notas</span><br />
-                    <input type='radio'/><span style='color:red'>8 notas</span><br />
-                    <input type='radio'/>3 notas<br />
-                    <input type='radio'/>infinitas notas<br />
-                </p>";
+                <label>9 -O segundo grau aumentado está a que distância da tônica:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg9' value='opt1' />um tom<br />
+                <input type='radio' name='perg9' value='opt2' /><span style='color:green'>um tom e meio</span><br />
+                <input type='radio' name='perg9' value='opt3' /><span style='color:red'>meio tom</span><br />
+                <input type='radio' name='perg9' value='opt4' />dois tons<br />
+                <input type='radio' name='perg9' value='opt5' />dois tons e meio<br />
+            </p>";
                 break;
                 case 'opt4':
                 echo "<p>
-                    <label>9 -A música ocidental foi dividida em:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:green'>12 notas</span><br />
-                    <input type='radio'/>10 notas<br />
-                    <input type='radio'/>8 notas<br />
-                    <input type='radio'/><span style='color:red'>3 notas</span><br />
-                    <input type='radio'/>infinitas notas<br />
-                </p>";
+                <label>9 -O segundo grau aumentado está a que distância da tônica:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg9' value='opt1' />um tom</span><br />
+                <input type='radio' name='perg9' value='opt2' /><span style='color:green'>um tom e meio<br />
+                <input type='radio' name='perg9' value='opt3' />meio tom<br />
+                <input type='radio' name='perg9' value='opt4' /><span style='color:red'>dois tons</span><br />
+                <input type='radio' name='perg9' value='opt5' />dois tons e meio<br />
+            </p>";
                 break;
                 case 'opt5':
                 echo "<p>
-                    <label>9 -A música ocidental foi dividida em:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:green'>12 notas</span><br />
-                    <input type='radio'/>10 notas<br />
-                    <input type='radio'/>8 notas<br />
-                    <input type='radio'/>3 notas<br />
-                    <input type='radio'/><span style='color:red'>infinitas notas</span><br />
-                </p>";
+                <label>9 -O segundo grau aumentado está a que distância da tônica:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg9' value='opt1' />um tom<br />
+                <input type='radio' name='perg9' value='opt2' /><span style='color:green'>um tom e meio</span><br />
+                <input type='radio' name='perg9' value='opt3' />meio tom<br />
+                <input type='radio' name='perg9' value='opt4' />dois tons<br />
+                <input type='radio' name='perg9' value='opt5' /><span style='color:red'>dois tons e meio</span><br />
+            </p>";
                 break;
             }
         }
-        if($perg10 == "opt2"){
+        if($perg10 == "opt1"){
             echo "<p>
-                    <label>10 -Podemos afirmar que:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>Ao mudar um ritmo, estamos mudando também a harmonia<br />
-                    <input type='radio'/><span style='color:green'>Uma mesma melodia pode ser tocada em diferentes ritmos</span><br />
-                    <input type='radio'/>O ritmo de uma música depende do timbre dos cantores<br />
-                    <input type='radio'/>Timbres diferentes resultam em melodias diferentes<br />
-                    <input type='radio'/>Uma pessoa que não entende nada de harmonia nunca vai conseguir aprender<br />
-                </p>";
+            <label>10 -É importante conhecer os graus que formam uma tríade, pois:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
+            <input type='radio' name='perg10' value='opt1' /><span style='color:green'>a tríade informa em qual oitava o acorde está localizado</span><br />
+            <input type='radio' name='perg10' value='opt2' />a tríade não informa se um acorde é maior ou menor, mas informa se o acorde é suspenso<br />
+            <input type='radio' name='perg10' value='opt3' />o quinto grau da tríade define se o acorde é maior ou menor<br />
+            <input type='radio' name='perg10' value='opt4' />sabendo os graus que formam uma tríade, podemos montar qualquer acorde natural<br />
+            <input type='radio' name='perg10' value='opt5' />não é importante saber o que é tríade, pois isso não serve pra nada<br />
+        </p>";
             $certa++;
         }else{
             switch($perg10){
-                case 'opt1':
+                case 'opt2':
                 echo "<p>
-                    <label>10 -Podemos afirmar que:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:red'>Ao mudar um ritmo, estamos mudando também a harmonia</span><br />
-                    <input type='radio'/><span style='color:green'>Uma mesma melodia pode ser tocada em diferentes ritmos</span><br />
-                    <input type='radio'/>O ritmo de uma música depende do timbre dos cantores<br />
-                    <input type='radio'/>Timbres diferentes resultam em melodias diferentes<br />
-                    <input type='radio'/>Uma pessoa que não entende nada de harmonia nunca vai conseguir aprender<br />
-                </p>";
+                <label>10 -É importante conhecer os graus que formam uma tríade, pois:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg10' value='opt1' /><span style='color:green'>a tríade informa em qual oitava o acorde está localizado</span><br />
+                <input type='radio' name='perg10' value='opt2' /><span style='color:red'>a tríade não informa se um acorde é maior ou menor, mas informa se o acorde é suspenso</span><br />
+                <input type='radio' name='perg10' value='opt3' />o quinto grau da tríade define se o acorde é maior ou menor<br />
+                <input type='radio' name='perg10' value='opt4' />sabendo os graus que formam uma tríade, podemos montar qualquer acorde natural<br />
+                <input type='radio' name='perg10' value='opt5' />não é importante saber o que é tríade, pois isso não serve pra nada<br />
+            </p>";
                 break;
                 case 'opt3':
                 echo "<p>
-                    <label>10 -Podemos afirmar que:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>Ao mudar um ritmo, estamos mudando também a harmonia<br />
-                    <input type='radio'/><span style='color:green'>Uma mesma melodia pode ser tocada em diferentes ritmos</span><br />
-                    <input type='radio'/><span style='color:red'>O ritmo de uma música depende do timbre dos cantores</span><br />
-                    <input type='radio'/>Timbres diferentes resultam em melodias diferentes<br />
-                    <input type='radio'/>Uma pessoa que não entende nada de harmonia nunca vai conseguir aprender<br />
-                </p>";
+                <label>10 -É importante conhecer os graus que formam uma tríade, pois:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg10' value='opt1' /><span style='color:green'>a tríade informa em qual oitava o acorde está localizado</span><br />
+                <input type='radio' name='perg10' value='opt2' />a tríade não informa se um acorde é maior ou menor, mas informa se o acorde é suspenso<br />
+                <input type='radio' name='perg10' value='opt3' /><span style='color:red'>o quinto grau da tríade define se o acorde é maior ou menor</span><br />
+                <input type='radio' name='perg10' value='opt4' />sabendo os graus que formam uma tríade, podemos montar qualquer acorde natural<br />
+                <input type='radio' name='perg10' value='opt5' />não é importante saber o que é tríade, pois isso não serve pra nada<br />
+            </p>";
                 break;
                 case 'opt4':
                 echo "<p>
-                    <label>10 -Podemos afirmar que:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>Ao mudar um ritmo, estamos mudando também a harmonia<br />
-                    <input type='radio'/><span style='color:green'>Uma mesma melodia pode ser tocada em diferentes ritmos</span><br />
-                    <input type='radio'/>O ritmo de uma música depende do timbre dos cantores<br />
-                    <input type='radio'/><span style='color:red'>Timbres diferentes resultam em melodias diferentes</span><br />
-                    <input type='radio'/>Uma pessoa que não entende nada de harmonia nunca vai conseguir aprender<br />
-                </p>";
+                <label>10 -É importante conhecer os graus que formam uma tríade, pois:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg10' value='opt1' /><span style='color:green'>a tríade informa em qual oitava o acorde está localizado</span><br />
+                <input type='radio' name='perg10' value='opt2' />a tríade não informa se um acorde é maior ou menor, mas informa se o acorde é suspenso<br />
+                <input type='radio' name='perg10' value='opt3' />o quinto grau da tríade define se o acorde é maior ou menor<br />
+                <input type='radio' name='perg10' value='opt4' /><span style='color:red'>sabendo os graus que formam uma tríade, podemos montar qualquer acorde natural</span><br />
+                <input type='radio' name='perg10' value='opt5' />não é importante saber o que é tríade, pois isso não serve pra nada<br />
+            </p>";
                 break;
                 case 'opt5':
                 echo "<p>
-                    <label>10 -Podemos afirmar que:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>Ao mudar um ritmo, estamos mudando também a harmonia<br />
-                    <input type='radio'/><span style='color:green'>Uma mesma melodia pode ser tocada em diferentes ritmos</span><br />
-                    <input type='radio'/>O ritmo de uma música depende do timbre dos cantores<br />
-                    <input type='radio'/>Timbres diferentes resultam em melodias diferentes<br />
-                    <input type='radio'/><span style='color:red'>Uma pessoa que não entende nada de harmonia nunca vai conseguir aprender</span><br />
-                </p>";
+                <label>10 -É importante conhecer os graus que formam uma tríade, pois:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
+                <input type='radio' name='perg10' value='opt1' /><span style='color:green'>a tríade informa em qual oitava o acorde está localizado</span><br />
+                <input type='radio' name='perg10' value='opt2' />a tríade não informa se um acorde é maior ou menor, mas informa se o acorde é suspenso<br />
+                <input type='radio' name='perg10' value='opt3' />o quinto grau da tríade define se o acorde é maior ou menor<br />
+                <input type='radio' name='perg10' value='opt4' />sabendo os graus que formam uma tríade, podemos montar qualquer acorde natural<br />
+                <input type='radio' name='perg10' value='opt5' /><span style='color:red'>não é importante saber o que é tríade, pois isso não serve pra nada</span><br />
+            </p>";
                 break;
             }
         }
@@ -970,7 +975,7 @@
             
         }
 
-        $sql = "UPDATE tbl_cad_curso set nota = $porc where id_Cad = $id and id_Curso=1";
+        $sql = "UPDATE tbl_cad_curso set nota = $porc where id_Cad = $id and id_Curso=3";
         $result = mysqli_query($conn, $sql);
 
         

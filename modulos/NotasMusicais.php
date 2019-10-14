@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
 $serve_file = $_SERVER['DOCUMENT_ROOT'] . "/Musiclly/";
 session_save_path($serve_file . 'cache/temp');
 session_start();
@@ -9,13 +9,15 @@ if (isset($_SESSION['usuario'])) {
     $usuario = $_SESSION['usuario'];
     $id = $_SESSION['id'];
   }
-$verificador = "SELECT * from tbl_cad_curso where id_cad = $id and id_Curso = 1";
-$result = mysqli_query($conn, $verificador);
-$row = mysqli_fetch_array($result);
-if($row['progresso'] <= 17){
-  $progresso = "UPDATE tbl_cad_curso SET progresso = 17 where id_cad = $id and id_Curso = 1";
-  $resultProg = mysqli_query($conn, $progresso);
-}
+
+  $verificador = "SELECT * from tbl_cad_curso where id_cad = $id and id_Curso = 1";
+  $result = mysqli_query($conn, $verificador);
+  $row = mysqli_fetch_array($result);
+  if($row['progresso'] <= 34){
+    $progresso = "UPDATE tbl_cad_curso SET progresso = 34 where id_cad = $id and id_Curso = 1";
+    $resultProg = mysqli_query($conn, $progresso);
+  }
+
 
 ?>
 <html lang="pt_br">
@@ -138,7 +140,7 @@ if($row['progresso'] <= 17){
                             <a class='nav-item nav-link' href='index.php' id='entrarNavBar' style='color:#1778aa;'>Home</a>
                             <a class='nav-item nav-link' href='cadastro.php' id='cadastrarNavBar' style='color:#1778aa;'>Cursos</a>
                             
-                            <div style='background-color:#fafdff;z-index:2'><a class='nav-item nav-link' id='menuUsuario' href='#' style='margin-left: 300px;display:inline-block'>$usuario<img src='/musiclly/".$img."' style='margin-left: 3%;max-width: 35%;border-radius: 10%;max-height: 35%'></a></div>
+                            <div style='background-color:#fafdff;z-index:2'><a class='nav-item nav-link' id='menuUsuario' href='#' style='margin-left: 300px;display:inline-block'>$usuario<img src='$img' style='margin-left: 3%;max-width: 35%;border-radius: 10%;max-height: 35%'></a></div>
                             
                             <div id='menuUsuarioExpandido' style='background-color:#fafdff;border:1px solid #1778aa;height: 250px;width: 15%;position:absolute;z-index:1;margin-left: 70%;margin-top: 5%;border-radius: 5px'>
           <a href='/musiclly/painel.php' style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Meu Perfil</a>
@@ -189,7 +191,7 @@ if($row['progresso'] <= 17){
                                 <p class='TitleCirculos'>1.6</p>
                             </div>
                         </a>
-                        <a href='/musiclly/modulos/questionarios/modulo_1_Quest.php'>
+                        <a href='/musiclly/modulos/questionarios/modulo_2_Quest.php'>
                             <div class='circulosModulos'>
                                 <p class='TitleCirculos'>1.7</p>
                             </div>
@@ -197,54 +199,52 @@ if($row['progresso'] <= 17){
                     </div>
                 </div>
                 <div class='col-11'>
-                    <p class='text-break'>
+                    
 
-                        <h1 class='titulosh1'>1.1 O que é música?</h1>
+                        <h1 class='titulosh1'>1.2 Notas Musicais</h1>
                         <fieldset style='background-color:white;padding:15px;border: 1px solid #1778aa;border-radius:10px'>
-                            A pergunta “<b class='boldAzul'>o que é música</b>” tem sido alvo de discussão há décadas.Alguns autores defendem que <b class='boldAzul'>música</b> é a combinação de sons e silêncios de uma maneira organizada.
-                            Vamos explicar com um exemplo: Um ruído de rádio emite sons, mas não de uma forma organizada, por isso não é classificado como música. Essa definição parece simples e completa, mas <b class='boldAzul'>definir música</b> não é algo tão óbvio assim. Podemos classificar um alarme de carro como música? Ele emite sons e silêncios de uma maneira organizada, mas garanto que a maioria das pessoas não chamaria esse som de música.
-                            <br /><b style='color:#f27d16'>Então, o que é música afinal?</b><br />
-                            De uma maneira mais didática e abrangente, a música é composta por <b class='boldAzul'>melodia, harmonia e ritmo</b>.
-                            <br /><b style='color:#f27d16'>Melodia</b><br />
-                            Melodia é a voz principal do som, é aquilo que pode ser cantado.
+                        <b style='color: darkorange'>Notas musicais</b> são os elementos mínimos de um som. Quando uma corda vibra, ela movimenta as moléculas de ar ao seu redor. Essa agitação das moléculas ocorre na mesma frequência de vibração da corda. O ouvido humano capta essa vibração do ar e a processa atribuindo um som ao cérebro.  Para cada frequência de vibração, o cérebro atribui um som diferente (uma <b>nota</b> diferente).<br />
 
-                            <br /><b style='color:#f27d16'>Harmonia</b><br />
-                            Harmonia é uma sobreposição de notas que servem de base para a melodia. Por exemplo, uma pessoa tocando violão e cantando está fazendo harmonia com os acordes no violão e melodia com a voz. Cada acorde é uma sobreposição de várias notas, como veremos adiante em outros tópicos. Por isso que os acordes fazem parte da harmonia.
-                            Obs: Vale a pena destacar que a melodia não necessariamente é composta por uma única voz; é possível também que ela tenha duas ou mais vozes, apesar de ser menos frequente essa situação. Para diferenciar melodia de harmonia nesse caso, podemos fazer uma comparação com um navio no oceano. O navio representa a harmonia e as pessoas dentro do navio representam a melodia. Tanto o navio quanto as pessoas estão se mexendo, e as pessoas se mexem dentro do navio enquanto ele trafega pelo oceano. Repare que o navio serve de base, suporte, para as pessoas. Elas têm liberdade para se movimentar apenas dentro do navio. Se uma pessoa pular para fora do navio, será desastroso. Com melodia e harmonia, é a mesma coisa.
+                        <br /><b style='color:#f27d16'>Como representar as notas musicais?</b>
+                        <br />As notas musicais podem ser identificadas por letras para facilitar a escrita e aumentar a velocidade de leitura. A notação utilizada é universal, o que facilita a comunicação com músicos de outros países. Existem 7 letras para representar as notas musicais. A definição das letras e suas notas correspondentes é a seguinte:
+                        
+                            <br /><br /><b style='color:#1778aa'>C –> dó
+                            <br />D –> ré
+                            <br />E –> mi
+                            <br />F –> fá
+                            <br />G –> sol
+                            <br />A –> lá
+                            <br />B –> si  (H no alemão)</b>
+                        
+                            <br /><br /> Existe também outra representação para as notas musicais, que não depende de letras. É a famosa <b>partitura</b>.
+                        
+                        
+                        
+                            
+                        
+                        Caso esse seja seu primeiro contato com <b>representações musicais</b>, não se preocupe tanto com a partitura, procure antes decorar a representação por letras, que é bem mais simples.
 
-                            <br /><b style='color:#f27d16'>Ritmo</b><br />
-                            Ritmo é a marcação do tempo de uma música. Assim como o relógio marca as horas, o ritmo nos diz como acompanhar a música.
-                            Cada um desses três assuntos precisa ser tratado à parte. Um conhecimento aprofundado permite uma manipulação ilimitada de todos os recursos que a música fornece, e é isso o que faz os “sons e silêncios” ficarem tão interessantes para nosso ouvido. Aqui no Descomplicando a Música você vai aprender como trabalhar tudo isso. Afinal, mais importante do que saber o que é música, é saber como trabalhar em cima dela.
-
-                            <br /><b style='color:#f27d16'>Prepare-se!</b><br />
+                            
                         </fieldset>
-                    </p>
+                    
                     <div class='row'>
                         <div class='col-6'></div>
-                        <div class='col-6'><a href='/musiclly/modulos/NotasMusicais.php' class='proximo'>Ir para 1.2(Notas Musicais) >></a></div>
+                        <div class='col-6'><a href='/musiclly/modulos/Timbre.php' class='proximo'>Ir para 1.3(Timbre) >></a></div>
                     </div>
                 </div>
             </div>
-        
-        
-        
-           
-            
-            
-            
             
             ";
         }
         ?>
- 
-        <div class="row justify-content-center">
+    <div class="row justify-content-center">
             <div class='col-6' style=''>
             <fieldset style="background-color:rgba(23,120,170,.1);padding: 0px 10px;border-radius: 5px;margin-top: 10px;margin-bottom: 50px">
             <legend><h4 style="font-family: roboto;font-size: 20px;color:darkorange;text-shadow: 1px 1px rgba(0,0,0,.2)">Comentários</h4></legend>    
             
                 
                 <?php
-                    $sqlComent = "SELECT * FROM comentarios where sessao = 1"; 
+                    $sqlComent = "SELECT * FROM comentarios where sessao = 2"; 
                     $resultComent = mysqli_query($conn, $sqlComent);
                     while($row = mysqli_fetch_assoc($resultComent)){
                         $id2 = $row['id'];
@@ -282,10 +282,10 @@ if($row['progresso'] <= 17){
                     $dateTime = $now->format('d-m-Y H:i:s');
                     $titulo = $_POST['titulo'];
                     $descricao = $_POST['descricao'];
-                    $sqlComentInsert = "INSERT into comentarios values(null,'$titulo','$descricao','$dateTime','0',3,1,$id)";
+                    $sqlComentInsert = "INSERT into comentarios values(null,'$titulo','$descricao','$dateTime','0',3,2,$id)";
                     $resultSqlComent = mysqli_query($conn, $sqlComentInsert);
                     if($resultSqlComent){
-                        echo "<script>alert('Comentário Adicionado!');window.location.href='/musiclly/modulos/OQueEMusica.php';</script>";
+                        echo "<script>alert('Comentário Adicionado!');window.location.href='/musiclly/modulos/NotasMusicais.php';</script>";
 
                     }
                 }
@@ -294,8 +294,8 @@ if($row['progresso'] <= 17){
                 </fieldset>
             </div>
         </div>
-</div>
-
+            
+        </div>
 
 
     
