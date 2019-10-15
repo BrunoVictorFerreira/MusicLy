@@ -9,11 +9,11 @@ if (isset($_SESSION['usuario'])) {
     $usuario = $_SESSION['usuario'];
     $id = $_SESSION['id'];
   }
-$verificador = "SELECT * from tbl_cad_curso where id_cad = $id and id_Curso = 2";
+$verificador = "SELECT * from tbl_cad_curso where id_cad = $id and id_Curso = 3";
 $result = mysqli_query($conn, $verificador);
 $row = mysqli_fetch_array($result);
-if($row['progresso'] <= 60){
-  $progresso = "UPDATE tbl_cad_curso SET progresso = 60 where id_cad = $id and id_Curso = 2";
+if($row['progresso'] <= 100){
+  $progresso = "UPDATE tbl_cad_curso SET progresso = 30 where id_cad = $id and id_Curso = 3";
   $resultProg = mysqli_query($conn, $progresso);
 }
 
@@ -159,44 +159,44 @@ if($row['progresso'] <= 60){
             <div class='row'>
                 <div class='col-1'>
                     <div style='height:60%;margin-top: 180%'>
-                    <a href='/musiclly/modulos/EscalasMusicais.php'>
+                    <a href='/musiclly/modulos/Tetrade.php'>
                             <div class='circulosModulos'>
-                                <p class='TitleCirculos'>2.1</p>
+                                <p class='TitleCirculos'>3.1</p>
                             </div>
                         </a>
-                        <a href='/musiclly/modulos/DesenhoDeEscalaAlternativo.php'>
+                        <a href='/musiclly/modulos/GrausMusicaisComplementar.php'>
                             <div class='circulosModulos'>
-                                <p class='TitleCirculos'>2.2</p>
+                                <p class='TitleCirculos'>3.2</p>
                             </div>
                         </a>
-                        <a href='/musiclly/modulos/GrausMusicais.php'>
+                        <a href='/musiclly/modulos/OQueSaoCifras.php'>
                             <div class='circulosModulos'>
-                                <p class='TitleCirculos'>2.3</p>
+                                <p class='TitleCirculos'>3.3</p>
                             </div>
                         </a>
-                        <a href='/musiclly/modulos/DiminutaAumentadaEJusta.php'>
+                        <a href='/musiclly/modulos/OQueEUmCompasso.php'>
                             <div class='circulosModulos'>
-                                <p class='TitleCirculos'>2.4</p>
+                                <p class='TitleCirculos'>3.4</p>
                             </div>
                         </a>
-                        <a href='/musiclly/modulos/Oitavas.php'>
+                        <a href='/musiclly/modulos/NotacaoDosDedosParaViolao.php'>
                             <div class='circulosModulos'>
-                                <p class='TitleCirculos'>2.5</p>
+                                <p class='TitleCirculos'>3.5</p>
                             </div>
                         </a>
-                        <a href='/musiclly/modulos/DefinicaoDeAcorde.php'>
+                        <a href='/musiclly/modulos/OQueEArpejo.php'>
                             <div class='circulosModulos'>
-                                <p class='TitleCirculos'>2.6</p>
+                                <p class='TitleCirculos'>3.6</p>
                             </div>
                         </a>
-                        <a href='/musiclly/modulos/Triade.php'>
+                        <a href='/musiclly/modulos/FormacaoDeAcordes.php'>
                             <div class='circulosModulos'>
-                                <p class='TitleCirculos'>2.7</p>
+                                <p class='TitleCirculos'>3.7</p>
                             </div>
                         </a>
-                        <a href='/musiclly/modulos/questionarios/modulo_2_Quest.php'>
+                        <a href='/musiclly/modulos/questionarios/modulo_3_Quest.php'>
                             <div class='circulosModulos'>
-                                <p class='TitleCirculos'>2.8</p>
+                                <p class='TitleCirculos'>3.8</p>
                             </div>
                         </a>
                     </div>
@@ -204,91 +204,98 @@ if($row['progresso'] <= 60){
                 <div class='col-11'>
                     <p class='text-break'>
 
-                        <h1 class='titulosh1'>2.4 Diminuta Aumentada e Justa</h1>
+                        <h1 class='titulosh1'>3.2 Graus Musicais - Complementar</h1>
                         <fieldset style='background-color:white;padding:15px;border: 1px solid #1778aa;border-radius:10px'>
-                            <b style='color:darkorange'>O que significa diminuta, aumentada e justa?</b>
-                            <br />Se você leu o artigo sobre graus, reparou que mencionamos apenas 7 notas da música ocidental (C, D, E, F, G, A, B). Mas e se quiséssemos utilizar uma referência de graus para as demais notas também (C#, D#, F#, G#, A#)? Para isso existe uma definição mais abrangente, como veremos agora:
+                        No artigo “diminuta, aumentada e justa”, as nomenclaturas “aumentada” e “diminuta” foram utilizadas somente para os graus 4º e 5º. Porém, veremos agora que esses nomes podem ser utilizados para os demais graus também. Nesse caso, para os graus que já possuem a denominação “maior” e “menor”, a nomenclatura “aumentada” significará um semitom acima do grau maior. Por exemplo:
 
-                            <br /><br />A primeira nota é representada pelo primeiro grau, como já vimos. Esse grau pode ser chamado também de primeiro grau maior. Vamos utilizar como exemplo de primeiro grau a nota Dó.
-
-                            <br /><br />Nesse caso, a nota Ré é o segundo grau, também chamado de segundo grau maior. A nota Dó# (ou Ré b), nesse caso, é o segundo grau MENOR.
-
-                            <br /><br />Os nomes “segundo grau menor” e “segundo grau maior” geralmente são abreviados para “segundo maior” e “segundo menor”, e o mesmo se aplica aos demais graus maiores e menores.
-
-                            <br /><br />Essa nomenclatura (“maior” e “menor”) existe para indicar se o intervalo (distância entre as notas) é curto ou longo. Intervalos maiores são longos e menores são curtos.
-
-                            <br /><br />Repare que, no exemplo anterior, o “segundo grau maior” representou o intervalo de um tom (pois Ré está um tom acima de Dó), e o “segundo grau menor” representou o intervalo de meio tom (Ré bemol está meio tom acima de Dó).
-
-                            <br /><br />Portanto, esses nomes foram dados apenas para termos uma indicação da distância entre as notas. Expandindo o conceito para todas as notas, partindo de Dó, teremos o seguinte:
-
-                            <br /><br />C    —> Primeiro grau maior
-
-                            <br />Db —> Segundo grau menor
-
-                            <br />D   —> Segundo grau maior
-
-                            <br />Eb—> Terceiro grau menor
-
-                            <br />E   —> Terceiro grau maior
-
-                            <br />F   —> Quarta justa
-
-                            <br />F#—> Quarta aumentada (ou Quinta diminuta: Gb)
-
-                            <br />G  —> Quinta justa
-
-                            <br />G#—> Quinta aumentada (ou sexta menor: Ab)
-
-                            <br />A   —> Sexta maior
-
-                            <br />Bb —> Sétima menor
-
-                            <br />B  —> Sétima maior
-
-                            <br /><br />Provavelmente você está se perguntando por que raios existem os nomes “aumentada”, “justa” e “diminuta”. Bom, saiba que é apenas uma definição, e é esse linguajar que você vai encontrar em qualquer livro de música ou song book.
-
-                            <br /><br />A lógica é a mesma que vimos para os nomes “maior” e “menor”. O nome “aumentada” indica um intervalo mais longo e “diminuta” indica um intervalo mais curto. “Justa” fica no meio entre essas duas.
-
-                            <br /><br />Mas não poderíamos simplesmente utilizar os nomes “maior” e “menor” para todas as notas em vez de utilizar esses “diminuta”, “aumentada” e “justa”? Sim, poderíamos. Então por que existem esses outros nomes?
-
-                            <br /><br />Por enquanto, apenas memorize essas nomenclaturas e o que elas representam. Como você viu, não há nenhum mistério, são apenas nomes dados para graus específicos.
-
-                            <br /><br />Vamos agora exercitar essa nomenclatura partindo de outras notas além de Dó:
-
-                            <br /><br /><img src='/musiclly/www/galeria/diminutaAumentadaEJusta.png' style='max-width: 400px'>
-
-                            <br /><br />Obs: utilizamos nessa tabela apenas sustenidos para ficar mais fácil de enxergar e comparar tudo, mas poderíamos ter mesclado essa tabela com bemóis sem problemas.
-
-                            <br /><br />A partir do sétimo grau, as notas começam a se repetir, pois o 8º grau já é igual ao 1º grau. Seguindo essa lógica:
-
-                            <br /><br />– O 9º grau é igual ao 2º grau.
-                            <br />– O 11º grau é igual ao 4º grau.
-                            <br />– O 13º grau é igual ao 6º grau.
-
-                            <br /><br />Você deve estar se perguntando: se não há necessidade de se falar em graus após o sétimo, pelo fato de se repetir, por que então se usam as notações 9º, 11º e 13º?? Bom, alguns músicos preferem utilizar esses graus para deixar claro qual oitava deve ser utilizada.
-
-                            <br /><br />Por exemplo: se estiver escrito em uma cifra apenas Cm6, provavelmente você irá montar o acorde de dó menor e pegar o sexto grau mais próximo para formar o Cm6. Agora, escrevendo Cm13, você saberia que deve utilizar o sexto grau uma oitava acima, e não o sexto grau mais próximo.
-
-                            <br /><br />A única diferença entre esses dois acordes é uma sonoridade levemente distinta devido à oitava utilizada para o 6º grau (nos próximos tópicos, falaremos tudo o que você precisa saber sobre acordes e cifras, não se preocupe caso não tenha entendido esse exemplo).
-
-                            <br /><br />Quanto à extensão 9ª, ela quase sempre aparece uma oitava acima, por isso é utilizada em vez de 2ª. Mas não se surpreenda ao ver o número 2 em cifras por aí, pois a notação americana gosta de colocar o número 2 ao invés do número 9.
-
-                            <br /><br />É importante você saber detalhes como esse para não ficar com dúvidas sobre essas nomenclaturas.
-
-                            <br /><br />Muito bem, vamos falar agora da utilidade prática dessa notação toda que vimos!
-
-                            <br /><br />Podemos nos referir a qualquer nota que quisermos tomando como base alguma nota de referência, da mesma maneira que fizemos no artigo graus musicais. Tomaremos aqui o mesmo princípio do artigo anterior, pois estamos apenas complementando o assunto.
-
-                            <br /><br />Porém, antes a gente trabalhou em cima da escala de dó maior, pois ao dizer apenas “3º grau”, “6º grau”, etc. não estávamos especificando se o grau era maior, menor, justo, diminuto ou aumentado. Por isso, foi necessário dizer que os graus seriam conforme o formato da escala maior. Agora não será mais necessário se vincular a uma escala, pois vamos especificar cada grau separadamente. Seguem abaixo alguns exemplos (exercícios):
-                            <br /><br />Obs: Por enquanto, estamos falando apenas de notas, não de acordes! Os nomes “<b>aumentada</b>” e “<b>diminuta</b>”, bem como os nomes “maior” e “menor” também aparecem no ramo dos acordes, mas isso é outra abordagem!
-
-                            <br /><br />Cuide para não confundir as coisas, aqui estamos falando apenas de notas e de sua nomenclatura isolada. Quando o assunto é acordes, a nomenclatura tem outro objetivo. Por isso é importante essa distinção. Mantenha isso em mente.
-
+                            <br /><br />    – O segundo grau maior possui um tom de distância da tônica. O segundo grau aumentado possui um tom e meio de distância da tônica.
+                           
+                            <br /><br />   – O terceiro grau maior possui 2 tons de distância da tônica. O terceiro grau aumentado possui 2 tons e meio de distância da tônica.
+                           
+                            <br /><br />    Da mesma forma, a nomenclatura “diminuta” significa um semitom abaixo da nomenclatura “menor”. Exemplos:
+                           
+                                <br /><br />    – O terceiro grau menor possui um tom e meio de distância da tônica. O terceiro grau diminuto possui um tom de distância da tônica.
+                           
+                                <br /><br />    – O sétimo grau menor possui 5 tons de distância da tônica. O sétimo grau diminuto possui 4 tons e meio de distância da tônica.
+                           
+                                <br /><br />   Bom, vamos resumir tudo o que vimos até agora sobre graus, para ficar bem claro.
+                           
+                                <br />Caso você ainda tenha dificuldade em pensar nos tons e semitons, acompanhe esse estudo com o diagrama abaixo (onde ST significa “semitom”):
+                           
+                                    <br /><br /><img src='/musiclly/www/galeria/grausMusicaisConceito.png'>
+                           
+                                    <br /><br />Para todos os graus teremos então as seguintes distâncias:
+                           
+                                    <br />Usando o exemplo de Dó como primeiro grau:<br />
+                           
+                                    <br />2º maior – está a 1 tom da tônica (D)
+                                    <br />2º menor – está a meio tom da tônica (Db)
+                                    <br />2º aumentada – está a 1 tom e meio da tônica (D#)
+                                    <br />2º diminuta – não existe
+                           
+                           <br /><br />Obs: Optamos por escrever todas as alterações utilizando Ré aqui pois essa é a nota do segundo grau em relação a Dó. Poderíamos ter escrito, por exemplo, Eb em vez de D#, mas a ideia aqui é pensar no Ré.
+                           
+                           <br /><br />3º maior – está a 2 tons da tônica (E)
+                           <br />3º menor – está a 1 tom e meio da tônica (Eb)
+                           <br />3º aumentada – está a 2 tons e meio da tônica (E#)
+                           <br />3º diminuta – está a 1 tom da tônica (Ebb)
+                           
+                           <br /><br />Obs: Apenas para enfatizar, colocamos todas as alterações aqui em relação a Mi, pois ele é o terceiro grau de Dó. Por isso que apareceu Ebb em vez de Ré. Dessa forma, a lógica fica mais clara. Continuaremos seguindo essa linha de raciocínio.
+                           
+                           <br /><br />4º justa – está a 2 tons e meio da tônica (F)
+                           <br />4º aumentada – está a 3 tons da tônica (F#)
+                           <br />4º diminuta – está a 2 tons da tônica (Fb)
+                           
+                           <br /><br />5º justa – está a 3 tons e meio da tônica (G)
+                           <br />5º aumentada – está a 4 tons da tônica (G#)
+                           <br />5º diminuta – está a 3 tons da tônica (Gb)
+                           
+                           <br /><br />6º maior – está a 4 tons e meio da tônica (A)
+                           <br />6º menor – está a 4 tons da tônica (Ab)
+                           <br />6º aumentada – está a 5 tons da tônica (A#)
+                           <br />6º diminuta – está a 3 tons e meio da tônica (Abb)
+                           
+                           <br /><br />7º maior – está a 5 tons e meio da tônica (B)
+                           <br />7º menor – está a 5 tons da tônica (Bb)
+                           <br />7º aumentada – está a 6 tons da tônica (B#)
+                           <br />7º diminuta – está a 4 tons e meio da tônica (Bbb)
+                           
+                           <br /><br />Existem também as definições “super aumentado” e “super diminuto“, mas elas são bem mais raras de aparecer, e referem-se a um semitom acima do aumentado e um semitom abaixo do diminuto, respectivamente.
+                           
+                           <br /><br />Talvez pareça meio desnecessária essa definição toda que acabamos de mostrar, afinal o segundo grau aumentado é idêntico ao terceiro grau menor, por exemplo. Isso parece ser uma coisa criada só para confundir a nossa cabeça.
+                           
+                           <br /><br />Bom, realmente, não há necessidade de utilizarmos essa nomenclatura “aumentada” e “diminuta” para os graus que já possuem a definição “maior” e “menor”. Porém, ela pode nos ajudar.
+                           
+                           <br /><br />Espere um pouco, ajudar?!
+                           
+                           <br /><br />Isso mesmo. Imagine que estamos querendo montar um acorde que possui uma determinada tríade. Vamos montar essa tríade com a quinta diminuta em vez de quinta justa, ok? Digamos Dó menor com quinta diminuta. Como o acorde é menor, já sabemos que o terceiro grau é menor:
+                           
+                           <br /><br />Primeiro grau: C
+                           
+                           <br />Terceiro grau menor: Eb
+                           
+                           <br />Quinta diminuta: Gb
+                           
+                           <br />Esse é o nosso Dó menor com quinta diminuta.
+                           
+                           <br /><br />Digamos agora que o vocalista da banda pede para acrescentarmos a nota Lá a esse acorde. Tudo bem, acrescentamos a nota Lá, mas como iremos chamar esse acorde? A nota Lá é o sexto grau maior, então o acorde irá se chamar: “Dó menor com quinta diminuta e sexta maior“.
+                           
+                           <br /><br />Ok, até aqui não aplicamos nenhum conceito novo. Esse acorde possui apenas 4 notas e ficou com um nome bem grande e complicado. As tétrades mais comuns que conhecemos possuem nomes simples (Si menor com sétima, Fá com sétima maior, etc.), mas esse nosso Cm6(b5) está chato de se visualizar por causa do nome.
+                           
+                           <br /><br />Vamos aplicar então os conceitos que vimos agora há pouco. O sexto grau maior também pode ser chamado de sétimo grau diminuto.
+                           
+                           <br /><br />Isso é interessante de se observar, pois nossa tétrade aqui teria os graus básicos 1, 3, 5 e 7 (o que é o mais comum e fácil de enxergar do que 1, 3, 5 e 6).
+                           
+                           <br /><br />Legal, mas isso facilitou alguma coisa na nossa nomenclatura? Sim! Como temos uma tétrade comum (graus 1, 3, 5 e 7) e dois desses graus são diminutos (o quinto e o sétimo), decidiu-se que esse acorde se chamaria “acorde diminuto“. Ou seja, em vez de “Dó menor com quinta diminuta e sexta maior” temos “Dó diminuto“.
+                           
+                           <br /><br />Essa foi apenas uma aplicação para essa terminologia. Existem outras situações em que você verá esses conceitos também, quando quisermos manter o foco em determinadas notas em alguns contextos, então é bom que você saiba dessa nomenclatura para não se assustar quando vir por aí escrito “terceiro grau aumentado”, por exemplo. É só uma questão de referência.
+                           
+                           <br /><br />Você também não precisa se preocupar com as cifras que acabamos de mostrar, pois nos próximos artigos do site vamos ensinar detalhadamente como montar acordes e escrever suas respectivas cifras.
                         </fieldset>
                     </p>
                     <div class='row' style='margin-bottom: 50px;'>
                         <div class='col-6'></div>
-                        <div class='col-6'><a href='/musiclly/modulos/Oitavas.php' class='proximo'>Ir para 2.5(Oitavas) >></a></div>
+                        <div class='col-6'><a href='/musiclly/modulos/OQueSaoCifras.php' class='proximo'>Ir para 3.3(O que são Cifras) >></a></div>
                     </div>
                 </div>
             </div>

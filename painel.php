@@ -397,13 +397,13 @@ if (mysqli_num_rows($result) > 0) {
             </div>
             <div class="modal-body">
               <p><b>O que Contém no Módulo 3?</b></p>
-              <a href=""><p>Tétrade</p></a>
-              <a href=""><p>Graus Musicais - complementar</p></a>
-              <a href=""><p>O que são cifras</p></a>
-              <a href=""><p>O que é um compasso</p></a>
-              <a href=""><p>Notação dos dedos para violão</p></a>
-              <a href=""><p>O que é arpejo</p></a>
-              <a href=""><p>Formação de Acordes</p></a>
+              <a href="/musiclly/modulos/Tetrade.php"><p>Tétrade</p></a>
+              <a href="/musiclly/modulos/GrausMusicaisComplementar.php"><p>Graus Musicais - complementar</p></a>
+              <a href="/musiclly/modulos/OQueSaoCifras.php"><p>O que são cifras</p></a>
+              <a href="/musiclly/modulos/OQueEUmCompasso.php"><p>O que é um compasso</p></a>
+              <a href="/musiclly/modulos/NotacaoDosDedosParaViolao.php"><p>Notação dos dedos para violão</p></a>
+              <a href="/musiclly/modulos/OQueEArpejo.php"><p>O que é arpejo</p></a>
+              <a href="/musiclly/modulos/FormacaoDeAcordes.php"><p>Formação de Acordes</p></a>
               <a href="/musiclly/modulos/questionarios/modulo_3_Quest.php"><p>Questionário - <b>Módulo 3</b></p></a>
             </div>
             <div class="modal-footer">
@@ -432,7 +432,7 @@ if (mysqli_num_rows($result) > 0) {
               <a href=""><p>Escala Cromática</p></a>
               <a href=""><p>Improvisação Musical</p></a>
               <a href=""><p>Como fazer Segunda Voz</p></a>
-              <a href=""><p>Questionário - <b>Módulo 4</b></p></a>
+              <a href="/musiclly/modulos/questionarios/modulo_4_Quest.php"><p>Questionário - <b>Módulo 4</b></p></a>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -460,7 +460,7 @@ if (mysqli_num_rows($result) > 0) {
               <a href=""><p>Escala Blues</p></a>
               <a href=""><p>Harmonia Funcional</p></a>
               <a href=""><p>Trítono</p></a>
-              <a href=""><p>Questionário - <b>Módulo 4</b></p></a>
+              <a href="/musiclly/modulos/questionarios/modulo_5_Quest.php"><p>Questionário - <b>Módulo 5</b></p></a>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

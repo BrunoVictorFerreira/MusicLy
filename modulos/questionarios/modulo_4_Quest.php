@@ -228,7 +228,7 @@
 
                     
 
-                    <div style='background-color:#fafdff;z-index:2'><a class='nav-item nav-link' id='menuUsuario' href='#' style='margin-left: 300px;display:inline-block'>$usuario<img src='".$img."' style='margin-left: 3%;max-width: 35%;border-radius: 10%;max-height: 35%'></a></div>";
+                    <div style='background-color:#fafdff;z-index:2'><a class='nav-item nav-link' id='menuUsuario' href='#' style='margin-left: 300px;display:inline-block'>$usuario<img src='/musiclly/".$img."' style='margin-left: 3%;max-width: 35%;border-radius: 10%;max-height: 35%'></a></div>";
                     
                     
                     ?>
@@ -404,7 +404,7 @@
          
         <div class="container" style="height: 1000px"><!--ABERTURA DA DIV CONTAINER -->
         <?php
-          $verificadorProg = "SELECT * from tbl_cad_curso where id_cad = $id and id_Curso = 1";
+          $verificadorProg = "SELECT * from tbl_cad_curso where id_cad = $id and id_Curso = 4";
           $resultProg = mysqli_query($conn, $verificadorProg);
           $row = mysqli_fetch_assoc($resultProg);
           if($row['progresso'] == 100){

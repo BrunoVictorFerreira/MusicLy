@@ -228,7 +228,7 @@
 
                     
 
-                    <div style='background-color:#fafdff;z-index:2'><a class='nav-item nav-link' id='menuUsuario' href='#' style='margin-left: 300px;display:inline-block'>$usuario<img src='".$img."' style='margin-left: 3%;max-width: 35%;border-radius: 10%;max-height: 35%'></a></div>";
+                    <div style='background-color:#fafdff;z-index:2'><a class='nav-item nav-link' id='menuUsuario' href='#' style='margin-left: 300px;display:inline-block'>$usuario<img src='/musiclly/".$img."' style='margin-left: 3%;max-width: 35%;border-radius: 10%;max-height: 35%'></a></div>";
                     
                     
                     ?>
@@ -418,7 +418,7 @@
         $perg10 = $_POST['perg10'];
         $certa = 0;
         echo "<div class='container' style='height: 1000px'>
-                <form action='\Musiclly\modulos\questionarios\results\ver_result_1.php' method='POST'>
+                <form action='\Musiclly\modulos\questionarios/results/ver_result_1.php' method='POST'>
                     <article>";
         if($perg1 == "opt2"){
             echo "<p>

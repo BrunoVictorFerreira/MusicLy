@@ -1,9 +1,13 @@
 <?php
-    include_once("../../../php/conexao.php");
+    error_reporting(0);
+    $serve_file = $_SERVER['DOCUMENT_ROOT']."/Musiclly/";
+    session_save_path($serve_file.'cache/temp');
     session_start();
-    if(isset($_SESSION['usuario'])){
-    $usuario = $_SESSION['usuario'];
-    $id = $_SESSION['id'];
+    include_once($serve_file.'php/banco.php');
+  session_start();
+  if(isset($_SESSION['usuario'])){
+  $usuario = $_SESSION['usuario'];
+  $id = $_SESSION['id'];
 }
 
     $sql = "SELECT * FROM cadastro where usuario = '{$usuario}'";
@@ -224,7 +228,7 @@
 
                     
 
-                    <div style='background-color:#fafdff;z-index:2'><a class='nav-item nav-link' id='menuUsuario' href='#' style='margin-left: 300px;display:inline-block'>$usuario<img src='".$img."' style='margin-left: 3%;max-width: 35%;border-radius: 10%;max-height: 35%'></a></div>";
+                    <div style='background-color:#fafdff;z-index:2'><a class='nav-item nav-link' id='menuUsuario' href='#' style='margin-left: 300px;display:inline-block'>$usuario<img src='/musiclly/".$img."'  style='margin-left: 3%;max-width: 35%;border-radius: 10%;max-height: 35%'></a></div>";
                     
                     
                     ?>
@@ -414,553 +418,553 @@
         $perg10 = $_POST['perg10'];
         $certa = 0;
         echo "<div class='container' style='height: 1000px'>
-                <form action='\Musiclly\modulos\questionarios\results\ver_result_1.php' method='POST'>
+                <form action='\Musiclly\modulos\questionarios/results/ver_result_1.php' method='POST'>
                     <article>";
-        if($perg1 == "opt4"){
-            echo "<p>
-                    <label>1 -A nota Sol bemol é representada pela sigla:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
-                        <input type='radio' name='perg1' value='opt1' >Bc<br/>
-                        <input type='radio' name='perg1' value='opt2' >Cb<br/>
-                        <input type='radio' name='perg1' value='opt3' >Bg<br />
-                        <input type='radio' name='perg1' value='opt4' ><span style='color:green'>Gb</span><br />
-                        <input type='radio' name='perg1' value='opt5' >GG<br />
-                </p>";
+        if($perg1 == "opt3"){
+            echo '<p>
+            <label>1 -A relativa menor da escala Sol maior é a escala de:<img src="/musiclly/www/galeria/certo.png" style="max-width: 50px"></label><br />
+            <input type="radio" name="perg1" value="opt1" />Dó menor<br />
+            <input type="radio" name="perg1" value="opt2" />Ré menor<br />
+            <input type="radio" name="perg1" value="opt3" /><span style="color:green">Mi menor</span><br />
+            <input type="radio" name="perg1" value="opt4" />Fá menor<br />
+            <input type="radio" name="perg1" value="opt5" />Lá menor<br />
+        </p>';
             
             $certa++;
-        }else{
-           switch($perg1){
-               case 'opt1':
-               echo "<p>
-               <label>1 -A nota Sol bemol é representada pela sigla:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                   <input type='radio' name='perg1' value='opt1' ><span style='color:red'>Bc<span><br/>
-                   <input type='radio' name='perg1' value='opt2' >Cb<br/>
-                   <input type='radio' name='perg1' value='opt3' >Bg<br />
-                   <input type='radio' name='perg1' value='opt4' ><span style='color:green'>Gb</span><br />
-                   <input type='radio' name='perg1' value='opt5' >GG<br />
-           </p>";
-               break;
-               case 'opt2':
-               echo "<p>
-               <label>1 -A nota Sol bemol é representada pela sigla:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                   <input type='radio' name='perg1' value='opt1' >Bc<br/>
-                   <input type='radio' name='perg1' value='opt2' ><span style='color:red'>Cb</span><br/>
-                   <input type='radio' name='perg1' value='opt3' >Bg<br />
-                   <input type='radio' name='perg1' value='opt4' ><span style='color:green'>Gb</span><br />
-                   <input type='radio' name='perg1' value='opt5' >GG<br />
-           </p>";
-               break;
-               case 'opt3':
-               echo "<p>
-               <label>1 -A nota Sol bemol é representada pela sigla:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                   <input type='radio' name='perg1' value='opt1' >Bc<br/>
-                   <input type='radio' name='perg1' value='opt2' >Cb<br/>
-                   <input type='radio' name='perg1' value='opt3' ><span style='color:red'>Bg</span><br />
-                   <input type='radio' name='perg1' value='opt4' ><span style='color:green'>Gb</span><br />
-                   <input type='radio' name='perg1' value='opt5' >GG<br />
-           </p>";
-               break;
-               case 'opt5':
-               echo "<p>
-               <label>1 -A nota Sol bemol é representada pela sigla:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                   <input type='radio' name='perg1' value='opt1' >Bc<br/>
-                   <input type='radio' name='perg1' value='opt2' >Cb<br/>
-                   <input type='radio' name='perg1' value='opt3' >Bg<br />
-                   <input type='radio' name='perg1' value='opt4' ><span style='color:green'>Gb</span><br />
-                   <input type='radio' name='perg1' value='opt5' ><span style='color:red'>GG</span><br />
-           </p>";
-           break;
-           } 
-            
-           
-        }
-        if($perg2 == "opt5"){
-            echo "<p>
-            <label>2 -A distância de 2 tons pode ser encontrada entre as notas:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
-            <input type='radio'/>F,B<br />
-            <input type='radio'/>A,E<br />
-            <input type='radio'/>F,G<br />
-            <input type='radio'/>C,F<br />
-            <input type='radio'/><span style='color:green'>D,F#</span><br />
-        </p>";
+                }else{
+                  switch($perg1){
+                      case 'opt1':
+                      echo '<p>
+                      <label>1 -A relativa menor da escala Sol maior é a escala de:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                      <input type="radio" name="perg1" value="opt1" /><span style="color:red">Dó menor</span><br />
+                      <input type="radio" name="perg1" value="opt2" />Ré menor<br />
+                      <input type="radio" name="perg1" value="opt3" /><span style="color:green">Mi menor</span><br />
+                      <input type="radio" name="perg1" value="opt4" />Fá menor<br />
+                      <input type="radio" name="perg1" value="opt5" />Lá menor<br />
+                  </p>';
+                      break;
+                      case 'opt2':
+                      echo '<p>
+                      <label>1 -A relativa menor da escala Sol maior é a escala de:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                      <input type="radio" name="perg1" value="opt1" />Dó menor<br />
+                      <input type="radio" name="perg1" value="opt2" /><span style="color:red">Ré menor</span><br />
+                      <input type="radio" name="perg1" value="opt3" /><span style="color:green">Mi menor</span><br />
+                      <input type="radio" name="perg1" value="opt4" />Fá menor<br />
+                      <input type="radio" name="perg1" value="opt5" />Lá menor<br />
+                  </p>';
+                      break;
+                      case 'opt4':
+                      echo '<p>
+                      <label>1 -A relativa menor da escala Sol maior é a escala de:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                      <input type="radio" name="perg1" value="opt1" />Dó menor<br />
+                      <input type="radio" name="perg1" value="opt2" />Ré menor<br />
+                      <input type="radio" name="perg1" value="opt3" /><span style="color:green">Mi menor</span><br />
+                      <input type="radio" name="perg1" value="opt4" /><span style="color:red">Fá menor</span><br />
+                      <input type="radio" name="perg1" value="opt5" />Lá menor<br />
+                  </p>';
+                      break;
+                      case 'opt5':
+                      echo '<p>
+                      <label>1 -A relativa menor da escala Sol maior é a escala de:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                      <input type="radio" name="perg1" value="opt1" />Dó menor<br />
+                      <input type="radio" name="perg1" value="opt2" />Ré menor<br />
+                      <input type="radio" name="perg1" value="opt3" /><span style="color:green">Mi menor</span><br />
+                      <input type="radio" name="perg1" value="opt4" />Fá menor<br />
+                      <input type="radio" name="perg1" value="opt5" /><span style="color:red">Lá menor</span><br />
+                  </p>';
+                  break;
+                  } 
+                    
+                  
+                }
+        if($perg2 == "opt2"){
+            echo '<p>
+            <label>2 -Para improvisar em uma música que está na tonalidade de G#m, podemos utilizar a escala:<img src="/musiclly/www/galeria/certo.png" style="max-width: 50px"></label><br />
+            <input type="radio" name="perg2" value="opt1" />Dó maior<br />
+            <input type="radio" name="perg2" value="opt2" /><span style="color:green">Si maior</span><br />
+            <input type="radio" name="perg2" value="opt3" />Mi maior<br />
+            <input type="radio" name="perg2" value="opt4" />Fá maior<br />
+            <input type="radio" name="perg2" value="opt5" />Sol sustenido maior<br />
+        </p>';
             $certa++;
-        }else{
-            switch($perg2){
-                case 'opt1':
-                echo "<p>
-                    <label>2 -A distância de 2 tons pode ser encontrada entre as notas:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:red'>F,B</span><br />
-                    <input type='radio'/>A,E<br />
-                    <input type='radio'/>F,G<br />
-                    <input type='radio'/>C,F<br />
-                    <input type='radio'/><span style='color:green'>D,F#</span><br />
-                </p>";
-                break;
-                case 'opt2':
-                echo "<p>
-                    <label>2 -A distância de 2 tons pode ser encontrada entre as notas:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>F,B<br />
-                    <input type='radio'/><span style='color:red'>A,E</span><br />
-                    <input type='radio'/>F,G<br />
-                    <input type='radio'/>C,F<br />
-                    <input type='radio'/><span style='color:green'>D,F#</span><br />
-                </p>";
-                break;
-                case 'opt3':
-                echo "<p>
-                    <label>2 -A distância de 2 tons pode ser encontrada entre as notas:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>F,B<br />
-                    <input type='radio'/>A,E<br />
-                    <input type='radio'/><span style='color:red'>F,G</span><br />
-                    <input type='radio'/>C,F<br />
-                    <input type='radio'/><span style='color:green'>D,F#</span><br />
-                </p>";
-                break;
-                case 'opt4':
-                echo "<p>
-                    <label>2 -A distância de 2 tons pode ser encontrada entre as notas:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>F,B<br />
-                    <input type='radio'/>A,E<br />
-                    <input type='radio'/>F,G<br />
-                    <input type='radio'/><span style='color:red'>C,F</span><br />
-                    <input type='radio'/><span style='color:green'>D,F#</span><br />
-                </p>";
-                break;
-            }
-        }
+                }else{
+                    switch($perg2){
+                        case 'opt1':
+                        echo '<p>
+                        <label>2 -Para improvisar em uma música que está na tonalidade de G#m, podemos utilizar a escala:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg2" value="opt1" /><span style="color:red">Dó maior</span><br />
+                        <input type="radio" name="perg2" value="opt2" /><span style="color:green">Si maior</span><br />
+                        <input type="radio" name="perg2" value="opt3" />Mi maior<br />
+                        <input type="radio" name="perg2" value="opt4" />Fá maior<br />
+                        <input type="radio" name="perg2" value="opt5" />Sol sustenido maior<br />
+                    </p>';
+                        break;
+                        case 'opt3':
+                        echo '<p>
+                        <label>2 -Para improvisar em uma música que está na tonalidade de G#m, podemos utilizar a escala:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg2" value="opt1" />Dó maior<br />
+                        <input type="radio" name="perg2" value="opt2" /><span style="color:green">Si maior</span><br />
+                        <input type="radio" name="perg2" value="opt3" /><span style="color:red">Mi maior</span><br />
+                        <input type="radio" name="perg2" value="opt4" />Fá maior<br />
+                        <input type="radio" name="perg2" value="opt5" />Sol sustenido maior<br />
+                    </p>';
+                        break;
+                        case 'opt4':
+                        echo '<p>
+                        <label>2 -Para improvisar em uma música que está na tonalidade de G#m, podemos utilizar a escala:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg2" value="opt1" />Dó maior<br />
+                        <input type="radio" name="perg2" value="opt2" /><span style="color:green">Si maior</span><br />
+                        <input type="radio" name="perg2" value="opt3" />Mi maior<br />
+                        <input type="radio" name="perg2" value="opt4" /><span style="color:red">Fá maior</span><br />
+                        <input type="radio" name="perg2" value="opt5" />Sol sustenido maior<br />
+                    </p>';
+                        break;
+                        case 'opt5':
+                        echo '<p>
+                        <label>2 -Para improvisar em uma música que está na tonalidade de G#m, podemos utilizar a escala:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg2" value="opt1" />Dó maior<br />
+                        <input type="radio" name="perg2" value="opt2" /><span style="color:green">Si maior</span><br />
+                        <input type="radio" name="perg2" value="opt3" />Mi maior<br />
+                        <input type="radio" name="perg2" value="opt4" />Fá maior<br />
+                        <input type="radio" name="perg2" value="opt5" /><span style="color:red">Sol sustenido maior</span><br />
+                    </p>';
+                        break;
+                    }
+                }
         if($perg3 == "opt1"){
-            echo "<p>
-                    <label>3 -Imagine que duas pessoas estão cantando a mesma nota. Você poderia afirmar que esses dois sons são diferentes por que:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:green'>pessoas diferentes possuem timbres diferentes de voz</span><br />
-                    <input type='radio'/>cada pessoa aprende uma técnica vocal diferente<br />
-                    <input type='radio'/>vozes diferentes são cantadas em tons diferentes<br />
-                    <input type='radio'/>quando duas pessoas cantam ao mesmo tempo, as notas se distanciam por um semitom<br />
-                    <input type='radio'/>você não pode afirmar que os sons são diferentes, pois não conhece as pessoas<br />
-                </p>";
+            echo '<p>
+            <label>3 -Sol mixolídio é equivalente à tonalidade de:<img src="/musiclly/www/galeria/certo.png" style="max-width: 50px"></label><br />
+            <input type="radio" name="perg3" value="opt1" /><span style="color:green">Dó maior</span><br />
+            <input type="radio" name="perg3" value="opt2" />Ré menor<br />
+            <input type="radio" name="perg3" value="opt3" />Mi maior<br />
+            <input type="radio" name="perg3" value="opt4" />Fá menor<br />
+            <input type="radio" name="perg3" value="opt5" />Lá maior<br />
+        </p>';
             $certa++;
-        }else{
-            switch($perg3){
-                case 'opt2':
-                echo "<p>
-                    <label>3 -Imagine que duas pessoas estão cantando a mesma nota. Você poderia afirmar que esses dois sons são diferentes por que:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:green'>pessoas diferentes possuem timbres diferentes de voz</span><br />
-                    <input type='radio'/><span style='color:red'>cada pessoa aprende uma técnica vocal diferente</span><br />
-                    <input type='radio'/>vozes diferentes são cantadas em tons diferentes<br />
-                    <input type='radio'/>quando duas pessoas cantam ao mesmo tempo, as notas se distanciam por um semitom<br />
-                    <input type='radio'/>você não pode afirmar que os sons são diferentes, pois não conhece as pessoas<br />
-                </p>";
-                break;
-                case 'opt3':
-                echo "<p>
-                    <label>3 -Imagine que duas pessoas estão cantando a mesma nota. Você poderia afirmar que esses dois sons são diferentes por que:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:green'>pessoas diferentes possuem timbres diferentes de voz</span><br />
-                    <input type='radio'/>cada pessoa aprende uma técnica vocal diferente<br />
-                    <input type='radio'/><span style='color:red'>vozes diferentes são cantadas em tons diferentes</span><br />
-                    <input type='radio'/>quando duas pessoas cantam ao mesmo tempo, as notas se distanciam por um semitom<br />
-                    <input type='radio'/>você não pode afirmar que os sons são diferentes, pois não conhece as pessoas<br />
-                </p>";
-                break;
-                case 'opt4':
-                echo "<p>
-                    <label>3 -Imagine que duas pessoas estão cantando a mesma nota. Você poderia afirmar que esses dois sons são diferentes por que:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:green'>pessoas diferentes possuem timbres diferentes de voz</span><br />
-                    <input type='radio'/>cada pessoa aprende uma técnica vocal diferente<br />
-                    <input type='radio'/>vozes diferentes são cantadas em tons diferentes<br />
-                    <input type='radio'/><span style='color:red'>quando duas pessoas cantam ao mesmo tempo, as notas se distanciam por um semitom</span><br />
-                    <input type='radio'/>você não pode afirmar que os sons são diferentes, pois não conhece as pessoas<br />
-                </p>";
-                break;
-                case 'opt5':
-                echo "<p>
-                    <label>3 -Imagine que duas pessoas estão cantando a mesma nota. Você poderia afirmar que esses dois sons são diferentes por que:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:green'>pessoas diferentes possuem timbres diferentes de voz</span><br />
-                    <input type='radio'/>cada pessoa aprende uma técnica vocal diferente<br />
-                    <input type='radio'/>vozes diferentes são cantadas em tons diferentes<br />
-                    <input type='radio'/>quando duas pessoas cantam ao mesmo tempo, as notas se distanciam por um semitom<br />
-                    <input type='radio'/><span style='color:red'>você não pode afirmar que os sons são diferentes, pois não conhece as pessoas</span><br />
-                </p>";
-                break;
-            }
-        }
-        if($perg4 == "opt2"){
-            echo "<p>
-                    <label>4 -Conhecendo as definições de melodia e harmonia, podemos concluir que alguns instrumentos são classificados como harmônicos, enquanto outros são apenas melódicos. Um exemplo de instrumento harmônico é o(a):<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>saxofone<br />
-                    <input type='radio'/><span style='color:green'>cavaquinho</span><br />
-                    <input type='radio'/>pandeiro<br />
-                    <input type='radio'/>bateria<br />
-                    <input type='radio'/>flauta<br />
-                </p>";
+                }else{
+                    switch($perg3){
+                        case 'opt2':
+                        echo '<p>
+                        <label>3 -Sol mixolídio é equivalente à tonalidade de:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg3" value="opt1" /><span style="color:green">Dó maior</span><br />
+                        <input type="radio" name="perg3" value="opt2" /><span style="color:red">Ré menor</span><br />
+                        <input type="radio" name="perg3" value="opt3" />Mi maior<br />
+                        <input type="radio" name="perg3" value="opt4" />Fá menor<br />
+                        <input type="radio" name="perg3" value="opt5" />Lá maior<br />
+                    </p>';
+                        break;
+                        case 'opt3':
+                        echo '<p>
+                        <label>3 -Sol mixolídio é equivalente à tonalidade de:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg3" value="opt1" /><span style="color:green">Dó maior</span><br />
+                        <input type="radio" name="perg3" value="opt2" />Ré menor<br />
+                        <input type="radio" name="perg3" value="opt3" /><span style="color:red">Mi maior</span><br />
+                        <input type="radio" name="perg3" value="opt4" />Fá menor<br />
+                        <input type="radio" name="perg3" value="opt5" />Lá maior<br />
+                    </p>';
+                        break;
+                        case 'opt4':
+                        echo '<p>
+                        <label>3 -Sol mixolídio é equivalente à tonalidade de:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg3" value="opt1" /><span style="color:green">Dó maior</span><br />
+                        <input type="radio" name="perg3" value="opt2" />Ré menor<br />
+                        <input type="radio" name="perg3" value="opt3" />Mi maior<br />
+                        <input type="radio" name="perg3" value="opt4" /><span style="color:red">Fá menor</span><br />
+                        <input type="radio" name="perg3" value="opt5" />Lá maior<br />
+                    </p>';
+                        break;
+                        case 'opt5':
+                        echo '<p>
+                        <label>3 -Sol mixolídio é equivalente à tonalidade de:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg3" value="opt1" /><span style="color:green">Dó maior</span><br />
+                        <input type="radio" name="perg3" value="opt2" />Ré menor<br />
+                        <input type="radio" name="perg3" value="opt3" />Mi maior<br />
+                        <input type="radio" name="perg3" value="opt4" />Fá menor<br />
+                        <input type="radio" name="perg3" value="opt5" /><span style="color:red">Lá maior</span><br />
+                    </p>';
+                        break;
+                    }
+                }
+        if($perg4 == "opt4"){
+            echo '<p>
+            <label>4 -Poderíamos utilizar a escala de Dó sustenido Frígio em uma música formada pelos acordes:<img src="/musiclly/www/galeria/certo.png" style="max-width: 50px"></label><br />
+            <input type="radio" name="perg4" value="opt1" />C#m, E, B<br />
+            <input type="radio" name="perg4" value="opt2" />C#m, A, G#m<br />
+            <input type="radio" name="perg4" value="opt3" />C#m, D#m, E<br />
+            <input type="radio" name="perg4" value="opt4" /><span style="color:green">C#m, D, A</span><br />
+            <input type="radio" name="perg4" value="opt5" />C#m, F#, B<br />
+        </p>';
             $certa++;
-        }else{
-            switch($perg4){
-                case 'opt1':
-                echo "<p>
-                    <label>4 -Conhecendo as definições de melodia e harmonia, podemos concluir que alguns instrumentos são classificados como harmônicos, enquanto outros são apenas melódicos. Um exemplo de instrumento harmônico é o(a):<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:red'>saxofone</span><br />
-                    <input type='radio'/><span style='color:green'>cavaquinho</span><br />
-                    <input type='radio'/>pandeiro<br />
-                    <input type='radio'/>bateria<br />
-                    <input type='radio'/>flauta<br />
-                </p>";
-                break;
-                case 'opt3':
-                echo "<p>
-                    <label>4 -Conhecendo as definições de melodia e harmonia, podemos concluir que alguns instrumentos são classificados como harmônicos, enquanto outros são apenas melódicos. Um exemplo de instrumento harmônico é o(a):<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>saxofone<br />
-                    <input type='radio'/><span style='color:green'>cavaquinho</span><br />
-                    <input type='radio'/><span style='color:red'>pandeiro</span><br />
-                    <input type='radio'/>bateria<br />
-                    <input type='radio'/>flauta<br />
-                </p>";
-                break;
-                case 'opt4':
-                echo "<p>
-                    <label>4 -Conhecendo as definições de melodia e harmonia, podemos concluir que alguns instrumentos são classificados como harmônicos, enquanto outros são apenas melódicos. Um exemplo de instrumento harmônico é o(a):<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>saxofone<br />
-                    <input type='radio'/><span style='color:green'>cavaquinho</span><br />
-                    <input type='radio'/>pandeiro<br />
-                    <input type='radio'/><span style='color:red'>bateria</span><br />
-                    <input type='radio'/>flauta<br />
-                </p>";
-                break;
-                case 'opt5':
-                echo "<p>
-                    <label>4 -Conhecendo as definições de melodia e harmonia, podemos concluir que alguns instrumentos são classificados como harmônicos, enquanto outros são apenas melódicos. Um exemplo de instrumento harmônico é o(a):<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>saxofone<br />
-                    <input type='radio'/><span style='color:green'>cavaquinho</span><br />
-                    <input type='radio'/>pandeiro<br />
-                    <input type='radio'/>bateria<br />
-                    <input type='radio'/><span style='color:red'>flauta</span><br />
-                </p>";
-                break;
-            }
-        }
-        if($perg5 == "opt5"){
-            echo "<p>
-                    <label>5 -Marque a alternativa verdadeira:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>Música é a combinação de sons e silêncios de maneira desorganizada<br />
-                    <input type='radio'/>Tons e semitons são a mesma coisa<br />
-                    <input type='radio'/>Timbre é o que diferencia duas notas diferentes tocadas no mesmo instrumento<br />
-                    <input type='radio'/>Instrumentos diferentes possuem notas necessariamente diferentes<br />
-                    <input type='radio'/><span style='color:green'>Uma mesma música pode ser reproduzida com diferentes timbres</span><br />
-                </p>";
+                }else{
+                    switch($perg4){
+                        case 'opt1':
+                        echo '<p>
+                        <label>4 -Poderíamos utilizar a escala de Dó sustenido Frígio em uma música formada pelos acordes:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg4" value="opt1" /><span style="color:red">C#m, E, B</span><br />
+                        <input type="radio" name="perg4" value="opt2" />C#m, A, G#m<br />
+                        <input type="radio" name="perg4" value="opt3" />C#m, D#m, E<br />
+                        <input type="radio" name="perg4" value="opt4" /><span style="color:green">C#m, D, A</span><br />
+                        <input type="radio" name="perg4" value="opt5" />C#m, F#, B<br />
+                    </p>';
+                        break;
+                        case 'opt2':
+                        echo '<p>
+                        <label>4 -Poderíamos utilizar a escala de Dó sustenido Frígio em uma música formada pelos acordes:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg4" value="opt1" />C#m, E, B<br />
+                        <input type="radio" name="perg4" value="opt2" /><span style="color:red">C#m, A, G#m</span><br />
+                        <input type="radio" name="perg4" value="opt3" />C#m, D#m, E<br />
+                        <input type="radio" name="perg4" value="opt4" /><span style="color:green">C#m, D, A</span><br />
+                        <input type="radio" name="perg4" value="opt5" />C#m, F#, B<br />
+                    </p>';
+                        break;
+                        case 'opt3':
+                        echo '<p>
+                        <label>4 -Poderíamos utilizar a escala de Dó sustenido Frígio em uma música formada pelos acordes:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg4" value="opt1" />C#m, E, B<br />
+                        <input type="radio" name="perg4" value="opt2" />C#m, A, G#m<br />
+                        <input type="radio" name="perg4" value="opt3" /><span style="color:red">C#m, D#m, E</span><br />
+                        <input type="radio" name="perg4" value="opt4" /><span style="color:green">C#m, D, A</span><br />
+                        <input type="radio" name="perg4" value="opt5" />C#m, F#, B<br />
+                    </p>';
+                        break;
+                        case 'opt5':
+                        echo '<p>
+                        <label>4 -Poderíamos utilizar a escala de Dó sustenido Frígio em uma música formada pelos acordes:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg4" value="opt1" />C#m, E, B<br />
+                        <input type="radio" name="perg4" value="opt2" />C#m, A, G#m<br />
+                        <input type="radio" name="perg4" value="opt3" />C#m, D#m, E<br />
+                        <input type="radio" name="perg4" value="opt4" /><span style="color:green">C#m, D, A</span><br />
+                        <input type="radio" name="perg4" value="opt5" /><span style="color:red">C#m, F#, B</span><br />
+                    </p>';
+                        break;
+                    }
+                }
+        if($perg5 == "opt4"){
+            echo '<p>
+            <label>5 -Marque a alternativa correta:<img src="/musiclly/www/galeria/certo.png" style="max-width: 50px"></label><br />
+            <input type="radio" name="perg5" value="opt1" />A pentatônica de Lá maior pode ser tocada sobre a tonalidade de Dó maior.<br />
+            <input type="radio" name="perg5" value="opt2" />A escala pentatônica menor é uma escala inútil do ponto de vista de improvisação<br />
+            <input type="radio" name="perg5" value="opt3" />Podemos utilizar a pentatônica de Mi menor para improvisar na tonalidade de Fá maior.<br />
+            <input type="radio" name="perg5" value="opt4" /><span style="color:green">A escala pentatônica nada mais é do que um apanhado específico de notas da escala natural.</span><br />
+            <input type="radio" name="perg5" value="opt5" />O conceito de relativa menor não se aplica à escala pentatônica.<br />
+        </p>';
             $certa++;
-        }else{
-            switch($perg5){
-                case 'opt1':
-                echo "<p>
-                    <label>5 -Marque a alternativa verdadeira:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:red'>Música é a combinação de sons e silêncios de maneira desorganizada</span><br />
-                    <input type='radio'/>Tons e semitons são a mesma coisa<br />
-                    <input type='radio'/>Timbre é o que diferencia duas notas diferentes tocadas no mesmo instrumento<br />
-                    <input type='radio'/>Instrumentos diferentes possuem notas necessariamente diferentes<br />
-                    <input type='radio'/><span style='color:green'>Uma mesma música pode ser reproduzida com diferentes timbres</span><br />
-                </p>";
-                break;
-                case 'opt2':
-                echo "<p>
-                    <label>5 -Marque a alternativa verdadeira:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>Música é a combinação de sons e silêncios de maneira desorganizada<br />
-                    <input type='radio'/><span style='color:red'>Tons e semitons são a mesma coisa</span><br />
-                    <input type='radio'/>Timbre é o que diferencia duas notas diferentes tocadas no mesmo instrumento<br />
-                    <input type='radio'/>Instrumentos diferentes possuem notas necessariamente diferentes<br />
-                    <input type='radio'/><span style='color:green'>Uma mesma música pode ser reproduzida com diferentes timbres</span><br />
-                </p>";
-                break;
-                case 'opt3':
-                echo "<p>
-                    <label>5 -Marque a alternativa verdadeira:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>Música é a combinação de sons e silêncios de maneira desorganizada<br />
-                    <input type='radio'/>Tons e semitons são a mesma coisa<br />
-                    <input type='radio'/><span style='color:red'>Timbre é o que diferencia duas notas diferentes tocadas no mesmo instrumento</span><br />
-                    <input type='radio'/>Instrumentos diferentes possuem notas necessariamente diferentes<br />
-                    <input type='radio'/><span style='color:green'>Uma mesma música pode ser reproduzida com diferentes timbres</span><br />
-                </p>";
-                break;
-                case 'opt4':
-                echo "<p>
-                    <label>5 -Marque a alternativa verdadeira:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>Música é a combinação de sons e silêncios de maneira desorganizada<br />
-                    <input type='radio'/>Tons e semitons são a mesma coisa<br />
-                    <input type='radio'/>Timbre é o que diferencia duas notas diferentes tocadas no mesmo instrumento<br />
-                    <input type='radio'/><span style='color:red'>Instrumentos diferentes possuem notas necessariamente diferentes</span><br />
-                    <input type='radio'/><span style='color:green'>Uma mesma música pode ser reproduzida com diferentes timbres</span><br />
-                </p>";
-                break;
-                
-            }
+                }else{
+                    switch($perg5){
+                        case 'opt1':
+                        echo '<p>
+                        <label>5 -Marque a alternativa correta:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg5" value="opt1" /><span style="color:red">A pentatônica de Lá maior pode ser tocada sobre a tonalidade de Dó maior.</span><br />
+                        <input type="radio" name="perg5" value="opt2" />A escala pentatônica menor é uma escala inútil do ponto de vista de improvisação<br />
+                        <input type="radio" name="perg5" value="opt3" />Podemos utilizar a pentatônica de Mi menor para improvisar na tonalidade de Fá maior.<br />
+                        <input type="radio" name="perg5" value="opt4" /><span style="color:green">A escala pentatônica nada mais é do que um apanhado específico de notas da escala natural.</span><br />
+                        <input type="radio" name="perg5" value="opt5" />O conceito de relativa menor não se aplica à escala pentatônica.<br />
+                    </p>';
+                        break;
+                        case 'opt2':
+                        echo '<p>
+                        <label>5 -Marque a alternativa correta:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg5" value="opt1" />A pentatônica de Lá maior pode ser tocada sobre a tonalidade de Dó maior.<br />
+                        <input type="radio" name="perg5" value="opt2" /><span style="color:red">A escala pentatônica menor é uma escala inútil do ponto de vista de improvisação</span><br />
+                        <input type="radio" name="perg5" value="opt3" />Podemos utilizar a pentatônica de Mi menor para improvisar na tonalidade de Fá maior.<br />
+                        <input type="radio" name="perg5" value="opt4" /><span style="color:green">A escala pentatônica nada mais é do que um apanhado específico de notas da escala natural.</span><br />
+                        <input type="radio" name="perg5" value="opt5" />O conceito de relativa menor não se aplica à escala pentatônica.<br />
+                    </p>';
+                        break;
+                        case 'opt3':
+                        echo '<p>
+                        <label>5 -Marque a alternativa correta:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg5" value="opt1" />A pentatônica de Lá maior pode ser tocada sobre a tonalidade de Dó maior.<br />
+                        <input type="radio" name="perg5" value="opt2" />A escala pentatônica menor é uma escala inútil do ponto de vista de improvisação<br />
+                        <input type="radio" name="perg5" value="opt3" /><span style="color:red">Podemos utilizar a pentatônica de Mi menor para improvisar na tonalidade de Fá maior.</span><br />
+                        <input type="radio" name="perg5" value="opt4" /><span style="color:green">A escala pentatônica nada mais é do que um apanhado específico de notas da escala natural.</span><br />
+                        <input type="radio" name="perg5" value="opt5" />O conceito de relativa menor não se aplica à escala pentatônica.<br />
+                    </p>';
+                        break;
+                        case 'opt5':
+                        echo '<p>
+                        <label>5 -Marque a alternativa correta:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg5" value="opt1" />A pentatônica de Lá maior pode ser tocada sobre a tonalidade de Dó maior.<br />
+                        <input type="radio" name="perg5" value="opt2" />A escala pentatônica menor é uma escala inútil do ponto de vista de improvisação<br />
+                        <input type="radio" name="perg5" value="opt3" />Podemos utilizar a pentatônica de Mi menor para improvisar na tonalidade de Fá maior.<br />
+                        <input type="radio" name="perg5" value="opt4" /><span style="color:green">A escala pentatônica nada mais é do que um apanhado específico de notas da escala natural.</span><br />
+                        <input type="radio" name="perg5" value="opt5" /><span style="color:red">O conceito de relativa menor não se aplica à escala pentatônica.</span><br />
+                    </p>';
+                        break;
+                        
+                    }
             
         }
         if($perg6 == "opt3"){
-            echo "<p>
-                    <label>6 -A nota D# é idêntica à nota:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>F<br />
-                    <input type='radio'/>C#<br />
-                    <input type='radio'/><span style='color:green'>Eb</span><br />
-                    <input type='radio'/>Gb<br />
-                    <input type='radio'/>Ab<br />
-                </p>";
+            echo '<p>
+            <label>6 -A estrutura básica de um blues é:<img src="/musiclly/www/galeria/certo.png" style="max-width: 50px"></label><br />
+            <input type="radio" name="perg6" value="opt1" />Parecida com um campo harmônico maior.<br />
+            <input type="radio" name="perg6" value="opt2" />Idêntica ao modo dórico.<br />
+            <input type="radio" name="perg6" value="opt3" /><span style="color:green">Bem diferente dos campos harmônicos naturais, sendo fundamentada em acordes com sétima menor.</span><br />
+            <input type="radio" name="perg6" value="opt4" />Uma mistura de acordes maiores com seus relativos menores.<br />
+            <input type="radio" name="perg6" value="opt5" />Igual a qualquer outra estrutura, portanto não precisa ser analisada.<br />
+        </p>';
             $certa++;
-        }else{
-            switch($perg6){
-                case 'opt1':
-                echo "<p>
-                    <label>6 -A nota D# é idêntica à nota:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:red'>F</span><br />
-                    <input type='radio'/>C#<br />
-                    <input type='radio'/><span style='color:green'>Eb</span><br />
-                    <input type='radio'/>Gb<br />
-                    <input type='radio'/>Ab<br />
-                </p>";
-                break;
-                case 'opt2':
-                echo "<p>
-                    <label>6 -A nota D# é idêntica à nota:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>F<br />
-                    <input type='radio'/><span style='color:red'>C#</span><br />
-                    <input type='radio'/><span style='color:green'>Eb</span><br />
-                    <input type='radio'/>Gb<br />
-                    <input type='radio'/>Ab<br />
-                </p>";
-                break;
-                case 'opt4':
-                echo "<p>
-                    <label>6 -A nota D# é idêntica à nota:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>F<br />
-                    <input type='radio'/>C#<br />
-                    <input type='radio'/><span style='color:green'>Eb</span><br />
-                    <input type='radio'/><span style='color:red'>Gb</span><br />
-                    <input type='radio'/>Ab<br />
-                </p>";
-                break;
-                case 'opt5':
-                echo "<p>
-                    <label>6 -A nota D# é idêntica à nota:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>F<br />
-                    <input type='radio'/>C#<br />
-                    <input type='radio'/><span style='color:green'>Eb</span><br />
-                    <input type='radio'/>Gb<br />
-                    <input type='radio'/><span style='color:red'>Ab</span><br />
-                </p>";
-                break;
-            }
-        }
-        if($perg7 == "opt3"){
-            echo "<p>
-                    <label>7 -Um tom e meio acima de Lá corresponde à nota:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>F<br />
-                    <input type='radio'/>G<br />
-                    <input type='radio'/><span style='color:green'>C</span><br />
-                    <input type='radio'/>Bb<br />
-                    <input type='radio'/>Db<br />
-                </p>";
+                }else{
+                    switch($perg6){
+                        case 'opt1':
+                        echo '<p>
+                        <label>6 -A estrutura básica de um blues é:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg6" value="opt1" /><span style="color:red">Parecida com um campo harmônico maior.</span><br />
+                        <input type="radio" name="perg6" value="opt2" />Idêntica ao modo dórico.<br />
+                        <input type="radio" name="perg6" value="opt3" /><span style="color:green">Bem diferente dos campos harmônicos naturais, sendo fundamentada em acordes com sétima menor.</span><br />
+                        <input type="radio" name="perg6" value="opt4" />Uma mistura de acordes maiores com seus relativos menores.<br />
+                        <input type="radio" name="perg6" value="opt5" />Igual a qualquer outra estrutura, portanto não precisa ser analisada.<br />
+                    </p>';
+                        break;
+                        case 'opt2':
+                        echo '<p>
+                        <label>6 -A estrutura básica de um blues é:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg6" value="opt1" />Parecida com um campo harmônico maior.<br />
+                        <input type="radio" name="perg6" value="opt2" /><span style="color:red">Idêntica ao modo dórico.</span><br />
+                        <input type="radio" name="perg6" value="opt3" /><span style="color:green">Bem diferente dos campos harmônicos naturais, sendo fundamentada em acordes com sétima menor.</span><br />
+                        <input type="radio" name="perg6" value="opt4" />Uma mistura de acordes maiores com seus relativos menores.<br />
+                        <input type="radio" name="perg6" value="opt5" />Igual a qualquer outra estrutura, portanto não precisa ser analisada.<br />
+                    </p>';
+                        break;
+                        case 'opt4':
+                        echo '<p>
+                        <label>6 -A estrutura básica de um blues é:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg6" value="opt1" />Parecida com um campo harmônico maior.<br />
+                        <input type="radio" name="perg6" value="opt2" />Idêntica ao modo dórico.<br />
+                        <input type="radio" name="perg6" value="opt3" /><span style="color:green">Bem diferente dos campos harmônicos naturais, sendo fundamentada em acordes com sétima menor.</span><br />
+                        <input type="radio" name="perg6" value="opt4" /><span style="color:red">Uma mistura de acordes maiores com seus relativos menores.</span><br />
+                        <input type="radio" name="perg6" value="opt5" />Igual a qualquer outra estrutura, portanto não precisa ser analisada.<br />
+                    </p>';
+                        break;
+                        case 'opt5':
+                        echo '<p>
+                        <label>6 -A estrutura básica de um blues é:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg6" value="opt1" />Parecida com um campo harmônico maior.<br />
+                        <input type="radio" name="perg6" value="opt2" />Idêntica ao modo dórico.<br />
+                        <input type="radio" name="perg6" value="opt3" /><span style="color:green">Bem diferente dos campos harmônicos naturais, sendo fundamentada em acordes com sétima menor.</span><br />
+                        <input type="radio" name="perg6" value="opt4" />Uma mistura de acordes maiores com seus relativos menores.<br />
+                        <input type="radio" name="perg6" value="opt5" /><span style="color:red">Igual a qualquer outra estrutura, portanto não precisa ser analisada.</span><br />
+                    </p>';
+                        break;
+                    }
+                }
+        if($perg7 == "opt1"){
+            echo '<p>
+            <label>7 -Para improvisar em um blues formado pelos acordes G7, C7, D7 podemos utilizar a escala:<img src="/musiclly/www/galeria/certo.png" style="max-width: 50px"></label><br />
+            <input type="radio" name="perg7" value="opt1" /><span style="color:green">Pentatônica de Sol menor</span><br />
+            <input type="radio" name="perg7" value="opt2" />Pentatônica de Lá menor<br />
+            <input type="radio" name="perg7" value="opt3" />Pentatônica de Si menor<br />
+            <input type="radio" name="perg7" value="opt4" />Pentatônica de Dó menor<br />
+            <input type="radio" name="perg7" value="opt5" />Pentatônica de Ré menor<br />
+        </p>';
             $certa++;
-        }else{
-            switch($perg7){
-                case 'opt1':
-                echo "<p>
-                    <label>7 -Um tom e meio acima de Lá corresponde à nota:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:red'>F</span><br />
-                    <input type='radio'/>G<br />
-                    <input type='radio'/><span style='color:green'>C</span><br />
-                    <input type='radio'/>Bb<br />
-                    <input type='radio'/>Db<br />
-                </p>";
-                break;
-                case 'opt2':
-                echo "<p>
-                    <label>7 -Um tom e meio acima de Lá corresponde à nota:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>F<br />
-                    <input type='radio'/><span style='color:red'>G</span><br />
-                    <input type='radio'/><span style='color:green'>C</span><br />
-                    <input type='radio'/>Bb<br />
-                    <input type='radio'/>Db<br />
-                </p>";
-                break;
-                case 'opt4':
-                echo "<p>
-                    <label>7 -Um tom e meio acima de Lá corresponde à nota:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>F<br />
-                    <input type='radio'/>G<br />
-                    <input type='radio'/><span style='color:green'>C</span><br />
-                    <input type='radio'/><span style='color:red'>Bb</span><br />
-                    <input type='radio'/>Db<br />
-                </p>";
-                break;
-                case 'opt5':
-                echo "<p>
-                    <label>7 -Um tom e meio acima de Lá corresponde à nota:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>F<br />
-                    <input type='radio'/>G<br />
-                    <input type='radio'/><span style='color:green'>C</span><br />
-                    <input type='radio'/>Bb<br />
-                    <input type='radio'/><span style='color:red'>Db</span><br />
-                </p>";
-                break;
-            }
-        }
-        if($perg8 == "opt3"){
-            echo "<p>
-                    <label>8 -O símbolo “#” representa a distância de:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>um tom acima<br />
-                    <input type='radio'/>um tom abaixo<br />
-                    <input type='radio'/><span style='color:green'>meio tom acima</span><br />
-                    <input type='radio'/>meio tom abaixo<br />
-                    <input type='radio'/>a distância vai depender da nota<br />
-                </p>";
+                }else{
+                    switch($perg7){
+                        case 'opt2':
+                        echo '<p>
+                        <label>7 -Para improvisar em um blues formado pelos acordes G7, C7, D7 podemos utilizar a escala:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg7" value="opt1" /><span style="color:green">Pentatônica de Sol menor</span><br />
+                        <input type="radio" name="perg7" value="opt2" /><span style="color:red">Pentatônica de Lá menor</span><br />
+                        <input type="radio" name="perg7" value="opt3" />Pentatônica de Si menor<br />
+                        <input type="radio" name="perg7" value="opt4" />Pentatônica de Dó menor<br />
+                        <input type="radio" name="perg7" value="opt5" />Pentatônica de Ré menor<br />
+                    </p>';
+                        break;
+                        case 'opt3':
+                        echo '<p>
+                        <label>7 -Para improvisar em um blues formado pelos acordes G7, C7, D7 podemos utilizar a escala:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg7" value="opt1" /><span style="color:green">Pentatônica de Sol menor</span><br />
+                        <input type="radio" name="perg7" value="opt2" />Pentatônica de Lá menor<br />
+                        <input type="radio" name="perg7" value="opt3" /><span style="color:red">Pentatônica de Si menor</span><br />
+                        <input type="radio" name="perg7" value="opt4" />Pentatônica de Dó menor<br />
+                        <input type="radio" name="perg7" value="opt5" />Pentatônica de Ré menor<br />
+                    </p>';
+                        break;
+                        case 'opt4':
+                        echo '<p>
+                        <label>7 -Para improvisar em um blues formado pelos acordes G7, C7, D7 podemos utilizar a escala:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg7" value="opt1" /><span style="color:green">Pentatônica de Sol menor</span><br />
+                        <input type="radio" name="perg7" value="opt2" />Pentatônica de Lá menor<br />
+                        <input type="radio" name="perg7" value="opt3" />Pentatônica de Si menor<br />
+                        <input type="radio" name="perg7" value="opt4" /><span style="color:red">Pentatônica de Dó menor</span><br />
+                        <input type="radio" name="perg7" value="opt5" />Pentatônica de Ré menor<br />
+                    </p>';
+                        break;
+                        case 'opt5':
+                        echo '<p>
+                        <label>7 -Para improvisar em um blues formado pelos acordes G7, C7, D7 podemos utilizar a escala:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg7" value="opt1" /><span style="color:green">Pentatônica de Sol menor</span><br />
+                        <input type="radio" name="perg7" value="opt2" />Pentatônica de Lá menor<br />
+                        <input type="radio" name="perg7" value="opt3" />Pentatônica de Si menor<br />
+                        <input type="radio" name="perg7" value="opt4" />Pentatônica de Dó menor<br />
+                        <input type="radio" name="perg7" value="opt5" /><span style="color:red">Pentatônica de Ré menor</span><br />
+                    </p>';
+                        break;
+                    }
+                }
+        if($perg8 == "opt5"){
+            echo '<p>
+            <label>8 -A escala blues é uma pentatônica acrescida da blue note. Sobre esta nota adicional, podemos afirmar que:<img src="/musiclly/www/galeria/certo.png" style="max-width: 50px"></label><br />
+            <input type="radio" name="perg8" value="opt1" />É uma nota de repouso, podendo ser utilizada também como nota de passagem.<br />
+            <input type="radio" name="perg8" value="opt2" />É uma nota tonal que enriquece o solo.<br />
+            <input type="radio" name="perg8" value="opt3" />Essa nota pode ser utilizada na pentatônica menor somente.<br />
+            <input type="radio" name="perg8" value="opt4" />Não se pode dizer que a blue note possui um efeito cromático.<br />
+            <input type="radio" name="perg8" value="opt5" /><span style="color:green">A blue note é uma nota atonal utilizada para temperar um solo (outside note).</span><br />
+        </p>';
             $certa++;
-        }else{
-            switch($perg8){
-                case 'opt1':
-                echo "<p>
-                    <label>8 -O símbolo “#” representa a distância de:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:red'>um tom acima</span><br />
-                    <input type='radio'/>um tom abaixo<br />
-                    <input type='radio'/><span style='color:green'>meio tom acima</span><br />
-                    <input type='radio'/>meio tom abaixo<br />
-                    <input type='radio'/>a distância vai depender da nota<br />
-                </p>";
-                break;
-                case 'opt2':
-                echo "<p>
-                    <label>8 -O símbolo “#” representa a distância de:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>um tom acima<br />
-                    <input type='radio'/><span style='color:red'>um tom abaixo</span><br />
-                    <input type='radio'/><span style='color:green'>meio tom acima</span><br />
-                    <input type='radio'/>meio tom abaixo<br />
-                    <input type='radio'/>a distância vai depender da nota<br />
-                </p>";
-                break;
-                case 'opt4':
-                echo "<p>
-                    <label>8 -O símbolo “#” representa a distância de:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>um tom acima<br />
-                    <input type='radio'/>um tom abaixo<br />
-                    <input type='radio'/><span style='color:green'>meio tom acima</span><br />
-                    <input type='radio'/><span style='color:red'>meio tom abaixo</span><br />
-                    <input type='radio'/>a distância vai depender da nota<br />
-                </p>";
-                break;
-                case 'opt5':
-                echo "<p>
-                    <label>8 -O símbolo “#” representa a distância de:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>um tom acima<br />
-                    <input type='radio'/>um tom abaixo<br />
-                    <input type='radio'/><span style='color:green'>meio tom acima</span><br />
-                    <input type='radio'/>meio tom abaixo<br />
-                    <input type='radio'/><span style='color:red'>a distância vai depender da nota</span><br />
-                </p>";
-                break;
-            }
-        }
-        if($perg9 == "opt1"){
-            echo "<p>
-                    <label>9 -A música ocidental foi dividida em:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:green'>12 notas</span><br />
-                    <input type='radio'/>10 notas<br />
-                    <input type='radio'/>8 notas<br />
-                    <input type='radio'/>3 notas<br />
-                    <input type='radio'/>infinitas notas<br />
-                </p>";
+                }else{
+                    switch($perg8){
+                        case 'opt1':
+                        echo '<p>
+                        <label>8 -A escala blues é uma pentatônica acrescida da blue note. Sobre esta nota adicional, podemos afirmar que:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg8" value="opt1" /><span style="color:red">É uma nota de repouso, podendo ser utilizada também como nota de passagem.</span><br />
+                        <input type="radio" name="perg8" value="opt2" />É uma nota tonal que enriquece o solo.<br />
+                        <input type="radio" name="perg8" value="opt3" />Essa nota pode ser utilizada na pentatônica menor somente.<br />
+                        <input type="radio" name="perg8" value="opt4" />Não se pode dizer que a blue note possui um efeito cromático.<br />
+                        <input type="radio" name="perg8" value="opt5" /><span style="color:green">A blue note é uma nota atonal utilizada para temperar um solo (outside note).</span><br />
+                    </p>';
+                        break;
+                        case 'opt2':
+                        echo '<p>
+                        <label>8 -A escala blues é uma pentatônica acrescida da blue note. Sobre esta nota adicional, podemos afirmar que:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg8" value="opt1" />É uma nota de repouso, podendo ser utilizada também como nota de passagem.<br />
+                        <input type="radio" name="perg8" value="opt2" /><span style="color:red">É uma nota tonal que enriquece o solo.</span><br />
+                        <input type="radio" name="perg8" value="opt3" />Essa nota pode ser utilizada na pentatônica menor somente.<br />
+                        <input type="radio" name="perg8" value="opt4" />Não se pode dizer que a blue note possui um efeito cromático.<br />
+                        <input type="radio" name="perg8" value="opt5" /><span style="color:green">A blue note é uma nota atonal utilizada para temperar um solo (outside note).</span><br />
+                    </p>';
+                        break;
+                        case 'opt3':
+                        echo '<p>
+                        <label>8 -A escala blues é uma pentatônica acrescida da blue note. Sobre esta nota adicional, podemos afirmar que:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg8" value="opt1" />É uma nota de repouso, podendo ser utilizada também como nota de passagem.<br />
+                        <input type="radio" name="perg8" value="opt2" />É uma nota tonal que enriquece o solo.<br />
+                        <input type="radio" name="perg8" value="opt3" /><span style="color:red">Essa nota pode ser utilizada na pentatônica menor somente.</span><br />
+                        <input type="radio" name="perg8" value="opt4" />Não se pode dizer que a blue note possui um efeito cromático.<br />
+                        <input type="radio" name="perg8" value="opt5" /><span style="color:green">A blue note é uma nota atonal utilizada para temperar um solo (outside note).</span><br />
+                    </p>';
+                        break;
+                        case 'opt4':
+                        echo '<p>
+                        <label>8 -A escala blues é uma pentatônica acrescida da blue note. Sobre esta nota adicional, podemos afirmar que:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg8" value="opt1" />É uma nota de repouso, podendo ser utilizada também como nota de passagem.<br />
+                        <input type="radio" name="perg8" value="opt2" />É uma nota tonal que enriquece o solo.<br />
+                        <input type="radio" name="perg8" value="opt3" />Essa nota pode ser utilizada na pentatônica menor somente.<br />
+                        <input type="radio" name="perg8" value="opt4" /><span style="color:red">Não se pode dizer que a blue note possui um efeito cromático.</span><br />
+                        <input type="radio" name="perg8" value="opt5" /><span style="color:green">A blue note é uma nota atonal utilizada para temperar um solo (outside note).</span><br />
+                    </p>';
+                        break;
+                    }
+                }
+        if($perg9 == "opt4"){
+            echo '<p>
+            <label>9 -Um blues tradicional é formado por quantos compassos?<img src="/musiclly/www/galeria/certo.png" style="max-width: 50px"></label><br />
+            <input type="radio" name="perg9" value="opt1" />6<br />
+            <input type="radio" name="perg9" value="opt2" />8<br />
+            <input type="radio" name="perg9" value="opt3" />10<br />
+            <input type="radio" name="perg9" value="opt4" /><span style="color:green">12</span><br />
+            <input type="radio" name="perg9" value="opt5" />15<br />
+        </p>';
             $certa++;
-        }else{
-            switch($perg9){
-                case 'opt2':
-                echo "<p>
-                    <label>9 -A música ocidental foi dividida em:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:green'>12 notas</span><br />
-                    <input type='radio'/><span style='color:red'>10 notas</span><br />
-                    <input type='radio'/>8 notas<br />
-                    <input type='radio'/>3 notas<br />
-                    <input type='radio'/>infinitas notas<br />
-                </p>";
-                break;
-                case 'opt3':
-                echo "<p>
-                    <label>9 -A música ocidental foi dividida em:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:green'>12 notas<br />
-                    <input type='radio'/>10 notas</span><br />
-                    <input type='radio'/><span style='color:red'>8 notas</span><br />
-                    <input type='radio'/>3 notas<br />
-                    <input type='radio'/>infinitas notas<br />
-                </p>";
-                break;
-                case 'opt4':
-                echo "<p>
-                    <label>9 -A música ocidental foi dividida em:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:green'>12 notas</span><br />
-                    <input type='radio'/>10 notas<br />
-                    <input type='radio'/>8 notas<br />
-                    <input type='radio'/><span style='color:red'>3 notas</span><br />
-                    <input type='radio'/>infinitas notas<br />
-                </p>";
-                break;
-                case 'opt5':
-                echo "<p>
-                    <label>9 -A música ocidental foi dividida em:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:green'>12 notas</span><br />
-                    <input type='radio'/>10 notas<br />
-                    <input type='radio'/>8 notas<br />
-                    <input type='radio'/>3 notas<br />
-                    <input type='radio'/><span style='color:red'>infinitas notas</span><br />
-                </p>";
-                break;
-            }
-        }
+                }else{
+                    switch($perg9){
+                        case 'opt1':
+                        echo '<p>
+                        <label>9 -Um blues tradicional é formado por quantos compassos?<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg9" value="opt1" /><span style="color:red">6</span><br />
+                        <input type="radio" name="perg9" value="opt2" />8<br />
+                        <input type="radio" name="perg9" value="opt3" />10<br />
+                        <input type="radio" name="perg9" value="opt4" /><span style="color:green">12</span><br />
+                        <input type="radio" name="perg9" value="opt5" />15<br />
+                    </p>';
+                        break;
+                        case 'opt2':
+                        echo '<p>
+                        <label>9 -Um blues tradicional é formado por quantos compassos?<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg9" value="opt1" />6<br />
+                        <input type="radio" name="perg9" value="opt2" /><span style="color:red">8</span><br />
+                        <input type="radio" name="perg9" value="opt3" />10<br />
+                        <input type="radio" name="perg9" value="opt4" /><span style="color:green">12</span><br />
+                        <input type="radio" name="perg9" value="opt5" />15<br />
+                    </p>';
+                        break;
+                        case 'opt3':
+                        echo '<p>
+                        <label>9 -Um blues tradicional é formado por quantos compassos?<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg9" value="opt1" />6<br />
+                        <input type="radio" name="perg9" value="opt2" />8<br />
+                        <input type="radio" name="perg9" value="opt3" /><span style="color:red">10</span><br />
+                        <input type="radio" name="perg9" value="opt4" /><span style="color:green">12</span><br />
+                        <input type="radio" name="perg9" value="opt5" />15<br />
+                    </p>';
+                        break;
+                        case 'opt5':
+                        echo '<p>
+                        <label>9 -Um blues tradicional é formado por quantos compassos?<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg9" value="opt1" />6<br />
+                        <input type="radio" name="perg9" value="opt2" />8<br />
+                        <input type="radio" name="perg9" value="opt3" />10<br />
+                        <input type="radio" name="perg9" value="opt4" /><span style="color:green">12</span><br />
+                        <input type="radio" name="perg9" value="opt5" /><span style="color:red">15</span><br />
+                    </p>';
+                        break;
+                    }
+                }
         if($perg10 == "opt2"){
-            echo "<p>
-                    <label>10 -Podemos afirmar que:<img src='/musiclly/www/galeria/certo.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>Ao mudar um ritmo, estamos mudando também a harmonia<br />
-                    <input type='radio'/><span style='color:green'>Uma mesma melodia pode ser tocada em diferentes ritmos</span><br />
-                    <input type='radio'/>O ritmo de uma música depende do timbre dos cantores<br />
-                    <input type='radio'/>Timbres diferentes resultam em melodias diferentes<br />
-                    <input type='radio'/>Uma pessoa que não entende nada de harmonia nunca vai conseguir aprender<br />
-                </p>";
+            echo '<p>
+            <label>10 -Marque a alternativa correta:<img src="/musiclly/www/galeria/certo.png" style="max-width: 50px"></label><br />
+            <input type="radio" name="perg10" value="opt1" />As escalas dórica, frígia e lídia de uma mesma tonalidade não possuem as mesmas notas.<br />
+            <input type="radio" name="perg10" value="opt2" /><span style="color:green">Uma das notas da escala blues deve ser tocada somente como nota de passagem.</span><br />
+            <input type="radio" name="perg10" value="opt3" />A escala pentatônica é idêntica à escala relativa menor.<br />
+            <input type="radio" name="perg10" value="opt4" />O modo eólio é diferente da escala menor natural.<br />
+            <input type="radio" name="perg10" value="opt5" />Uma improvisação não precisa levar em conta as escalas nem as tonalidades.<br />
+        </p>';
             $certa++;
-        }else{
-            switch($perg10){
-                case 'opt1':
-                echo "<p>
-                    <label>10 -Podemos afirmar que:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/><span style='color:red'>Ao mudar um ritmo, estamos mudando também a harmonia</span><br />
-                    <input type='radio'/><span style='color:green'>Uma mesma melodia pode ser tocada em diferentes ritmos</span><br />
-                    <input type='radio'/>O ritmo de uma música depende do timbre dos cantores<br />
-                    <input type='radio'/>Timbres diferentes resultam em melodias diferentes<br />
-                    <input type='radio'/>Uma pessoa que não entende nada de harmonia nunca vai conseguir aprender<br />
-                </p>";
-                break;
-                case 'opt3':
-                echo "<p>
-                    <label>10 -Podemos afirmar que:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>Ao mudar um ritmo, estamos mudando também a harmonia<br />
-                    <input type='radio'/><span style='color:green'>Uma mesma melodia pode ser tocada em diferentes ritmos</span><br />
-                    <input type='radio'/><span style='color:red'>O ritmo de uma música depende do timbre dos cantores</span><br />
-                    <input type='radio'/>Timbres diferentes resultam em melodias diferentes<br />
-                    <input type='radio'/>Uma pessoa que não entende nada de harmonia nunca vai conseguir aprender<br />
-                </p>";
-                break;
-                case 'opt4':
-                echo "<p>
-                    <label>10 -Podemos afirmar que:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>Ao mudar um ritmo, estamos mudando também a harmonia<br />
-                    <input type='radio'/><span style='color:green'>Uma mesma melodia pode ser tocada em diferentes ritmos</span><br />
-                    <input type='radio'/>O ritmo de uma música depende do timbre dos cantores<br />
-                    <input type='radio'/><span style='color:red'>Timbres diferentes resultam em melodias diferentes</span><br />
-                    <input type='radio'/>Uma pessoa que não entende nada de harmonia nunca vai conseguir aprender<br />
-                </p>";
-                break;
-                case 'opt5':
-                echo "<p>
-                    <label>10 -Podemos afirmar que:<img src='/musiclly/www/galeria/errado.png' style='max-width: 50px'></label><br />
-                    <input type='radio'/>Ao mudar um ritmo, estamos mudando também a harmonia<br />
-                    <input type='radio'/><span style='color:green'>Uma mesma melodia pode ser tocada em diferentes ritmos</span><br />
-                    <input type='radio'/>O ritmo de uma música depende do timbre dos cantores<br />
-                    <input type='radio'/>Timbres diferentes resultam em melodias diferentes<br />
-                    <input type='radio'/><span style='color:red'>Uma pessoa que não entende nada de harmonia nunca vai conseguir aprender</span><br />
-                </p>";
-                break;
-            }
-        }
+                }else{
+                    switch($perg10){
+                        case 'opt1':
+                        echo '<p>
+                        <label>10 -Marque a alternativa correta:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg10" value="opt1" /><span style="color:red">As escalas dórica, frígia e lídia de uma mesma tonalidade não possuem as mesmas notas.</span><br />
+                        <input type="radio" name="perg10" value="opt2" /><span style="color:green">Uma das notas da escala blues deve ser tocada somente como nota de passagem.</span><br />
+                        <input type="radio" name="perg10" value="opt3" />A escala pentatônica é idêntica à escala relativa menor.<br />
+                        <input type="radio" name="perg10" value="opt4" />O modo eólio é diferente da escala menor natural.<br />
+                        <input type="radio" name="perg10" value="opt5" />Uma improvisação não precisa levar em conta as escalas nem as tonalidades.<br />
+                    </p>';
+                        break;
+                        case 'opt3':
+                        echo '<p>
+                        <label>10 -Marque a alternativa correta:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg10" value="opt1" />As escalas dórica, frígia e lídia de uma mesma tonalidade não possuem as mesmas notas.<br />
+                        <input type="radio" name="perg10" value="opt2" /><span style="color:green">Uma das notas da escala blues deve ser tocada somente como nota de passagem.</span><br />
+                        <input type="radio" name="perg10" value="opt3" /><span style="color:red">A escala pentatônica é idêntica à escala relativa menor.</span><br />
+                        <input type="radio" name="perg10" value="opt4" />O modo eólio é diferente da escala menor natural.<br />
+                        <input type="radio" name="perg10" value="opt5" />Uma improvisação não precisa levar em conta as escalas nem as tonalidades.<br />
+                    </p>';
+                        break;
+                        case 'opt4':
+                        echo '<p>
+                        <label>10 -Marque a alternativa correta:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg10" value="opt1" />As escalas dórica, frígia e lídia de uma mesma tonalidade não possuem as mesmas notas.<br />
+                        <input type="radio" name="perg10" value="opt2" /><span style="color:green">Uma das notas da escala blues deve ser tocada somente como nota de passagem.</span><br />
+                        <input type="radio" name="perg10" value="opt3" />A escala pentatônica é idêntica à escala relativa menor.<br />
+                        <input type="radio" name="perg10" value="opt4" /><span style="color:red">O modo eólio é diferente da escala menor natural.</span><br />
+                        <input type="radio" name="perg10" value="opt5" />Uma improvisação não precisa levar em conta as escalas nem as tonalidades.<br />
+                    </p>';
+                        break;
+                        case 'opt5':
+                        echo '<p>
+                        <label>10 -Marque a alternativa correta:<img src="/musiclly/www/galeria/errado.png" style="max-width: 50px"></label><br />
+                        <input type="radio" name="perg10" value="opt1" />As escalas dórica, frígia e lídia de uma mesma tonalidade não possuem as mesmas notas.<br />
+                        <input type="radio" name="perg10" value="opt2" /><span style="color:green">Uma das notas da escala blues deve ser tocada somente como nota de passagem.</span><br />
+                        <input type="radio" name="perg10" value="opt3" />A escala pentatônica é idêntica à escala relativa menor.<br />
+                        <input type="radio" name="perg10" value="opt4" />O modo eólio é diferente da escala menor natural.<br />
+                        <input type="radio" name="perg10" value="opt5" /><span style="color:red">Uma improvisação não precisa levar em conta as escalas nem as tonalidades.</span><br />
+                    </p>';
+                        break;
+                    }
+                }
         $porc = ($certa / 10) * 100;
         if($porc < 40){
             echo "<div class='row' style='padding: 3px;background:darkred;width: 22%'><div class='col-6' style='color:white'>".$porc."%"."</div><div class='col-6' style='border-left: 1px solid white'><span style='color:white'>REPROVADO!</span></div></div>";
@@ -971,7 +975,7 @@
             
         }
 
-        $sql = "UPDATE tbl_cad_curso set nota = $porc where id_Cad = $id and id_Curso=1";
+        $sql = "UPDATE tbl_cad_curso set nota = $porc where id_Cad = $id and id_Curso=5";
         $result = mysqli_query($conn, $sql);
 
         

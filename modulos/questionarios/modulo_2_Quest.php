@@ -228,7 +228,7 @@
 
                     
 
-                    <div style='background-color:#fafdff;z-index:2'><a class='nav-item nav-link' id='menuUsuario' href='#' style='margin-left: 300px;display:inline-block'>$usuario<img src='".$img."' style='margin-left: 3%;max-width: 35%;border-radius: 10%;max-height: 35%'></a></div>";
+                    <div style='background-color:#fafdff;z-index:2'><a class='nav-item nav-link' id='menuUsuario' href='#' style='margin-left: 300px;display:inline-block'>$usuario<img src='/musiclly/".$img."' style='margin-left: 3%;max-width: 35%;border-radius: 10%;max-height: 35%'></a></div>";
                     
                     
                     ?>
@@ -408,7 +408,7 @@
           $resultProg = mysqli_query($conn, $verificadorProg);
           $row = mysqli_fetch_assoc($resultProg);
           if($row['progresso'] == 100){
-                echo "<form action='\Musiclly\modulos\questionarios\results\ver_result_2.php' method='POST'>
+                echo "<form action='/Musiclly/modulos/questionarios/results/ver_result_2.php' method='POST'>
                     <article>
                         <p>
                             <label>1 -O segundo grau menor de Fá é a nota:</label><br />
