@@ -34,13 +34,13 @@ if ( isset( $_FILES[ 'arquivo' ][ 'name' ] ) && $_FILES[ 'arquivo' ][ 'error' ] 
         // Evita que duplique as imagens no servidor.
         // Evita nomes com acentos, espaços e caracteres não alfanuméricos
         $novoNome = uniqid ( time () ) . '.' . $extensao;
- 
+        
         // Concatena a pasta com o nome
         $destino = 'uploads/'.$novoNome;
  
         // tenta mover o arquivo para o destino
         if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
-            $sql = "UPDATE cadastro set imagem='$destino' where id = $id";
+            $sql = "UPDATE cadastro set imagem='/musiclly/$destino' where id = $id";
             $result = mysqli_query($conn, $sql);
             if($result){
                 echo "<script>alert('Foto Alterada Com Sucesso!');window.location.href='/musiclly/painel.php';</script>";

@@ -4,7 +4,7 @@ $serve_file = $_SERVER['DOCUMENT_ROOT'] . "/Musiclly/";
 session_save_path($serve_file . 'cache/temp');
 session_start();
 include_once($serve_file . 'php/banco.php');
-
+include_once($serve_file.'php/functions.php');
 if (isset($_SESSION['usuario'])) {
     $usuario = $_SESSION['usuario'];
     $id = $_SESSION['id'];
@@ -255,7 +255,14 @@ if($row['progresso'] <= 17){
                                 <span style='color:#1778aa;font-size: 15px;font-weight: bold;float:left'>".$row['titulo']."</span><br>
                                 <span class='text-break' style='font-size: 12px'>".$row['descricao']."</span><br>
                                 <span style='float:left;font-size: 10px;margin-top: 5px'><b>Feito em:</b> ".$row['dataEnviada']."</span>
-                                <span style='float:right'>".$row23['usuario']."</span><br>
+                                <span style='float:right'>
+                                <form action='/musiclly/modulos/perfil.php' method='POST'>
+                                    <input type='submit' name='usuarioNome' value='".$row23['usuario']."' style='background-color:rgba(0,0,0,.0);border: 0'>
+                                </form>
+                                
+                                
+                                
+                                </span><br>
                                 </div>";
                     }
                 ?>

@@ -4,7 +4,7 @@
     $pass = "";
     $db = "dbmusiclly";
 
-    $conn = mysqli_connect($host, $user,$pass,$db);
+    $conn = new PDO("mysql:host=localhost;dbname=dbMusiclly","root","");
 
     if(!$conn){
         echo "Erro de Conexao! ".conection_error();
