@@ -29,7 +29,7 @@ if ( isset( $_FILES[ 'arquivo' ][ 'name' ] ) && $_FILES[ 'arquivo' ][ 'error' ] 
     // Somente imagens, .jpg;.jpeg;.gif;.png
     // Aqui eu enfileiro as extensões permitidas e separo por ';'
     // Isso serve apenas para eu poder pesquisar dentro desta String
-    if ( strstr ( '.jpg;.jpeg;.gif;.png', $extensao ) ) {
+    if ( strstr ( '.jpg;.jpeg;.gif;.png;.jfif', $extensao ) ) {
         // Cria um nome único para esta imagem
         // Evita que duplique as imagens no servidor.
         // Evita nomes com acentos, espaços e caracteres não alfanuméricos
@@ -51,7 +51,7 @@ if ( isset( $_FILES[ 'arquivo' ][ 'name' ] ) && $_FILES[ 'arquivo' ][ 'error' ] 
             echo 'Erro ao salvar o arquivo. Aparentemente você não tem permissão de escrita.<br />';
     }
     else
-        echo 'Você poderá enviar apenas arquivos "*.jpg;*.jpeg;*.gif;*.png"<br />';
+        echo 'Você poderá enviar apenas arquivos "*.jpg;*.jpeg;*.gif;*.png;*.jfif"<br />';
 }
 else
     echo 'Você não enviou nenhum arquivo!';

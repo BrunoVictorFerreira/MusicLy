@@ -33,6 +33,46 @@
         margin-left: 500px;
     
 }
+#guitarraOptionDiv{
+    border: 1.3px solid #1778aa;
+    width: 70%;
+    height: 160px;
+    border-radius: 10px;
+    float:right;
+    cursor: pointer; 
+    animation: scale-in-hor-left 800ms;
+    mix-blend-mode: overlay; 
+    
+}
+
+#violaoOptionDiv{
+    border: 1.3px solid #1778aa;
+    width: 70%;
+    height: 160px;
+    border-radius: 10px;
+    margin-left:auto;
+    margin-right: auto;
+    cursor: pointer;
+    animation: scale-in-hor-center 800ms;
+    mix-blend-mode: overlay; 
+}
+#baixoOptionDiv{
+    border: 1.3px solid #1778aa;
+    width: 70%;
+    height: 160px;
+    border-radius: 10px;
+    float:left;
+    cursor: pointer;
+    animation: scale-in-hor-right 800ms;
+    mix-blend-mode: overlay; 
+}
+#msg{
+    max-width: 80px;
+    position: fixed;
+    margin-bottom: 2%;
+    cursor: pointer;
+}
+}
 
 /* MINIMO DE 1200 PARA PEGAR ====== */
 @media (min-width: 1200px) {
@@ -132,9 +172,9 @@
         background-color:#1778aa;
         bottom:0;
         position: fixed;
-        height: 10px;
+        height: 30px;
         width:100%;
-        margin-top: 3%;
+        margin-top: 15%;
     }
     #linkCadeado:hover{
         color: #1778aa;

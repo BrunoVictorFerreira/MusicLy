@@ -33,6 +33,7 @@
            }
            
         </script>
+<<<<<<< HEAD
         <style>
             @keyframes heartbeat{
                 from{transform:scale(1);
@@ -137,41 +138,43 @@
 
             }
         </style>
+
+        <!--SCRIPTS JS-->
+  <script>
+    function msg() {
+      location.href = '#';
+    }
+
+    var i = 1;
+
+
+    $(document).ready(function() {
+      $('#menuUsuarioExpandido').hide();
+
+      $("#menuUsuario").click(function() {
+        $("#menuUsuarioExpandido").slideToggle("slow");
+      });
+
+    });
+  </script>
+
     </head>
     <body style="background-image: url('www/galeria/background.png');background-repeat:no-repeat;background-attachment: fixed;background-size: 100%;">
         <div class="container-fluid">
-            <!--CLASSE CONTAINER =======================-->    
-            <div class="container">
-        <!--NAV BAR ======================-->       
-        <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="#"><img src="www/galeria/logo.png"class="img-fluid" id="logoNavBar"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                  
-                    
-                    <?php
-                        if(!isset($_SESSION['usuario'])){
-                    echo "<div class='collapse navbar-collapse' id='navbarNavAltMarkup'><div class='navbar-nav'>  
-                    <a class='nav-item nav-link' href='#' id='contatoNavBar'><button type='button' class='btn' style='color:#1778aa'>Contato</button></a>
-                    <a class='nav-item nav-link' href='logar.php' id='entrarNavBar'><button type='button' class='btn' style='color:#f27d16'>Entrar</button></a>
-                    <a class='nav-item nav-link' href='cadastro.php' id='cadastrarNavBar'><button type='button' class='btn btn-warning' id='cadastrarNavBarButton'>Cadastrar</button></a>";
-                        }else{
-                            echo "<div class='collapse navbar-collapse' id='navbarNavAltMarkup'><div class='navbar-nav'>  
-                            <a class='nav-item nav-link' style='margin-left: 800px;font-family:roboto;'></a>
-                            <a class='nav-item nav-link' href='logout.php' style='color:black'>Logout</a>
-                            <a class='nav-item nav-link' href='painel.php' style='color:black'>$usuario</a>";
-                        }
-                    ?>
-                  </div>
-                </div>
-        </nav>
-        <!-- FECHAMENTO NAVBAR ===============-->
-        </div> <!--FECHAMENTO DA DIV CONTAINER PARA MENU -->
+            
         <div class="container">
-            <p id="logoTexto">Music<b id="logoTexto1">lly</b></p>
-            <p id="descSite">Curso de <b id="descSite2">Música</b></p>
+            <!--NAV BAR ======================-->
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#"><img src="/Musiclly/www/galeria/logo.png" class="img-fluid" id="logoNavBar"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <?php
+        $sqlImg = "SELECT * from cadastro where id=$id";
+        $resultImg = mysqli_query($conn, $sqlImg);
+        $row = mysqli_fetch_assoc($resultImg);
+        $img = $row['imagem'];
+
 
 
 
@@ -179,6 +182,25 @@
 
         </div>
 
+        echo "<div class='collapse navbar-collapse' id='navbarNavAltMarkup'><div class='navbar-nav'>  
+                    <a class='nav-item nav-link' href='/musiclly/logar.php' id='contatoNavBar' style='color:#1778aa;margin-left: 320px'>Logar</a>
+                    <a class='nav-item nav-link' href='index.php' id='entrarNavBar' style='color:#1778aa;'>Home</a>
+                    <a class='nav-item nav-link' href='/musiclly/cadastro.php' id='cadastrarNavBar' style='color:#1778aa;'>Cadastro</a>";
+
+                    
+
+                    
+
+
+
+        ?>
+        
+
+      </nav>
+      <!-- FECHAMENTO NAVBAR ===============-->
+
+        </div>
+            <h1 align="center" style="color: #1778aa;margin-bottom: 20px">HOME</h1>
 
 
                 <div class="row justify-content-md-center" style="padding:30px;background-color: rgba(23,120,170,.1)">

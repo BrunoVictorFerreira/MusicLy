@@ -4,7 +4,10 @@
     $pass = "";
     $db = "dbmusiclly";
 
+
     $conn = mysqli_connect($host, $user,$pass,$db);
+
+
 
     if(!$conn){
         echo "Erro de Conexao! ".conection_error();

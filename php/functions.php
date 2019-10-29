@@ -15,7 +15,7 @@
         $result = mysqli_query($conn, $sql);
         $row = mysqli_num_rows($result);
         if($row == 0){
-            echo "<script>alert('Cadastra-se');window.location.href='/musiclly/painel.php/';</script>";
+            echo "<script>alert('Cadastra-se');window.location.href='/musiclly/painel.php';</script>";
         }
     
 
