@@ -8,7 +8,9 @@ include_once($serve_file . 'php/banco.php');
 if (isset($_SESSION['usuario'])) {
     $usuario = $_SESSION['usuario'];
     $id = $_SESSION['id'];
-  }
+  }else{
+    echo "<script>window.location.href='index.php';</script>";
+}
 $verificador = "SELECT * from tbl_cad_curso where id_cad = $id and id_Curso = 2";
 $result = mysqli_query($conn, $verificador);
 $row = mysqli_fetch_array($result);

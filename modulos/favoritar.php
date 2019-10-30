@@ -8,6 +8,8 @@ session_start();
 if (isset($_SESSION['usuario'])) {
   $usuario = $_SESSION['usuario'];
   $id = $_SESSION['id'];
+}else{
+  echo "<script>window.location.href='index.php';</script>";
 }
 
     $idFavoritado = $_POST['Afavoritar'];
