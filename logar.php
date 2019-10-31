@@ -81,7 +81,7 @@
             </div>
           </form>";
                 }else{
-                  echo "<h1 style='text-align: center;font-family: roboto'>Você já está Logado</h1>";
+                  echo "<script>window.location.href='/musiclly/painel.php'</script>";
                 }
               ?>
           </fieldset>
