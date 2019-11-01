@@ -32,6 +32,7 @@ if (isset($_SESSION['usuario'])) {
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
     <!--SCRIPTS JS-->
     <script>
         function msg() {
@@ -430,18 +431,28 @@ $img = $row['imagem'];
         </nav>
 
     </div>
-
-    <div class="row" style="height: 60%;background-color:rgba(0,0,0,.1)">
+    <div style="">
+        <p style="font-family: 'Poppins', sans-serif;font-weight: bold;margin-bottom: -10px;color: #f78726;font-size: 50px;text-align: center">Matriculas Abertas</p><br>
+        <a href="/musiclly/cadastro.php" style="text-decoration: none"><div style="margin-bottom: 10px;padding: 10px;background-color: #f78726;color: white;width: 10%;margin-left: auto;margin-right: auto;display: block;font-family: 'Poppins', sans-serif;border-radius: 10px"><span style="margin-left: auto;margin-right: auto;display: block">Cadastre-se agora</span></div></a>
+        <?php
+        $sql2 = "SELECT count(*) from cadastro";
+        $result2 = mysqli_query($conn, $sql2);
+        $row2 = mysqli_fetch_array($result2);
+        $resta = 10 - $row2[0];
+        ?>
+        <p style="text-align: center;font-family:  'Poppins', sans-serif;color: #1778aa;font-size: 12px">Restam <?php echo $resta ?> Vagas</p>
+    </div>
+    <div class="row" style="height: 50%;background-image: linear-gradient(to bottom, #fafdff, #a9e2ff, #fafdff);background-attachment: fixed">
         <div class="col-12">
 
             <div class="row justify-content-center" style="margin-top: 2%">
                 <div class="col-3">
-                    <img src="/musiclly/www/galeria/relogio.png" style="max-width: 100px;margin-left: auto;margin-right: auto;display: block"><br>
+                    <img src="/musiclly/www/galeria/relogio.png" style="max-width: 100px;margin-left: auto;margin-right: auto;display: block" class="imgBordas"><br>
                     <div style="background-color:#e1e3e5" id="texto1"><span><p align="center" style="text-align: justify;font-family: Raleway;font-size: 18px;color: #1778aa">Você pode estudar a qualquer hora e a qualquer dia, podendo dar descanços entre aulas e até mesmo pausando uma aula e voltando no outro dia.</p></span></div>
 
                 </div>
                 <div class="col-3">
-                    <img src="/musiclly/www/galeria/cerebro.png" style="max-width: 100px;margin-left: auto;margin-right: auto;display: block"><br>
+                    <img src="/musiclly/www/galeria/cerebro.png" style="max-width: 120px;margin-left: auto;margin-right: auto;display: block"><br>
                 <div style="background-color:lightgray" id="texto2"><span><p align="center" style="text-align: justify;font-family: Raleway;font-size: 16px;color: #1778aa">Para que se tenha um bom desenvolvimento do estudo da música,
                         tanto para instrumentos quanto para a educação da voz,
                         desenvolvemos uma metodologia baseada no que existe de mais moderno no cenário musical.
@@ -471,7 +482,7 @@ $img = $row['imagem'];
                 </div>
 
             </div>
-            <div style="height: 120px;"></div>
+            <div style="height: 10px;"></div>
 
             <div class="row justify-content-center">
                 <div class="col-1">

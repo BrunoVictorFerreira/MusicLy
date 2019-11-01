@@ -269,7 +269,86 @@ if (mysqli_num_rows($result) > 0) {
 </head>
 
 <body style="background-image: url('www/galeria/background.png');background-repeat:no-repeat;background-attachment: fixed;background-size: 100%;">
+
 <div class="container-fluid">
+
+    <div class="row" style="position:fixed;margin-top: 7%;border: 1px solid #1778aa;padding: 10px 0px;border-radius: 0px 40px 40px 0px;z-index: 2">
+
+
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12">
+                    <span style="color: #1778aa;font-family: roboto;font-size: 13px;padding-left:20%">SEGUIDORES</span>
+                </div>
+
+            </div>
+            <div class="row">
+            <div class="col-12">
+                <span style="color: #1778aa;font-family: roboto;float:right;margin-right: 15px;font-size: 10px;padding-left:0">Seguir</span>
+            </div>
+            </div>
+            <?php
+            $sqlFav2 = "SELECT * FROM favoritos where id_Favoritado = $id";
+            $resultFav2 = mysqli_query($conn, $sqlFav2);
+            $rowFav2 = mysqli_fetch_assoc($resultFav2);
+            $RowsCount = mysqli_num_rows($resultFav2);
+            if ($RowsCount != 0) {
+                $usuarioFav2 = $rowFav2['id_Favoritado'];
+                $sqlMerge2 = "SELECT tab1.id,tab1.usuario, tab1.imagem FROM cadastro as tab1 join favoritos as tab2 on tab1.id = tab2.id_Cad where id_Favoritado = $id";
+                $resultMerge2 = mysqli_query($conn, $sqlMerge2);
+                while ($rowMerge2 = mysqli_fetch_assoc($resultMerge2)) {
+                    echo "<div class='row' style='padding-left:0px;border-radius: 10%'>
+                                        <div class='col-3'>
+                                            <form action='/musiclly/modulos/perfil.php' method='POST'>
+                                            <input type='hidden'  value='".$rowMerge2['usuario']."' name='usuarioNome'>
+                                            <input type='image' src='" . $rowMerge2['imagem'] . "' style='max-width: 30px'><br>
+                                            </form>
+                                         </div>" ;
+                    echo "<div class='col-5' style=\"padding-top: 5px;border-radius: 10%\">
+                                            <span style='text-transform: uppercase;font-size: 9px;color: #1778aa'>".substr($rowMerge2['usuario'],0,10)."</span>
+                                      </div>";
+
+                    echo "<div class='col-4' style='padding-left: 0px'>
+                            
+                            
+                            ";
+                        $idUser = $rowMerge2['id'];
+                        $sql = "SELECT * FROM favoritos where id_Cad = $id and id_Favoritado = $idUser";
+                        $execute = mysqli_query($conn, $sql);
+                        $rows = mysqli_num_rows($execute);
+                        if($rows > 0){
+                    echo"
+                            <form action='/musiclly/modulos/deletarfavorito.php' method='POST' style=''>
+                            <input type='hidden' value='".$rowMerge2['id']."' name='Afavoritar'>
+                            <input type='image' src='/musiclly/www/galeria/excluir.png' style='max-width: 10px;display:inline-block'>
+                            <img src='/musiclly/www/galeria/done.png' style='max-width: 10px;display:inline-block'>";
+                            }else{
+                            echo "
+                            <form action='/musiclly/modulos/favoritar.php' method='POST' style=''>
+                            <input type='hidden' value='".$rowMerge2['id']."' name='Afavoritar'>
+                            <input type='image' src='/musiclly/www/galeria/addFav.png' style='max-width: 15px;display:inline-block'>";
+                        }
+                            echo "</form>";
+
+                    echo "</div>";
+                    echo "</div>";
+                }
+
+            } else {
+
+                echo "<div class='row'><div class='col-12'>Não seguiu ningúem!</div></div>";
+            }
+            ?>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
     <!--CLASSE CONTAINER =======================-->
     <div class="container">
         <!--NAV BAR ======================-->
@@ -336,6 +415,8 @@ if (mysqli_num_rows($result) > 0) {
         </div>
 
     </div>
+
+
 
     <div class="container">
         <!-- Button trigger modal -->
@@ -746,6 +827,10 @@ if (mysqli_num_rows($result) > 0) {
             </div>
         </div>
 
+
+
+
+
         <div class="row" style="margin-bottom: 10px;">
             <div class="col-12" style="">
                 <div style="border-bottom: 1px solid #f27d16">
@@ -777,7 +862,9 @@ if (mysqli_num_rows($result) > 0) {
 
 
         </div>
+
     </div>
+
     <img src="www/galeria/msg.png" id="msg" onClick="msg()">
     <div class="row">
         <div style="margin-bottom: 10%;"></div>
@@ -793,8 +880,11 @@ if (mysqli_num_rows($result) > 0) {
             </footer>
         </div>
     </div>
+
+    </div>
 </div>
 <!--FECHAMENTO DIV CONTAINER FLUID-->
+
 
 </body>
 
