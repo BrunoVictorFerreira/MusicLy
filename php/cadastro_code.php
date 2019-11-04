@@ -5,11 +5,11 @@
     session_start();
     include_once($serve_file.'php/banco.php');
 
-    $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $sobrenome = filter_input(INPUT_POST, 'sobrenome', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $usuario = filter_input(INPUT_POST, 'usuario', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $nome = $_POST['nome'];
+    $sobrenome = $_POST['sobrenome'];
+    $email = $_POST['email'];
+    $usuario = $_POST['usuario'];
+    $senha = $_POST['senha'];
     $senhaMd5 = MD5($senha);
     
     
