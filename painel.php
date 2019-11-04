@@ -1,5 +1,5 @@
 <?php
-  error_reporting(0);
+  
   $serve_file = $_SERVER['DOCUMENT_ROOT']."/Musiclly/";
   session_save_path($serve_file.'cache/temp');
   session_start();
@@ -681,8 +681,15 @@ if (mysqli_num_rows($result) > 0) {
     </div>
     <img src="www/galeria/msg.png" id="msg" onClick="msg()">
     <div class="row">
+      <div style="margin-bottom: 10%;"></div>
       <div class="col-12" id="footer">
-        <footer></footer>
+        <footer>
+        <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4" style="text-align:center"><a href="metronomo/metronomo.php" style="color:white;text-decoration:none">Metronomo</a></div>
+                    <div class="col-4"></div>
+                </div>
+        </footer>
       </div>
     </div>
   </div>
