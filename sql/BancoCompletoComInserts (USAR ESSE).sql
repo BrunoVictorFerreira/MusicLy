@@ -16,6 +16,8 @@ use dbmusiclly;
 
 select * from cadastro;
 
+SELECT * from tbl_cad_curso where id_Cad = 4 and id_Curso = 1;
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;

@@ -8,6 +8,8 @@ session_start();
 if (isset($_SESSION['usuario'])) {
   $usuario = $_SESSION['usuario'];
   $id = $_SESSION['id'];
+}else{
+  echo "<script>window.location.href='/musiclly/cadastro.php';</script>";
 }
 $sql = "SELECT * FROM cadastro where usuario = '{$usuario}'";
 $result = mysqli_query($conn, $sql);
@@ -24,14 +26,15 @@ if (mysqli_num_rows($result) > 0) {
 
 $usuarioClickado = $_POST['usuarioNome'];
 
+
 $sql2 = "SELECT * from cadastro where nome = '$usuarioClickado'";
 $result2 = mysqli_query($conn, $sql2);
 $row2 = mysqli_fetch_array($result2);
-if($_SESSION['usuario'] == $row2['nome']){
-  header('Location: /Musiclly/painel.php');
-  
-}
 
+if($_SESSION['usuario'] == $row2['nome']){
+      header('Location: /Musiclly/painel.php');
+
+    }
 
 
 
@@ -183,7 +186,7 @@ if($_SESSION['usuario'] == $row2['nome']){
 
 </head>
 
-<body style="background-image: url('www/galeria/background.png');background-repeat:no-repeat;background-attachment: fixed;background-size: 100%;">
+<body style="background-image: url('/musiclly/www/galeria/background.png');background-repeat:no-repeat;background-attachment: fixed;background-size: 100%;">
   <div class="container-fluid">
     <!--CLASSE CONTAINER =======================-->
     <div class="container">

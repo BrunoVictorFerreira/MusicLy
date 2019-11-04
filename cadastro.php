@@ -4,7 +4,9 @@
   session_save_path($serve_file.'cache/temp');
   session_start();
   include_once($serve_file.'php/banco.php');
-
+  if(isset($_SESSION['usuario'])){
+      echo "<script>window.location.href='/musiclly/painel.php'</script>";
+  }
 ?>
 <html lang="pt_br">
     <head>

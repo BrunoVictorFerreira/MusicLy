@@ -1,0 +1,10 @@
+1 - Para o usuario entrar em qualquer conteudo do site terá que estar logado
+2 - Na tela de cadastro terá que ter um nome exclusivo de usuario e senhas idênticas.
+3 - Para acessar qualquer curso o usuário deverá cadastrar-se primeiramente no curso.
+4 - Para acessar o painel de qualquer usuário, o usuário(Session) deverá ser diferente do usuário procurado, caso contrário será redimensionado para tela de painel do mesmo.
+5 - O usuário só poderá fazer o questionário do módulo correspondente quando o progresso dele no curso for igual a 100%.
+6 - O usuário só poderá fazer o upload de uma foto nos formatos (.jpg,.jpeg,.gif,.png,.jfif).
+
+IMPORTANTE
+
+Para o site abrir terá que ter o banco de dados aberto e os inserts do banco na tabela "tbl_curso" e "curiosidades" disponíveis no arquivo /sql/BancoCompletoComInserts (USAR ESSE).

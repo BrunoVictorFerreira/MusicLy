@@ -1,37 +1,607 @@
 /* MAXIMO DE 575.98 PARA PEGAR ====== */
 @media (max-width: 575.98px) {
 
-    #logoNavBar{
-        max-width: 100px;
+    #guitarraOptionDiv{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 0px 40px 0px 40px;
+        float:left;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    #guitarraOptionDiv:hover{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 40px 0px 40px 0px;
+        transition: all 500ms;
+        float:left;
+        cursor: pointer;
+
+    }
+
+    #violaoOptionDiv{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 30px 30px 30px 30px;
+        margin-left:auto;
+        margin-right: auto;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    #violaoOptionDiv:hover{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 10px 10px 10px 10px;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    #baixoOptionDiv{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 0px 40px 0px 40px;
+        float:right;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    #baixoOptionDiv:hover{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 40px 0px 40px 0px;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    .cursoDe1{
+        display:block;
+        font-family: 'roboto';
+        text-align:center;
+        margin-top: 7px;
+        letter-spacing: 1px;
+        color:#1778aa;
+        transition: all 500ms;
+    }
+    .cursoDe2{
+        display:block;
+        font-family: 'roboto';
+        text-align:center;
+        margin-top: 7px;
+        letter-spacing: 1px;
+        color:#1778aa;
+        transition: all 500ms;
+    }
+    .cursoDe3{
+        display:block;
+        font-family: 'roboto';
+        text-align:center;
+        margin-top: 7px;
+        letter-spacing: 1px;
+        color:#1778aa;
+        transition: all 500ms;
+    }
+
+    .instrumento1{
+        margin-top: -25px;
+        display:block;
+        font-size: 25px;
+        font-family: 'roboto';
+        font-weight:bold;
+        text-align:center;
+        letter-spacing: 4px;
+        color:#f27d16;
+        transition: all 500ms;
+    }
+    .instrumento2{
+        margin-top: -25px;
+        display:block;
+        font-size: 25px;
+        font-family: 'roboto';
+        font-weight:bold;
+        text-align:center;
+        letter-spacing: 4px;
+        color:#f27d16;
+        transition: all 500ms;
+    }
+    .instrumento3{
+        margin-top: -25px;
+        display:block;
+        font-size: 25px;
+        font-family: 'roboto';
+        font-weight:bold;
+        text-align:center;
+        letter-spacing: 4px;
+        color:#f27d16;
+        transition: all 500ms;
+    }
+    .imgMenu1{
+        margin-top: 7px;
+        max-width: 80px;
+        margin-left: auto;
+        margin-right:auto;
+        display:block;
+        transition: all 500ms;
+
+    }
+    .imgMenu2{
+        margin-top: 7px;
+        max-width: 80px;
+        margin-left: auto;
+        margin-right:auto;
+        display:block;
+        transition: all 500ms;
+
+    }
+    .imgMenu3{
+        margin-top: 7px;
+        max-width: 80px;
+        margin-left: auto;
+        margin-right:auto;
+        display:block;
+        transition: all 500ms;
+
     }
     
 }
 /* MINIMO DE 576 PARA PEGAR ====== */
 @media (min-width: 576px) {
-    #logoNavBar{
-        max-width: 100px;
+    #guitarraOptionDiv{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 0px 40px 0px 40px;
+        float:left;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    #guitarraOptionDiv:hover{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 40px 0px 40px 0px;
+        transition: all 500ms;
+        float:left;
+        cursor: pointer;
+
+    }
+
+    #violaoOptionDiv{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 30px 30px 30px 30px;
+        margin-left:auto;
+        margin-right: auto;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    #violaoOptionDiv:hover{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 10px 10px 10px 10px;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    #baixoOptionDiv{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 0px 40px 0px 40px;
+        float:right;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    #baixoOptionDiv:hover{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 40px 0px 40px 0px;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    .cursoDe1{
+        display:block;
+        font-family: 'roboto';
+        text-align:center;
+        margin-top: 7px;
+        letter-spacing: 1px;
+        color:#1778aa;
+        transition: all 500ms;
+    }
+    .cursoDe2{
+        display:block;
+        font-family: 'roboto';
+        text-align:center;
+        margin-top: 7px;
+        letter-spacing: 1px;
+        color:#1778aa;
+        transition: all 500ms;
+    }
+    .cursoDe3{
+        display:block;
+        font-family: 'roboto';
+        text-align:center;
+        margin-top: 7px;
+        letter-spacing: 1px;
+        color:#1778aa;
+        transition: all 500ms;
+    }
+
+    .instrumento1{
+        margin-top: -25px;
+        display:block;
+        font-size: 25px;
+        font-family: 'roboto';
+        font-weight:bold;
+        text-align:center;
+        letter-spacing: 4px;
+        color:#f27d16;
+        transition: all 500ms;
+    }
+    .instrumento2{
+        margin-top: -25px;
+        display:block;
+        font-size: 25px;
+        font-family: 'roboto';
+        font-weight:bold;
+        text-align:center;
+        letter-spacing: 4px;
+        color:#f27d16;
+        transition: all 500ms;
+    }
+    .instrumento3{
+        margin-top: -25px;
+        display:block;
+        font-size: 25px;
+        font-family: 'roboto';
+        font-weight:bold;
+        text-align:center;
+        letter-spacing: 4px;
+        color:#f27d16;
+        transition: all 500ms;
+    }
+    .imgMenu1{
+        margin-top: 7px;
+        max-width: 80px;
+        margin-left: auto;
+        margin-right:auto;
+        display:block;
+        transition: all 500ms;
+
+    }
+    .imgMenu2{
+        margin-top: 7px;
+        max-width: 80px;
+        margin-left: auto;
+        margin-right:auto;
+        display:block;
+        transition: all 500ms;
+
+    }
+    .imgMenu3{
+        margin-top: 7px;
+        max-width: 80px;
+        margin-left: auto;
+        margin-right:auto;
+        display:block;
+        transition: all 500ms;
+
     }
 
 }
 
 /* MINIMO DE 768 PARA PEGAR ====== */
 @media (min-width: 768px) {
-    #logoNavBar{
-        max-width: 100px;
-    }
+
     #contatoNavBar{
         margin-left: 200px;
+    }
+    #guitarraOptionDiv{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 0px 40px 0px 40px;
+        float:left;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    #guitarraOptionDiv:hover{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 40px 0px 40px 0px;
+        transition: all 500ms;
+        float:left;
+        cursor: pointer;
+
+    }
+
+    #violaoOptionDiv{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 30px 30px 30px 30px;
+        margin-left:auto;
+        margin-right: auto;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    #violaoOptionDiv:hover{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 10px 10px 10px 10px;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    #baixoOptionDiv{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 0px 40px 0px 40px;
+        float:right;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    #baixoOptionDiv:hover{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 40px 0px 40px 0px;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    .cursoDe1{
+        display:block;
+        font-family: 'roboto';
+        text-align:center;
+        margin-top: 7px;
+        letter-spacing: 1px;
+        color:#1778aa;
+        transition: all 500ms;
+    }
+    .cursoDe2{
+        display:block;
+        font-family: 'roboto';
+        text-align:center;
+        margin-top: 7px;
+        letter-spacing: 1px;
+        color:#1778aa;
+        transition: all 500ms;
+    }
+    .cursoDe3{
+        display:block;
+        font-family: 'roboto';
+        text-align:center;
+        margin-top: 7px;
+        letter-spacing: 1px;
+        color:#1778aa;
+        transition: all 500ms;
+    }
+
+    .instrumento1{
+        margin-top: -25px;
+        display:block;
+        font-size: 25px;
+        font-family: 'roboto';
+        font-weight:bold;
+        text-align:center;
+        letter-spacing: 4px;
+        color:#f27d16;
+        transition: all 500ms;
+    }
+    .instrumento2{
+        margin-top: -25px;
+        display:block;
+        font-size: 25px;
+        font-family: 'roboto';
+        font-weight:bold;
+        text-align:center;
+        letter-spacing: 4px;
+        color:#f27d16;
+        transition: all 500ms;
+    }
+    .instrumento3{
+        margin-top: -25px;
+        display:block;
+        font-size: 25px;
+        font-family: 'roboto';
+        font-weight:bold;
+        text-align:center;
+        letter-spacing: 4px;
+        color:#f27d16;
+        transition: all 500ms;
+    }
+    .imgMenu1{
+        margin-top: 7px;
+        max-width: 80px;
+        margin-left: auto;
+        margin-right:auto;
+        display:block;
+        transition: all 500ms;
+
+    }
+    .imgMenu2{
+        margin-top: 7px;
+        max-width: 80px;
+        margin-left: auto;
+        margin-right:auto;
+        display:block;
+        transition: all 500ms;
+
+    }
+    .imgMenu3{
+        margin-top: 7px;
+        max-width: 80px;
+        margin-left: auto;
+        margin-right:auto;
+        display:block;
+        transition: all 500ms;
+
     }
 }
 
 /* MINIMO DE 992 PARA PEGAR ====== */
 @media (min-width: 992px) {
-    #logoNavBar{
-        max-width: 100px;
-    }
+
     #contatoNavBar{
         margin-left: 500px;
     
+    }
+    #guitarraOptionDiv{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 0px 40px 0px 40px;
+        float:left;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    #guitarraOptionDiv:hover{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 40px 0px 40px 0px;
+        transition: all 500ms;
+        float:left;
+        cursor: pointer;
+
+    }
+
+    #violaoOptionDiv{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 30px 30px 30px 30px;
+        margin-left:auto;
+        margin-right: auto;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    #violaoOptionDiv:hover{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 10px 10px 10px 10px;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    #baixoOptionDiv{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 0px 40px 0px 40px;
+        float:right;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    #baixoOptionDiv:hover{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 40px 0px 40px 0px;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    .cursoDe1{
+        display:block;
+        font-family: 'roboto';
+        text-align:center;
+        margin-top: 7px;
+        letter-spacing: 1px;
+        color:#1778aa;
+        transition: all 500ms;
+    }
+    .cursoDe2{
+        display:block;
+        font-family: 'roboto';
+        text-align:center;
+        margin-top: 7px;
+        letter-spacing: 1px;
+        color:#1778aa;
+        transition: all 500ms;
+    }
+    .cursoDe3{
+        display:block;
+        font-family: 'roboto';
+        text-align:center;
+        margin-top: 7px;
+        letter-spacing: 1px;
+        color:#1778aa;
+        transition: all 500ms;
+    }
+
+    .instrumento1{
+        margin-top: -25px;
+        display:block;
+        font-size: 25px;
+        font-family: 'roboto';
+        font-weight:bold;
+        text-align:center;
+        letter-spacing: 4px;
+        color:#f27d16;
+        transition: all 500ms;
+    }
+    .instrumento2{
+        margin-top: -25px;
+        display:block;
+        font-size: 25px;
+        font-family: 'roboto';
+        font-weight:bold;
+        text-align:center;
+        letter-spacing: 4px;
+        color:#f27d16;
+        transition: all 500ms;
+    }
+    .instrumento3{
+        margin-top: -25px;
+        display:block;
+        font-size: 25px;
+        font-family: 'roboto';
+        font-weight:bold;
+        text-align:center;
+        letter-spacing: 4px;
+        color:#f27d16;
+        transition: all 500ms;
+    }
+    .imgMenu1{
+        margin-top: 7px;
+        max-width: 80px;
+        margin-left: auto;
+        margin-right:auto;
+        display:block;
+        transition: all 500ms;
+
+    }
+    .imgMenu2{
+        margin-top: 7px;
+        max-width: 80px;
+        margin-left: auto;
+        margin-right:auto;
+        display:block;
+        transition: all 500ms;
+
+    }
+    .imgMenu3{
+        margin-top: 7px;
+        max-width: 80px;
+        margin-left: auto;
+        margin-right:auto;
+        display:block;
+        transition: all 500ms;
+
+    }
+
+#msg{
+    max-width: 80px;
+    position: fixed;
+    margin-bottom: 2%;
+    cursor: pointer;
+}
 }
 #guitarraOptionDiv{
     border: 1.3px solid #1778aa;
@@ -83,16 +653,156 @@
     #contatoNavBar{
         margin-left: 650px;
     }
-    
+    #guitarraOptionDiv{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 0px 40px 0px 40px;
+        float:left;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    #guitarraOptionDiv:hover{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 40px 0px 40px 0px;
+        transition: all 500ms;
+        float:left;
+        cursor: pointer;
+
+    }
+
+    #violaoOptionDiv{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 30px 30px 30px 30px;
+        margin-left:auto;
+        margin-right: auto;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    #violaoOptionDiv:hover{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 10px 10px 10px 10px;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    #baixoOptionDiv{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 0px 40px 0px 40px;
+        float:right;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    #baixoOptionDiv:hover{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 40px 0px 40px 0px;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    .cursoDe1{
+        display:block;
+        font-family: 'roboto';
+        text-align:center;
+        margin-top: 7px;
+        letter-spacing: 1px;
+        color:#1778aa;
+        transition: all 500ms;
+    }
+    .cursoDe2{
+        display:block;
+        font-family: 'roboto';
+        text-align:center;
+        margin-top: 7px;
+        letter-spacing: 1px;
+        color:#1778aa;
+        transition: all 500ms;
+    }
+    .cursoDe3{
+        display:block;
+        font-family: 'roboto';
+        text-align:center;
+        margin-top: 7px;
+        letter-spacing: 1px;
+        color:#1778aa;
+        transition: all 500ms;
+    }
+
+    .instrumento1{
+        margin-top: -25px;
+        display:block;
+        font-size: 25px;
+        font-family: 'roboto';
+        font-weight:bold;
+        text-align:center;
+        letter-spacing: 4px;
+        color:#f27d16;
+        transition: all 500ms;
+    }
+    .instrumento2{
+        margin-top: -25px;
+        display:block;
+        font-size: 25px;
+        font-family: 'roboto';
+        font-weight:bold;
+        text-align:center;
+        letter-spacing: 4px;
+        color:#f27d16;
+        transition: all 500ms;
+    }
+    .instrumento3{
+        margin-top: -25px;
+        display:block;
+        font-size: 25px;
+        font-family: 'roboto';
+        font-weight:bold;
+        text-align:center;
+        letter-spacing: 4px;
+        color:#f27d16;
+        transition: all 500ms;
+    }
+    .imgMenu1{
+        margin-top: 7px;
+        max-width: 80px;
+        margin-left: auto;
+        margin-right:auto;
+        display:block;
+        transition: all 500ms;
+
+    }
+    .imgMenu2{
+        margin-top: 7px;
+        max-width: 80px;
+        margin-left: auto;
+        margin-right:auto;
+        display:block;
+        transition: all 500ms;
+
+    }
+    .imgMenu3{
+        margin-top: 7px;
+        max-width: 80px;
+        margin-left: auto;
+        margin-right:auto;
+        display:block;
+        transition: all 500ms;
+
+    }
 
 }
 
 /* MINIMO DE 1900 PARA PEGAR ====== */
 @media (min-width: 1900px) {
     
-    #logoNavBar{
-        max-width: 100px;
-    }
+
     #contatoNavBar{
         margin-left: 650px;
         font-family:roboto;
@@ -102,37 +812,148 @@
     }
     #guitarraOptionDiv{
         border: 1.3px solid #1778aa;
-        width: 50%;
+        width: 80%;
         height: 160px;
-        border-radius: 10px;
-        float:right;
-        cursor: pointer; 
-        animation: scale-in-hor-left 800ms;
-        mix-blend-mode: overlay; 
-        
+        border-radius: 0px 40px 0px 40px;
+        float:left;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    #guitarraOptionDiv:hover{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 40px 0px 40px 0px;
+        transition: all 500ms;
+        float:left;
+        cursor: pointer;
+
     }
     
     #violaoOptionDiv{
         border: 1.3px solid #1778aa;
-        width: 50%;
+        width: 80%;
         height: 160px;
-        border-radius: 10px;
+        border-radius: 30px 30px 30px 30px;
         margin-left:auto;
         margin-right: auto;
         cursor: pointer;
-        animation: scale-in-hor-center 800ms;
-        mix-blend-mode: overlay; 
+        transition: all 500ms;
+    }
+    #violaoOptionDiv:hover{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 10px 10px 10px 10px;
+        cursor: pointer;
+        transition: all 500ms;
     }
     #baixoOptionDiv{
         border: 1.3px solid #1778aa;
-        width: 50%;
+        width: 80%;
         height: 160px;
-        border-radius: 10px;
-        float:left;
+        border-radius: 0px 40px 0px 40px;
+        float:right;
         cursor: pointer;
-        animation: scale-in-hor-right 800ms;
-        mix-blend-mode: overlay; 
+        transition: all 500ms;
     }
+    #baixoOptionDiv:hover{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 40px 0px 40px 0px;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    .cursoDe1{
+         display:block;
+         font-family: 'roboto';
+         text-align:center;
+         margin-top: 7px;
+         letter-spacing: 1px;
+         color:#1778aa;
+         transition: all 500ms;
+     }
+    .cursoDe2{
+        display:block;
+        font-family: 'roboto';
+        text-align:center;
+        margin-top: 7px;
+        letter-spacing: 1px;
+        color:#1778aa;
+        transition: all 500ms;
+    }
+    .cursoDe3{
+        display:block;
+        font-family: 'roboto';
+        text-align:center;
+        margin-top: 7px;
+        letter-spacing: 1px;
+        color:#1778aa;
+        transition: all 500ms;
+    }
+
+    .instrumento1{
+         margin-top: -25px;
+         display:block;
+         font-size: 25px;
+         font-family: 'roboto';
+         font-weight:bold;
+         text-align:center;
+         letter-spacing: 4px;
+         color:#f27d16;
+         transition: all 500ms;
+     }
+    .instrumento2{
+        margin-top: -25px;
+        display:block;
+        font-size: 25px;
+        font-family: 'roboto';
+        font-weight:bold;
+        text-align:center;
+        letter-spacing: 4px;
+        color:#f27d16;
+        transition: all 500ms;
+    }
+    .instrumento3{
+        margin-top: -25px;
+        display:block;
+        font-size: 25px;
+        font-family: 'roboto';
+        font-weight:bold;
+        text-align:center;
+        letter-spacing: 4px;
+        color:#f27d16;
+        transition: all 500ms;
+    }
+    .imgMenu1{
+         margin-top: 7px;
+         max-width: 80px;
+         margin-left: auto;
+         margin-right:auto;
+         display:block;
+         transition: all 500ms;
+
+     }
+    .imgMenu2{
+          margin-top: 7px;
+          max-width: 80px;
+          margin-left: auto;
+          margin-right:auto;
+          display:block;
+          transition: all 500ms;
+
+      }
+    .imgMenu3{
+        margin-top: 7px;
+        max-width: 80px;
+        margin-left: auto;
+        margin-right:auto;
+        display:block;
+        transition: all 500ms;
+
+    }
+
     #logoTexto{
         color:#f78726;
         font-family: raleway;
@@ -174,17 +995,24 @@
         position: fixed;
         height: 30px;
         width:100%;
+
         margin-top: 15%;
+    }
+    #logoNavBar{
+        max-width: 100px;
+        margin-top: 0.5%;
     }
     #linkCadeado:hover{
         color: #1778aa;
     }
     #entrarNavBar{
         font-family:roboto;
+        font-size: 18px;
+
+        width: 120px;
+
     }
-    #cadastrarNavBar{
-        
-    }
+
     #cadastrarNavBarButton{
         background-color: #f78726;
         color:white;
@@ -198,6 +1026,62 @@
         position: fixed;
         bottom: 10;
         cursor: pointer;
+    }
+    #divMenu1 {
+        background-color: #1778b2;
+        color:white;
+        padding: 2px 5px;
+        border-radius: 0px 20px 0px 20px;
+        box-shadow: -4px 4px rgba(0,0,0,.2);
+        transition: all 500ms;
+        text-align : center;
+    }
+    #divMenu1:hover {
+        background-color: #1778b2;
+        color:white;
+        padding: 2px 5px;
+        transition: all 300ms;
+        border-radius: 20px 0px 20px 0px;
+        box-shadow: 4px -4px rgba(0,0,0,.2);
+        text-align : center;
+    }
+
+    #divMenu2 {
+        background-color: #1778b2;
+        color:white;
+        padding: 2px 5px;
+        border-radius: 0px 20px 0px 20px;
+        transition: all 500ms;
+        box-shadow: 0px 4px rgba(0,0,0,.2);
+        text-align : center;
+    }
+    #divMenu2:hover {
+        background-color: #1778b2;
+        color:white;
+        padding: 2px 5px;
+        transition: all 300ms;
+        border-radius: 20px 0px 20px 0px;
+        box-shadow: 4px -4px rgba(0,0,0,.2);
+        text-align : center;
+    }
+
+    #divMenu3 {
+        background-color: #1778b2;
+        color:white;
+        padding: 2px 5px;
+        border-radius: 0px 20px 0px 20px;
+        transition: all 500ms;
+        box-shadow: 4px 4px rgba(0,0,0,.2);
+        text-align : center;
+    }
+    #divMenu3:hover {
+        background-color: #1778b2;
+        color:white;
+        padding: 2px 5px;
+        transition: all 300ms;
+        border-radius: 20px 0px 20px 0px;
+        box-shadow: 4px -4px rgba(0,0,0,.2);
+        text-align : center;
     }
     @-webkit-keyframes scale-in-hor-left{0%{-webkit-transform:scaleX(0);transform:scaleX(0);-webkit-transform-origin:0 0;transform-origin:0 0;opacity:1}100%{-webkit-transform:scaleX(1);transform:scaleX(1);-webkit-transform-origin:0 0;transform-origin:0 0;opacity:1}}@keyframes scale-in-hor-left{0%{-webkit-transform:scaleX(0);transform:scaleX(0);-webkit-transform-origin:0 0;transform-origin:0 0;opacity:1}100%{-webkit-transform:scaleX(1);transform:scaleX(1);-webkit-transform-origin:0 0;transform-origin:0 0;opacity:1}}
     @-webkit-keyframes scale-in-hor-right{0%{-webkit-transform:scaleX(0);transform:scaleX(0);-webkit-transform-origin:100% 100%;transform-origin:100% 100%;opacity:1}100%{-webkit-transform:scaleX(1);transform:scaleX(1);-webkit-transform-origin:100% 100%;transform-origin:100% 100%;opacity:1}}@keyframes scale-in-hor-right{0%{-webkit-transform:scaleX(0);transform:scaleX(0);-webkit-transform-origin:100% 100%;transform-origin:100% 100%;opacity:1}100%{-webkit-transform:scaleX(1);transform:scaleX(1);-webkit-transform-origin:100% 100%;transform-origin:100% 100%;opacity:1}}
