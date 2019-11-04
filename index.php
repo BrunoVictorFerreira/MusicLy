@@ -734,25 +734,6 @@ $img = $row['imagem'];
     </div>
 
 
-<<<<<<< HEAD
-        
-        
-
-         
-        <div class="container" style="height: 1000px"><!--ABERTURA DA DIV CONTAINER -->
-            
-                
-            <img src="www/galeria/separador.png" class="img-fluid">
-            
-            <!-- mibew button -->
-            <a id="mibew-agent-button" href="/mibew/chat?locale=pt-br" target="_blank" onclick="Mibew.Objects.ChatPopups['5dc040bf5c569c0a'].open();return false;">
-              <img src="/mibew/b?i=mibew&amp;lang=pt-br" border="0" alt="" />
-            </a>
-            <script type="text/javascript" src="/mibew/js/compiled/chat_popup.js"></script>
-            <script type="text/javascript">Mibew.ChatPopup.init({"id":"5dc040bf5c569c0a","url":"\/mibew\/chat?locale=pt-br","preferIFrame":true,"modSecurity":false,"forceSecure":false,"style":"","width":640,"height":480,"resizable":true,"styleLoader":"\/mibew\/chat\/style\/popup"});</script><!-- / mibew button -->
-            <!-- mibew button -->    
-              
-=======
 
 
 <!--    <div class="row justify-content-center" style="margin-top: 20px">-->
@@ -779,7 +760,6 @@ $img = $row['imagem'];
                 <div class="col-4" style="text-align:center"><a href="metronomo/metronomo.php" style="color:white;text-decoration:none">Metronomo</a>
                 </div>
                 <div class="col-4"></div>
->>>>>>> 09587d3e6a622cc3ad0a65fc67e54782646a8884
             </div>
         </footer>
     </div>

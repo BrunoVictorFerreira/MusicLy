@@ -867,18 +867,6 @@ if (mysqli_num_rows($result) > 0) {
 
     <img src="www/galeria/msg.png" id="msg" onClick="msg()">
     <div class="row">
-<<<<<<< HEAD
-      <div style="margin-bottom: 10%;"></div>
-      <div class="col-12" id="footer">
-        <footer>
-        <div class="row">
-                    <div class="col-4"></div>
-                    <div class="col-4" style="text-align:center"><a href="metronomo/metronomo.php" style="color:white;text-decoration:none">Metronomo</a></div>
-                    <div class="col-4"></div>
-                </div>
-        </footer>
-      </div>
-=======
         <div style="margin-bottom: 10%;"></div>
         <div class="col-12" id="footer">
             <footer>
@@ -893,7 +881,6 @@ if (mysqli_num_rows($result) > 0) {
         </div>
     </div>
 
->>>>>>> 09587d3e6a622cc3ad0a65fc67e54782646a8884
     </div>
 </div>
 <!--FECHAMENTO DIV CONTAINER FLUID-->
