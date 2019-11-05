@@ -12,15 +12,11 @@ if (isset($_SESSION['usuario'])) {
   echo "<script>window.location.href='index.php';</script>";
 }
 
-    $idFavoritado = $_POST['Afavoritar'];
-
-    
-
-
-    if(!($idFavoritado == 0)){
-        $sql2 = "SELECT * FROM favoritos where id_Cad = $id and id_Favoritado = $idFavoritado";
-        $result2 = mysqli_query($conn, $sql2);
-        $rows = mysqli_num_rows($result2);
+$idFavoritado = $_POST['Afavoritar'];
+if(!($idFavoritado == 0)){
+    $sql2 = "SELECT * FROM favoritos where id_Cad = $id and id_Favoritado = $idFavoritado";
+    $result2 = mysqli_query($conn, $sql2);
+    $rows = mysqli_num_rows($result2);
             if($rows != 0){
                 $sql = "DELETE from favoritos where id_Cad=$id and id_Favoritado=$idFavoritado";
                 $result = mysqli_query($conn, $sql);
@@ -28,7 +24,6 @@ if (isset($_SESSION['usuario'])) {
             }else{
                 echo "<script>alert('Já Foi Excluido dos seus Favoritos!');window.location.href='/Musiclly/painel.php';</script>";
             }
-
 
     }else{
         echo "<script>alert('Selecione Alguem!');window.location.href='/Musiclly/painel.php';</script>";

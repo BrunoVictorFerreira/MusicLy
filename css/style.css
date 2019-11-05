@@ -1184,7 +1184,7 @@
             color:white;
             width: 70px;
             padding: 2px 5px;
-            
+
             border-radius: 0px 20px 0px 20px;
             box-shadow: -4px 4px rgba(0,0,0,.2);
             transition: all 500ms;
@@ -1197,7 +1197,7 @@
             transition: all 300ms;
             border-radius: 20px 0px 20px 0px;
             box-shadow: 4px -4px rgba(0,0,0,.2);
-    
+
         }
 
         #divMenu2 {
@@ -1205,7 +1205,7 @@
             color:white;
             padding: 2px 5px;
             width: 70px;
-            
+
             border-radius: 0px 20px 0px 20px;
             transition: all 500ms;
             box-shadow: 0px 4px rgba(0,0,0,.2);
@@ -1218,14 +1218,14 @@
             transition: all 300ms;
             border-radius: 20px 0px 20px 0px;
             box-shadow: 4px -4px rgba(0,0,0,.2);
-            
+
         }
 
         #divMenu3 {
             background-color: #1778b2;
             color:white;
             padding: 2px 5px;
-            
+
             width: 70px;
             border-radius: 0px 20px 0px 20px;
             transition: all 500ms;
@@ -1239,7 +1239,7 @@
             transition: all 300ms;
             border-radius: 20px 0px 20px 0px;
             box-shadow: 4px -4px rgba(0,0,0,.2);
-            
+
         }
         #entrarNavBar1{
             font-family:roboto;
@@ -1257,22 +1257,22 @@
         #navbarNavAltMarkup{
             padding-left: 28%;
             z-index: 2;
-            
+
         }
         #navBarNav{
             background-color: #fafdff;
-            
+
         }
         #menuUsuario{
-            width: 200px; 
+            width: 200px;
             display:inline-block;
             text-transform: uppercase;
             font-family: roboto;
             font-size: 12px;
             color: #1778aa;
             font-weight: bold;
-            
-            
+
+
         }
         #menuUsuarioDeslogado{
             color:#1778b2;
@@ -1338,11 +1338,11 @@
             margin-left: auto;
             margin-right: auto;
             display: block;
-            
+
         }
         #spanCadastreAgora{
             text-align:center;
-            
+
         }
         #contagem{
             margin-top: 10px;
@@ -1479,7 +1479,7 @@
             transition: all 500ms;
             float:left;
             cursor: pointer;
-    
+
         }
         .imgMenu1{
             margin-top: 7px;
@@ -1488,7 +1488,7 @@
             margin-right:auto;
             display:block;
             transition: all 500ms;
-   
+
         }
         .cursoDe1{
             display:block;
@@ -1535,7 +1535,7 @@
             margin-right:auto;
             display:block;
             transition: all 500ms;
-  
+
         }
         .cursoDe2{
             display:block;
@@ -1581,7 +1581,7 @@
            margin-right:auto;
            display:block;
            transition: all 500ms;
-   
+
        }
        .cursoDe3{
             display:block;
@@ -1638,7 +1638,7 @@
         #rowModulo1{
             margin-top: 2%;
             width: 80%;
-            
+
         }
         #colModulo1{
             border: 1px solid #1778aa;
@@ -1655,7 +1655,7 @@
             font-size: 20px;
             color: #1778aa;
         }
-        
+
         #tagModulo2{
             background-color:darkorange;
             z-index:1;
@@ -1675,7 +1675,7 @@
             margin-bottom: 2%;
             width: 72%;
             float: right;
-            
+
         }
         #colModulo2{
             border: 1px solid #1778aa;
@@ -1709,7 +1709,7 @@
         #rowModulo3{
             margin-top: 25%;
             width: 80%;
-            
+
         }
         #colModulo3{
             border: 1px solid #1778aa;
@@ -1727,7 +1727,7 @@
             box-shadow: 4px 5px rgba(0, 0, 0, .3);
         }
 
-        
+
 
         #tagModulo4{
             background-color:darkorange;
@@ -1748,7 +1748,7 @@
             margin-bottom: 2%;
             width: 72%;
             float: right;
-           
+
         }
         #colModulo4{
             border: 1px solid #1778aa;
@@ -1765,7 +1765,7 @@
             animation: heartbeat2 15s ease-in-out infinite both;
             box-shadow: 4px 5px rgba(0, 0, 0, .3);
         }
-        
+
 
         #tagModulo5{
             background-color:darkorange;
@@ -1784,7 +1784,7 @@
         #rowModulo5{
             margin-top: 20%;
             width: 80%;
-            
+
         }
         #colModulo5{
             border: 1px solid #1778aa;
@@ -1801,10 +1801,10 @@
             animation: heartbeat 15s ease-in-out infinite both;
             box-shadow: 4px 5px rgba(0, 0, 0, .3);
         }
-        
-   
-   
-   
+
+
+
+
 
 }
 
@@ -1819,46 +1819,64 @@
     #teste{
         background-color:black;
     }
-    
-    
-    
 
-    #logoTexto{
-        color:#f78726;
-        font-family: raleway;
-        font-weight: bold;
+
+
+
+    /* INDEX.PHP */
+    /* DISPLAY     */
+    #display{
+        width: 13%;
+        height: 25px;
+        background-color: #1778aa;
+        border-radius: 0px 0px 30px 30px;
+        margin-left: 43%;
+        position: fixed;
+        z-index: 1;
+        display:none;
+        cursor : pointer;
+    }
+    #usuarioDisplay{
+        z-index:2;
+        display:inline-block;
+        margin-left: 7%;
+        font-size: 12px;
+        color:white;
+        font-family:roboto;
         text-transform: uppercase;
-        font-size: 50px;
     }
-    #logoTexto1{
-        color:#1778aa;
-        font-family: raleway;
+    #painelDisplay{
+        z-index:2;
+        margin-top: 2px;
+        display:inline-block;
+        margin-left: 7%;
+        font-weight:bold;
+        color:white;
+        font-family:roboto;
         text-transform: uppercase;
-        font-weight: bold;
-        font-size: 50px;
     }
-    #descSite{
-        font-size: 25px;
-        font-weight: normal;
-        font-family: raleway;
-        color:#1778aa;
-        margin-top: -3.5%;
-        margin-left: 5%;
+    #imgDisplay{
+        max-width: 20px;
+        margin-left:1.5%;
+        margin-top: 1.5px;
+        position:fixed;
+        border-radius: 5%;
     }
-    #descSite2{
-        font-size: 25px;
-        font-family: raleway;
-        color:#f78726;
-        font-weight: normal;
-        margin-top: -3.5%;
-        
+    #cadastreDisplay{
+        z-index:2;
+        margin-top: 2px;
+        font-weight:bold;
+        color:white;
+        font-family:roboto;
+        text-transform: uppercase;
     }
-    
-/* INDEX.PHP */
+    /* MENU SUPERIOR */
     #divMenu1 {
         background-color: #1778b2;
         color:white;
+        width: 70px;
         padding: 2px 5px;
+
         border-radius: 0px 20px 0px 20px;
         box-shadow: -4px 4px rgba(0,0,0,.2);
         transition: all 500ms;
@@ -1871,13 +1889,15 @@
         transition: all 300ms;
         border-radius: 20px 0px 20px 0px;
         box-shadow: 4px -4px rgba(0,0,0,.2);
-        text-align : center;
+
     }
 
     #divMenu2 {
         background-color: #1778b2;
         color:white;
         padding: 2px 5px;
+        width: 70px;
+
         border-radius: 0px 20px 0px 20px;
         transition: all 500ms;
         box-shadow: 0px 4px rgba(0,0,0,.2);
@@ -1890,13 +1910,15 @@
         transition: all 300ms;
         border-radius: 20px 0px 20px 0px;
         box-shadow: 4px -4px rgba(0,0,0,.2);
-        text-align : center;
+
     }
 
     #divMenu3 {
         background-color: #1778b2;
         color:white;
         padding: 2px 5px;
+
+        width: 70px;
         border-radius: 0px 20px 0px 20px;
         transition: all 500ms;
         box-shadow: 4px 4px rgba(0,0,0,.2);
@@ -1909,8 +1931,569 @@
         transition: all 300ms;
         border-radius: 20px 0px 20px 0px;
         box-shadow: 4px -4px rgba(0,0,0,.2);
-        text-align : center;
+
     }
+    #entrarNavBar1{
+        font-family:roboto;
+        font-size: 12px;
+    }
+    #entrarNavBar2{
+        font-family:roboto;
+        font-size: 12px;
+    }
+    #entrarNavBar3{
+        font-family:roboto;
+        font-size: 12px;
+        margin-right: 200px;
+    }
+    #navbarNavAltMarkup{
+        padding-left: 28%;
+        z-index: 2;
+
+    }
+    #navBarNav{
+        background-color: #fafdff;
+
+    }
+    #menuUsuario{
+        width: 200px;
+        display:inline-block;
+        text-transform: uppercase;
+        font-family: roboto;
+        font-size: 12px;
+        color: #1778aa;
+        font-weight: bold;
+
+
+    }
+    #menuUsuarioDeslogado{
+        color:#1778b2;
+        margin-top: 0.5%;
+        display:inline-block;
+        font-family: roboto;
+    }
+    #menuUsuarioDeslogadoCadastro{
+        color:#f78726;
+        display:inline-block;
+        margin-top: 0.5%;
+        font-family: roboto;
+    }
+    #FotoPerfilMenu{
+        display:inline-block;
+        max-width: 25px;
+        border-radius: 10%;
+        margin-left: 3%;
+    }
+    #menuUsuarioExpandido{
+        background-color:#fafdff;
+        border:1px solid #1778aa;
+        height: 240px;
+        width: 15%;
+        position:absolute;
+        z-index:2;
+        margin-left: 72%;
+        margin-top: 12%;
+        border-radius: 5px;
+    }
+    .backMenuExpandido{
+        width: 100%;
+        padding: 8px;
+        display:block;
+        font-weight: bold;
+        text-align:center;
+        color:#1778aa;
+    }
+    .backMenuExpandido:hover {
+        background-color: rgba(23, 120, 170, .2);
+        text-decoration:none;
+        color:#1778aa;
+    }
+    /* CONTEUDO ENTRE O MENU E A OUTRA DIV */
+    #matriculasAbertas{
+        font-family: 'Poppins', sans-serif;
+        font-weight: bold;
+        margin-bottom: -10px;
+        color: #f78726;
+        font-size: 50px;
+        text-align: center;
+    }
+    #linkCadastro{
+        text-decoration:none;
+    }
+    #divCadastreAgora{
+        padding: 5px 2px;
+        background-color: #f78726;
+        color: white;
+        width: 15%;
+        font-family: 'Poppins', sans-serif;
+        border-radius: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+
+    }
+    #spanCadastreAgora{
+        text-align:center;
+
+    }
+    #contagem{
+        margin-top: 10px;
+        text-align: center;
+        font-family:  'Poppins', sans-serif;
+        color: #1778aa;
+        font-size: 12px;
+    }
+    /* CONTEUDO DA DIV DE INFORMAÇÔES */
+    #rowMotivos{
+        height: 60%;
+        background-image: linear-gradient(to bottom, #fafdff, #a9e2ff, #fafdff);
+        background-attachment: fixed;
+    }
+    #rowMotivos2{
+        margin-top: 2%;
+    }
+    #relogioImg{
+        max-width: 60px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+    #texto1{
+        transform: rotate(0deg);
+        background-color:#e1e3e5;
+    }
+    #texto1 p{
+        text-align: justify;
+        font-family: Raleway;
+        font-size: 14px;
+        color: #1778aa;
+    }
+    #cerebroImg{
+        max-width: 80px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+    #texto2{
+        transform: rotate(-2deg);
+        background-color:lightgray;
+    }
+    #texto2 p{
+        text-align: justify;
+        font-family: Raleway;
+        font-size: 14px;
+        color: #1778aa
+    }
+    #cifraoImg{
+        max-width: 60px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+    #texto3{
+        transform: rotate(0deg);
+        background-color:#e1e3e5;
+    }
+    #texto3 p{
+        text-align: justify;
+        font-family: Raleway;
+        font-size: 14px;
+        color: #1778aa;
+    }
+    #hr{
+        background-color: #1778aa;
+        width: 15%;
+        margin-top: -0.5%;
+        transform: rotate(-2deg);
+        margin-bottom: 0px;
+    }
+
+    #circulo1{
+        height: 15px;
+        width: 15px;
+        background-color: #1778aa;
+        border-radius: 100%;
+        display: inline-block;
+        margin-left: 46%;
+    }
+    #circulo2{
+        height: 15px;
+        width: 15px;
+        background-color: #f27d16;
+        border-radius: 100%;
+        display: inline-block;
+        margin-bottom: 0px;
+        margin-left: 2%;
+    }
+    #circulo3{
+        height: 15px;
+        width: 15px;
+        background-color: #1778aa;
+        border-radius: 100%;
+        display: inline-block;
+        margin-bottom: 0px;
+        margin-left: 2%;
+    }
+
+    #hr2{
+        background-color: #1778aa;
+        width: 15%;
+        transform: rotate(2deg);
+        margin-top: -5px;
+    }
+    .logosMarcas{
+        max-width: 120px;
+        margin-left:auto;
+        margin-right: auto;
+        display: block;
+    }
+    .separador{
+        max-width: 70%;
+        margin-left:auto;
+        margin-right:auto;
+        display:block;
+    }
+    /* MENU DE INSTRUMENTOS */
+    #guitarraOptionDiv{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 0px 40px 0px 40px;
+        float:left;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    #guitarraOptionDiv:hover{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 40px 0px 40px 0px;
+        transition: all 500ms;
+        float:left;
+        cursor: pointer;
+
+    }
+    .imgMenu1{
+        margin-top: 7px;
+        max-width: 80px;
+        margin-left: auto;
+        margin-right:auto;
+        display:block;
+        transition: all 500ms;
+
+    }
+    .cursoDe1{
+        display:block;
+        font-family: 'roboto';
+        text-align:center;
+        margin-top: 7px;
+        letter-spacing: 1px;
+        color:#1778aa;
+        transition: all 500ms;
+    }
+    .instrumento1{
+        margin-top: -25px;
+        display:block;
+        font-size: 25px;
+        font-family: 'roboto';
+        font-weight:bold;
+        text-align:center;
+        letter-spacing: 4px;
+        color:#f27d16;
+        transition: all 500ms;
+    }
+    #violaoOptionDiv{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 30px 30px 30px 30px;
+        margin-left:auto;
+        margin-right: auto;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    #violaoOptionDiv:hover{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 10px 10px 10px 10px;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    .imgMenu2{
+        margin-top: 7px;
+        max-width: 80px;
+        margin-left: auto;
+        margin-right:auto;
+        display:block;
+        transition: all 500ms;
+
+    }
+    .cursoDe2{
+        display:block;
+        font-family: 'roboto';
+        text-align:center;
+        margin-top: 7px;
+        letter-spacing: 1px;
+        color:#1778aa;
+        transition: all 500ms;
+    }
+    .instrumento2{
+        margin-top: -25px;
+        display:block;
+        font-size: 25px;
+        font-family: 'roboto';
+        font-weight:bold;
+        text-align:center;
+        letter-spacing: 4px;
+        color:#f27d16;
+        transition: all 500ms;
+    }
+    #baixoOptionDiv{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 0px 40px 0px 40px;
+        float:right;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    #baixoOptionDiv:hover{
+        border: 1.3px solid #1778aa;
+        width: 80%;
+        height: 160px;
+        border-radius: 40px 0px 40px 0px;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+    .imgMenu3{
+        margin-top: 7px;
+        max-width: 80px;
+        margin-left: auto;
+        margin-right:auto;
+        display:block;
+        transition: all 500ms;
+
+    }
+    .cursoDe3{
+        display:block;
+        font-family: 'roboto';
+        text-align:center;
+        margin-top: 7px;
+        letter-spacing: 1px;
+        color:#1778aa;
+        transition: all 500ms;
+    }
+    .instrumento3{
+        margin-top: -25px;
+        display:block;
+        font-size: 25px;
+        font-family: 'roboto';
+        font-weight:bold;
+        text-align:center;
+        letter-spacing: 4px;
+        color:#f27d16;
+        transition: all 500ms;
+    }
+    /* PEINEL DE INFORMAÇÔES DS CURSOS */
+    .conteudoModuloEsquerda{
+        background-color: rgba(23,120,170,.2);
+        width: 57%;
+        font-family: roboto;
+        color: #1778b2;
+        margin-top: 1%;
+        font-size: 15px;
+
+    }
+    .conteudoModuloDireita{
+        background-color: rgba(23,120,170,.2);
+        width: 65%;
+        font-family: roboto;
+        color: #1778b2;
+        font-size: 15px;
+
+        margin-top: 1%;
+    }
+    #tagModulo1{
+        background-color:darkorange;
+        z-index:1;
+        border-radius: 15px 30px 5px 30px;
+        padding: 15px;
+        float:left;
+        width: 8%;
+        font-family: roboto;
+        font-size: 15px;
+        position:absolute;
+        font-weight:bold;
+        color:white;
+    }
+    #rowModulo1{
+        margin-top: 2%;
+        width: 80%;
+
+    }
+    #colModulo1{
+        border: 1px solid #1778aa;
+        border-radius: 0px 20px 5px 10px;
+    }
+    #img1 {
+        max-width: 100%;
+        box-shadow: 4px 5px rgba(0, 0, 0, .3);
+        margin-left: 5%;
+        margin-top: 17%;
+        animation: heartbeat 15s ease-in-out infinite both;
+    }
+    #cabecalhoModulo1{
+        font-size: 20px;
+        color: #1778aa;
+    }
+
+    #tagModulo2{
+        background-color:darkorange;
+        z-index:1;
+        margin-top: 0%;
+        margin-left: 75%;
+        border-radius: 30px 15px 30px 5px;
+        padding: 15px;
+        width: 8%;
+        font-family: roboto;
+        font-size: 15px;
+        position:absolute;
+        font-weight:bold;
+        color:white;
+    }
+    #rowModulo2{
+        margin-top:2%;
+        margin-bottom: 2%;
+        width: 72%;
+        float: right;
+
+    }
+    #colModulo2{
+        border: 1px solid #1778aa;
+        border-radius: 0px 20px 5px 10px;
+    }
+    #cabecalhoModulo2{
+        font-size: 20px;
+        color: darkorange;
+    }
+    #img2{
+        max-width: 100%;
+        margin-top: 20%;
+        margin-left: 20%;
+        animation: heartbeat2 15s ease-in-out infinite both;
+        box-shadow: 4px 5px rgba(0, 0, 0, .3);
+    }
+
+    #tagModulo3{
+        background-color:darkorange;
+        z-index:1;
+        border-radius: 15px 30px 5px 30px;
+        padding: 15px;
+        width: 8%;
+        font-family: roboto;
+        font-size: 15px;
+        position:absolute;
+        margin-top: 20%;
+        font-weight:bold;
+        color:white;
+    }
+    #rowModulo3{
+        margin-top: 25%;
+        width: 80%;
+
+    }
+    #colModulo3{
+        border: 1px solid #1778aa;
+        border-radius: 0px 20px 5px 10px;
+    }
+    #cabecalhoModulo3{
+        font-size: 20px;
+        color: #1778aa;
+    }
+    #img3 {
+        max-width: 100%;
+        margin-top: 20%;
+        margin-left: 20%;
+        animation: heartbeat 15s ease-in-out infinite both;
+        box-shadow: 4px 5px rgba(0, 0, 0, .3);
+    }
+
+
+
+    #tagModulo4{
+        background-color:darkorange;
+        z-index:1;
+        margin-top: 0%;
+        margin-left: 75%;
+        border-radius: 30px 15px 30px 5px;
+        padding: 15px;
+        width: 8%;
+        font-family: roboto;
+        font-size: 15px;
+        position:absolute;
+        font-weight:bold;
+        color:white;
+    }
+    #rowModulo4{
+        margin-top:2%;
+        margin-bottom: 2%;
+        width: 72%;
+        float: right;
+
+    }
+    #colModulo4{
+        border: 1px solid #1778aa;
+        border-radius: 0px 20px 5px 10px;
+    }
+    #cabecalhoModulo4{
+        font-size: 20px;
+        color: darkorange;
+    }
+    #img4{
+        max-width: 100%;
+        margin-top: 20%;
+        margin-left: 20%;
+        animation: heartbeat2 15s ease-in-out infinite both;
+        box-shadow: 4px 5px rgba(0, 0, 0, .3);
+    }
+
+
+    #tagModulo5{
+        background-color:darkorange;
+        z-index:1;
+        border-radius: 15px 30px 5px 30px;
+        padding: 15px;
+        margin-top: 22%;
+        float:left;
+        width: 8%;
+        font-family: roboto;
+        font-size: 15px;
+        position:absolute;
+        font-weight:bold;
+        color:white;
+    }
+    #rowModulo5{
+        margin-top: 20%;
+        width: 80%;
+
+    }
+    #colModulo5{
+        border: 1px solid #1778aa;
+        border-radius: 0px 20px 5px 10px;
+    }
+    #cabecalhoModulo5{
+        font-size: 20px;
+        color: #1778aa;
+    }
+    #img5{
+        max-width: 100%;
+        margin-top: 20%;
+        margin-left: 20%;
+        animation: heartbeat 15s ease-in-out infinite both;
+        box-shadow: 4px 5px rgba(0, 0, 0, .3);
+    }
+
 
 
 }
@@ -1945,6 +2528,53 @@
         max-width: 80px;
         position: fixed;
         bottom: 10;
+        cursor: pointer;
+    }
+    .chat-i{
+        border-radius: 8px;
+        padding: 10px;
+        max-width: 80%;
+        border: 1px solid #1778aa;
+        background-color: #cce2fb;
+        box-shadow: #333 0px 0px 1px;
+        display: table;
+        margin: 20px;
+
+    }
+    .chat-you{
+        border-radius: 8px;
+        padding: 10px;
+        max-width: 100%;
+        border: 1px solid darkgray;
+        background-color: #EAEAEA;
+        box-shadow: #333 0px 0px 1px;
+        display: inline-block;
+        margin: 20px;
+
+    }
+    #content{
+        width: 30%;
+        border: 1px solid lightgray;
+        border-radius: 20px;
+        margin-left:auto;
+        margin-right: auto;
+    }
+    .controle{
+        padding: 5px;
+        width: 80%;
+        border-radius: 10px;
+        border: 1px solid lightgray;
+        color:black;
+        outline: 0;
+    }
+    .botao{
+        padding: 5px;
+        border-radius: 10px;
+        border: 1px solid rgba(0,0,0,.0);
+        background-color: #1778aa;
+        color: white;
+        width: 100%;
+        margin-left: 10px;
         cursor: pointer;
     }
     

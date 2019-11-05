@@ -11,8 +11,11 @@ session_start();
 if (isset($_SESSION['usuario'])) {
     $usuario = $_SESSION['usuario'];
     $id = $_SESSION['id'];
+    $sqlStatus = "UPDATE cadastro set status = 1 where id = $id";
+    $resultStatus = mysqli_query($conn, $sqlStatus);
 } else {
     echo "<script>window.location.href='index.php';</script>";
+
 }
 
 $sql = "SELECT * FROM cadastro where usuario = '{$usuario}'";
@@ -186,7 +189,7 @@ if (mysqli_num_rows($result) > 0) {
                 while ($rowMerge2 = mysqli_fetch_assoc($resultMerge2)) {
                     echo "<div class='row' style='padding-left:0px;border-radius: 10%'>
                                         <div class='col-3'>
-                                            <form action='/musiclly/modulos/perfil.php' method='POST'>
+                                            <form action='/musiclly/modulos/perfil.php' method='GET'>
                                             <input type='hidden'  value='".$rowMerge2['usuario']."' name='usuarioNome'>
                                             <input type='image' src='" . $rowMerge2['imagem'] . "' style='max-width: 30px'><br>
                                             </form>

@@ -269,7 +269,7 @@ if($row['progresso'] <= 17){
                                 <span class='text-break' style='font-size: 12px'>".$row['descricao']."</span><br>
                                 <span style='float:left;font-size: 10px;margin-top: 5px'><b>Feito em:</b> ".$row['dataEnviada']."</span>
                                 <span style='float:right'>
-                                <form action='/musiclly/modulos/perfil.php' method='POST'>
+                                <form action='/musiclly/modulos/perfil.php' method='GET'>
                                     <input type='submit' name='usuarioNome' value='".$row23['usuario']."' style='background-color:rgba(0,0,0,.0);border: 0'>
                                 </form>
                                 

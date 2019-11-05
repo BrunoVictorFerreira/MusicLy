@@ -4,12 +4,13 @@
   session_save_path($serve_file.'cache/temp');
   session_start();
   include_once($serve_file.'php/banco.php');
-session_start();
 if (isset($_SESSION['usuario'])) {
   $usuario = $_SESSION['usuario'];
   $id = $_SESSION['id'];
+
 }else{
   echo "<script>window.location.href='/musiclly/cadastro.php';</script>";
+
 }
 $sql = "SELECT * FROM cadastro where usuario = '{$usuario}'";
 $result = mysqli_query($conn, $sql);
@@ -24,7 +25,7 @@ if (mysqli_num_rows($result) > 0) {
   }
 }
 
-$usuarioClickado = $_POST['usuarioNome'];
+$usuarioClickado = $_GET['usuarioNome'];
 
 
 $sql2 = "SELECT * from cadastro where nome = '$usuarioClickado'";
@@ -343,12 +344,29 @@ if($_SESSION['usuario'] == $row2['nome']){
               </form>  
               </div>
               <div class="col-1">
-              <a href=""><img src="/Musiclly/www/galeria/msgicon.png" style="max-width: 30px"></a>
-              
+                  <form action="/musiclly/chat/chat.php" method="GET">
+                      <input type='hidden' name='idPara' value="<?php echo $id2 ?>">
+                      <input type="image" src="/Musiclly/www/galeria/msgicon.png" style="max-width: 30px">
+
+                  </form>
               </div>
-              <div class="col-10">
-                
-              </div>
+                <div class="col-9">
+
+                </div>
+                <div class="col-1">
+                    <?php
+                        $sqlStatus = "SELECT status FROM cadastro where id = '$id2'";
+                        $resultStatus = mysqli_query($conn, $sqlStatus);
+                        $row = mysqli_fetch_assoc($resultStatus);
+                        if($row['status'] == 1){
+                            echo "<span style='color: green;font-weight: bold'>ONLINE</span>";
+                        }else{
+                            echo "<span style='color: red;font-weight: bold'>OFFLINE</span>";
+                        }
+                    ?>
+
+                </div>
+
 
             </div>
           </div>
