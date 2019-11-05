@@ -1,15 +1,9 @@
 <?php
-<<<<<<< HEAD
-error_reporting(0);
-$serve_file = $_SERVER['DOCUMENT_ROOT'] . "/Musiclly/";
-session_save_path($serve_file . 'cache/temp');
-=======
   error_reporting(0);
   $serve_file = $_SERVER['DOCUMENT_ROOT']."/Musiclly/";
   session_save_path($serve_file.'cache/temp');
   session_start();
   include_once($serve_file.'php/banco.php');
->>>>>>> parent of dc1cf2b... Adicionando Arquivos
 session_start();
 include_once($serve_file . 'php/banco.php');
 session_start();
@@ -44,134 +38,18 @@ if (mysqli_num_rows($result) > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta charset="utf-8">
     <!-- BOOTSTRAP CSS =========================================-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- BOOTSTRAP JS =========================================-->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <!--FONTES ================================================-->
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
-
-
     <!--SCRIPTS JS-->
-    <script>
-        function msg() {
-            location.href = '#';
-        }
-
-        var i = 1;
-
-
-        $(document).ready(function () {
-            $('#menuUsuarioExpandido').hide();
-
-            $("#menuUsuario").click(function () {
-                $("#menuUsuarioExpandido").slideToggle("slow");
-            });
-
-            $('#verMais1').hide();
-            $('#verMais2').hide();
-            $('#verMais3').hide();
-            $('#verMais4').hide();
-            $('#verMais5').hide();
-
-            // -----------------------------
-            $('#cursoCard1, #vermais1').mouseenter(function () {
-                $('#cursoCard1').attr({
-                    src: "/musiclly/www/galeria/modulo_1_blur.jpg"
-                });
-
-                $('#verMais1').show();
-
-                $('#verMais1').css({
-                    'z-index': '0'
-                })
-
-
-            }).mouseout(function () {
-                $(this).attr({
-                    src: "/musiclly/www/galeria/modulo_1.jpg"
-                });
-                $('#verMais1').hide();
-            });
-
-            // -----------------------------
-            $('#cursoCard2, #vermais2').mouseenter(function () {
-                $('#cursoCard2').attr({
-                    src: "/musiclly/www/galeria/modulo_2_blur.jpg"
-                });
-
-                $('#verMais2').show();
-
-
-            }).mouseout(function () {
-                $(this).attr({
-                    src: "/musiclly/www/galeria/modulo_2.jpg"
-                });
-                $('#verMais2').hide();
-            });
-            // -----------------------------
-            $('#cursoCard3, #vermais3').mouseenter(function () {
-                $('#cursoCard3').attr({
-                    src: "/musiclly/www/galeria/modulo_3_blur.jpg"
-                });
-
-                $('#verMais3').show();
-
-
-            }).mouseout(function () {
-                $(this).attr({
-                    src: "/musiclly/www/galeria/modulo_3.jpg"
-                });
-                $('#verMais3').hide();
-            });
-            // -----------------------------
-            $('#cursoCard4, #vermais4').mouseenter(function () {
-                $('#cursoCard4').attr({
-                    src: "/musiclly/www/galeria/modulo_4_blur.jpg"
-                });
-
-                $('#verMais4').show();
-
-
-            }).mouseout(function () {
-                $(this).attr({
-                    src: "/musiclly/www/galeria/modulo_4.jpg"
-                });
-                $('#verMais4').hide();
-            });
-            // -----------------------------
-            $('#cursoCard5, #vermais5').mouseenter(function () {
-                $('#cursoCard5').attr({
-                    src: "/musiclly/www/galeria/modulo_5_blur.jpg"
-                });
-
-                $('#verMais5').show();
-
-
-            }).mouseout(function () {
-                $(this).attr({
-                    src: "/musiclly/www/galeria/modulo_5.jpg"
-                });
-                $('#verMais5').hide();
-            });
-
-
-        });
-    </script>
-
+    <script src="includes/scriptPainel.js"></script>
+    <script src="includes/scriptDisplay.js"></script>
 
     <style>
         .tracking-in-expand {
@@ -214,10 +92,7 @@ if (mysqli_num_rows($result) > 0) {
             max-height: 150px;
         }
 
-        .backMenuExpandido:hover {
-            background-color: rgba(23, 120, 170, .2);
-
-        }
+        
 
         .circle {
             border-radius: 50%;
@@ -277,6 +152,10 @@ if (mysqli_num_rows($result) > 0) {
 </head>
 
 <body style="background-image: url('www/galeria/background.png');background-repeat:no-repeat;background-attachment: fixed;background-size: 100%;">
+    <!-- DISPLAY SUPERIOR -->
+    <?php include('includes/display.php'); ?>
+    <!-- DISPLAY SUPERIOR -->
+    
 
 <div class="container-fluid">
 
@@ -357,61 +236,10 @@ if (mysqli_num_rows($result) > 0) {
 
 
 
-    <!--CLASSE CONTAINER =======================-->
-    <div class="container">
-        <!--NAV BAR ======================-->
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#"><img src="www/galeria/logo.png" class="img-fluid" id="logoNavBar"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <?php
-            $sqlImg = "SELECT * from cadastro where id=$id";
-            $resultImg = mysqli_query($conn, $sqlImg);
-            $row = mysqli_fetch_assoc($resultImg);
-            $img = $row['imagem'];
+    <!-- HEADER -->
+    <?php include($serve_file.'includes/header.php'); ?>
+    <!-- HEADER -->
 
-            echo "<div class='collapse navbar-collapse' id='navbarNavAltMarkup'><div class='navbar-nav'>  
-                    <a class='nav-item nav-link' href='/musiclly/cursos.php' id='entrarNavBar' style='margin-left: 310px'><div id='divMenu1'>Cursos</div></a>
-                    <a class='nav-item nav-link' href='/musiclly/index.php' id='entrarNavBar' style='margin-left: 10px;'><div id='divMenu2'>Inicio</div></a>
-                    <a class='nav-item nav-link' href='/musiclly/contato.php' id='entrarNavBar' style='margin-left: 10px;'><div id='divMenu3'>Contato</div></a>
-
-                    
-
-                    <div style='background-color:#fafdff;z-index:2'>
-                        <a class='nav-item nav-link' id='menuUsuario' href='#' style='margin-left: 240px;margin-top: 0.5%;display:inline-block;text-transform: uppercase;font-family: roboto'>".substr($usuario,0,5)."<img src='" . $img . "' style='margin-left: 3%;max-width: 35%;border-radius: 10%;max-height: 35%'>
-                        </a>
-                    </div>";
-
-
-            ?>
-            <div id="menuUsuarioExpandido"
-                 style="background-color:#fafdff;border:1px solid #1778aa;height: 250px;width: 15%;position:absolute;z-index:1;margin-left: 71%;margin-top: 5%;border-radius: 5px">
-                <a href="/musiclly/painel.php"
-                   style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                   class='backMenuExpandido'>Meu Perfil</a>
-                <a href="/musiclly/alterar_senha.php"
-                   style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                   class='backMenuExpandido'>Alterar Senha</a>
-                <a href="/musiclly/alterar_usuario"
-                   style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                   class='backMenuExpandido'>Alterar Usuário</a>
-                <a href="/musiclly/alterar_email"
-                   style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                   class='backMenuExpandido'>Alterar Email</a>
-                <a href="/musiclly/notas.php"
-                   style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                   class='backMenuExpandido'>Notas</a>
-                <a href="/musiclly/logout.php"
-                   style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                   class='backMenuExpandido'>Logout</a>
-            </div>
-
-        </nav>
-        <!-- FECHAMENTO NAVBAR ===============-->
-    </div>
-    <!--FECHAMENTO DA DIV CONTAINER PARA MENU -->
 
     <div class="row">
         <div class="col-12" style="">
