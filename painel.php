@@ -159,24 +159,23 @@ if (mysqli_num_rows($result) > 0) {
     <?php include('includes/display.php'); ?>
     <!-- DISPLAY SUPERIOR -->
     
-
-<div class="container-fluid">
-
-    <div class="row" style="position:fixed;margin-top: 7%;border: 1px solid #1778aa;padding: 10px 0px;border-radius: 0px 40px 40px 0px;z-index: 2">
-
-
+    <div class="row" id="rowSeguidores">
         <div class="col-12">
             <div class="row">
                 <div class="col-12">
-                    <span style="color: #1778aa;font-family: roboto;font-size: 13px;padding-left:20%">SEGUIDORES</span>
+                    <?php             
+                        $sqlFavCount = "SELECT count(*) FROM favoritos where id_Favoritado = $id";
+                        $resultFavCount = mysqli_query($conn, $sqlFavCount);
+                        $rowFavCount = mysqli_fetch_array($resultFavCount);
+                    ?>
+                    <span id="spanSeguidores">SEGUIDORES<div id="divQtdSeguidores"><p id="qtdSeguidores"><?php echo $rowFavCount[0]; ?></p></div></span>
                 </div>
-
             </div>
             <div class="row">
-            <div class="col-12">
-                <span style="color: #1778aa;font-family: roboto;float:right;margin-right: 15px;font-size: 10px;padding-left:0">Seguir</span>
-            </div>
-            </div>
+                <div class="col-12">
+                    <span id="spanSeguir">Seguir</span>
+                </div>
+    </div>
             <?php
             $sqlFav2 = "SELECT * FROM favoritos where id_Favoritado = $id";
             $resultFav2 = mysqli_query($conn, $sqlFav2);
@@ -187,18 +186,18 @@ if (mysqli_num_rows($result) > 0) {
                 $sqlMerge2 = "SELECT tab1.id,tab1.usuario, tab1.imagem FROM cadastro as tab1 join favoritos as tab2 on tab1.id = tab2.id_Cad where id_Favoritado = $id";
                 $resultMerge2 = mysqli_query($conn, $sqlMerge2);
                 while ($rowMerge2 = mysqli_fetch_assoc($resultMerge2)) {
-                    echo "<div class='row' style='padding-left:0px;border-radius: 10%'>
-                                        <div class='col-3'>
+                    echo "<div class='row' id='rowDadosSeguidores'>
+                                        <div class='col-4'>
                                             <form action='/musiclly/modulos/perfil.php' method='GET'>
                                             <input type='hidden'  value='".$rowMerge2['usuario']."' name='usuarioNome'>
-                                            <input type='image' src='" . $rowMerge2['imagem'] . "' style='max-width: 30px'><br>
+                                            <input type='image' src='" . $rowMerge2['imagem'] . "' id='imgDadosSeguidores'><br>
                                             </form>
                                          </div>" ;
-                    echo "<div class='col-5' style=\"padding-top: 5px;border-radius: 10%\">
-                                            <span style='text-transform: uppercase;font-size: 9px;color: #1778aa'>".substr($rowMerge2['usuario'],0,10)."</span>
+                    echo "<div class='col-4' id=\"segundaColunaDadosUsuario\">
+                                            <span id='spanUsuario'>".substr($rowMerge2['usuario'],0,10)."</span>
                                       </div>";
 
-                    echo "<div class='col-4' style='padding-left: 0px'>
+                    echo "<div class='col-4' id='terceiraColunaDadosUsuario'>
                             
                             
                             ";
@@ -210,13 +209,13 @@ if (mysqli_num_rows($result) > 0) {
                     echo"
                             <form action='/musiclly/modulos/deletarfavorito.php' method='POST' style=''>
                             <input type='hidden' value='".$rowMerge2['id']."' name='Afavoritar'>
-                            <input type='image' src='/musiclly/www/galeria/excluir.png' style='max-width: 10px;display:inline-block'>
-                            <img src='/musiclly/www/galeria/done.png' style='max-width: 10px;display:inline-block'>";
+                            <input type='image' src='/musiclly/www/galeria/excluir.png' id='imgExcluirFavorito'>
+                            <img src='/musiclly/www/galeria/done.png' id='imgFavoritado'>";
                             }else{
                             echo "
                             <form action='/musiclly/modulos/favoritar.php' method='POST' style=''>
                             <input type='hidden' value='".$rowMerge2['id']."' name='Afavoritar'>
-                            <input type='image' src='/musiclly/www/galeria/addFav.png' style='max-width: 15px;display:inline-block'>";
+                            <input type='image' src='/musiclly/www/galeria/addFav.png' id='imgAddFavorito'>";
                         }
                             echo "</form>";
 
@@ -231,6 +230,9 @@ if (mysqli_num_rows($result) > 0) {
             ?>
         </div>
     </div>
+<div class="container-fluid">
+
+    
 
 
 
@@ -704,7 +706,6 @@ if (mysqli_num_rows($result) > 0) {
 
     </div>
 
-    <img src="www/galeria/msg.png" id="msg" onClick="msg()">
     <div class="row">
         <div style="margin-bottom: 10%;"></div>
         <div class="col-12" id="footer">

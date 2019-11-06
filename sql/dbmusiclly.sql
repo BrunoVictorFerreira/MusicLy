@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14-Out-2019 às 23:41
--- Versão do servidor: 10.4.6-MariaDB
--- versão do PHP: 7.3.8
+-- Generation Time: 06-Nov-2019 às 14:16
+-- Versão do servidor: 10.1.19-MariaDB
+-- PHP Version: 5.5.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `dbmusiclly`
+-- Database: `dbmusiclly`
 --
 
 -- --------------------------------------------------------
@@ -36,19 +34,58 @@ CREATE TABLE `cadastro` (
   `usuario` varchar(255) DEFAULT NULL,
   `senha` varchar(255) DEFAULT NULL,
   `fk_Curiosidades` int(11) DEFAULT NULL,
-  `imagem` varchar(255) DEFAULT '/musiclly/www/galeria/user.png'
+  `imagem` varchar(255) DEFAULT '/musiclly/www/galeria/user.png',
+  `status` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `cadastro`
 --
 
-INSERT INTO `cadastro` (`id`, `nome`, `sobrenome`, `email`, `usuario`, `senha`, `fk_Curiosidades`, `imagem`) VALUES
-(43, 'Bruno Victor', 'Graciano', 'victorbruno221@gmail.com', 'Bruno', '202cb962ac59075b964b07152d234b70', NULL, 'uploads / 15710764145da4b93e1928e.png'),
-(44, 'admin', 'admin', 'admin@gmail.com', 'admin', '202cb962ac59075b964b07152d234b70', NULL, '/musiclly/www/galeria/user.png'),
-(45, 'teste', 'teste', 'teste@gmail.com', 'teste', '202cb962ac59075b964b07152d234b70', NULL, 'uploads/15710880905da4e6da4bbc1.png'),
-(46, 'testea', 'testea', 'teste@teste.com', 'testea', '698dc19d489c4e4db73e28a713eab07b', NULL, 'uploads/15710865485da4e0d4c0349.png'),
-(47, 'josi', 'ferreira', 'josi@gmail.com', 'josi', '202cb962ac59075b964b07152d234b70', NULL, 'uploads/15710867355da4e18f4771c.png');
+INSERT INTO `cadastro` (`id`, `nome`, `sobrenome`, `email`, `usuario`, `senha`, `fk_Curiosidades`, `imagem`, `status`) VALUES
+(1, 'teste', 'teste', 'teste@gmail.com', 'teste', '202cb962ac59075b964b07152d234b70', NULL, '/musiclly/www/galeria/user.png', 0),
+(2, 'admin', 'admin', 'admin@gmail.com', 'admin', '202cb962ac59075b964b07152d234b70', NULL, '/musiclly/uploads/15724419325db98f4cc5ce2.jpeg', 1),
+(3, 'teste', 'testeSobrenome', 'teste1@gmail.com', 'teste1', '202cb962ac59075b964b07152d234b70', NULL, '/musiclly/www/galeria/user.png', 0),
+(4, 'teste', 'testeSobrenome', 'teste2@gmail.com', 'teste2', '202cb962ac59075b964b07152d234b70', NULL, '/musiclly/www/galeria/user.png', 0),
+(5, 'teste', 'testeSobrenome', 'teste3@gmail.com', 'teste3', '202cb962ac59075b964b07152d234b70', NULL, '/musiclly/www/galeria/user.png', 0),
+(6, 'teste', 'testeSobrenome', 'teste4@gmail.com', 'teste4', '202cb962ac59075b964b07152d234b70', NULL, '/musiclly/www/galeria/user.png', 0),
+(7, 'teste', 'testeSobrenome', 'teste5@gmail.com', 'teste5', '202cb962ac59075b964b07152d234b70', NULL, '/musiclly/www/galeria/user.png', 0),
+(8, 'teste', 'testeSobrenome', 'teste6@gmail.com', 'teste6', '202cb962ac59075b964b07152d234b70', NULL, '/musiclly/www/galeria/user.png', 0),
+(9, 'teste', 'testeSobrenome', 'teste7@gmail.com', 'teste7', '202cb962ac59075b964b07152d234b70', NULL, '/musiclly/www/galeria/user.png', 0),
+(10, 'teste', 'testeSobrenome', 'teste1@gmail.com', 'teste1', '202cb962ac59075b964b07152d234b70', NULL, '/musiclly/www/galeria/user.png', 0),
+(11, 'teste', 'testeSobrenome', 'teste2@gmail.com', 'teste2', '202cb962ac59075b964b07152d234b70', NULL, '/musiclly/www/galeria/user.png', 0),
+(12, 'teste', 'testeSobrenome', 'teste3@gmail.com', 'teste3', '202cb962ac59075b964b07152d234b70', NULL, '/musiclly/www/galeria/user.png', 0),
+(13, 'teste', 'testeSobrenome', 'teste4@gmail.com', 'teste4', '202cb962ac59075b964b07152d234b70', NULL, '/musiclly/www/galeria/user.png', 0),
+(14, 'teste', 'testeSobrenome', 'teste5@gmail.com', 'teste5', '202cb962ac59075b964b07152d234b70', NULL, '/musiclly/www/galeria/user.png', 0),
+(15, 'teste', 'testeSobrenome', 'teste6@gmail.com', 'teste6', '202cb962ac59075b964b07152d234b70', NULL, '/musiclly/www/galeria/user.png', 0),
+(16, 'teste', 'testeSobrenome', 'teste7@gmail.com', 'teste7', '202cb962ac59075b964b07152d234b70', NULL, '/musiclly/www/galeria/user.png', 0),
+(17, 'teste', 'testeSobrenome', 'teste1@gmail.com', 'teste1', '202cb962ac59075b964b07152d234b70', NULL, '/musiclly/www/galeria/user.png', 0),
+(18, 'teste', 'testeSobrenome', 'teste2@gmail.com', 'teste2', '202cb962ac59075b964b07152d234b70', NULL, '/musiclly/www/galeria/user.png', 0),
+(19, 'teste', 'testeSobrenome', 'teste3@gmail.com', 'teste3', '202cb962ac59075b964b07152d234b70', NULL, '/musiclly/www/galeria/user.png', 0),
+(20, 'teste', 'testeSobrenome', 'teste4@gmail.com', 'teste4', '202cb962ac59075b964b07152d234b70', NULL, '/musiclly/www/galeria/user.png', 0),
+(21, 'teste', 'testeSobrenome', 'teste5@gmail.com', 'teste5', '202cb962ac59075b964b07152d234b70', NULL, '/musiclly/www/galeria/user.png', 0),
+(22, 'teste', 'testeSobrenome', 'teste6@gmail.com', 'teste6', '202cb962ac59075b964b07152d234b70', NULL, '/musiclly/www/galeria/user.png', 0),
+(23, 'teste', 'testeSobrenome', 'teste7@gmail.com', 'teste7', '202cb962ac59075b964b07152d234b70', NULL, '/musiclly/www/galeria/user.png', 0),
+(24, 'asjkhd', 'sldkjf', 'lasjkkldjas@gmail.com', 'testeparaletrasgrandescas', '202cb962ac59075b964b07152d234b70', NULL, '/musiclly/www/galeria/user.png', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `chat`
+--
+
+CREATE TABLE `chat` (
+  `id` int(11) NOT NULL,
+  `id_de` varchar(255) DEFAULT NULL,
+  `id_para` varchar(255) DEFAULT NULL,
+  `mensagem` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `chat`
+--
+
+
 
 -- --------------------------------------------------------
 
@@ -59,7 +96,7 @@ INSERT INTO `cadastro` (`id`, `nome`, `sobrenome`, `email`, `usuario`, `senha`, 
 CREATE TABLE `comentarios` (
   `id` int(11) NOT NULL,
   `titulo` varchar(255) DEFAULT NULL,
-  `descricao` text DEFAULT NULL,
+  `descricao` text,
   `dataEnviada` varchar(255) DEFAULT NULL,
   `hora` varchar(255) DEFAULT NULL,
   `avaliacao` int(11) DEFAULT NULL,
@@ -71,14 +108,7 @@ CREATE TABLE `comentarios` (
 -- Extraindo dados da tabela `comentarios`
 --
 
-INSERT INTO `comentarios` (`id`, `titulo`, `descricao`, `dataEnviada`, `hora`, `avaliacao`, `sessao`, `id_cad`) VALUES
-(1, 'teste', 'teste', '14-10-2019 18:26:53', '0', 3, 2, 45),
-(2, 'abc', 'bascas\r\n', '14-10-2019 18:27:23', '0', 3, 2, 45),
-(3, 'abc', '123\r\n', '14-10-2019 18:27:39', '0', 3, 1, 45),
-(4, 'abc', '456\r\n', '14-10-2019 18:27:54', '0', 3, 1, 43),
-(5, 'etste', '123\r\n', '14-10-2019 18:28:05', '0', 3, 2, 43),
-(6, 'testedeComentario', 'testedeComentrario\r\n', '14-10-2019 18:38:42', '0', 3, 2, 43),
-(7, 'test', 'testeetettete\r\n', '14-10-2019 18:39:12', '0', 3, 2, 43);
+
 
 -- --------------------------------------------------------
 
@@ -108,28 +138,39 @@ INSERT INTO `curiosidades` (`id_Curiosidades`, `descricao`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `favoritos`
+--
+
+CREATE TABLE `favoritos` (
+  `id` int(11) NOT NULL,
+  `id_Cad` int(11) DEFAULT NULL,
+  `id_Favoritado` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `favoritos`
+--
+
+
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `tbl_cad_curso`
 --
 
 CREATE TABLE `tbl_cad_curso` (
   `id_Cad` int(11) DEFAULT NULL,
   `id_Curso` int(11) DEFAULT NULL,
-  `nota` int(11) DEFAULT 0,
-  `progresso` int(11) DEFAULT 0
+  `nota` int(11) DEFAULT '0',
+  `progresso` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tbl_cad_curso`
 --
 
-INSERT INTO `tbl_cad_curso` (`id_Cad`, `id_Curso`, `nota`, `progresso`) VALUES
-(43, 1, 10, 100),
-(43, 2, 30, 100),
-(43, 3, 20, 100),
-(43, 4, 0, 0),
-(43, 5, 0, 0),
-(44, 1, 0, 17),
-(45, 1, 0, 34);
+
 
 -- --------------------------------------------------------
 
@@ -155,72 +196,91 @@ INSERT INTO `tbl_curso` (`id_Curso`, `nome`, `valor`) VALUES
 (5, 'Modulo 5', 20);
 
 --
--- Índices para tabelas despejadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `cadastro`
+-- Indexes for table `cadastro`
 --
 ALTER TABLE `cadastro`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_Curiosidades` (`fk_Curiosidades`);
 
 --
--- Índices para tabela `comentarios`
+-- Indexes for table `chat`
+--
+ALTER TABLE `chat`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `comentarios`
 --
 ALTER TABLE `comentarios`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_cad` (`id_cad`);
 
 --
--- Índices para tabela `curiosidades`
+-- Indexes for table `curiosidades`
 --
 ALTER TABLE `curiosidades`
   ADD PRIMARY KEY (`id_Curiosidades`);
 
 --
--- Índices para tabela `tbl_cad_curso`
+-- Indexes for table `favoritos`
+--
+ALTER TABLE `favoritos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_Cad` (`id_Cad`);
+
+--
+-- Indexes for table `tbl_cad_curso`
 --
 ALTER TABLE `tbl_cad_curso`
   ADD KEY `id_Curso` (`id_Curso`),
   ADD KEY `id_Cad` (`id_Cad`);
 
 --
--- Índices para tabela `tbl_curso`
+-- Indexes for table `tbl_curso`
 --
 ALTER TABLE `tbl_curso`
   ADD PRIMARY KEY (`id_Curso`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `cadastro`
+-- AUTO_INCREMENT for table `cadastro`
 --
 ALTER TABLE `cadastro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
--- AUTO_INCREMENT de tabela `comentarios`
+-- AUTO_INCREMENT for table `chat`
+--
+ALTER TABLE `chat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT de tabela `curiosidades`
+-- AUTO_INCREMENT for table `curiosidades`
 --
 ALTER TABLE `curiosidades`
   MODIFY `id_Curiosidades` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
 --
--- AUTO_INCREMENT de tabela `tbl_curso`
+-- AUTO_INCREMENT for table `favoritos`
+--
+ALTER TABLE `favoritos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT for table `tbl_curso`
 --
 ALTER TABLE `tbl_curso`
   MODIFY `id_Curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
--- Restrições para despejos de tabelas
+-- Constraints for dumped tables
 --
 
 --
@@ -236,12 +296,17 @@ ALTER TABLE `comentarios`
   ADD CONSTRAINT `comentarios_ibfk_1` FOREIGN KEY (`id_cad`) REFERENCES `cadastro` (`id`);
 
 --
+-- Limitadores para a tabela `favoritos`
+--
+ALTER TABLE `favoritos`
+  ADD CONSTRAINT `favoritos_ibfk_1` FOREIGN KEY (`id_Cad`) REFERENCES `cadastro` (`id`);
+
+--
 -- Limitadores para a tabela `tbl_cad_curso`
 --
 ALTER TABLE `tbl_cad_curso`
   ADD CONSTRAINT `tbl_cad_curso_ibfk_1` FOREIGN KEY (`id_Curso`) REFERENCES `tbl_curso` (`id_Curso`) ON DELETE CASCADE,
   ADD CONSTRAINT `tbl_cad_curso_ibfk_2` FOREIGN KEY (`id_Cad`) REFERENCES `cadastro` (`id`) ON DELETE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

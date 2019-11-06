@@ -1,3 +1,4 @@
+
 /* MAXIMO DE 575.98 PARA PEGAR ====== */
 @media (max-width: 575.98px) {
 
@@ -1124,7 +1125,7 @@
 
 }
 
-/* MINIMO DE 1200 PARA PEGAR ====== */
+/* MINIMO DE 1200 PARA PEGAR (PC DA FACULDADE == 1366 x 768) ====== */
 @media (min-width: 1200px) {
     
     #logoNavBar{
@@ -1299,7 +1300,7 @@
             width: 15%;
             position:absolute;
             z-index:2;
-            margin-left: 72%;
+            margin-left: 64%;
             margin-top: 12%;
             border-radius: 5px;
         }
@@ -1315,6 +1316,79 @@
             background-color: rgba(23, 120, 170, .2);
             text-decoration:none;
             color:#1778aa;
+        }
+        #rowSeguidores{
+            position:fixed;
+            margin-top: 10%;
+            border: 1px solid #1778aa;
+            padding: 10px 0px;
+            border-radius: 0px 10px 30px 0px;
+            z-index: 2;
+            width: 9%;
+
+            
+        }
+        #spanSeguidores{
+            color: #1778aa;
+            font-family: roboto;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        #divQtdSeguidores{
+            height: 15px;
+            width: 15px;
+            display: inline-block;
+            margin-left: 3%;
+            border-radius: 100%;
+            background-color: #1778aa;
+        }
+        #qtdSeguidores{
+            color: white;
+            font-weight: normal;
+            margin-left: 20%;
+            text-align: left;
+        }
+        #spanSeguir{
+            color: #1778aa;
+            font-family: roboto;
+            float:right;
+            font-size: 10px;
+            padding-left: 1%;
+        }
+        #rowDadosSeguidores{ 
+            border-radius: 10%;
+        }
+        #imgDadosSeguidores{
+            max-width: 30px;
+        }
+        #spanUsuario{
+            text-transform: uppercase;
+            font-size: 9px;
+            color: #1778aa;
+            margin-left: 30%;
+        }
+        #segundaColunaDadosUsuario{
+            padding-top: 8px;
+            padding-left: 1%;
+            border-radius: 10%;
+        }
+        #terceiraColunaDadosUsuario{
+            padding-left: 0px;
+        }
+        #imgExcluirFavorito{
+            max-width: 10px;
+            display:inline-block;
+            padding-top: 10px;
+        }
+        #imgFavoritado{
+            max-width: 10px;
+            display:inline-block;
+        }
+        #imgAddFavorito{
+            max-width: 15px;
+            margin-left: 20%;
+            padding-top: 5px;
+            display:inline-block;
         }
         /* CONTEUDO ENTRE O MENU E A OUTRA DIV */
         #matriculasAbertas{
