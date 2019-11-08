@@ -361,14 +361,7 @@
 <img src="www/galeria/msg.png" id="msg" onClick="">
 <div class="row">
     <div class="col-12" id="footer" style="z-index: 2;">
-        <footer>
-            <div class="row">
-                <div class="col-4"></div>
-                <div class="col-4" style="text-align:center"><a href="metronomo/metronomo.php" style="color:white;text-decoration:none">Metronomo</a>
-                </div>
-                <div class="col-4"></div>
-            </div>
-        </footer>
+        <?php include($serve_file. 'includes/footer.php') ?>
     </div>
 </div>
 </div><!--FECHAMENTO DIV CONTAINER FLUID-->

@@ -103,69 +103,7 @@ if($row['progresso'] <= 84){
         <!--CLASSE CONTAINER =======================-->
         <div class="container">
 
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="#"><img src="/musiclly/www/galeria/logo.png" class="img-fluid" id="logoNavBar"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <?php
-                $sqlImg = "SELECT * from cadastro where id=$id";
-                $resultImg = mysqli_query($conn, $sqlImg);
-                $row = mysqli_fetch_assoc($resultImg);
-                $img = $row['imagem'];
-                $qtdLetras = substr_count($row['usuario']);
-                if (isset($_SESSION['usuario'])) {
-                    echo "<div class='collapse navbar-collapse' id='navbarNavAltMarkup'><div class='navbar-nav'>  
-                    <a class='nav-item nav-link' href='/musiclly/cursos.php' id='entrarNavBar' style='margin-left: 280px'><div id='divMenu1'>Cursos</div></a>
-                    <a class='nav-item nav-link' href='/musiclly/index.php' id='entrarNavBar' style='margin-left: 10px;'><div id='divMenu2'>Inicio</div></a>
-                    <a class='nav-item nav-link' href='/musiclly/contato.php' id='entrarNavBar' style='margin-left: 10px;'><div id='divMenu3'>Contato</div></a>
-
-                    
-
-                    <div style='background-color:#fafdff;z-index:2'>
-                        <a class='nav-item nav-link' id='menuUsuario' href='#' style='margin-left: 240px;margin-top: 0.5%;display:inline-block;text-transform: uppercase;font-family: roboto'>".substr($usuario,0,6)."<img src='" . $img . "' style='margin-left: 3%;max-width: 35%;border-radius: 10%;max-height: 35%'>
-                        </a>
-                    </div>";
-                } else {
-                    echo "<div class='collapse navbar-collapse' id='navbarNavAltMarkup'><div class='navbar-nav'>  
-                    <a class='nav-item nav-link' href='/musiclly/cursos.php' id='entrarNavBar' style='margin-left: 230px'><div id='divMenu1'>Cursos</div></a>
-                    <a class='nav-item nav-link' href='/musiclly/index.php' id='entrarNavBar' style='margin-left: 10px;'><div id='divMenu2'>Inicio</div></a>
-                    <a class='nav-item nav-link' href='/musiclly/contato.php' id='entrarNavBar' style='margin-left: 10px;'><div id='divMenu3'>Contato</div></a>
-
-                    
-
-                    <div style='background-color:#fafdff;z-index:2'>
-                        <a class='nav-item nav-link' id='menuUsuario' href='/musiclly/logar.php' style='color:#1778b2;margin-left: 210px;margin-top: 0.5%;display:inline-block;font-family: roboto'>Login</a>
-                        <a class='nav-item nav-link'  href='/musiclly/cadastro.php' style='color:#f78726;display:inline-block;margin-top: 0.5%;font-family: roboto'>Cadastro</a>
-                    </div>";
-                }
-
-                ?>
-                <div id="menuUsuarioExpandido"
-                     style="background-color:#fafdff;border:1px solid #1778aa;height: 250px;width: 15%;position:absolute;z-index:1;margin-left: 71%;margin-top: 5%;border-radius: 5px">
-                    <a href="/musiclly/painel.php"
-                       style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                       class='backMenuExpandido'>Meu Perfil</a>
-                    <a href="/musiclly/alterar_senha.php"
-                       style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                       class='backMenuExpandido'>Alterar Senha</a>
-                    <a href="/musiclly/alterar_usuario"
-                       style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                       class='backMenuExpandido'>Alterar Usuário</a>
-                    <a href="/musiclly/alterar_email"
-                       style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                       class='backMenuExpandido'>Alterar Email</a>
-                    <a href="/musiclly/notas.php"
-                       style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                       class='backMenuExpandido'>Notas</a>
-                    <a href="/musiclly/logout.php"
-                       style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                       class='backMenuExpandido'>Logout</a>
-                </div>
-
-            </nav>
-            <!-- FECHAMENTO NAVBAR ===============-->
+            <?php include($serve_file. 'includes/header.php'); ?>
         </div>
         <!--FECHAMENTO DA DIV CONTAINER PARA MENU -->
 
@@ -219,24 +157,54 @@ if($row['progresso'] <= 84){
                 <div class='col-11'>
                     <p class='text-break'>
 
-                        <h1 class='titulosh1'>4.1 O que é música?</h1>
+                        <h1 class='titulosh1'>4.6 Improvisação musical</h1>
                         <fieldset style='background-color:white;padding:15px;border: 1px solid #1778aa;border-radius:10px'>
-                            A pergunta “<b class='boldAzul'>o que é música</b>” tem sido alvo de discussão há décadas.Alguns autores defendem que <b class='boldAzul'>música</b> é a combinação de sons e silêncios de uma maneira organizada.
-                            Vamos explicar com um exemplo: Um ruído de rádio emite sons, mas não de uma forma organizada, por isso não é classificado como música. Essa definição parece simples e completa, mas <b class='boldAzul'>definir música</b> não é algo tão óbvio assim. Podemos classificar um alarme de carro como música? Ele emite sons e silêncios de uma maneira organizada, mas garanto que a maioria das pessoas não chamaria esse som de música.
-                            <br /><b style='color:#f27d16'>Então, o que é música afinal?</b><br />
-                            De uma maneira mais didática e abrangente, a música é composta por <b class='boldAzul'>melodia, harmonia e ritmo</b>.
-                            <br /><b style='color:#f27d16'>Melodia</b><br />
-                            Melodia é a voz principal do som, é aquilo que pode ser cantado.
+                            Improvisação musical é a arte de compor e registrar ao mesmo tempo; ou seja, é inventar na hora!
 
-                            <br /><b style='color:#f27d16'>Harmonia</b><br />
-                            Harmonia é uma sobreposição de notas que servem de base para a melodia. Por exemplo, uma pessoa tocando violão e cantando está fazendo harmonia com os acordes no violão e melodia com a voz. Cada acorde é uma sobreposição de várias notas, como veremos adiante em outros tópicos. Por isso que os acordes fazem parte da harmonia.
-                            Obs: Vale a pena destacar que a melodia não necessariamente é composta por uma única voz; é possível também que ela tenha duas ou mais vozes, apesar de ser menos frequente essa situação. Para diferenciar melodia de harmonia nesse caso, podemos fazer uma comparação com um navio no oceano. O navio representa a harmonia e as pessoas dentro do navio representam a melodia. Tanto o navio quanto as pessoas estão se mexendo, e as pessoas se mexem dentro do navio enquanto ele trafega pelo oceano. Repare que o navio serve de base, suporte, para as pessoas. Elas têm liberdade para se movimentar apenas dentro do navio. Se uma pessoa pular para fora do navio, será desastroso. Com melodia e harmonia, é a mesma coisa.
+                            Uma improvisação pode ser uma harmonia, uma melodia, um solo, um riff, um ritmo, etc.
 
-                            <br /><b style='color:#f27d16'>Ritmo</b><br />
-                            Ritmo é a marcação do tempo de uma música. Assim como o relógio marca as horas, o ritmo nos diz como acompanhar a música.
-                            Cada um desses três assuntos precisa ser tratado à parte. Um conhecimento aprofundado permite uma manipulação ilimitada de todos os recursos que a música fornece, e é isso o que faz os “sons e silêncios” ficarem tão interessantes para nosso ouvido. Aqui no Descomplicando a Música você vai aprender como trabalhar tudo isso. Afinal, mais importante do que saber o que é música, é saber como trabalhar em cima dela.
+                            Essa arte diferencia músicos criadores de músicos reprodutores. Músicos reprodutores são aqueles que apenas reproduzem ou executam músicas prontas. Eles geralmente possuem técnica e boa leitura, mas são completamente engessados musicalmente (dependentes de um repertório) e não sabem o que estão fazendo, estão apenas seguindo uma receita de bolo.
 
-                            <br /><b style='color:#f27d16'>Prepare-se!</b><br />
+                            Músicos criadores não se limitam a apenas reproduzir músicas prontas; são capazes de alterá-las, incrementá-las, criar novas melodias ou harmonias automaticamente. Estes são músicos que sabem o que estão fazendo, são aqueles que entendem o que está por trás da cifra e da pauta. Podem dialogar musicalmente.
+
+                            Vantagens de saber improvisar
+                            Resumindo, quem sabe improvisar:
+
+                            Entende o que está se passando e tem ideias imediatas;
+                            Possui facilidade para compor, pois tem muitas ferramentas e recursos em mente;
+                            Possui um ouvido muito apurado;
+                            Consegue se sair bem em situações inesperadas como: músicas novas, alterações de repertório de última hora, falha de memória (branco), etc.
+                            Coloca sua própria identidade nas músicas.
+                            Motivador, não?!
+
+                            Para ser capaz de improvisar, é necessário conhecer o assunto em questão. Por exemplo, no ramo de palestras, qualquer pessoa é capaz de improvisar um discurso sobre “felicidade”, pois todos possuem algum conceito sobre esse tema.
+
+                            Talvez o fato de ser um improviso prejudique a qualidade do discurso; muitos falariam sem utilizar palavras bonitas ou reflexões profundas. Agora, quantas pessoas improvisariam um discurso sobre a importância da equação de Schrödinger no eletromagnetismo quântico?
+
+                            Na música, é a mesma coisa, precisamos de um bom vocabulário (saber escolher palavras adequadas) e também precisamos conhecer o contexto em que estamos inseridos, para que as palavras façam sentido.
+
+                            Essa conversa está boa, mas vamos falar de algo mais prático agora: como se aprende a improvisar afinal?
+
+                            Bom, existem alguns segredos para se tornar um bom improvisador. Falaremos especificamente de solos aqui nesse tópico, mas o conceito é o mesmo para as demais vertentes de improvisação na música.
+
+                            Como fazer uma improvisação musical
+                            improvisando no pianoExplicando de uma maneira bem simplista, basta conhecer as escalas básicas e saber identificar a tonalidade da música para se fazer um improviso.
+
+                            Isso tudo nós aprenderemos aqui no Descomplicando a Música, não se preocupe. Porém, na prática, não basta apenas saber e entender as escalas e suas tonalidades, é preciso saber criar um solo com elas.
+
+                            Parece óbvio, mas não é. Um improvisador iniciante pode aprender a escala maior e entender onde aplicá-la, mas se ele não tiver algumas frases e licks prontos desenhados na cabeça, o improviso vai ficar horrível.
+
+                            Ninguém gosta de ouvir uma escala digitada para cima e para baixo sem dinâmica. A beleza da música está justamente em saber desenhar frases musicais com as notas. E como um improvisador iniciante conseguirá fazer isso?
+
+                            Ele deve começar pegando frases prontas de outros músicos, decorando-as e aplicando-as em vários contextos. Assim, ele vai desenvolver a habilidade de saber encaixar frases em músicas. Isso é essencial.
+
+                            O próximo passo é pegar essas mesmas frases e fazer pequenas alterações, tentando colocar suas ideias a partir das ideias das próprias frases. Depois de certo tempo fazendo isso, o improvisador começará a criar as suas próprias frases do zero, sem precisar se basear em alguma frase pronta.
+
+                            Muito bem, para quem nunca improvisou nada, adquirir essa habilidade leva tempo. É como tudo na vida: se o resultado é bom, o esforço precisa fazer merecer esse resultado.
+
+                            Recomendamos fortemente que o iniciante dedique-se bastante a pegar frases prontas e aplique elas em tonalidades maiores e menores. Essas frases podem fazer parte da escala maior, menor, pentatônica e escala blues. Esse deve ser o mundo inicial do improvisador. Ele precisa se sentir seguro nisso, pois é a base para aperfeiçoamentos futuros.
+
+                            Nessa fase o iniciante vai adquirir feeling, vai aprender a colocar sua expressão na música.
                         </fieldset>
                     </p>
                     <div class='row'>
@@ -320,19 +288,7 @@ if($row['progresso'] <= 84){
 
     
         <img src="/musiclly/www/galeria/msg.png" id="msg" onClick="msg()">
-        <div class="row">
-            <div class="col-12" id="footer">
-                <footer>
-                    <div class="row">
-                        <div class="col-4"></div>
-                        <div class="col-4" style="text-align:center"><a href="../metronomo/metronomo.php"
-                                                                        style="color:white;text-decoration:none">Metronomo</a>
-                        </div>
-                        <div class="col-4"></div>
-                    </div>
-                </footer>
-            </div>
-        </div>
+        <?php include($serve_file. 'includes/footer.php') ?>
     </div>
     <!--FECHAMENTO DIV CONTAINER FLUID-->
 

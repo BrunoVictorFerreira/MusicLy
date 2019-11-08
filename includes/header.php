@@ -13,7 +13,7 @@
             $resultImg = mysqli_query($conn, $sqlImg);
             $row = mysqli_fetch_assoc($resultImg);
             $img = $row["imagem"];
-            $qtdLetras = substr_count($row["usuario"]);
+
             if (isset($_SESSION["usuario"])) {
                 echo '
                 <div id="menuUsuarioExpandido">

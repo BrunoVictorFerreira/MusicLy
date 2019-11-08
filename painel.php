@@ -36,7 +36,7 @@ if (mysqli_num_rows($result) > 0) {
 
 <head>
     <!-- STYLES =========================================-->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="/musiclly/css/style.css">
     <!--METAS   =========================================-->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta charset="utf-8">
@@ -298,7 +298,7 @@ if (mysqli_num_rows($result) > 0) {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <a href="cadastroModulo1.php">
+                        <a href="php/cadastroModulo1.php">
                             <button type="button" class="btn btn-primary">Cadastrar</button>
                         </a>
                     </div>
@@ -331,7 +331,7 @@ if (mysqli_num_rows($result) > 0) {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <a href="cadastroModulo2.php">
+                        <a href="php/cadastroModulo2.php">
                             <button type="button" class="btn btn-primary">Cadastrar</button>
                         </a>
                     </div>
@@ -365,7 +365,7 @@ if (mysqli_num_rows($result) > 0) {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <a href="cadastroModulo3.php">
+                        <a href="php/cadastroModulo3.php">
                             <button type="button" class="btn btn-primary">Cadastrar</button>
                         </a>
                     </div>
@@ -397,7 +397,7 @@ if (mysqli_num_rows($result) > 0) {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <a href="cadastroModulo4.php">
+                        <a href="php/cadastroModulo4.php">
                             <button type="button" class="btn btn-primary">Cadastrar</button>
                         </a>
                     </div>
@@ -429,7 +429,7 @@ if (mysqli_num_rows($result) > 0) {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <a href="cadastroModulo5.php">
+                        <a href="php/cadastroModulo5.php">
                             <button type="button" class="btn btn-primary">Cadastrar</button>
                         </a>
                     </div>
@@ -705,21 +705,7 @@ if (mysqli_num_rows($result) > 0) {
     </div>
 
     <img src="www/galeria/msg.png" id="msg" onClick="msg()">
-    <div class="row">
-        <div style="margin-bottom: 10%;"></div>
-        <div class="col-12" id="footer">
-            <footer>
-                <div class="row">
-                    <div class="col-4"></div>
-                    <div class="col-4" style="text-align:center"><a href="metronomo/metronomo.php"
-                                                                    style="color:white;text-decoration:none">Metronomo</a>
-                    </div>
-                    <div class="col-4"></div>
-                </div>
-            </footer>
-        </div>
-    </div>
-
+        <?php include($serve_file. 'includes/footer.php') ?>
     </div>
 </div>
 <!--FECHAMENTO DIV CONTAINER FLUID-->

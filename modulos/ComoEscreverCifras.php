@@ -102,70 +102,7 @@ if($row['progresso'] <= 28){
     <div class="container-fluid">
         <!--CLASSE CONTAINER =======================-->
         <div class="container">
-
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="#"><img src="/musiclly/www/galeria/logo.png" class="img-fluid" id="logoNavBar"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <?php
-                $sqlImg = "SELECT * from cadastro where id=$id";
-                $resultImg = mysqli_query($conn, $sqlImg);
-                $row = mysqli_fetch_assoc($resultImg);
-                $img = $row['imagem'];
-                $qtdLetras = substr_count($row['usuario']);
-                if (isset($_SESSION['usuario'])) {
-                    echo "<div class='collapse navbar-collapse' id='navbarNavAltMarkup'><div class='navbar-nav'>  
-                    <a class='nav-item nav-link' href='/musiclly/cursos.php' id='entrarNavBar' style='margin-left: 280px'><div id='divMenu1'>Cursos</div></a>
-                    <a class='nav-item nav-link' href='/musiclly/index.php' id='entrarNavBar' style='margin-left: 10px;'><div id='divMenu2'>Inicio</div></a>
-                    <a class='nav-item nav-link' href='/musiclly/contato.php' id='entrarNavBar' style='margin-left: 10px;'><div id='divMenu3'>Contato</div></a>
-
-                    
-
-                    <div style='background-color:#fafdff;z-index:2'>
-                        <a class='nav-item nav-link' id='menuUsuario' href='#' style='margin-left: 240px;margin-top: 0.5%;display:inline-block;text-transform: uppercase;font-family: roboto'>".substr($usuario,0,6)."<img src='" . $img . "' style='margin-left: 3%;max-width: 35%;border-radius: 10%;max-height: 35%'>
-                        </a>
-                    </div>";
-                } else {
-                    echo "<div class='collapse navbar-collapse' id='navbarNavAltMarkup'><div class='navbar-nav'>  
-                    <a class='nav-item nav-link' href='/musiclly/cursos.php' id='entrarNavBar' style='margin-left: 230px'><div id='divMenu1'>Cursos</div></a>
-                    <a class='nav-item nav-link' href='/musiclly/index.php' id='entrarNavBar' style='margin-left: 10px;'><div id='divMenu2'>Inicio</div></a>
-                    <a class='nav-item nav-link' href='/musiclly/contato.php' id='entrarNavBar' style='margin-left: 10px;'><div id='divMenu3'>Contato</div></a>
-
-                    
-
-                    <div style='background-color:#fafdff;z-index:2'>
-                        <a class='nav-item nav-link' id='menuUsuario' href='/musiclly/logar.php' style='color:#1778b2;margin-left: 210px;margin-top: 0.5%;display:inline-block;font-family: roboto'>Login</a>
-                        <a class='nav-item nav-link'  href='/musiclly/cadastro.php' style='color:#f78726;display:inline-block;margin-top: 0.5%;font-family: roboto'>Cadastro</a>
-                    </div>";
-                }
-
-                ?>
-                <div id="menuUsuarioExpandido"
-                     style="background-color:#fafdff;border:1px solid #1778aa;height: 250px;width: 15%;position:absolute;z-index:1;margin-left: 71%;margin-top: 5%;border-radius: 5px">
-                    <a href="/musiclly/painel.php"
-                       style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                       class='backMenuExpandido'>Meu Perfil</a>
-                    <a href="/musiclly/alterar_senha.php"
-                       style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                       class='backMenuExpandido'>Alterar Senha</a>
-                    <a href="/musiclly/alterar_usuario"
-                       style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                       class='backMenuExpandido'>Alterar Usuário</a>
-                    <a href="/musiclly/alterar_email"
-                       style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                       class='backMenuExpandido'>Alterar Email</a>
-                    <a href="/musiclly/notas.php"
-                       style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                       class='backMenuExpandido'>Notas</a>
-                    <a href="/musiclly/logout.php"
-                       style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                       class='backMenuExpandido'>Logout</a>
-                </div>
-
-            </nav>
-            <!-- FECHAMENTO NAVBAR ===============-->
+            <?php include($serve_file. 'includes/header.php'); ?>
         </div>
         <!--FECHAMENTO DA DIV CONTAINER PARA MENU -->
 
@@ -219,24 +156,48 @@ if($row['progresso'] <= 28){
                 <div class='col-11'>
                     <p class='text-break'>
 
-                        <h1 class='titulosh1'>4.1 O que é música?</h1>
+                        <h1 class='titulosh1'>4.2 Como montar Acordes e escrever Cifras</h1>
                         <fieldset style='background-color:white;padding:15px;border: 1px solid #1778aa;border-radius:10px'>
-                            A pergunta “<b class='boldAzul'>o que é música</b>” tem sido alvo de discussão há décadas.Alguns autores defendem que <b class='boldAzul'>música</b> é a combinação de sons e silêncios de uma maneira organizada.
-                            Vamos explicar com um exemplo: Um ruído de rádio emite sons, mas não de uma forma organizada, por isso não é classificado como música. Essa definição parece simples e completa, mas <b class='boldAzul'>definir música</b> não é algo tão óbvio assim. Podemos classificar um alarme de carro como música? Ele emite sons e silêncios de uma maneira organizada, mas garanto que a maioria das pessoas não chamaria esse som de música.
-                            <br /><b style='color:#f27d16'>Então, o que é música afinal?</b><br />
-                            De uma maneira mais didática e abrangente, a música é composta por <b class='boldAzul'>melodia, harmonia e ritmo</b>.
-                            <br /><b style='color:#f27d16'>Melodia</b><br />
-                            Melodia é a voz principal do som, é aquilo que pode ser cantado.
+                            Em resumo, o que fizemos até agora foi aprender como montar acordes a partir de uma cifra. Utilizamos o processo de ler a cifra, identificar o acorde e encontrar a melhor posição para formar esse acorde no instrumento.
 
-                            <br /><b style='color:#f27d16'>Harmonia</b><br />
-                            Harmonia é uma sobreposição de notas que servem de base para a melodia. Por exemplo, uma pessoa tocando violão e cantando está fazendo harmonia com os acordes no violão e melodia com a voz. Cada acorde é uma sobreposição de várias notas, como veremos adiante em outros tópicos. Por isso que os acordes fazem parte da harmonia.
-                            Obs: Vale a pena destacar que a melodia não necessariamente é composta por uma única voz; é possível também que ela tenha duas ou mais vozes, apesar de ser menos frequente essa situação. Para diferenciar melodia de harmonia nesse caso, podemos fazer uma comparação com um navio no oceano. O navio representa a harmonia e as pessoas dentro do navio representam a melodia. Tanto o navio quanto as pessoas estão se mexendo, e as pessoas se mexem dentro do navio enquanto ele trafega pelo oceano. Repare que o navio serve de base, suporte, para as pessoas. Elas têm liberdade para se movimentar apenas dentro do navio. Se uma pessoa pular para fora do navio, será desastroso. Com melodia e harmonia, é a mesma coisa.
+                            <br><br>Continuando nosso aprendizado sobre acordes e cifras, veremos a seguir as nomenclaturas mais utilizadas em dicionários de acordes e song books. Isso é útil não apenas para montar acordes, mas também para escrever as cifras.
 
-                            <br /><b style='color:#f27d16'>Ritmo</b><br />
-                            Ritmo é a marcação do tempo de uma música. Assim como o relógio marca as horas, o ritmo nos diz como acompanhar a música.
-                            Cada um desses três assuntos precisa ser tratado à parte. Um conhecimento aprofundado permite uma manipulação ilimitada de todos os recursos que a música fornece, e é isso o que faz os “sons e silêncios” ficarem tão interessantes para nosso ouvido. Aqui no Descomplicando a Música você vai aprender como trabalhar tudo isso. Afinal, mais importante do que saber o que é música, é saber como trabalhar em cima dela.
+                            <br><br><span class="subtitulo">Como escrever cifras corretamente</span>
+                            <br><br><b>Acordes com sétima menor:</b> recebem apenas o número 7. Exemplos: G7, Bm7, etc.
+                            <br><b>Acordes com sétima maior:</b> recebem o número 7 seguido da letra M. Exemplos: C7M, A7M, Bm(7M), etc. Outra notação possível para a sétima maior, geralmente utilizada por estrangeiros, é  “maj”: Cmaj7 ou apenas CMaj (do inglês: Major Seven). Em sites populares de cifras, as pessoas utilizam muito a notação 7+ (C7+), porém essa não é a notação mais adequada, já que é utilizada para acordes aumentados.
+                            <br><b>Acordes com nona adicionada:</b> recebem o número 9 seguido da palavra add. Exemplo: Cadd9 (lê-se: Dó “éd naine”, pois é uma notação americana). Esses são os acordes formados por uma tríade acrescida de uma nona. Quando o acorde possui também a sétima, a notação americana costuma colocar somente o número 9. Como veremos logo a seguir.
+                            <br><b>Acordes com nona e sétima menor:</b> podem receber apenas o número 9, ou o número 7 seguido do número 9. Exemplo: C9 ou C7(9). Isso se deve ao fato de que acordes com nona costumam ter a sétima também, por isso subentende-se que o símbolo “9” já informa que há uma sétima junto. Quando não há uma sétima menor no acorde, deixa-se claro por meio do símbolo “add”, como já vimos. Seria como dizer, para não haver dúvidas: “Esse acorde possui nona adicionada, ou seja, é a nona adicionada a uma tríade. Não há uma sétima!”. Porém, na prática, nem todos fazem essa distinção, então é preciso ter cautela.
+                            <br>Obs: quanto falamos “nona”, entenda “nona maior”. O mesmo ocorre com a “sexta”. A nomenclatura de ambas não usa o símbolo “M” para representar o grau maior, basta colocar C9 ou C6, por exemplo. No caso da quarta justa, também podemos dizer somente “quarta” e escrever “4”, sem nenhum símbolo adicional.
 
-                            <br /><b style='color:#f27d16'>Prepare-se!</b><br />
+                            <br><br><b>Acordes suspensos:</b> são os acordes que não possuem a terça. Recebem a sigla “sus”. Geralmente, esses acordes vêm acompanhados de uma quarta justa. Exemplo: Asus4. Explicaremos o porquê dessa quarta quando entrarmos no assunto “acordes complexos”.
+                            <br><br><b>Acordes aumentados:</b> podem receber o símbolo “#” ou “+” ao lado do grau alterado em questão. Exemplo: G7(#5) ou G7(+5). Obs: quando a nota alterada é a quinta, o acorde também pode receber somente o “+”, por exemplo: C+.
+                            <br>Outro detalhe importante de se considerar é a utilização dos parênteses. Geralmente, utilizamos os parênteses quando o acorde possui mais de 4 graus. A ordem de representação segue a lógica de mostrar primeiro a sétima (caso haja) e depois o grau adicional entre parênteses. Ex: A7(b5), F7M(9), etc. Quando há muitos graus adicionais, costuma-se usar barras em vez de parênteses. Por exemplo: Bm7/6/9/11. Muitos preferem escrever somente com barras em vez de parênteses, isso varia conforme o gosto do compositor.
+
+                            <br><br><b>Acordes diminutos:</b> recebem o símbolo “ ° ”. Exemplo: C°. O acorde diminuto é aquele formado pelos graus 1, 3b, 5b e 7bb. Quando apenas uma nota está diminuta (abaixada), pode-se utilizar o símbolo “b” ou “-“. Exemplo: G7(b5) ou G7(-5). O símbolo “-“ também é utilizado na notação americana para dizer que o acorde é menor (em vez da letra “m”), por exemplo: A- (é o mesmo que Am). Por isso, não se confunda ao ver por aí algo do tipo C-7 (nesse caso, é o acorde Cm7, não o acorde de Dó com sétima diminuta).
+                            <br>Obs: estudaremos profundamente o acorde diminuto em outro tópico. Aqui estamos vendo apenas a nomenclatura.
+
+                            <br><br><b>Acordes meio-diminutos:</b> são os acordes com a extensão m7(b5). Exemplo: Dm7(b5). Diz-se “Ré meio-diminuto”. Esse apelido é muito utilizado, pois o acorde m7(b5) é quase um acorde diminuto; a única diferença está na sétima (que no acorde diminuto, é sétima diminuta em vez de sétima menor). Aliás, é muito mais fácil dizer “Ré meio-diminuto” do que “Ré menor com sétima e quinta bemol”, não achas?!
+                            <br><br><b>Acordes alterados:</b> são os acordes com a extensão #9#5. Exemplo: G#9#5. Geralmente, esse tipo de acorde contém a sétima menor também (G7#9#5). Entraremos em mais detalhes sobre esse assunto no tópico de escala alterada. Por enquanto, apenas saiba que essa extensão #9#5 é representada pela sigla “alt”. Por exemplo, o acorde anterior poderia ser escrito como G7alt em vez de G7#9#5 (Sol com sétima menor, nona aumentada e quinta aumentada).
+                            <br>Ufa! Terminamos. É importante que você leia algumas vezes esse tópico para memorizar bem essas nomenclaturas. Assim você vai saber ler e interpretar qualquer acorde que aparecer em qualquer lugar.
+
+                            <br><br>Resumindo tudo o que vimos, podemos concluir que há coisas que a cifra informa para nós e também há coisas que ela não informa.
+
+                            <br><br><span class="subtitulo">O que a cifra estabelece</span>
+                            <br><br>– Se o acorde é maior, menor ou suspenso.
+
+                            <br>– Se o acorde possui uma sétima ou demais graus adicionados (4ª, 6ª, 9ª).
+
+                            <br>– Se o acorde possui eventuais alterações (#5, b9, etc.)
+
+                            <br>– Se o acorde está invertido (3ª, 5ª ou 7ª no baixo). Obs: estudaremos isso em outro tópico.
+
+                            <br><br><span class="subtitulo">O que a cifra não estabelece</span>
+                            <br><br>– A posição do acorde no instrumento (pode estar em diferentes regiões).
+
+                            <br>– Dobramentos ou supressões de notas no acorde (pode-se duplicar, triplicar ou suprimir a quinta justa, dobrar a terça, etc.)
+
+                            <br><br>3.000 palavras depois…
+                            <br><br>Depois de ler esses 3 longos artigos você já está perito nesse assunto! Basta exercitar os conceitos aprendidos aqui e você terá autonomia total na formação de acordes, sem nunca mais precisar depender de um dicionário de acordes. Agora você é o dicionário!
                         </fieldset>
                     </p>
                     <div class='row'>
@@ -325,19 +286,7 @@ if($row['progresso'] <= 28){
 
     
         <img src="/musiclly/www/galeria/msg.png" id="msg" onClick="msg()">
-        <div class="row">
-            <div class="col-12" id="footer">
-                <footer>
-                    <div class="row">
-                        <div class="col-4"></div>
-                        <div class="col-4" style="text-align:center"><a href="../metronomo/metronomo.php"
-                                                                        style="color:white;text-decoration:none">Metronomo</a>
-                        </div>
-                        <div class="col-4"></div>
-                    </div>
-                </footer>
-            </div>
-        </div>
+        <?php include($serve_file. 'includes/footer.php') ?>
     </div>
     <!--FECHAMENTO DIV CONTAINER FLUID-->
 

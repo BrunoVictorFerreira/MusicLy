@@ -2493,6 +2493,10 @@
         animation: heartbeat 15s ease-in-out infinite both;
         box-shadow: 4px 5px rgba(0, 0, 0, .3);
     }
+    .subtitulo{
+        color:darkorange;
+        font-weight: bold;
+    }
 
 
 
@@ -2503,9 +2507,9 @@
         background-color:#1778aa;
         bottom:0;
         position: fixed;
-        height: 10px;
+        height: 30px;
         width:100%;
-        margin-top: 3%;
+
     }
     #logoNavBar{
         max-width: 100px;
@@ -2527,7 +2531,7 @@
     #msg{
         max-width: 80px;
         position: fixed;
-        bottom: 10;
+        bottom: 30;
         cursor: pointer;
     }
     .chat-i{

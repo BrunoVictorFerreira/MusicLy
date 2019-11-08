@@ -15,9 +15,9 @@
     if($rows == 0){
         $sql = "INSERT INTO tbl_cad_curso (id_Cad, id_Curso) values ($id,3)";
             $result = mysqli_query($conn, $sql);
-            echo "<script>alert('Cadastrado Com Sucesso!');window.location.href='painel.php';</script>";
+            echo "<script>alert('Cadastrado Com Sucesso!');window.location.href='/musiclly/painel.php';</script>";
     }else{
-        echo "<script>alert('Já está Cadastrado nesse Curso!');window.location.href='painel.php';</script>";
+        echo "<script>alert('Já está Cadastrado nesse Curso!');window.location.href='/musiclly/painel.php';</script>";
     }
     
 

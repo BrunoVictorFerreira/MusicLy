@@ -110,70 +110,7 @@ if ($row['progresso'] <= 30) {
 <div class="container-fluid">
     <!--CLASSE CONTAINER =======================-->
     <div class="container">
-
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#"><img src="/musiclly/www/galeria/logo.png" class="img-fluid" id="logoNavBar"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <?php
-            $sqlImg = "SELECT * from cadastro where id=$id";
-            $resultImg = mysqli_query($conn, $sqlImg);
-            $row = mysqli_fetch_assoc($resultImg);
-            $img = $row['imagem'];
-            $qtdLetras = substr_count($row['usuario']);
-            if (isset($_SESSION['usuario'])) {
-                echo "<div class='collapse navbar-collapse' id='navbarNavAltMarkup'><div class='navbar-nav'>  
-                    <a class='nav-item nav-link' href='/musiclly/cursos.php' id='entrarNavBar' style='margin-left: 280px'><div id='divMenu1'>Cursos</div></a>
-                    <a class='nav-item nav-link' href='/musiclly/index.php' id='entrarNavBar' style='margin-left: 10px;'><div id='divMenu2'>Inicio</div></a>
-                    <a class='nav-item nav-link' href='/musiclly/contato.php' id='entrarNavBar' style='margin-left: 10px;'><div id='divMenu3'>Contato</div></a>
-
-                    
-
-                    <div style='background-color:#fafdff;z-index:2'>
-                        <a class='nav-item nav-link' id='menuUsuario' href='#' style='margin-left: 240px;margin-top: 0.5%;display:inline-block;text-transform: uppercase;font-family: roboto'>".substr($usuario,0,6)."<img src='" . $img . "' style='margin-left: 3%;max-width: 35%;border-radius: 10%;max-height: 35%'>
-                        </a>
-                    </div>";
-            } else {
-                echo "<div class='collapse navbar-collapse' id='navbarNavAltMarkup'><div class='navbar-nav'>  
-                    <a class='nav-item nav-link' href='/musiclly/cursos.php' id='entrarNavBar' style='margin-left: 230px'><div id='divMenu1'>Cursos</div></a>
-                    <a class='nav-item nav-link' href='/musiclly/index.php' id='entrarNavBar' style='margin-left: 10px;'><div id='divMenu2'>Inicio</div></a>
-                    <a class='nav-item nav-link' href='/musiclly/contato.php' id='entrarNavBar' style='margin-left: 10px;'><div id='divMenu3'>Contato</div></a>
-
-                    
-
-                    <div style='background-color:#fafdff;z-index:2'>
-                        <a class='nav-item nav-link' id='menuUsuario' href='/musiclly/logar.php' style='color:#1778b2;margin-left: 210px;margin-top: 0.5%;display:inline-block;font-family: roboto'>Login</a>
-                        <a class='nav-item nav-link'  href='/musiclly/cadastro.php' style='color:#f78726;display:inline-block;margin-top: 0.5%;font-family: roboto'>Cadastro</a>
-                    </div>";
-            }
-
-            ?>
-            <div id="menuUsuarioExpandido"
-                 style="background-color:#fafdff;border:1px solid #1778aa;height: 250px;width: 15%;position:absolute;z-index:1;margin-left: 71%;margin-top: 5%;border-radius: 5px">
-                <a href="/musiclly/painel.php"
-                   style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                   class='backMenuExpandido'>Meu Perfil</a>
-                <a href="/musiclly/alterar_senha.php"
-                   style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                   class='backMenuExpandido'>Alterar Senha</a>
-                <a href="/musiclly/alterar_usuario"
-                   style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                   class='backMenuExpandido'>Alterar Usuário</a>
-                <a href="/musiclly/alterar_email"
-                   style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                   class='backMenuExpandido'>Alterar Email</a>
-                <a href="/musiclly/notas.php"
-                   style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                   class='backMenuExpandido'>Notas</a>
-                <a href="/musiclly/logout.php"
-                   style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                   class='backMenuExpandido'>Logout</a>
-            </div>
-
-        </nav>
-            <!-- FECHAMENTO NAVBAR ===============-->
+            <?php include($serve_file. 'includes/header.php'); ?>
         </div>
         <!--FECHAMENTO DA DIV CONTAINER PARA MENU -->
 
@@ -271,11 +208,7 @@ if ($row['progresso'] <= 30) {
 
 
         <img src="/musiclly/www/galeria/msg.png" id="msg" onClick="msg()">
-        <div class="row">
-            <div class="col-12" id="footer">
-                <footer></footer>
-            </div>
-        </div>
+    <?php include($serve_file. 'includes/footer.php') ?>
     </div>
     <!--FECHAMENTO DIV CONTAINER FLUID-->
 

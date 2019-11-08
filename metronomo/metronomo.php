@@ -116,7 +116,7 @@
           </div>
         </div>
         <img src="../www/galeria/msg.png" id="msg" onClick="msg()">
-        <div class="row"><div class="col-12" id="footer"><footer></footer></div></div> 
+            <?php include($serve_file. 'includes/footer.php') ?>
     </div><!--FECHAMENTO DIV CONTAINER FLUID-->
 
 

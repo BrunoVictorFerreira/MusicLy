@@ -55,23 +55,7 @@
         <div class="container-fluid">
             <!--CLASSE CONTAINER =======================-->    
             <div class="container">
-        <!--NAV BAR ======================-->       
-        <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="#"><img src="www/galeria/logo.png"class="img-fluid" id="logoNavBar"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                  <div class="navbar-nav">
-                    
-                    <a class="nav-item nav-link" href="#" id="contatoNavBar"><button type="button" class="btn" style="color:#1778aa">Contato</button></a>
-                    <a class="nav-item nav-link" href="#" id="entrarNavBar"><button type="button" class="btn" style="color:#f27d16">Entrar</button></a>
-                    <a class="nav-item nav-link" href="#" id="cadastrarNavBar"><button type="button" class="btn btn-warning" id="cadastrarNavBarButton">Cadastrar</button></a>
-                    
-                  </div>
-                </div>
-        </nav>
-        <!-- FECHAMENTO NAVBAR ===============-->
+                <?php include($serve_file. 'includes/header.php'); ?>
         </div> <!--FECHAMENTO DA DIV CONTAINER PARA MENU -->
        
         
@@ -157,7 +141,7 @@
               
             </div>
             <img src="www/galeria/msg.png" id="msg" onClick="msg()">
-            <div class="row"><div class="col-12" id="footer"><footer></footer></div></div> 
+            <?php include($serve_file. 'includes/footer.php') ?>
         </div><!--FECHAMENTO DIV CONTAINER FLUID-->
         
     </body>

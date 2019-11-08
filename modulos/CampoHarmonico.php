@@ -102,70 +102,7 @@ if($row['progresso'] <= 42){
     <div class="container-fluid">
         <!--CLASSE CONTAINER =======================-->
         <div class="container">
-
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="#"><img src="/musiclly/www/galeria/logo.png" class="img-fluid" id="logoNavBar"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <?php
-                $sqlImg = "SELECT * from cadastro where id=$id";
-                $resultImg = mysqli_query($conn, $sqlImg);
-                $row = mysqli_fetch_assoc($resultImg);
-                $img = $row['imagem'];
-                $qtdLetras = substr_count($row['usuario']);
-                if (isset($_SESSION['usuario'])) {
-                    echo "<div class='collapse navbar-collapse' id='navbarNavAltMarkup'><div class='navbar-nav'>  
-                    <a class='nav-item nav-link' href='/musiclly/cursos.php' id='entrarNavBar' style='margin-left: 280px'><div id='divMenu1'>Cursos</div></a>
-                    <a class='nav-item nav-link' href='/musiclly/index.php' id='entrarNavBar' style='margin-left: 10px;'><div id='divMenu2'>Inicio</div></a>
-                    <a class='nav-item nav-link' href='/musiclly/contato.php' id='entrarNavBar' style='margin-left: 10px;'><div id='divMenu3'>Contato</div></a>
-
-                    
-
-                    <div style='background-color:#fafdff;z-index:2'>
-                        <a class='nav-item nav-link' id='menuUsuario' href='#' style='margin-left: 240px;margin-top: 0.5%;display:inline-block;text-transform: uppercase;font-family: roboto'>".substr($usuario,0,6)."<img src='" . $img . "' style='margin-left: 3%;max-width: 35%;border-radius: 10%;max-height: 35%'>
-                        </a>
-                    </div>";
-                } else {
-                    echo "<div class='collapse navbar-collapse' id='navbarNavAltMarkup'><div class='navbar-nav'>  
-                    <a class='nav-item nav-link' href='/musiclly/cursos.php' id='entrarNavBar' style='margin-left: 230px'><div id='divMenu1'>Cursos</div></a>
-                    <a class='nav-item nav-link' href='/musiclly/index.php' id='entrarNavBar' style='margin-left: 10px;'><div id='divMenu2'>Inicio</div></a>
-                    <a class='nav-item nav-link' href='/musiclly/contato.php' id='entrarNavBar' style='margin-left: 10px;'><div id='divMenu3'>Contato</div></a>
-
-                    
-
-                    <div style='background-color:#fafdff;z-index:2'>
-                        <a class='nav-item nav-link' id='menuUsuario' href='/musiclly/logar.php' style='color:#1778b2;margin-left: 210px;margin-top: 0.5%;display:inline-block;font-family: roboto'>Login</a>
-                        <a class='nav-item nav-link'  href='/musiclly/cadastro.php' style='color:#f78726;display:inline-block;margin-top: 0.5%;font-family: roboto'>Cadastro</a>
-                    </div>";
-                }
-
-                ?>
-                <div id="menuUsuarioExpandido"
-                     style="background-color:#fafdff;border:1px solid #1778aa;height: 250px;width: 15%;position:absolute;z-index:1;margin-left: 71%;margin-top: 5%;border-radius: 5px">
-                    <a href="/musiclly/painel.php"
-                       style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                       class='backMenuExpandido'>Meu Perfil</a>
-                    <a href="/musiclly/alterar_senha.php"
-                       style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                       class='backMenuExpandido'>Alterar Senha</a>
-                    <a href="/musiclly/alterar_usuario"
-                       style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                       class='backMenuExpandido'>Alterar Usuário</a>
-                    <a href="/musiclly/alterar_email"
-                       style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                       class='backMenuExpandido'>Alterar Email</a>
-                    <a href="/musiclly/notas.php"
-                       style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                       class='backMenuExpandido'>Notas</a>
-                    <a href="/musiclly/logout.php"
-                       style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa'
-                       class='backMenuExpandido'>Logout</a>
-                </div>
-
-            </nav>
-            <!-- FECHAMENTO NAVBAR ===============-->
+            <?php include($serve_file. 'includes/header.php'); ?>
         </div>
         <!--FECHAMENTO DA DIV CONTAINER PARA MENU -->
 
@@ -219,24 +156,98 @@ if($row['progresso'] <= 42){
                 <div class='col-11'>
                     <p class='text-break'>
 
-                        <h1 class='titulosh1'>4.1 O que é música?</h1>
+                        <h1 class='titulosh1'>4.3 Campo harmônico</h1>
                         <fieldset style='background-color:white;padding:15px;border: 1px solid #1778aa;border-radius:10px'>
-                            A pergunta “<b class='boldAzul'>o que é música</b>” tem sido alvo de discussão há décadas.Alguns autores defendem que <b class='boldAzul'>música</b> é a combinação de sons e silêncios de uma maneira organizada.
-                            Vamos explicar com um exemplo: Um ruído de rádio emite sons, mas não de uma forma organizada, por isso não é classificado como música. Essa definição parece simples e completa, mas <b class='boldAzul'>definir música</b> não é algo tão óbvio assim. Podemos classificar um alarme de carro como música? Ele emite sons e silêncios de uma maneira organizada, mas garanto que a maioria das pessoas não chamaria esse som de música.
-                            <br /><b style='color:#f27d16'>Então, o que é música afinal?</b><br />
-                            De uma maneira mais didática e abrangente, a música é composta por <b class='boldAzul'>melodia, harmonia e ritmo</b>.
-                            <br /><b style='color:#f27d16'>Melodia</b><br />
-                            Melodia é a voz principal do som, é aquilo que pode ser cantado.
 
-                            <br /><b style='color:#f27d16'>Harmonia</b><br />
-                            Harmonia é uma sobreposição de notas que servem de base para a melodia. Por exemplo, uma pessoa tocando violão e cantando está fazendo harmonia com os acordes no violão e melodia com a voz. Cada acorde é uma sobreposição de várias notas, como veremos adiante em outros tópicos. Por isso que os acordes fazem parte da harmonia.
-                            Obs: Vale a pena destacar que a melodia não necessariamente é composta por uma única voz; é possível também que ela tenha duas ou mais vozes, apesar de ser menos frequente essa situação. Para diferenciar melodia de harmonia nesse caso, podemos fazer uma comparação com um navio no oceano. O navio representa a harmonia e as pessoas dentro do navio representam a melodia. Tanto o navio quanto as pessoas estão se mexendo, e as pessoas se mexem dentro do navio enquanto ele trafega pelo oceano. Repare que o navio serve de base, suporte, para as pessoas. Elas têm liberdade para se movimentar apenas dentro do navio. Se uma pessoa pular para fora do navio, será desastroso. Com melodia e harmonia, é a mesma coisa.
+                            Campo harmônico é um conjunto de acordes formados a partir de uma determinada escala. Tome como exemplo a escala de dó maior: C, D, E, F, G, A, B.
 
-                            <br /><b style='color:#f27d16'>Ritmo</b><br />
-                            Ritmo é a marcação do tempo de uma música. Assim como o relógio marca as horas, o ritmo nos diz como acompanhar a música.
-                            Cada um desses três assuntos precisa ser tratado à parte. Um conhecimento aprofundado permite uma manipulação ilimitada de todos os recursos que a música fornece, e é isso o que faz os “sons e silêncios” ficarem tão interessantes para nosso ouvido. Aqui no Descomplicando a Música você vai aprender como trabalhar tudo isso. Afinal, mais importante do que saber o que é música, é saber como trabalhar em cima dela.
+                            <br><br><span class="subtitulo">Como formar um campo harmônico</span>
+                            <br><br>Para cada nota dessa escala, iremos montar um acorde. Vamos ter, portanto, sete acordes, que serão os acordes do campo harmônico de dó maior.
 
-                            <br /><b style='color:#f27d16'>Prepare-se!</b><br />
+                            <br><br><span class="subtitulo">Como faremos isso?</span>
+
+                            <br><br>Para cada nota da escala, o acorde respectivo será formado utilizando o primeiro, o terceiro e o quinto graus (contados a partir dessa nota, em cima dessa mesma escala). Vamos começar com a nota C. O primeiro grau é o próprio C. O terceiro grau, contando a partir de C, é E. O quinto grau, contando a partir de C, é G.
+
+                            <br><br><span class="subtitulo">Acordes do campo harmônico de dó maior</span>
+                            <br><br>O primeiro acorde do campo harmônico de dó maior é formado então pelas notas C, E, G (repare que esse é o acorde de dó maior, pois E é a terça maior de Dó).
+
+                            <br>Agora vamos montar o acorde da próxima nota da escala, que é D. O primeiro grau é o próprio D. O terceiro grau, contando a partir de D, nessa escala, é F. O quinto grau, contando a partir de D, é A. Portanto, o segundo acorde do nosso campo harmônico é formado pelas notas D, F e A (repare que esse é o acorde de Ré menor, pois a nota F é a terça menor de D).
+
+                            <br>Você deve estar percebendo até aqui que estamos montando os acordes do campo harmônico pensando nas tríades e utilizando somente as notas que aparecem na escala em questão (escala de dó maior).
+
+                            <br>Depois de montar a tríade, observamos se a terça de cada acorde ficou maior ou menor. Você pode também conferir a quinta de cada acorde, mas vai notar que ela sempre vai acabar sendo a quinta justa, exceto no último acorde, que vai ter a quinta bemol. É um bom exercício você tentar montar os acordes restantes desse campo harmônico. Confira depois com a tabela abaixo:
+
+                            <br><br><img src="/musiclly/www/galeria/campo-harmonico.png">
+
+                            <br><br>Muito bem, você acabou de aprender como se forma um campo harmônico. Mas para que isso serve afinal?
+
+                            <br>Bom, um campo harmônico serve para muitas coisas, e nesse momento vamos nos focar no ponto mais básico: ele serve para definir a tonalidade de uma música. Provavelmente você já deve ter ouvido a pergunta: “Em que tom está essa música?”. Pois bem, a tonalidade de uma música depende dos acordes presentes nessa música.
+
+                            <br>Se uma música contém os acordes do campo harmônico maior de dó, significa que a música está em dó maior. Com isso, sabemos que a escala a ser utilizada para fazer um solo, improvisar, criar riffs, etc. em cima da música é a escala de dó maior.
+
+                            <br>Portanto, conhecer os campos harmônicos tem uma grande utilidade: esse conhecimento permite que saibamos as notas que podemos usar para fazer arranjos em cima de uma determinada música. Conhecendo bem os desenhos das escalas, nada impede que possamos criar solos e arranjos automaticamente (habilidade conhecida como improviso).
+
+                            <br>Espero que isso tenha motivado você a continuar nosso estudo de campo harmônico, tendo visto a importância e utilidade desse conhecimento.
+
+                            <br><br><span class="subtitulo">Campo harmônico com tétrades</span>
+                            <br><br>Já construímos um campo harmônico utilizando tríades, e agora vamos estender esse conceito para as tétrades.
+
+                            <br>A regra utilizada para montar os acordes, apenas recapitulando, foi pegar o primeiro, o terceiro e o quinto graus da escala em questão.
+
+                            <br>Faremos a mesma coisa agora, porém incluindo o sétimo grau, o que caracteriza uma tétrade. Teremos assim um campo harmônico igual ao anterior, porém formado por tétrades em vez de tríades.
+
+                            <br>Analisando a mesma escala de dó maior, começando pela nota dó, temos que o sétimo grau da escala, contando a partir de Dó, é Si. Os demais graus (terceiro e quinto) nós já vimos quais são. Portanto, o primeiro acorde desse campo harmônico será formado pelas notas C, E, G e B. Esse é o acorde de C7M, pois B é a sétima maior de Dó.
+
+                            <br>Aplicando a mesma regra para a próxima nota (D), veremos que o sétimo grau é C. Assim, o acorde será formado pelas notas D, F, A, C. Esse é o acorde de Dm7. Note que aqui temos a sétima menor de Ré, por isso o símbolo “7”, em vez de “7M” (que caracterizaria a sétima maior).
+
+                            <br><br>Montando a tabela completa, ficamos com:
+
+                            <br><br><img src="/musiclly/www/galeria/campo-harmonico-maior.png">
+
+                            <br><br>Talvez você esteja se perguntando qual é a diferença, do ponto de vista prático, desses dois campos harmônicos que montamos.
+
+                            <br>Pois bem, a única diferença é que esse último contém uma nota a mais em cada acorde, deixando-os mais “cheios”. Do ponto de vista de improvisação, no que se refere a descobrir qual a tonalidade da música, nada se altera.
+
+                            <br>Veremos alguns exemplos desse assunto (descobrir a tonalidade da música) em breve. Antes, lembre que nós utilizamos como exemplo a escala maior de dó.
+
+                            <br>Agora, em vez de especificar a tonalidade (dó), vamos deixar um pouco mais genérico: “campo harmônico de uma escala maior”, pois se aplicarmos essa regra na escala maior de sol, na escala maior de lá, ou na escala maior de qualquer outra nota, sempre teremos uma coisa em comum. O campo harmônico maior de qualquer nota da escala vai seguir essa formação (onde os números romanos indicam os graus):
+
+                            <br><br>I7M     IIm7    IIIm7     IV7M     V7     VIm7     VIIm7(b5)
+
+                            <br><br>Você pode verificar isso montando o campo harmônico das demais tonalidades (além de Dó, que já fizemos).
+
+                            <br>Tome como exemplo a escala maior de Mi e o seu campo harmônico associado:
+
+                            <br><br><img src="/musiclly/www/galeria/tonalidade.png">
+
+                            <br><br>Note como o primeiro grau ficou maior com sétima, o segundo grau ficou menor com sétima, etc. Seguindo a formação que havia sido apresentada antes:
+
+                            <br><br>I7M     IIm7     IIIm7     IV7M     V7     VIm7     VIIm7(b5)
+
+                            <br><br>Isso facilita muito a nossa vida, pois significa que memorizando apenas essa sequência acima você já sabe o campo harmônico maior de qualquer nota. Basta colocar as notas respectivas da escala maior em questão no lugar dos graus.
+
+                            <br>Por exemplo: Qual o campo harmônico maior de Ré?
+
+                            <br><br>D7M     Em7     F#m7     G7M     A7     Bm7     C#m7(b5)
+
+                            <br><br>Obs: A escala maior de ré é: D, E, F#, G, A, B, C#.
+
+                            <br>Como exercício, tente montar o campo harmônico maior de todas as notas. Confira depois com a tabela abaixo:
+
+                            <br><br><img src="/musiclly/www/galeria/campo-harmônico-completo.png">
+
+                            <br><br>Obs: para formar os campos harmônicos utilizando apenas 3 notas (tríade), basta retirar a sétima de todos os acordes dessa tabela, como fizemos na tabela abaixo. Deixaremos aqui a sétima apenas no último acorde, pois os acordes com quinta bemol raramente aparecem sem a sétima na prática:
+
+                            <br><br><img src="/musiclly/www/galeria/campo-harmonico-formado-por-triade.png">
+
+                            <br><br><span class="subtitulo">1.200 palavras depois…</span>
+                            <br><br>Agora que sabemos o campo harmônico maior de todas as notas, podemos aplicar esse conhecimento para descobrir a tonalidade das músicas.
+
+                            <br><br><span class="subtitulo">Exercícios de campo harmônico</span>
+                            <br><br>Os exercícios podem ser encontrados em nossa apostila completa de teoria musical. Essa página que você está lendo é um artigo parcial.
+
+                            <br><br><span class="subtitulo">Músicas com mais de uma tonalidade</span>
+                            <br><br>É importante destacar que algumas músicas possuem mais de uma tonalidade. Nesse caso, parte da música está em uma tonalidade e parte da música está em outra tonalidade. Isso é muito comum nos estilos jazz, mpb, bossa nova, fusion, entre outros.
                         </fieldset>
                     </p>
                     <div class='row'>
@@ -322,19 +333,7 @@ if($row['progresso'] <= 42){
 
     
         <img src="/musiclly/www/galeria/msg.png" id="msg" onClick="msg()">
-        <div class="row">
-            <div class="col-12" id="footer">
-                <footer>
-                    <div class="row">
-                        <div class="col-4"></div>
-                        <div class="col-4" style="text-align:center"><a href="../metronomo/metronomo.php"
-                                                                        style="color:white;text-decoration:none">Metronomo</a>
-                        </div>
-                        <div class="col-4"></div>
-                    </div>
-                </footer>
-            </div>
-        </div>
+        <?php include($serve_file. 'includes/footer.php') ?>
     </div>
     <!--FECHAMENTO DIV CONTAINER FLUID-->
 

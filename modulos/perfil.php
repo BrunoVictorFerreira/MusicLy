@@ -46,7 +46,7 @@ if($_SESSION['usuario'] == $row2['nome']){
 
 <head>
   <!-- STYLES =========================================-->
-  <link rel="stylesheet" type="text/css" href="/Musiclly/css/style.css">
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
   <!--METAS   =========================================-->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta charset="utf-8">
@@ -67,164 +67,15 @@ if($_SESSION['usuario'] == $row2['nome']){
 
 
   <!--SCRIPTS JS-->
-  <script>
-    function msg() {
-      location.href = '#';
-    }
-
-    var i = 1;
-
-
-    $(document).ready(function() {
-      $('#menuUsuarioExpandido').hide();
-
-      $("#menuUsuario").click(function() {
-        $("#menuUsuarioExpandido").slideToggle("slow");
-      });
-
-    });
-  </script>
-
-
-  <style>
-    .tracking-in-expand {
-      -webkit-animation: tracking-in-expand .7s cubic-bezier(.215, .61, .355, 1.000) both;
-      animation: tracking-in-expand .7s cubic-bezier(.215, .61, .355, 1.000) both
-    }
-
-    @-webkit-keyframes tracking-in-expand {
-      0% {
-        letter-spacing: -.5em;
-        opacity: 0
-      }
-
-      40% {
-        opacity: .6
-      }
-
-      100% {
-        opacity: 1
-      }
-    }
-
-    @keyframes tracking-in-expand {
-      0% {
-        letter-spacing: -.5em;
-        opacity: 0
-      }
-
-      40% {
-        opacity: .6
-      }
-
-      100% {
-        opacity: 1
-      }
-    }
-
-    .imgModulos {
-      max-width: 300px;
-      max-height: 150px;
-    }
-
-    .backMenuExpandido:hover {
-      background-color: rgba(23, 120, 170, .2);
-
-    }
-
-    .circle {
-      border-radius: 50%;
-    }
-
-    #botaoEnviarImg {
-      border-radius: 10px;
-      border: 1px solid #1778aa;
-      background-color: rgba(0, 0, 0, .0);
-      color: #1778aa;
-      margin-top: 10px;
-
-    }
-
-    #botaoEnviarImg:hover {
-      border-radius: 10px;
-      border: 1px solid #1778aa;
-      background-color: #1778aa;
-      color: white;
-    }
-
-    #btnEscolher {}
-
-    input[type=file]::-webkit-file-upload-button {
-      border: 1px solid #f78726;
-      background: #f78726;
-      color: white;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    input[type=file]::-webkit-file-upload-button:hover {
-
-      background: #f78726;
-      color: white;
-      cursor: pointer;
-    }
-
-    input[type=file] {
-
-
-      color: #f78726;
-      cursor: pointer;
-
-    }
-
-    input[type=file]:hover {
-
-
-      color: #f78726;
-      cursor: pointer;
-    }
-  </style>
+  <script src="/musiclly/includes/scriptMenuUsuario.js"></script>
 
 </head>
-
-<body style="background-image: url('/musiclly/www/galeria/background.png');background-repeat:no-repeat;background-attachment: fixed;background-size: 100%;">
+<body>
+<div style="background-image: url('/musiclly/www/galeria/background.png');background-repeat:no-repeat;background-attachment: fixed;background-size: 100%;">
   <div class="container-fluid">
     <!--CLASSE CONTAINER =======================-->
     <div class="container">
-      <!--NAV BAR ======================-->
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="#"><img src="/Musiclly/www/galeria/logo.png" class="img-fluid" id="logoNavBar"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <?php
-        $sqlImg = "SELECT * from cadastro where id=$id";
-        $resultImg = mysqli_query($conn, $sqlImg);
-        $row = mysqli_fetch_assoc($resultImg);
-        $img = $row['imagem'];
-
-        echo "<div class='collapse navbar-collapse' id='navbarNavAltMarkup'><div class='navbar-nav'>  
-                    <a class='nav-item nav-link' href='#' id='contatoNavBar' style='color:#1778aa;margin-left: 320px'>Contato</a>
-                    <a class='nav-item nav-link' href='index.php' id='entrarNavBar' style='color:#1778aa;'>Home</a>
-                    <a class='nav-item nav-link' href='cadastro.php' id='cadastrarNavBar' style='color:#1778aa;'>Cursos</a>
-
-                    
-
-                    <div style='background-color:#fafdff;z-index:2'><a class='nav-item nav-link' id='menuUsuario' href='#' style='margin-left: 300px;display:inline-block'>$usuario<img src='" . $img . "' style='margin-left: 3%;max-width: 35%;border-radius: 10%;max-height: 35%'></a></div>";
-
-
-        ?>
-        <div id="menuUsuarioExpandido" style="background-color:#fafdff;border:1px solid #1778aa;height: 250px;width: 15%;position:absolute;z-index:1;margin-left: 70%;margin-top: 5%;border-radius: 5px">
-          <a href="/musiclly/painel.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Meu Perfil</a>
-          <a href="/musiclly/alterar_senha.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Senha</a>
-          <a href="/musiclly/alterar_usuario" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Usuário</a>
-          <a href="/musiclly/alterar_email" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Alterar Email</a>
-          <a href="/musiclly/notas.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Notas</a>
-          <a href="/musiclly/logout.php" style='width: 100%;padding: 8px;display:block;font-weight: bold;text-align:center;text-decoration:none;color:#1778aa' class='backMenuExpandido'>Logout</a>
-        </div>
-
-      </nav>
-      <!-- FECHAMENTO NAVBAR ===============-->
+        <?php include($serve_file. 'includes/header.php'); ?>
     </div>
     <!--FECHAMENTO DA DIV CONTAINER PARA MENU -->
 
@@ -242,7 +93,7 @@ if($_SESSION['usuario'] == $row2['nome']){
         <div class="row" style="margin-top: 5%">
           <div class="col-3">
             
-            <fieldset style="width: 100%;height: 100%;border: 5px solid #1778aa;border-radius: 5%">
+            <fieldset style="width: 100%;height: 100%;border: 1px solid #1778aa;border-radius: 5%;padding: 5%;">
             <img src="<?php echo $row2['imagem']; ?>" style='max-width: 100%;margin-left:auto;margin-right:auto;display:block'>
             
             </fieldset>
@@ -306,7 +157,6 @@ if($_SESSION['usuario'] == $row2['nome']){
                   if(($row2['nota'] > 60) and ($row2['progresso'] == 100)){
                     $concluido++;
                   }
-
                 }
                 if($concluido == 1){
                   echo "iniciante";
@@ -321,9 +171,6 @@ if($_SESSION['usuario'] == $row2['nome']){
                 }else{
                   echo "iniciante";
                 }
-                
-                
-
               ?>
               </p>
             </div>
@@ -390,11 +237,7 @@ if($_SESSION['usuario'] == $row2['nome']){
       </div>
     </div>
     <img src="/Musiclly/www/galeria/msg.png" id="msg" onClick="msg()">
-    <div class="row">
-      <div class="col-12" id="footer">
-        <footer></footer>
-      </div>
-    </div>
+      <?php include($serve_file. 'includes/footer.php') ?>
   </div>
   <!--FECHAMENTO DIV CONTAINER FLUID-->
 
