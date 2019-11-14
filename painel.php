@@ -159,24 +159,23 @@ if (mysqli_num_rows($result) > 0) {
     <?php include('includes/display.php'); ?>
     <!-- DISPLAY SUPERIOR -->
     
-
-<div class="container-fluid">
-
-    <div class="row" style="position:fixed;margin-top: 7%;border: 1px solid #1778aa;padding: 10px 0px;border-radius: 0px 40px 40px 0px;z-index: 2">
-
-
+    <div class="row" id="rowSeguidores">
         <div class="col-12">
             <div class="row">
                 <div class="col-12">
-                    <span style="color: #1778aa;font-family: roboto;font-size: 13px;padding-left:20%">SEGUIDORES</span>
+                    <?php             
+                        $sqlFavCount = "SELECT count(*) FROM favoritos where id_Favoritado = $id";
+                        $resultFavCount = mysqli_query($conn, $sqlFavCount);
+                        $rowFavCount = mysqli_fetch_array($resultFavCount);
+                    ?>
+                    <span id="spanSeguidores">SEGUIDORES<div id="divQtdSeguidores"><p id="qtdSeguidores"><?php echo $rowFavCount[0]; ?></p></div></span>
                 </div>
-
             </div>
             <div class="row">
-            <div class="col-12">
-                <span style="color: #1778aa;font-family: roboto;float:right;margin-right: 15px;font-size: 10px;padding-left:0">Seguir</span>
-            </div>
-            </div>
+                <div class="col-12">
+                    <span id="spanSeguir">Seguir</span>
+                </div>
+    </div>
             <?php
             $sqlFav2 = "SELECT * FROM favoritos where id_Favoritado = $id";
             $resultFav2 = mysqli_query($conn, $sqlFav2);
@@ -187,18 +186,18 @@ if (mysqli_num_rows($result) > 0) {
                 $sqlMerge2 = "SELECT tab1.id,tab1.usuario, tab1.imagem FROM cadastro as tab1 join favoritos as tab2 on tab1.id = tab2.id_Cad where id_Favoritado = $id";
                 $resultMerge2 = mysqli_query($conn, $sqlMerge2);
                 while ($rowMerge2 = mysqli_fetch_assoc($resultMerge2)) {
-                    echo "<div class='row' style='padding-left:0px;border-radius: 10%'>
-                                        <div class='col-3'>
+                    echo "<div class='row' id='rowDadosSeguidores'>
+                                        <div class='col-4'>
                                             <form action='/musiclly/modulos/perfil.php' method='GET'>
                                             <input type='hidden'  value='".$rowMerge2['usuario']."' name='usuarioNome'>
-                                            <input type='image' src='" . $rowMerge2['imagem'] . "' style='max-width: 30px'><br>
+                                            <input type='image' src='" . $rowMerge2['imagem'] . "' id='imgDadosSeguidores'><br>
                                             </form>
                                          </div>" ;
-                    echo "<div class='col-5' style=\"padding-top: 5px;border-radius: 10%\">
-                                            <span style='text-transform: uppercase;font-size: 9px;color: #1778aa'>".substr($rowMerge2['usuario'],0,10)."</span>
+                    echo "<div class='col-4' id=\"segundaColunaDadosUsuario\">
+                                            <span id='spanUsuario'>".substr($rowMerge2['usuario'],0,10)."</span>
                                       </div>";
 
-                    echo "<div class='col-4' style='padding-left: 0px'>
+                    echo "<div class='col-4' id='terceiraColunaDadosUsuario'>
                             
                             
                             ";
@@ -210,13 +209,13 @@ if (mysqli_num_rows($result) > 0) {
                     echo"
                             <form action='/musiclly/modulos/deletarfavorito.php' method='POST' style=''>
                             <input type='hidden' value='".$rowMerge2['id']."' name='Afavoritar'>
-                            <input type='image' src='/musiclly/www/galeria/excluir.png' style='max-width: 10px;display:inline-block'>
-                            <img src='/musiclly/www/galeria/done.png' style='max-width: 10px;display:inline-block'>";
+                            <input type='image' src='/musiclly/www/galeria/excluir.png' id='imgExcluirFavorito'>
+                            <img src='/musiclly/www/galeria/done.png' id='imgFavoritado'>";
                             }else{
                             echo "
                             <form action='/musiclly/modulos/favoritar.php' method='POST' style=''>
                             <input type='hidden' value='".$rowMerge2['id']."' name='Afavoritar'>
-                            <input type='image' src='/musiclly/www/galeria/addFav.png' style='max-width: 15px;display:inline-block'>";
+                            <input type='image' src='/musiclly/www/galeria/addFav.png' id='imgAddFavorito'>";
                         }
                             echo "</form>";
 
@@ -231,6 +230,9 @@ if (mysqli_num_rows($result) > 0) {
             ?>
         </div>
     </div>
+<div class="container-fluid">
+
+    
 
 
 
@@ -405,37 +407,7 @@ if (mysqli_num_rows($result) > 0) {
             </div>
         </div>
 
-        <div class="modal fade" id="exampleModalScrollable5" tabindex="-1" role="dialog"
-             aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p><b>O que Contém no Módulo 5?</b></p>
-                        <a href=""><p>Escalas Relativas</p></a>
-                        <a href=""><p>Modos Gregos</p></a>
-                        <a href=""><p>Escala Pentatônica</p></a>
-                        <a href=""><p>O que é blues</p></a>
-                        <a href=""><p>Escala Blues</p></a>
-                        <a href=""><p>Harmonia Funcional</p></a>
-                        <a href=""><p>Trítono</p></a>
-                        <a href="/musiclly/modulos/questionarios/modulo_5_Quest.php"><p>Questionário - <b>Módulo 5</b>
-                            </p></a>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <a href="php/cadastroModulo5.php">
-                            <button type="button" class="btn btn-primary">Cadastrar</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <!-- Modais -->
 
 
@@ -501,19 +473,7 @@ if (mysqli_num_rows($result) > 0) {
                             </fieldset>
                         </td>
                     </tr>
-                    <tr>
-                        <td align='center' colspan="2" style=''>
-                            <fieldset style='padding: 15px;margin-top: 5px;width:50%;border-radius: 10px'>
-                                <button type="button" id="button1" data-toggle="modal"
-                                        style="background-color:rgba(0,0,0,.0);border:0;outline:0"
-                                        data-target="#exampleModalScrollable5">
-                                    <p class="tracking-in-expand" id="verMais5"
-                                       style="position:absolute;color:white;margin-left: 3%;margin-top: 6%;font-size: 20px;font-family:roboto">
-                                        Mais informações</p><img id="cursoCard5" class="img-fluid"
-                                                                 src='/musiclly/www/galeria/modulo_5.jpg'>
-                            </fieldset>
-                        </td>
-                    </tr>
+
 
                 </table>
 
@@ -704,8 +664,8 @@ if (mysqli_num_rows($result) > 0) {
 
     </div>
 
+
     <img src="www/galeria/msg.png" id="msg" onClick="msg()">
-        <?php include($serve_file. 'includes/footer.php') ?>
     </div>
 </div>
 <!--FECHAMENTO DIV CONTAINER FLUID-->
