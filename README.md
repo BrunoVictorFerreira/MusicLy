@@ -12,7 +12,7 @@ To running app, add this repository in your pc.
 2 - <code>git clone https://github.com/BrunoVictorFerreira/musiclly/</code><br>
 3 - Open your serve - i indicate Xampp or Wampp <br>
 4 - Add a database on your localhost, called dbmusiclly, and run the sql command that is inside the sql / folder at the root of the project <br>
-5 - Acess <code>localhost/musiclly</code> in yout browser<br>
-6 - Done!!!<br>
+5 - Acess <code>localhost/musiclly</code> in your browser<br>
+6 - Ready!!!<br>
 
 
